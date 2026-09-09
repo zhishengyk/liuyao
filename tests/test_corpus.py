@@ -22,6 +22,11 @@ def test_every_source_chunk_and_case_is_retraceable():
             assert c["source"]["original_text"] == read_spans(lines,c["source"]["spans"])
             if c["cast"]["line_values"]:
                 assert len(c["cast"]["line_values"]) == 6
+                assert all(v in (0,1,2,3) for v in c['cast']['line_values'])
+            assert c['schema_version']=='0.2'
+            if c['derived']:
+                assert c['derived']['line_values']==c['cast']['line_values']
+                assert [line['value'] for line in c['derived']['lines']]==c['cast']['line_values']
             if c["extraction"]["chart_validation"] == "conflict":
                 assert "void_positions" not in c["features"]
         for source in report["sources"]:

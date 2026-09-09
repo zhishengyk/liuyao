@@ -2,7 +2,7 @@
   "mcpServers": {
     "liuyao": {
       "command": "uvx",
-      "args": ["--offline", "--python", "3.11", "--from", "https://github.com/zhishengyk/liuyao/releases/download/v0.3.1/liuyao-mcp.tar.gz", "liuyao-mcp"]
+      "args": ["--offline", "--python", "3.11", "--from", "https://github.com/zhishengyk/liuyao/releases/download/v0.4.0/liuyao-mcp.tar.gz", "liuyao-mcp"]
     }
   }
 }

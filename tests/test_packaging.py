@@ -29,7 +29,7 @@ socket.getaddrinfo = no_network
 
 from liuyao_mcp.server import build_chart, search_knowledge, get_source
 
-assert build_chart([8] * 6, month_branch='卯', day_ganzhi='庚子')
+assert build_chart([2] * 6, month_branch='卯', day_ganzhi='庚子')
 for kind, count in [('rule', 12), ('case', 8)]:
     result = search_knowledge('工作 官鬼 求职', kind=kind, max_chars=150000)
     assert result['returned_count'] == count, result

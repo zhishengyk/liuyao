@@ -11,7 +11,7 @@ import sqlite3
 from .chart import BRANCHES, STEMS, HEXAGRAMS, build_chart, calendar_values
 from .common import case_search_text, digest, dumps, normalized, plain, project_root, tokens, topic_of
 
-PARSER_VERSION = "source-parser-0.1"
+PARSER_VERSION = "source-parser-0.2"
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(r"(父母|兄弟|子孙|妻财|官鬼)([子丑寅卯辰巳午未申酉戌亥])[木火土金水]?")
@@ -37,13 +37,13 @@ def read_spans(lines, spans):
 
 def symbol_value(text):
     if "×" in text or "Ｘ" in text:
-        return 6
+        return 0
     if "○" in text or "Ｏ" in text or re.search(r"\bO\b", text):
-        return 9
+        return 3
     if re.search(r"━━\s+━━|▅▅\s+▅▅|″|〃", text):
-        return 8
+        return 2
     if "━━━━" in text or "▅▅▅▅▅" in text or "′" in text:
-        return 7
+        return 1
     return None
 
 
@@ -66,8 +66,8 @@ def native_row(row):
         suffix = row[m.end():matches[i+1].start() if i+1<len(matches) else len(row)]
         value = symbol_value(suffix)
         if value is not None:
-            if "动" in suffix and value in (7, 8):
-                value = 9 if value == 7 else 6
+            if "动" in suffix and value in (1, 2):
+                value = 3 if value == 1 else 0
             return m, value
     return None, None
 
@@ -227,7 +227,7 @@ def extract_cases(source, lines, pages, cutoff):
             features["yongshen_candidates"] = [{"position": line["position"], "relative": line["relative"], "void": line["void"], "month_break": line["month_break"], "moving": line["moving"], "selection": "relative_match_not_author_line_selection"} for line in calculated["lines"] if line["relative"] in yongshen]
         case_id = f"case_{source['source_id']}_{a+1}"
         cases.append({
-            "schema_version": "0.1", "case_id": case_id, "related_case_ids": [],
+            "schema_version": "0.2", "case_id": case_id, "related_case_ids": [],
             "question": {"raw": question, "topic": features["topic"]},
             "cast": {"date": date_text, "time": time_text, "timezone": None, "calendar_basis": calendar_basis, "month_branch": month, "day_ganzhi": day, "line_values": values, "lines_order": "bottom_to_top", "line_values_basis": "transcribed_diagram" if ds else "native_line_symbols" if values else None},
             "reported_chart": {"raw_header": lines[a], "primary": names[0] if names else None, "changed": names[1] if len(names)>1 else None, "void_raw": void[1] if void else None, "line_text": [row for _, row in pan_rows]},

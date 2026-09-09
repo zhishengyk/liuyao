@@ -37,9 +37,6 @@ def render_chart(chart, question=None):
     if question:
         safe_question = escape(question).replace('|', r'\|').replace('\n', ' ')
         text.append("占问：" + safe_question)
-    if chart.get('input_format') == 'back_counts':
-        text.append("背面数（初→上）：" + "、".join(map(str,chart['input_values']))
-                    + "；内部爻值：" + "、".join(map(str,chart['line_values'])))
     if cal.get('cast_time'):
         text.append(f"时间：{cal['cast_time']}　{cal['weekday']}（{cal['lunar_date']}）")
     ganzhi = []
@@ -60,7 +57,7 @@ def render_chart(chart, question=None):
         position = line['position']
         hidden = line['hidden']
         hidden_text = "—" if not hidden else f"{hidden['relative']}{hidden['stem']}{hidden['branch']}{hidden['element']}"
-        motion = "× →" if line['value'] == 6 else "○ →" if line['value'] == 9 else "—"
+        motion = "× →" if line['value'] == 0 else "○ →" if line['value'] == 3 else "—"
         name = "上爻" if position == 6 else "初爻" if position == 1 else "二三四五"[position-2] + "爻"
         table.append(f"| {name} | {line['spirit']} | {hidden_text} | `{line_text(line)}` | {motion} | `{line_text(changed['lines'][position-1])}` |")
     text.append("\n".join(table))

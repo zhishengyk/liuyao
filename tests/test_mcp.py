@@ -13,7 +13,7 @@ def test_real_stdio_protocol():
             listed = await client.list_tools()
             assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
-            chart = await client.call_tool("build_chart",{"line_values":[8]*6,"month_branch":"卯","day_ganzhi":"庚子"})
+            chart = await client.call_tool("build_chart",{"line_values":[2]*6,"month_branch":"卯","day_ganzhi":"庚子"})
             assert not chart.is_error
             found = await client.call_tool("search_knowledge",{"query":"旬空 用神","kind":"rule"})
             assert not found.is_error
@@ -23,13 +23,15 @@ def test_real_stdio_protocol():
             assert data["returned_count"] == 12
             source = await client.call_tool("get_source",{"evidence_id":data["items"][0]["evidence_id"]})
             assert not source.is_error
-            bad = await client.call_tool("build_chart",{"line_values":[7],"month_branch":"卯","day_ganzhi":"庚子"})
+            bad = await client.call_tool("build_chart",{"line_values":[1],"month_branch":"卯","day_ganzhi":"庚子"})
             assert bad.is_error
             counts = await client.call_tool('build_chart',{'line_values':[0,1,1,2,1,1],'month_branch':'申','day_ganzhi':'壬午'})
             assert not counts.is_error
             normalized=counts.structured_content
             normalized=normalized.get('result',normalized)
-            assert normalized['line_values']==[6,7,7,8,7,7]
+            assert normalized['line_values']==[0,1,1,2,1,1]
             boolean = await client.call_tool('build_chart',{'line_values':[True]*6,'month_branch':'申','day_ganzhi':'壬午'})
             assert boolean.is_error
+            old = await client.call_tool('build_chart',{'line_values':[8]*6,'month_branch':'卯','day_ganzhi':'庚子'})
+            assert old.is_error
     asyncio.run(run())

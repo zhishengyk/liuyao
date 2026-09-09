@@ -21,7 +21,7 @@ async def main():
         async with Client(params) as client:
             listed = await client.list_tools()
             assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source"}
-            chart = await client.call_tool("build_chart", {"line_values": [8]*6, "month_branch": "卯", "day_ganzhi": "庚子"})
+            chart = await client.call_tool("build_chart", {"line_values": [2]*6, "month_branch": "卯", "day_ganzhi": "庚子"})
             assert not chart.is_error, chart
             chart_data = chart.structured_content
             chart_data = chart_data.get('result',chart_data)

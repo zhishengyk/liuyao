@@ -24,7 +24,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 也可以手动安装本版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.3.1/liuyao-mcp.tar.gz liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.0/liuyao-mcp.tar.gz liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -38,21 +38,21 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --offline --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.3.1/liuyao-mcp.tar.gz liuyao-mcp
+codex mcp add liuyao -- uvx --offline --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.0/liuyao-mcp.tar.gz liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
 
 ## 怎样提问与起卦
 
-先明确一个问题和时间范围。用三枚相同硬币，固定约定**字面=0，背面=1**，连续摇六次；每次记录背面个数，按先后顺序记为初爻到上爻。程序自动将背面数加6，换算成传统爻值；也兼容直接输入6/7/8/9，两种格式不混用。
+先明确一个问题和时间范围。用三枚相同硬币，固定约定**字面=0，背面=1**，连续摇六次；每次背面个数就是爻值，按先后顺序记为初爻到上爻。输入、排盘计算和卦例JSON统一使用0/1/2/3。
 
-| 每次结果 | 背面数 | 内部爻值 | 含义 |
-| --- | --- | --- | --- |
-| 三字 | 0 | 6 | 老阴，阴变阳，× |
-| 一背两字 | 1 | 7 | 少阳，静爻 |
-| 两背一字 | 2 | 8 | 少阴，静爻 |
-| 三背 | 3 | 9 | 老阳，阳变阴，○ |
+| 每次结果 | 爻值 | 含义 |
+| --- | --- | --- |
+| 三字 | 0 | 老阴，阴变阳，× |
+| 一背两字 | 1 | 少阳，静爻 |
+| 两背一字 | 2 | 少阴，静爻 |
+| 三背 | 3 | 老阳，阳变阴，○ |
 
 记录起卦时刻和时区，按下面格式发送：
 
@@ -69,7 +69,7 @@ codex mcp add liuyao -- uvx --offline --python 3.11 --from https://github.com/zh
 
 ## 排盘输出示例
 
-下表由程序生成，使用参考截图对应的背面数`0 1 1 2 1 1`，即内部爻值`6 7 7 8 7 7`；占问使用通用示例。输入按初爻到上爻，显示按上爻到初爻。
+下表由程序生成，使用参考截图对应的爻值`0 1 1 2 1 1`；占问使用通用示例。输入按初爻到上爻，显示按上爻到初爻。
 
 **六爻排盘**
 

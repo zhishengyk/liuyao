@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 
 from lunar_python import Solar
 
-ENGINE_VERSION = "najia-0.2.1"
+ENGINE_VERSION = "najia-0.3"
 STEMS = "甲乙丙丁戊己庚辛壬癸"
 BRANCHES = "子丑寅卯辰巳午未申酉戌亥"
 ELEMENTS = "木火土金水"
@@ -123,19 +123,12 @@ def line_data(bits, palace_element):
 
 
 def build_chart(line_values: list[int], cast_time: str | None = None, month_branch: str | None = None, day_ganzhi: str | None = None, timezone: str = "Asia/Shanghai") -> dict:
-    """初爻到上爻，可传六次背面数0..3，或传统爻值6..9；两种格式不混用。"""
-    if len(line_values) != 6 or any(type(v) is not int for v in line_values):
-        raise ValueError("line_values 必须是从初爻到上爻的六个整数")
-    input_values = list(line_values)
-    input_format = "line_values"
-    if all(v in (0, 1, 2, 3) for v in line_values):
-        input_format = "back_counts"
-        line_values = [v+6 for v in line_values]
-    elif any(v not in (6, 7, 8, 9) for v in line_values):
-        raise ValueError("请统一使用六次背面数0/1/2/3，或六个爻值6/7/8/9，不混用")
+    """初爻到上爻：0老阴、1少阳、2少阴、3老阳。"""
+    if len(line_values) != 6 or any(type(v) is not int or v not in (0, 1, 2, 3) for v in line_values):
+        raise ValueError("line_values 必须是从初爻到上爻的六个0/1/2/3整数")
     cal = calendar_values(cast_time, month_branch, day_ganzhi, timezone)
     bits = sum((v % 2) << i for i, v in enumerate(line_values))
-    moving = [i + 1 for i, v in enumerate(line_values) if v in (6, 9)]
+    moving = [i + 1 for i, v in enumerate(line_values) if v in (0, 3)]
     changed_bits = bits ^ sum(1 << (p - 1) for p in moving)
     palace, shi, index = PALACES[bits]
     ying = (shi + 2) % 6 + 1
@@ -160,7 +153,6 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
     shi_ying = relation(lines[shi - 1]["branch"], lines[ying - 1]["branch"])
     return {
         "engine_version": ENGINE_VERSION, "line_order": "bottom_to_top", "line_values": line_values,
-        "input_format": input_format, "input_values": input_values,
         "calendar": cal, "primary": {**HEXAGRAMS[bits], "palace": palace, "palace_element": base, "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[index]},
         "changed": {**HEXAGRAMS[changed_bits], "palace": changed_palace, "palace_element": PALACE_ELEMENT[changed_palace], "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[changed_stage], "shi_position": changed_shi, "ying_position": changed_ying, "relative_basis": "original_palace_element", "lines": changed}, "shi_position": shi, "ying_position": ying, "lines": lines,
         "features": {"moving_positions": moving, "void_positions": [l["position"] for l in lines if l["void"]], "month_break_positions": [l["position"] for l in lines if l["month_break"]], "day_clash_positions": [l["position"] for l in lines if l["day_clash"]], "shi_relative": lines[shi - 1]["relative"], "ying_relative": lines[ying - 1]["relative"], "shi_ying_relations": shi_ying, "six_clash": all("冲" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3)), "six_harmony": all("合" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3))},

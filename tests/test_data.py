@@ -8,9 +8,10 @@ from liuyao_mcp.retrieval import get_source, search_knowledge, structure_match
 
 
 def test_native_main_line_not_changed_or_hidden():
-    assert native_row("官鬼午火′ 动 父母未土″应")[1] == 9
+    assert native_row('妻财未土×世')[1] == 0
+    assert native_row("官鬼午火′ 动 父母未土″应")[1] == 3
     match,value = native_row("父母子水（伏） 妻财未土″世 青龙")
-    assert match[1] == "妻财" and value == 8
+    assert match[1] == "妻财" and value == 2
 
 
 def test_ocr_same_page_two_diagrams_and_cross_page_case():
@@ -19,8 +20,8 @@ def test_ocr_same_page_two_diagrams_and_cross_page_case():
     _,text,_,cases,_ = import_source(source,project_root())
     first = next(c for c in cases if c["case_id"].endswith("_352"))
     second = next(c for c in cases if c["case_id"].endswith("_369"))
-    assert first["cast"]["line_values"] == [8,8,8,8,7,8]
-    assert second["cast"]["line_values"] == [7,7,8,8,7,8]
+    assert first["cast"]["line_values"] == [2,2,2,2,1,2]
+    assert second["cast"]["line_values"] == [1,1,2,2,1,2]
     assert "测与女友能否结婚" not in first["source"]["original_text"]
     assert "世财即是怀孕了" in second["source"]["original_text"]
     assert read_spans(text.splitlines(),first["source"]["spans"]) == first["source"]["original_text"]
