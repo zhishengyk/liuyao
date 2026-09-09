@@ -45,6 +45,8 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 
 日常查询使用`uvx --offline`。GitHub有新提交，不等于本机已自动更新；本版不增加常驻更新器。已安装版本在断网时继续工作，清理uv缓存后需要重新准备。
 
+本机验证时曾遇到uv提示`Failed to update Windows PE resources`，即临时启动文件写入失败；再次运行同一脚本后成功。遇到此错误时先重新运行安装脚本，持续失败则保留完整错误排查运行环境。脚本在准备失败时不会继续安装新插件。
+
 ## 开发者的本机安装
 
 ```powershell
