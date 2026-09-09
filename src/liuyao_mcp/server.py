@@ -1,6 +1,7 @@
 """Run with python -m liuyao_mcp.server (stdout is MCP protocol only)."""
 import argparse
 from typing import Any, Literal
+from pydantic import StrictInt
 
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
@@ -24,8 +25,8 @@ def checked(function, *args):
 
 
 @mcp.tool(annotations=READ_ONLY, structured_output=True)
-def build_chart(line_values: list[int], cast_time: str | None = None, month_branch: str | None = None, day_ganzhi: str | None = None, timezone: str = "Asia/Shanghai", question: str | None = None) -> dict[str, Any]:
-    """排盘。输入初爻到上爻6/7/8/9和完整时间，或历史月支+日干支。display.markdown是上爻到初爻的六神、本变卦、动爻、世应表，可直接展示。返回事实，不作吉凶判断。"""
+def build_chart(line_values: list[StrictInt], cast_time: str | None = None, month_branch: str | None = None, day_ganzhi: str | None = None, timezone: str = "Asia/Shanghai", question: str | None = None) -> dict[str, Any]:
+    """排盘。line_values按初爻到上爻，支持背面数0/1/2/3（自动加6）或爻值6/7/8/9，不能混用。给完整时间或历史月支+日干支。display.markdown包含六神、伏神、本变卦、动爻和世应，可直接展示。"""
     chart = checked(calculate_chart, line_values, cast_time, month_branch, day_ganzhi, timezone)
     return {**chart, "display": render_chart(chart, question)}
 

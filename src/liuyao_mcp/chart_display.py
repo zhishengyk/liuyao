@@ -37,6 +37,9 @@ def render_chart(chart, question=None):
     if question:
         safe_question = escape(question).replace('|', r'\|').replace('\n', ' ')
         text.append("占问：" + safe_question)
+    if chart.get('input_format') == 'back_counts':
+        text.append("背面数（初→上）：" + "、".join(map(str,chart['input_values']))
+                    + "；内部爻值：" + "、".join(map(str,chart['line_values'])))
     if cal.get('cast_time'):
         text.append(f"时间：{cal['cast_time']}　{cal['weekday']}（{cal['lunar_date']}）")
     ganzhi = []

@@ -25,4 +25,11 @@ def test_real_stdio_protocol():
             assert not source.is_error
             bad = await client.call_tool("build_chart",{"line_values":[7],"month_branch":"卯","day_ganzhi":"庚子"})
             assert bad.is_error
+            counts = await client.call_tool('build_chart',{'line_values':[0,1,1,2,1,1],'month_branch':'申','day_ganzhi':'壬午'})
+            assert not counts.is_error
+            normalized=counts.structured_content
+            normalized=normalized.get('result',normalized)
+            assert normalized['line_values']==[6,7,7,8,7,7]
+            boolean = await client.call_tool('build_chart',{'line_values':[True]*6,'month_branch':'申','day_ganzhi':'壬午'})
+            assert boolean.is_error
     asyncio.run(run())

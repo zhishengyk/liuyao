@@ -104,6 +104,18 @@ def test_static_display_and_unknown_civil_date():
     assert r'测试 \| &lt;br&gt;' in display['markdown']
 
 
+def test_back_counts_are_normalized_without_changing_chart():
+    counts=[0,1,1,2,1,1]
+    a=build_chart(counts,month_branch='申',day_ganzhi='壬午')
+    b=build_chart([6,7,7,8,7,7],month_branch='申',day_ganzhi='壬午')
+    assert a['input_format']=='back_counts' and a['input_values']==counts
+    assert a['line_values']==[6,7,7,8,7,7]
+    assert a['lines']==b['lines'] and a['changed']==b['changed']
+    assert counts==[0,1,1,2,1,1]
+    with pytest.raises(ValueError,match='混用'):
+        build_chart([0,7,7,8,7,7],month_branch='申',day_ganzhi='壬午')
+
+
 @pytest.mark.parametrize("values,kwargs", [([7]*5,{}),([True]*6,{}),([7]*6,{}),([7]*6,{"month_branch":"卯","day_ganzhi":"甲丑"}),([7]*6,{"cast_time":"2026-09-09"}),([7]*6,{"cast_time":"2026-09-09T12:00:00+08:00","month_branch":"子"})])
 def test_bad_inputs(values,kwargs):
     with pytest.raises(ValueError):
