@@ -48,6 +48,8 @@ def test_hidden_line_against_book_yu_case():
     assert c["primary"]["name"] == "豫"
     hidden = c["lines"][0]["hidden"]
     assert (hidden["position"],hidden["relative"],hidden["branch"]) == (1,"父母","子")
+    from liuyao_mcp.chart_display import render_chart
+    assert '| 初爻 | 青龙 | 父母庚子水 |' in render_chart(c)['markdown']
 
 
 def test_all_hexagram_motion_patterns():
@@ -72,6 +74,34 @@ def test_midnight_and_jieqi_boundaries():
     after = build_chart([7]*6, cast_time=(point+timedelta(seconds=1)).isoformat())
     assert before["calendar"]["month_branch"] == "申"
     assert after["calendar"]["month_branch"] == "酉"
+
+
+def test_screenshot_xun_to_xiaoxu_display():
+    from liuyao_mcp.chart_display import render_chart
+    chart = build_chart([6,7,7,8,7,7],cast_time="2026-09-05T01:27:00+08:00")
+    assert [chart['calendar'][k] for k in ('year_ganzhi','month_ganzhi','day_ganzhi','hour_ganzhi')] == ['丙午','丙申','壬午','辛丑']
+    assert chart['calendar']['lunar_date'] == '二〇二六年七月廿四'
+    assert chart['calendar']['void'] == ['申','酉']
+    assert chart['primary']['name']=='巽' and chart['changed']['name']=='小畜'
+    assert (chart['shi_position'],chart['ying_position'])==(6,3)
+    assert (chart['changed']['shi_position'],chart['changed']['ying_position'])==(1,4)
+    expected = [('兄弟','辛','卯','白虎'),('子孙','辛','巳','螣蛇'),('妻财','辛','未','勾陈'),
+                ('官鬼','辛','酉','朱雀'),('父母','辛','亥','青龙'),('妻财','辛','丑','玄武')]
+    assert [(l['relative'],l['stem'],l['branch'],l['spirit']) for l in reversed(chart['lines'])]==expected
+    display=render_chart(chart,'当前项目的前景如何？')
+    assert [display['shensha'][k] for k in ('yangren','yima','xianchi')]==['子','申','卯']
+    assert display['markdown'].index('| 上爻 |') < display['markdown'].index('| 初爻 |')
+    assert '父母甲子水 ━━━━━━━ 世' in display['markdown']
+    assert display['markdown'].count('× →')==1 and '○ →' not in display['markdown']
+    assert chart['features']['moving_positions']==[1]
+
+
+def test_static_display_and_unknown_civil_date():
+    from liuyao_mcp.chart_display import render_chart
+    chart=build_chart([8]*6,month_branch='卯',day_ganzhi='庚子')
+    display=render_chart(chart,'测试 | <br>')
+    assert '本卦全静' in display['markdown'] and '时间：' not in display['markdown']
+    assert r'测试 \| &lt;br&gt;' in display['markdown']
 
 
 @pytest.mark.parametrize("values,kwargs", [([7]*5,{}),([True]*6,{}),([7]*6,{}),([7]*6,{"month_branch":"卯","day_ganzhi":"甲丑"}),([7]*6,{"cast_time":"2026-09-09"}),([7]*6,{"cast_time":"2026-09-09T12:00:00+08:00","month_branch":"子"})])

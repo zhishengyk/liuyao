@@ -30,9 +30,30 @@ def database_path():
     if "LIUYAO_DB" in os.environ:
         return Path(os.environ["LIUYAO_DB"]).resolve()
     bundled = Path(__file__).parent / "_data/knowledge.sqlite"
+    if "LIUYAO_ROOT" in os.environ or (project_root()/"data/sources.jsonl").is_file():
+        return project_root()/"data/knowledge.sqlite"
     if "LIUYAO_ROOT" not in os.environ and bundled.is_file():
         return bundled.resolve()
     return project_root() / "data/knowledge.sqlite"
+
+
+def runtime_root():
+    """Keep model state out of uvx's replaceable package environment."""
+    root = project_root()
+    if "LIUYAO_ROOT" in os.environ or (root/"data/sources.jsonl").is_file():
+        return root
+    if (Path(__file__).parent/"_data/knowledge.sqlite").is_file():
+        base = Path(os.environ.get("LOCALAPPDATA") or os.environ.get("XDG_CACHE_HOME") or Path.home()/".cache")
+        return base/"liuyao-mcp"
+    return root
+
+
+def retrieval_data_dir(db_path=None):
+    if db_path is not None:
+        return Path(db_path).resolve().parent
+    if runtime_root() != project_root():
+        return runtime_root()/"data"
+    return database_path().parent
 
 
 def digest(value):

@@ -19,6 +19,7 @@ selected = dev[:args.queries//2]+holdout[:args.queries-args.queries//2]
 args.output.mkdir(parents=True,exist_ok=True)
 (args.output/"queries.json").write_text(json.dumps(selected,ensure_ascii=False,indent=2),encoding="utf8")
 results = []
+(args.output/"runs.jsonl").write_text("",encoding="utf8")
 for index,q in enumerate(selected,1):
     for mode in ("bm25","hybrid","hybrid_rerank"):
         for limit in (12,20):

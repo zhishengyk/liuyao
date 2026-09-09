@@ -24,6 +24,8 @@ jobs:
       - run: python scripts/build_release.py
       - name: Test self-contained archive with uvx
         run: python scripts/smoke_release.py uvx --from "$PWD/dist/liuyao-mcp.tar.gz" liuyao-mcp
+      - name: Test cached archive without network access
+        run: python scripts/smoke_release.py uvx --offline --from "$PWD/dist/liuyao-mcp.tar.gz" liuyao-mcp
       - uses: actions/upload-artifact@v4
         with:
           name: release

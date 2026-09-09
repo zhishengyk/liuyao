@@ -7,7 +7,7 @@ import os
 import threading
 import time
 
-from .common import digest, dumps, project_root
+from .common import digest, dumps, runtime_root as project_root
 from .semantic import model_key, model_lock
 
 
@@ -48,8 +48,16 @@ class Models:
         path = self.metadata[role]["path"]
         tokenizer = AutoTokenizer.from_pretrained(path,local_files_only=True,trust_remote_code=False)
         factory = AutoModel if role=="embedding" else AutoModelForSequenceClassification
-        model = factory.from_pretrained(path,local_files_only=True,trust_remote_code=False).eval()
-        model.to("cpu")
+        model,loading = factory.from_pretrained(path,local_files_only=True,trust_remote_code=False,output_loading_info=True)
+        missing = set(loading.get("missing_keys",[]))
+        if role=="embedding":
+            missing -= {"pooler.dense.weight","pooler.dense.bias"}
+        if missing or loading.get("mismatched_keys"):
+            raise ValueError(f"模型核心参数未完整加载：{sorted(missing)}")
+        if role=="reranker" and model.config.num_labels!=1:
+            raise ValueError("预期单一相关性logit的reranker")
+        model.eval()
+        model.to(device="cpu",dtype=torch.float32)
         if role=="embedding":
             from pathlib import Path
             pooling = Path(path)/"1_Pooling/config.json"
@@ -131,6 +139,13 @@ def main():
         def do_POST(self):
             try:
                 body = json.loads(self.rfile.read(int(self.headers.get("Content-Length","0"))))
+                if self.path == "/stop":
+                    if body.get("root") != str(project_root()) or body.get("model_key") != model_key(models.metadata):
+                        self.respond(409,{"error":"worker ownership mismatch"})
+                        return
+                    self.respond(200,{"stopping":True,"pid":os.getpid()})
+                    threading.Thread(target=self.server.shutdown,daemon=True).start()
+                    return
                 texts = body.get("texts")
                 if not isinstance(texts,list) or not texts or any(not isinstance(t,str) or not t for t in texts):
                     raise ValueError("texts必须是非空文本数组")
@@ -151,6 +166,7 @@ def main():
     server = ThreadingHTTPServer(("127.0.0.1",args.port),Handler)
     print(dumps({"event":"ready","port":args.port,"pid":os.getpid(),"root":str(project_root())}),flush=True)
     server.serve_forever()
+    server.server_close()
 
 
 if __name__ == "__main__":

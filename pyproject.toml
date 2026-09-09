@@ -10,8 +10,9 @@ requires-python = ">=3.11"
 dependencies = ["mcp==2.2.0", "lunar-python==1.4.8", "jieba==0.42.1", "tzdata>=2025.2"]
 
 [project.optional-dependencies]
-test = ["pytest>=8,<10", "PyYAML>=6,<7"]
-dense = ["transformers>=4.41,<6", "torch>=2.2,<3", "huggingface-hub>=0.23,<2", "numpy>=1.26,<3"]
+test = ["pytest>=8,<10", "PyYAML>=6,<7", "sqlite-vec==0.1.9"]
+vectors = ["sqlite-vec==0.1.9"]
+dense = ["transformers>=4.41,<6", "torch>=2.2,<3", "huggingface-hub>=0.23,<2", "numpy>=1.26,<3", "sqlite-vec==0.1.9"]
 
 [project.scripts]
 liuyao-mcp = "liuyao_mcp.server:main"

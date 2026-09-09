@@ -26,7 +26,7 @@ def check_citations(result):
             raise AssertionError("Citation text mismatch")
 
 
-def evaluate(output=None, protocol_runs=20):
+def evaluate(output=None, protocol_runs=20, retrieval_mode="bm25"):
     output = Path(output or project_root()/"data/eval")
     output.mkdir(parents=True,exist_ok=True)
     with sqlite3.connect(database_path()) as db:
@@ -48,7 +48,7 @@ def evaluate(output=None, protocol_runs=20):
     for q in queries:
         for limit in (12,20):
             start = time.perf_counter()
-            result = search_knowledge(q["query"],limit=limit,max_chars=150000)
+            result = search_knowledge(q["query"],limit=limit,max_chars=150000,retrieval_mode=retrieval_mode)
             elapsed = time.perf_counter()-start
             check_citations(result)
             ids = [i["evidence_id"] for i in result["items"]]
@@ -58,15 +58,19 @@ def evaluate(output=None, protocol_runs=20):
     valid.sort(key=lambda c:digest(c["case_id"]))
     selected, groups = [], set()
     for case in valid:
+        if protocol_runs <= 0:
+            break
         if case["duplicate_group"] not in groups:
             selected.append(case)
             groups.add(case["duplicate_group"])
         if len(selected)==protocol_runs:
             break
     async def protocol():
+        if not selected:
+            return []
         records = []
-        params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8"})
-        async with Client(params) as client:
+        params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8","LIUYAO_RETRIEVAL_MODE":retrieval_mode})
+        async with Client(params,read_timeout_seconds=600) as client:
             for c in selected:
                 calls = []
                 async def call(name,args):
@@ -89,7 +93,7 @@ def evaluate(output=None, protocol_runs=20):
         return records
     traces = asyncio.run(protocol())
     (output/"mcp_runs.jsonl").write_text("".join(dumps(t)+"\n" for t in traces),encoding="utf8")
-    summary = {"build":info,"query_count":len(queries),"protocol_runs":len(traces),"citations_checked":sum(r["returned_count"] for r in runs),"metric_kind":"source-derived proxy; not independent relevance labels", "llm_analysis_validation":"pending client end-to-end test", "groups":{}}
+    summary = {"build":info,"retrieval_mode":retrieval_mode,"query_count":len(queries),"protocol_runs":len(traces),"citations_checked":sum(r["returned_count"] for r in runs),"metric_kind":"source-derived proxy; not independent relevance labels", "llm_analysis_validation":"see retained client-batch acceptance artifacts", "groups":{}}
     for split in ("development","holdout"):
         for limit in (12,20):
             rs = [r for r in runs if r["split"]==split and r["limit"]==limit]
@@ -103,8 +107,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output",type=Path)
     parser.add_argument("--protocol-runs",type=int,default=20)
+    parser.add_argument("--retrieval-mode",choices=["bm25","hybrid","hybrid_rerank"],default="bm25")
     args = parser.parse_args()
-    print(dumps(evaluate(args.output,args.protocol_runs)))
+    print(dumps(evaluate(args.output,args.protocol_runs,args.retrieval_mode)))
 
 
 if __name__ == "__main__":

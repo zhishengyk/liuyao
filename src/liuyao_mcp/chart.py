@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 
 from lunar_python import Solar
 
-ENGINE_VERSION = "najia-0.1"
+ENGINE_VERSION = "najia-0.2"
 STEMS = "甲乙丙丁戊己庚辛壬癸"
 BRANCHES = "子丑寅卯辰巳午未申酉戌亥"
 ELEMENTS = "木火土金水"
@@ -93,6 +93,13 @@ def calendar_values(cast_time=None, month_branch=None, day_ganzhi=None, timezone
         local = dt.astimezone(ZoneInfo("Asia/Shanghai"))
         lunar = Solar.fromYmdHms(local.year, local.month, local.day, local.hour, local.minute, local.second).getLunar()
         calculated = {"cast_time": local.isoformat(), "month_ganzhi": lunar.getMonthInGanZhiExact(), "day_ganzhi": lunar.getDayInGanZhi(), "year_ganzhi": lunar.getYearInGanZhiExact()}
+        hour_branch = ((local.hour + 1) // 2) % 12
+        day_stem = STEMS.index(calculated["day_ganzhi"][0])
+        calculated.update({
+            "hour_ganzhi": STEMS[(day_stem % 5 * 2 + hour_branch) % 10] + BRANCHES[hour_branch],
+            "lunar_date": f"{lunar.getYearInChinese()}年{lunar.getMonthInChinese()}月{lunar.getDayInChinese()}",
+            "weekday": "星期" + lunar.getWeekInChinese(),
+        })
         if month_branch and month_branch != calculated["month_ganzhi"][1]:
             raise ValueError("时间重算月支与传入月支冲突")
         if day_ganzhi and day_ganzhi != calculated["day_ganzhi"]:
@@ -128,6 +135,10 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
     base = PALACE_ELEMENT[palace]
     lines = line_data(bits, base)
     changed = line_data(changed_bits, base)
+    changed_palace, changed_shi, changed_stage = PALACES[changed_bits]
+    changed_ying = (changed_shi + 2) % 6 + 1
+    for line in changed:
+        line.update(shi=line["position"] == changed_shi, ying=line["position"] == changed_ying)
     pure = line_data(BITS[palace] * 9, base)
     present = {line["relative"] for line in lines}
     spirit = SPIRIT_START[STEMS.index(cal["day_ganzhi"][0])]
@@ -143,7 +154,7 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
     return {
         "engine_version": ENGINE_VERSION, "line_order": "bottom_to_top", "line_values": line_values,
         "calendar": cal, "primary": {**HEXAGRAMS[bits], "palace": palace, "palace_element": base, "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[index]},
-        "changed": {**HEXAGRAMS[changed_bits], "lines": changed}, "shi_position": shi, "ying_position": ying, "lines": lines,
+        "changed": {**HEXAGRAMS[changed_bits], "palace": changed_palace, "palace_element": PALACE_ELEMENT[changed_palace], "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[changed_stage], "shi_position": changed_shi, "ying_position": changed_ying, "relative_basis": "original_palace_element", "lines": changed}, "shi_position": shi, "ying_position": ying, "lines": lines,
         "features": {"moving_positions": moving, "void_positions": [l["position"] for l in lines if l["void"]], "month_break_positions": [l["position"] for l in lines if l["month_break"]], "day_clash_positions": [l["position"] for l in lines if l["day_clash"]], "shi_relative": lines[shi - 1]["relative"], "ying_relative": lines[ying - 1]["relative"], "shi_ying_relations": shi_ying, "six_clash": all("冲" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3)), "six_harmony": all("合" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3))},
         "interpretation_boundary": "用神、综合旺衰、成局及应期须检索带出处的理法；日冲不直接等于暗动或日破。",
     }

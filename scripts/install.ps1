@@ -2,7 +2,9 @@ param(
     [string]$Python = 'py',
     [switch]$RegisterMcp,
     [switch]$InstallPlugin,
-    [switch]$SkipBuild
+    [switch]$SkipBuild,
+    [switch]$WithSemantic,
+    [switch]$SkipSemantic
 )
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
@@ -14,13 +16,23 @@ try {
         else { & $Python -m venv .venv }
         if ($LASTEXITCODE -ne 0) { throw 'Python environment creation failed' }
     }
-    & $taskVenv -m pip install --disable-pip-version-check -e '.[test]'
+    $taskSemantic = $WithSemantic -and -not $SkipSemantic
+    $taskExtras = if ($taskSemantic) { '.[test,dense]' } else { '.[test]' }
+    & $taskVenv -m pip install --disable-pip-version-check -e $taskExtras
     if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
     $env:PYTHONIOENCODING = 'utf-8'
     $env:LIUYAO_ROOT = $taskRoot
     if (-not $SkipBuild) {
         & $taskVenv -m liuyao_mcp.ingest
         if ($LASTEXITCODE -ne 0) { throw 'Knowledge import failed' }
+    }
+    if ($taskSemantic) {
+        & $taskVenv -m liuyao_mcp.semantic prepare
+        if ($LASTEXITCODE -ne 0) { throw 'Model preparation failed' }
+        & $taskVenv -m liuyao_mcp.vector_index
+        if ($LASTEXITCODE -ne 0) { throw 'Vector index build failed' }
+        & $taskVenv -m liuyao_mcp.semantic activate
+        if ($LASTEXITCODE -ne 0) { throw 'Real hybrid/reranker check failed' }
     }
     $taskLocal = Join-Path $taskRoot '.local'
     New-Item -ItemType Directory -Path $taskLocal -Force | Out-Null
@@ -30,6 +42,7 @@ command = '$taskVenv'
 args = ['-m', 'liuyao_mcp.server']
 cwd = '$taskRoot'
 startup_timeout_sec = 30
+tool_timeout_sec = 600
 
 [mcp_servers.liuyao.env]
 LIUYAO_ROOT = '$taskRoot'

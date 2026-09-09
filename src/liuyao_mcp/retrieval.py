@@ -2,11 +2,12 @@
 from collections import defaultdict
 from contextlib import contextmanager
 import json
+import os
 from pathlib import Path
 import sqlite3
 import time
 
-from .common import database_path, digest, dumps, plain, tokens, topic_of
+from .common import database_path, digest, dumps, plain, retrieval_data_dir, tokens, topic_of
 from .ingest import PAGE, read_spans
 
 STOP = set("的 了 是 在 我 你 他 她 这个 一下 怎么 什么 如何 是否 能否 请 帮 用 看 想 要 能 不能 吗 有 没有".split())
@@ -68,9 +69,9 @@ def case_summary(case):
 
 def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None):
     started = time.perf_counter()
-    config_path = Path(db_path or database_path()).parent/"retrieval-config.json"
+    config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
     config = json.loads(config_path.read_text(encoding="utf8")) if config_path.is_file() else {}
-    mode = retrieval_mode or config.get("mode","bm25")
+    mode = retrieval_mode or os.environ.get("LIUYAO_RETRIEVAL_MODE") or config.get("mode","bm25")
     if mode not in ("bm25","hybrid","hybrid_rerank"):
         raise ValueError("retrieval_mode=bm25/hybrid/hybrid_rerank")
     timings, model_info = {}, {}

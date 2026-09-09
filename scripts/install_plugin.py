@@ -37,7 +37,7 @@ for file in source.rglob("*"):
         target = destination/file.relative_to(source)
         target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(file,target)
-config = {"mcpServers":{"liuyao":{"command":str(root/".venv/Scripts/python.exe"),"args":["-m","liuyao_mcp.server"],"env":{"LIUYAO_ROOT":str(root),"PYTHONIOENCODING":"utf-8"}}}}
+config = {"mcpServers":{"liuyao":{"command":str(root/".venv/Scripts/python.exe"),"args":["-m","liuyao_mcp.server"],"tool_timeout_sec":600,"env":{"LIUYAO_ROOT":str(root),"PYTHONIOENCODING":"utf-8"}}}}
 (destination/".mcp.json").write_text(json.dumps(config,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
 if existing:
     print(run(sys.executable,"-X","utf8",helpers/"update_plugin_cachebuster.py",destination))
