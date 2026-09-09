@@ -41,11 +41,15 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 3. 以`--offline --self-check`验证本地排盘、12条论述、8个案例和原文回查。
 4. 自检成功后才执行`codex plugin add liuyao-assistant@liuyao`。
 
-再次运行同一脚本即可更新，不需要重新克隆仓库。网络或准备失败会停止安装，不主动卸载已安装的插件。启动新会话后使用新版；必要时重启客户端以刷新PATH和旧MCP进程。原生命令支持Git来源与目录刷新，具体依据见[OpenAI插件打包文档](https://developers.openai.com/plugins/build/plugins)。
+Codex原生支持Git插件自动更新。已核对本机CLI 0.153.0对应源码：`maybe_start_plugin_startup_tasks_for_config`在启动阶段发起Git目录自动升级；目录有变化时，`refresh_non_curated_plugin_cache_force_reinstall_detailed`也会刷新已安装插件缓存。因此，`marketplace upgrade`不能仅理解成刷新目录列表，手工脚本也不是Codex更新插件的必要条件。[对应版本源码](https://github.com/openai/codex/blob/rust-v0.153.0/codex-rs/core-plugins/src/manager.rs#L2735-L2939)
 
-日常查询使用`uvx --offline`。GitHub有新提交，不等于本机已自动更新；本版不增加常驻更新器。已安装版本在断网时继续工作，清理uv缓存后需要重新准备。
+这是启动时的自动检查，不保证GitHub推送后立即生效或客户端一直开启时定时轮询。本项目复用原生能力，不增加自定义更新器。personal本机开发来源及直接注册固定URL的MCP不随Git插件目录更新。
 
-本机验证时曾遇到uv提示`Failed to update Windows PE resources`，即临时启动文件写入失败；再次运行同一脚本后成功。遇到此错误时先重新运行安装脚本，持续失败则保留完整错误排查运行环境。脚本在准备失败时不会继续安装新插件。
+当前0.4.0使用`uvx --offline`启动服务。Codex更新插件配置后，如果其中指定的服务包尚未缓存，程序和数据库仍需联网准备；再次运行安装脚本可完成这一步，不需要重新克隆或建库。后续应简化服务包的首次下载，整条自动升级链路尚待验收。启动新会话以加载新版；必要时重启客户端以刷新PATH和旧MCP进程。
+
+断网可使用配置指向的已缓存版本；若配置已切到未缓存版本，当前不能自动回退。目录升级可能在服务包准备前已刷新插件缓存，因此不能承诺准备失败时插件一定保持旧版。
+
+本机验证时曾遇到uv提示`Failed to update Windows PE resources`，即临时启动文件写入失败；再次运行同一脚本后成功。遇到此错误时先重新运行安装脚本，持续失败则保留完整错误排查运行环境。
 
 ## 开发者的本机安装
 
