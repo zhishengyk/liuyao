@@ -10,7 +10,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'Cannot add GitHub marketplace' }
     } else {
         & codex plugin marketplace upgrade liuyao
-        if ($LASTEXITCODE -ne 0) { throw 'Cannot refresh marketplace; installed plugin is unchanged' }
+        if ($LASTEXITCODE -ne 0) { throw 'Cannot refresh marketplace' }
     }
     $taskCatalog = codex plugin marketplace list --json | ConvertFrom-Json
     if ($LASTEXITCODE -ne 0) { throw 'Cannot read refreshed marketplace' }
@@ -18,12 +18,15 @@ try {
     $taskConfig = Get-Content -Raw -Encoding UTF8 (Join-Path $taskMarket.root 'plugins/liuyao-assistant/.mcp.json') | ConvertFrom-Json
     $taskServer = $taskConfig.mcpServers.liuyao
     if ($taskServer.command -ne 'uvx') { throw 'Unsupported release launcher' }
+    foreach ($taskVar in $taskServer.env.PSObject.Properties) {
+        [Environment]::SetEnvironmentVariable($taskVar.Name, $taskVar.Value, 'Process')
+    }
     $taskPrepareArgs = @($taskServer.args | Where-Object { $_ -ne '--offline' })
     & uvx @taskPrepareArgs --version
-    if ($LASTEXITCODE -ne 0) { throw 'Release preparation failed; installed plugin is unchanged' }
-    $taskOfflineArgs = @($taskServer.args)
+    if ($LASTEXITCODE -ne 0) { throw 'Release preparation failed; retry when the package can be downloaded' }
+    $taskOfflineArgs = @('--offline') + $taskPrepareArgs
     & uvx @taskOfflineArgs --self-check
-    if ($LASTEXITCODE -ne 0) { throw 'Offline self-check failed; installed plugin is unchanged' }
+    if ($LASTEXITCODE -ne 0) { throw 'Offline self-check failed' }
     & codex plugin add liuyao-assistant@liuyao --json
     if ($LASTEXITCODE -ne 0) { throw 'Plugin installation failed' }
     Write-Output 'Liuyao installed. Start a new Codex session. Daily retrieval runs offline.'

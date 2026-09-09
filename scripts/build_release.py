@@ -27,7 +27,7 @@ def main():
     manifest = json.loads((plugin/'.codex-plugin/plugin.json').read_text(encoding='utf8'))
     assert manifest['version'] == __version__, 'Plugin and package versions differ'
     config = json.loads((plugin/'.mcp.json').read_text(encoding='utf8'))
-    assert f'https://github.com/zhishengyk/liuyao/releases/download/v{__version__}/liuyao-mcp.tar.gz' in config['mcpServers']['liuyao']['args']
+    assert f'https://github.com/zhishengyk/liuyao/releases/download/v{__version__}/liuyao_mcp-{__version__}-py3-none-any.whl' in config['mcpServers']['liuyao']['args']
     plugin_archive = dist / f'liuyao-plugin-{__version__}.zip'
     with zipfile.ZipFile(plugin_archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
         for path in sorted(plugin.rglob('*')):

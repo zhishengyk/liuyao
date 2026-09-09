@@ -10,6 +10,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,10 +23,10 @@ jobs:
       - run: python -m liuyao_mcp.ingest
       - run: python -m pytest -q
       - run: python scripts/build_release.py
-      - name: Test self-contained archive with uvx
-        run: python scripts/smoke_release.py uvx --from "$PWD/dist/liuyao-mcp.tar.gz" liuyao-mcp
-      - name: Test cached archive without network access
-        run: python scripts/smoke_release.py uvx --offline --from "$PWD/dist/liuyao-mcp.tar.gz" liuyao-mcp
+      - name: Test self-contained wheel with uvx
+        run: python scripts/smoke_release.py uvx --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
+      - name: Test cached wheel without network access
+        run: python scripts/smoke_release.py uvx --offline --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
       - uses: actions/upload-artifact@v4
         with:
           name: release
@@ -35,3 +36,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes --title "$GITHUB_REF_NAME"
+      - name: Test plugin downloads the published wheel
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          UV_CACHE_DIR: ${{ runner.temp }}/liuyao-plugin-cache
+        run: python scripts/smoke_release.py --plugin
+      - name: Test the same plugin command with network blocked
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          UV_CACHE_DIR: ${{ runner.temp }}/liuyao-plugin-cache
+          HTTP_PROXY: http://127.0.0.1:9
+          HTTPS_PROXY: http://127.0.0.1:9
+          ALL_PROXY: http://127.0.0.1:9
+          NO_PROXY: ''
+          UV_HTTP_TIMEOUT: '2'
+          UV_HTTP_RETRIES: '0'
+        run: python scripts/smoke_release.py --plugin

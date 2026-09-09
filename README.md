@@ -19,12 +19,12 @@
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-它会注册或刷新GitHub插件目录，读取其中固定的程序版本，下载对应预建包，完成离线自检，再安装插件。**不需要克隆源码仓库、手工修改JSON或重新建库。** 日常启动使用已缓存版本；Codex原生插件更新与当前服务包的更新限制见下文。
+它会注册GitHub插件目录，下载对应预建包，完成离线自检，再安装插件。**不需要克隆源码仓库、手工修改JSON或重新建库。** 安装后由Codex更新插件，新版程序与数据库在首次启动时自动下载，日常复用缓存，无需为每次升级重新运行脚本。
 
 也可以手动安装本版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.0/liuyao-mcp.tar.gz liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.1/liuyao_mcp-0.4.1-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -38,7 +38,7 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --offline --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.0/liuyao-mcp.tar.gz liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.4.1/liuyao_mcp-0.4.1-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -136,9 +136,9 @@ flowchart TD
 
 **Codex自带Git插件自动更新。** 已核对本机Codex CLI 0.153.0对应源码：启动任务会检查已配置的Git插件目录，发现更新后也会刷新已安装插件的缓存。我们采用这一原生机制，无需另写插件更新器。这是启动时的检查，不代表GitHub推送后客户端立即更新，也不保证客户端一直开启时定时轮询。[Codex 0.153.0实现](https://github.com/openai/codex/blob/rust-v0.153.0/codex-rs/core-plugins/src/manager.rs#L2735-L2939)
 
-**当前0.4.0还有一个服务包限制**：插件通过 `uvx --offline` 启动，配置若更新到尚未缓存的Release，新版程序和数据库无法自动下载。此时Windows可再次运行 `install.ps1` 准备对应包，完成后开新会话。后续简化应处理新版包的首次下载，复用Codex原生插件更新；目前尚未完成整条自动升级链路的验收。
+从0.4.1起，插件直接启动固定版本的wheel发行包：**Codex更新插件 → 首次启动自动下载新版程序和数据库 → 后续使用本地缓存。** 不需要为每次更新运行安装脚本。首次下载需要联网，插件预留180秒启动时间；下载完成后的排盘、检索和原文回查均在本机执行。[uv缓存机制](https://docs.astral.sh/uv/concepts/tools/#tool-versions)
 
-已缓存且配置仍指向该版本时可离线使用。配置已指向未缓存的新版本，或uv缓存被清理时，需要联网准备服务包；当前没有自动回退到旧包的功能。直接注册固定URL的MCP以及personal本机开发来源，不随这个Git插件目录自动升级。
+已缓存版本可离线使用；新版首次下载失败或超时时，恢复网络后重新连接MCP即可重试。配置已指向未缓存的新版本，或uv缓存被清理时，需要联网下载，当前不会自动回退到旧包。直接注册固定URL的MCP以及personal本机开发来源，不随这个Git插件目录自动升级。
 
 [插件安装与分发](docs/Codex插件接入与分发.md) · [发布与版本管理](docs/发布与版本管理.md)
 

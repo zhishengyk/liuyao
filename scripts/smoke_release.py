@@ -1,5 +1,6 @@
 """Exercise an installed distribution over stdio, outside the source checkout."""
 import asyncio
+import json
 import os
 from pathlib import Path
 import sys
@@ -16,9 +17,14 @@ async def main():
     if Path(command).is_file():
         command = str(Path(command).resolve())
     args = sys.argv[2:] if len(sys.argv) > 1 else ["-m", "liuyao_mcp.server"]
+    if sys.argv[1:] == ['--plugin']:
+        config = json.loads((Path(__file__).resolve().parents[1] / 'plugins/liuyao-assistant/.mcp.json').read_text(encoding='utf8'))
+        server = config['mcpServers']['liuyao']
+        command, args = server['command'], server['args']
+        env.update(server.get('env', {}))
     with tempfile.TemporaryDirectory() as cwd:
         params = StdioServerParameters(command=command, args=args, env=env, cwd=Path(cwd))
-        async with Client(params) as client:
+        async with Client(params, read_timeout_seconds=180) as client:
             listed = await client.list_tools()
             assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source"}
             chart = await client.call_tool("build_chart", {"line_values": [2]*6, "month_branch": "卯", "day_ganzhi": "庚子"})
