@@ -1,0 +1,5 @@
+This is a read-only integration test of the installed liuyao MCP service. Do not use shell, files, web, subagents, or code execution. Use only the liuyao MCP tools.
+1. Call build_chart for line_values [8,8,8,8,8,8], month_branch 卯, day_ganzhi 庚子.
+2. The user asks whether to continue a romantic relationship. Search the relevant rule evidence (limit 12) and historical cases (limit 8). Exclude case_liuyao_lifa_jinjie_475 because it is the historical source of this test input.
+3. Use get_source to verify one important reference.
+4. Answer in Chinese. Report the tool names actually called, the chart facts, the returned counts, two exact short source quotations and their evidence IDs, and a brief source-grounded interpretation. Distinguish calculated facts, author interpretations, and uncertain or conflicting data. Do not claim future predictive accuracy. If any tool is unavailable or fails, report that accurately.

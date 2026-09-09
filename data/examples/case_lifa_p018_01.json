@@ -1,0 +1,92 @@
+{
+    "schema_version":  "0.1",
+    "case_id":  "liuyao_lifa_jinjie_p018_01",
+    "related_case_ids":  [
+
+                         ],
+    "question":  {
+                     "raw":  "测感情是该坚持还是该放弃。",
+                     "topic":  "relationship",
+                     "asker":  "男"
+                 },
+    "cast":  {
+                 "date":  "2018-03-09",
+                 "time":  null,
+                 "timezone":  null,
+                 "month_ganzhi":  "乙卯",
+                 "day_ganzhi":  "庚子",
+                 "lines_order":  "bottom_to_top",
+                 "line_values":  [
+                                     8,
+                                     8,
+                                     8,
+                                     8,
+                                     8,
+                                     8
+                                 ],
+                 "line_values_basis":  "existing_transcribed_line_diagram",
+                 "diagram_span":  {
+                                      "start_line":  488,
+                                      "end_line":  495
+                                  }
+             },
+    "reported_chart":  {
+                           "primary":  "坤为地",
+                           "changed":  null,
+                           "void_raw":  "辰、已"
+                       },
+    "derived":  null,
+    "interpretations":  [
+                            {
+                                "source_id":  "liuyao_lifa_jinjie",
+                                "author":  null,
+                                "method_hint":  "lifa",
+                                "yongshen_reported":  "妻财",
+                                "reasoning_quotes":  [
+                                                         "男测感情，妻财为用神。"
+                                                     ],
+                                "judgement_quote":  "所以断她女友跟一个非常有本事的人跑了。",
+                                "claim_time_scope":  "past_or_current"
+                            }
+                        ],
+    "outcome":  {
+                    "status":  "reported_explicit",
+                    "quote":  "卦主反馈，确实是这样，跟一个非常有权势的人跑了。",
+                    "event_date":  null,
+                    "event_timing":  "before_or_at_cast",
+                    "timing_basis":  "原文在该案例中将结果解释为已经发生的现状；未记载事件日期。",
+                    "independently_verified":  false
+                },
+    "source":  {
+                   "source_id":  "liuyao_lifa_jinjie",
+                   "path":  "Markdown归档/003周易命理资料/六爻理法进阶_OCR纯文本.txt.md",
+                   "sha256":  "9548c295593d142afbe4f7723eab6cd74cf9b367fcf8046a5bcf86bd291310cb",
+                   "pdf_pages":  [
+                                     18,
+                                     19
+                                 ],
+                   "spans":  [
+                                 {
+                                     "start_line":  471,
+                                     "end_line":  507
+                                 }
+                             ],
+                   "raw_text_normalization":  "lf",
+                   "original_text":  "求测人: 男，手工指定(起卦方式)\n起卦时间: 2018年3月9日\n占问事宜; 测感情是该坚持还是该放弃。\n王支: 戊戌年 乙卯月 庚子日 甲申时\n主变卦”“坤为地(坤宫) [空亡:辰、已]\n腾蛇”田轩田村 子孙西金世\n勾陈上田轩”上田男”妻财水\n朱雀”田轩”上上轩“兄弟丑土\n青龙 咽困上田 官鬼卯木应\n玄武 “国本”本本 父母巳火\n白虎“本轩 本田 兄弟未土\n\n男测感情，妻财为用神。本卦中，世子孙生妻财亥水，\n说明卦主确实对女友有真感情。妻财亥水有日辰相捧，本来不\n\n13\n\n【卦象结构化 1｜按原图自上而下：上爻→初爻】\n爻位  本卦\n上爻   ━━  ━━\n五爻   ━━  ━━\n四爻   ━━  ━━\n三爻   ━━  ━━\n二爻   ━━  ━━\n初爻   ━━  ━━\n\n========== PDF 第 19 页 / 共 257 页 ==========\n算误，看起来卦的格局还是不错的，但是世爻却被月建卯木冲\n破, 无法生妻财，妻财却生应爻官鬼卯本,这是一种沙从有意，\n流水无情之象，而且媒然是月破，说明此事已经发生。冲破世\n芝的官鬼卯木刚好临应爻，应爻为他人，官鬼为男人，临青龙\n又临月建，还有日辰子水相生，子水为财，说明此人有权有势\n有地位有票子，所以断她女友跟一个非常有本事的人跑了。\n\n卦主反馈，确实是这样，跟一个非常有权势的人跑了。本\n卦中的世爻被月建官鬼冲破，就很形象的表示了卦主的女友已\n经被人抢走的现状。\n"
+               },
+    "extraction":  {
+                       "method":  "assistant_worked_example",
+                       "status":  "partial",
+                       "pipeline_version":  null,
+                       "calendar_validation":  "not_run",
+                       "chart_validation":  "not_run",
+                       "issues":  [
+                                      {
+                                          "field":  "reported_chart.void_raw",
+                                          "code":  "invalid_branch_character",
+                                          "raw_value":  "辰、已",
+                                          "message":  "OCR 中的已不是有效地支，原样保留；等待程序重算，不直接改写成巳。"
+                                      }
+                                  ]
+                   }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "liuyao": {
+      "command": "uvx",
+      "args": ["--python", "3.11", "--refresh-package", "liuyao-mcp", "--from", "https://github.com/zhishengyk/liuyao/releases/latest/download/liuyao-mcp.tar.gz", "liuyao-mcp"]
+    }
+  }
+}
