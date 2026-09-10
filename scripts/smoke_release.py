@@ -81,6 +81,10 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
             chart = await call('build_chart', line_values=[2]*6, month_branch='卯', day_ganzhi='庚子')
             assert chart['primary']['name'] == '坤' and '| 上爻 |' in chart['display']['markdown']
             report['checks'].append('tool_schema_topics_and_chart')
+            reviewed = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:102')
+            assert reviewed['text_version'] == 'visually_reviewed_page' and reviewed['pdf_pages'] == [102]
+            assert reviewed['text'] and 'unclear' in reviewed
+            report['checks'].append('visually_reviewed_page_readback')
 
             for query, expected in [('入职 财生官 官生世', {'入职', '工作', '财生官', '官生世'}),
                                     ('父母没有发动', {'父母', '未发动'})]:

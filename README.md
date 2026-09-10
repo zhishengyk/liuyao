@@ -8,6 +8,8 @@
 - **可直接展示的排盘**：本变卦并排，包含六神、伏神、纳甲六亲、动爻、世应、干支与农历。
 - **象法目录与场景检索**：按原书PDF核对目录，支持跨章节查场景、按目录范围查用法与案例，并回查章首条件。
 
+**建议使用GPT-6 Astra Max 使用本插件**
+
 默认提供中文BM25＋六爻结构匹配。配置本地语义模型后可启用真实SQLite混合检索；CPU神经重排是显式可选模式，默认安装不会下载BGE模型。配置及性能边界见[检索与资料验收流程](docs/检索与资料验收流程.md)和[CPU检索性能与扩容](docs/CPU检索性能与扩容.md)。
 
 ## 安装到 Codex
@@ -25,7 +27,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 也可以手动安装本版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.2/liuyao_mcp-0.6.2-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.3/liuyao_mcp-0.6.3-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -39,14 +41,18 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.2/liuyao_mcp-0.6.2-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.3/liuyao_mcp-0.6.3-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
 
 ## 怎样提问与起卦
 
-如果你不熟悉如何起卦，请阅读[如何起卦](docs/如何起卦.md)，了解摇卦方法、记录示例与注意事项。
+**如果你不熟悉如何起卦，请阅读[如何起卦](docs/如何起卦.md)，了解摇卦方法、记录示例与注意事项。**
+
+**如果你不熟悉如何起卦，请阅读[如何起卦](docs/如何起卦.md)，了解摇卦方法、记录示例与注意事项。**
+
+**如果你不熟悉如何起卦，请阅读[如何起卦](docs/如何起卦.md)，了解摇卦方法、记录示例与注意事项。**
 
 先明确一个问题和时间范围。用三枚相同硬币，固定约定**字面=0，背面=1**，连续摇六次；每次背面个数就是爻值，按先后顺序记为初爻到上爻。输入、排盘计算和卦例JSON统一使用0/1/2/3。
 
@@ -57,7 +63,7 @@ codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/l
 | 两背一字 | 2 | 少阴，静爻 |
 | 三背 | 3 | 老阳，阳变阴，○ |
 
-记录起卦时刻和时区，按下面格式发送：
+记录起卦时刻和时区，可以按下面格式发送作为参考：
 
 ```text
 使用六爻助手。
