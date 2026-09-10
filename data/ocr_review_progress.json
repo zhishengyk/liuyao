@@ -1,7 +1,7 @@
 {
   "total_pages": 811,
   "machine_compared_pages": 811,
-  "visually_checked_pages": 204,
+  "visually_checked_pages": 208,
   "pages_with_unclear": 4,
   "unclear_items": 6,
   "books": [
@@ -212,10 +212,14 @@
         201,
         202,
         203,
-        204
+        204,
+        205,
+        206,
+        207,
+        208
       ],
-      "next_page": 205,
-      "remaining": 53
+      "next_page": 209,
+      "remaining": 49
     },
     {
       "source_id": "liuyao_xiangfa_jinjie_shang",
