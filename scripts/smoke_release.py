@@ -35,7 +35,7 @@ async def main():
         env.update(server.get('env', {}))
     if Path(command).is_file():
         command = str(Path(command).resolve())
-    if wheel or sys.argv[1:] == ['--plugin']:
+    if wheel or sys.argv[1:] == ['--plugin'] or Path(command).stem.lower() == 'uvx':
         env['UV_CACHE_DIR'] = subprocess.check_output(['uv', 'cache', 'dir'], env=env, text=True).strip()
     report = {'checks': []}
     with tempfile.TemporaryDirectory() as cwd:
