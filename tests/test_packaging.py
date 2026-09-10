@@ -9,7 +9,7 @@ from liuyao_mcp import common
 
 def test_prebuilt_tools_without_network_or_model_dependencies(tmp_path):
     # A fresh interpreter checks that even importing the server needs no model runtime.
-    code = '''
+    code = f'import sys; sys.path.insert(0, {str(Path(common.__file__).resolve().parents[1])!r})\n' + '''
 import importlib.abc
 import socket
 import sys
@@ -30,14 +30,19 @@ socket.getaddrinfo = no_network
 from liuyao_mcp.server import build_chart, search_knowledge, get_source
 
 assert build_chart([2] * 6, month_branch='卯', day_ganzhi='庚子')
-for kind, count in [('rule', 12), ('case', 8)]:
-    result = search_knowledge('工作 官鬼 求职', kind=kind, max_chars=150000)
-    assert result['returned_count'] == count, result
+for kind in ['rule', 'case']:
+    result = search_knowledge('入职 财生官 官生世', kind=kind, limit=3, max_chars=60000,
+                              require_valid_chart=kind == 'case')
+    assert result['items'] and result['retrieval'] == 'bm25' and not result['models'], result
+    assert {'入职', '工作', '财生官', '官生世'} <= set(result['query_terms'])
+    assert result['include_unknown'] is False
+    if kind == 'case':
+        assert all(item['case']['extraction']['chart_validation'] == 'calculated' for item in result['items'])
     source = get_source(result['items'][0]['evidence_id'])
-    assert source['text']
+    assert source['text'] and source['source']['sha256'] == result['items'][0]['source_hash']
 print('offline tools passed')
 '''
-    env = {k: v for k, v in os.environ.items() if k != 'LIUYAO_RETRIEVAL_MODE'}
+    env = {k: v for k, v in os.environ.items() if not k.startswith('LIUYAO_')}
     database = tmp_path / 'knowledge.sqlite'
     shutil.copyfile(common.database_path(), database)
     env.update(LIUYAO_ROOT=str(tmp_path), LIUYAO_DB=str(database))

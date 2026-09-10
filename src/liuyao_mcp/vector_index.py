@@ -27,11 +27,17 @@ def build_index(db_path=None):
         corpus = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
         docs = [(eid,"rule",json.loads(payload)) for eid,payload in db.execute("SELECT id,payload FROM chunks ORDER BY id")]
         docs += [(eid,"case",json.loads(payload)) for eid,payload in db.execute("SELECT id,payload FROM cases ORDER BY id")]
+    docs = [(eid,kind,document_text(kind,payload)) for eid,kind,payload in docs]
+    excluded_empty = [eid for eid,_,text in docs if not text.strip()]
+    docs = [(eid,kind,text) for eid,kind,text in docs if text.strip()]
+    if not docs:
+        raise ValueError("知识库没有可用于向量检索的非空文本")
     models = model_lock()
     key = model_key(models)
     spec_key = digest(key+INDEX_VERSION+str(MAX_EMBED_TOKENS))
     folder = retrieval_data_dir(db_path)/"semantic-index"
-    cache = folder/"cache"/spec_key
+    # A single composite hash avoids exceeding Windows MAX_PATH in deep checkouts.
+    cache = folder/"cache"
     cache.mkdir(parents=True,exist_ok=True)
     generation = digest(corpus+spec_key)
     output = folder/generation
@@ -40,10 +46,9 @@ def build_index(db_path=None):
     entries,matrices = [],[]
     cached,new = 0,0
     started = time.perf_counter()
-    for index,(eid,kind,payload) in enumerate(docs,1):
-        text = document_text(kind,payload)
+    for index,(eid,kind,text) in enumerate(docs,1):
         text_hash = digest(text)
-        cached_file = cache/(text_hash+".npz")
+        cached_file = cache/(digest(spec_key+text_hash)+".npz")
         if cached_file.is_file():
             with np.load(cached_file,allow_pickle=False) as stored:
                 vectors,spans = stored["vectors"],stored["spans"]
@@ -52,10 +57,13 @@ def build_index(db_path=None):
             result = request("embed",{"texts":[text],"max_tokens":MAX_EMBED_TOKENS})
             vectors = np.asarray(result["vectors"],dtype=np.float32)
             spans = np.asarray(result["spans"],dtype=np.int32)
-            if vectors.ndim!=2 or vectors.shape[1]!=1024 or len(vectors)!=len(spans) or not np.isfinite(vectors).all() or not np.allclose(np.linalg.norm(vectors,axis=1),1,atol=1e-5):
-                raise ValueError("BGE embedding维度或数值异常")
-            np.savez(cached_file,vectors=vectors,spans=spans)
             new += 1
+        if vectors.ndim!=2 or vectors.shape[1]!=1024 or len(vectors)!=len(spans) or not np.isfinite(vectors).all() or not np.allclose(np.linalg.norm(vectors,axis=1),1,atol=1e-5):
+            raise ValueError(f"BGE embedding维度或数值异常：{cached_file}")
+        if not cached_file.is_file():
+            temporary = cached_file.with_suffix('.next.npz')
+            np.savez(temporary,vectors=vectors,spans=spans)
+            temporary.replace(cached_file)
         matrices.append(vectors)
         entries.extend({"evidence_id":eid,"kind":kind,"text_hash":text_hash,"span":[int(start),int(end)]} for start,end in spans)
         if index%25==0 or index==len(docs):
@@ -63,7 +71,7 @@ def build_index(db_path=None):
             (folder/"build-progress.json").write_text(dumps(progress),encoding="utf8")
             print(dumps(progress),flush=True)
     matrix = np.concatenate(matrices,axis=0)
-    manifest = {"index_version":INDEX_VERSION,"corpus_hash":corpus,"model_key":key,"models":{role:{k:v for k,v in item.items() if k!='path'} for role,item in models.items()},"generation":generation,"documents":len(docs),"vectors":len(entries),"dimensions":int(matrix.shape[1]),"dtype":"float32","pooling":"cls_l2","max_tokens":MAX_EMBED_TOKENS,"whole_text_covered_by_windows":True,"cached_documents":cached,"encoded_documents":new,"elapsed_seconds":round(time.perf_counter()-started,2)}
+    manifest = {"index_version":INDEX_VERSION,"corpus_hash":corpus,"model_key":key,"models":{role:{k:v for k,v in item.items() if k!='path'} for role,item in models.items()},"generation":generation,"source_documents":len(docs)+len(excluded_empty),"excluded_empty_evidence_ids":excluded_empty,"documents":len(docs),"vectors":len(entries),"dimensions":int(matrix.shape[1]),"dtype":"float32","pooling":"cls_l2","max_tokens":MAX_EMBED_TOKENS,"whole_text_covered_by_windows":True,"cached_documents":cached,"encoded_documents":new,"elapsed_seconds":round(time.perf_counter()-started,2)}
     write_index(output/"knowledge.sqlite", manifest, entries, matrix, source=path)
     (output/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf8")
     temporary = folder/"active.next.json"

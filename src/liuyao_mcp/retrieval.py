@@ -8,7 +8,7 @@ from pathlib import Path
 import sqlite3
 import time
 
-from .common import database_path, digest, dumps, plain, retrieval_data_dir, tokens, topic_of
+from .common import NEGATED_TECHNICAL, case_search_text, database_path, digest, dumps, plain, retrieval_data_dir, tokens, topic_of
 from .ingest import PAGE, read_spans
 from .outline import read_outline, related_cases
 from .taxonomy import resolve as resolve_topic, tier as topic_tier, classify as classify_topic
@@ -53,7 +53,8 @@ def structure_match(query, features):
             (matched if ok else different).append(label)
         else:
             (matched if actual == expected else different).append(label)
-    return {"matched": matched, "different": different, "unknown": unknown, "score": len(matched) / max(1, len(matched)+len(different))}
+    return {"matched": matched, "different": different, "unknown": unknown, "score": len(matched) / max(1, len(matched)+len(different)),
+            "requested_fields": sum(value is not None for value in query.values()), "score_scope": "requested_features_only", "is_overall_similarity": False}
 
 
 def case_summary(case):
@@ -71,7 +72,7 @@ def case_summary(case):
     return {"cast": case["cast"], "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
 
 
-def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True):
+def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False):
     started = time.perf_counter()
     config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
     config = json.loads(config_path.read_text(encoding="utf8")) if config_path.is_file() else {}
@@ -89,7 +90,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         topic,subtopic = None,None
     elif topic or subtopic:
         topic,subtopic = resolve_topic(topic,subtopic)
-    elif kind == "case" and topic is None:
+    elif topic is None:
         inferred = classify_topic(query)
         topic = inferred['topic']
         subtopic = next((p for p in inferred['topic_ids'] if '/' in p and p.startswith(topic+'/')),None) if topic else None
@@ -101,6 +102,8 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         raise ValueError('outline_ids单次最多100个目录节点')
     candidate_limit = max(60, limit*5 + len(exclude_ids))
     with connect(db_path) as db:
+        if 'focus' not in {r['name'] for r in db.execute('PRAGMA table_info(search_index)')}:
+            raise ValueError('知识库检索索引版本过旧，请更新发布包或重新运行 liuyao-ingest')
         outline_allowed = None
         if outline_ids:
             valid_nodes = {r[0] for r in db.execute('SELECT id FROM outline_nodes')}
@@ -111,10 +114,12 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 f'SELECT evidence_id FROM evidence_outline WHERE node_id IN ({placeholders})', outline_ids)}
         sources = {r["id"]: json.loads(r["metadata"]) for r in db.execute("SELECT id,metadata FROM sources")}
         all_cases = {r["id"]: (r, json.loads(r["payload"])) for r in db.execute("SELECT * FROM cases")} if kind=='case' or exclude_case_ids or exclude_ids else {}
+        empty_cases = {eid for eid, (_, case) in all_cases.items() if not case_search_text(case).strip()} if kind == 'case' else set()
         classifications = {r[0]:json.loads(r[1]) for r in db.execute('SELECT evidence_id,payload FROM evidence_classification')}
         def category_rank(eid):
             fallback = {'roots':[all_cases[eid][0]['topic']]} if kind=='case' and all_cases[eid][0]['topic'] else {}
-            return topic_tier(classifications.get(eid,fallback),topic,subtopic,include_common)
+            tier = topic_tier(classifications.get(eid,fallback),topic,subtopic,include_common)
+            return None if tier == 3 and not include_unknown else tier
         excluded_groups = {all_cases[c][0]["duplicate_group"] for c in exclude_case_ids | exclude_ids if c in all_cases}
         excluded_ranges = defaultdict(list)
         for row, case in all_cases.values():
@@ -124,15 +129,24 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                     excluded_ranges[row["source_id"]].extend(case["source"]["spans"])
         ranks, bm25_values, dense_values, reranker_values, payloads = defaultdict(float), {}, {}, {}, {}
         corpus_hash = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
-        sql = "SELECT evidence_id,bm25(search_index) AS score FROM search_index WHERE search_index MATCH ? AND kind=? ORDER BY score"
+        focus_weight = 8 if kind == 'case' else 2
+        sql = f"SELECT evidence_id,bm25(search_index,0,0,{focus_weight},1) AS score FROM search_index WHERE search_index MATCH ? AND kind=? ORDER BY score"
         lexical = list(db.execute(sql, (" OR ".join('"'+t+'"' for t in terms), kind))) if terms else []
         def allowed(eid, record):
             source = sources[record["source_id"]]
+            if eid in empty_cases:
+                return False
+            if kind == 'rule':
+                passage = json.loads(record['payload'])
+                if passage.get('content_role') == 'case_excerpt' and passage.get('has_case_analysis') is False:
+                    return False
             if outline_allowed is not None and eid not in outline_allowed:
                 return False
             if eid in exclude_ids or (method != "all" and record["method"] not in (method, "mixed")):
                 return False
             if author and author not in (source.get("author") or ""):
+                return False
+            if kind == 'case' and (require_valid_chart or features) and all_cases[eid][1]['extraction']['chart_validation'] != 'calculated':
                 return False
             if category_rank(eid) is None:
                 return False
@@ -182,7 +196,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 if match["matched"]:
                     structural.append((eid, match))
             structural.sort(key=lambda pair: (category_rank(pair[0]), -pair[1]["score"], -len(pair[1]["matched"]), pair[0]))
-            structural_overflow = len(structural)>candidate_limit
+            structural_overflow = len(structural) > candidate_limit
             for rank, (eid, _) in enumerate(structural[:candidate_limit], 1):
                 ranks[eid] += 1/(60+rank)
         ordered = sorted(ranks, key=lambda eid: (-ranks[eid], eid))
@@ -232,6 +246,8 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             item = {"evidence_id": eid, "kind": "case" if kind == "case" else payload["kind"], "source_id": source["source_id"], "title": source["title"], "author": source.get("author"), "method": record["method"], "source_path": source["path"], "source_hash": source["sha256"], "source_type": source["source_type"], "review_status": "unreviewed", "ranking": {"rrf_score": ranks[eid], "bm25": bm25_values.get(eid), "dense_cosine":dense_values.get(eid),"reranker_score":reranker_values.get(eid), "is_probability": False}}
             if kind == "rule":
                 item.update({"chapter": payload["chapter"], "quote": payload["text"], "source_spans": [{"start_line": payload["start_line"], "end_line": payload["end_line"]}], "pdf_pages": payload["pages"]})
+                item['content_role'] = payload.get('content_role', 'passage')
+                item['related_case_ids'] = [c for c in payload.get('related_case_ids', []) if c not in exclude_ids]
             else:
                 item.update({"question": payload["question"], "case": case_summary(payload), "source_spans": payload["source"]["spans"], "pdf_pages": payload["source"]["pdf_pages"], "structure_match": matches.get(eid, structure_match(features, payload["features"]))})
             if payload.get('outline'):
@@ -239,7 +255,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 item['related_cases'] = related_cases(db, payload['outline']['node_id'], exclude_ids=exclude_ids)
             item['classification'] = classifications.get(eid,{})
             if item['pdf_pages']:
-                item['page_reviews']=page_reviews(db,source['source_id'],item['pdf_pages'])
+                item['page_reviews'] = page_reviews(db, source['source_id'], item['pdf_pages'])
             if topic:
                 item['category_match'] = {0:'same_subtopic' if subtopic else 'same_topic',1:'parent_topic',2:'common',3:'unclassified_fallback'}[category_rank(eid)]
             size = len(dumps(item))
@@ -249,7 +265,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             items.append(item)
             used_chars += size
         timings["total_ms"] = round((time.perf_counter()-started)*1000,2)
-        return {"query": query, "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'include_common':include_common, "items": items}
+        return {"query": query, "query_terms": terms, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
 
 
 def get_topics(topic=None, db_path=None):
@@ -283,7 +299,7 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
     with connect(db_path) as db:
         page_ref=re.fullmatch(r'page:([a-z0-9_]+):(\d+)',evidence_id)
         if page_ref:
-            if text_version=='original':raise ValueError('整页校订引用不支持original；请用普通证据ID回查原稿')
+            if text_version == 'original':raise ValueError('整页校订引用不支持original；请用普通证据ID回查原稿')
             sid,number=page_ref[1],int(page_ref[2])
             entry=db.execute('SELECT payload FROM ocr_pages WHERE source_id=? AND pdf_page=?',(sid,number)).fetchone()
             if entry is None:raise ValueError('未知OCR页引用')
@@ -336,7 +352,7 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
         if data.get('classification'):result['classification']=data['classification']
         result['text_version']=text_version
         if metadata['source_type']=='ocr_text':
-            result['page_reviews']=page_reviews(db,row['source_id'],sorted(selected_pages))
+            result['page_reviews'] = page_reviews(db, row['source_id'], sorted(selected_pages))
         if metadata.get('original_sha256'):
             corrections=[json.loads(r[0]) for r in db.execute('SELECT payload FROM ocr_edits WHERE source_id=? AND line BETWEEN ? AND ?',
                          (row['source_id'],spans[0]['start_line'],spans[-1]['end_line']))]

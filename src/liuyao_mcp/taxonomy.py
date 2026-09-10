@@ -8,7 +8,7 @@ DEFINITIONS = [
   ('reconciliation','复合挽回','复合 复婚 和好 挽回'),('marriage','结婚与婚姻发展','结婚 婚期 婚姻 婚后'),
   ('separation','分手离婚','分手 离婚 分开 悔婚'),('intentions','对方态度','喜欢我 爱我 对我 真心 诚心')]),
  ('study','学业考试','考试 考学 升学 学习 成绩 学业',[
-  ('exam','考试成绩','考试 考试成绩 考研 笔试 考公 公务员考试'),('admission','升学录取','录取 考上 升学 入学'),
+  ('exam','考试成绩','考试 考试成绩 考研 笔试 考公 公务员考试 资格考试 乡试 会试 科试 童试 赴试'),('admission','升学录取','录取 考上 升学 入学'),
   ('school_choice','择校专业','择校 选学校 选专业 转学 哪所学校 上学'),('progress','学业进展','学习 学业 成绩提高'),
   ('graduation','论文毕业','论文 毕业 答辩 送审')]),
  ('health','身体健康','病 身体 健康 手术 医院 症 腹痛 血压 寿命 寿元',[
@@ -23,7 +23,7 @@ DEFINITIONS = [
  ('wealth','财运经营','求财 财运 生意 买卖 投资 赚钱 钱财 店 创业',[
   ('business','经营创业','生意 开店 店铺 创业 经营 开铺 经商 卦馆'),('deal','买卖交易','买卖 交易 卖出 成交 贸易 卖掉 签单'),
   ('investment','投资收益','投资 股票 炒股 基金 外汇'),('debt','借贷回款','借钱 还钱 借款 欠款 回款 讨债'),
-  ('income','收入财运','财运 求财 占财 收入 工资 奖金 利润 挣钱 管理财务')]),
+  ('income','收入财运','财运 求财 占财 收入 工资 奖金 利润 挣钱 获利 赚钱 摸奖 抽奖 中奖 奖券 彩票 管理财务')]),
  ('property','房产居家','房屋 房子 买房 卖房 租房 搬家 装修',[
   ('purchase','买卖房产','买房 卖房 买房子 卖房子 购房 二手房'),('rental','租赁住房','租房 房租 租金 租这个 写字楼'),
   ('moving','搬家迁居','搬家 迁居 新迁住宅'),('renovation','装修修造','装修 修造 建房'),('condition','房屋状况','房屋情况 房子情况 居住环境 风水')]),
@@ -33,14 +33,14 @@ DEFINITIONS = [
  ('children','孕育子女','怀孕 备孕 生育 胎儿 产期',[
   ('conception','备孕受孕','怀孕 备孕 受孕'),('pregnancy','孕期胎儿','胎儿 胎孕 孕期 保胎'),
   ('birth','生产产期','生产 分娩 产期 生孩子 临产')]),
- ('lost','失物寻人','丢失 失物 不见 失盗 遗失 走失 失联',[
-  ('belongings','失物寻找','丢失 失物 遗失 东西不见 丢了 丢哪里 钱包 失脱'),('theft','失盗追寻','被盗 失盗 小偷'),
-  ('person','寻人失联','走失 失联 联系不上 找人 出走')]),
+ ('lost','失物寻人','丢失 失物 不见 失盗 遗失 走失 失联 离家 失踪 失禽 失畜 失牛 失马 失羊 失猪 失鸡',[
+  ('belongings','失物寻找','丢失 失物 遗失 东西不见 丢了 丢哪里 钱包 失脱 失禽 失畜 失牛 失马 失羊 失猪 失鸡 家畜走失 牲畜丢失'),('theft','失盗追寻','被盗 失盗 小偷'),
+  ('person','寻人失联','走失 失联 联系不上 找人 出走 离家 失踪 寻人')]),
  ('travel','出行行人','出行 出差 旅行 远行 行人 回来',[
   ('departure','出发出行','出行 出差 出发 出国 出门'),('journey','旅途情况','旅行 旅途 路上 顺利到达'),
   ('return','归期消息','回来 归期 行人 回家 何时到 何日回 未归')]),
- ('lawsuit','诉讼纠纷','诉讼 法院 官司 强制执行 纠纷',[
-  ('litigation','诉讼裁判','官司 诉讼 起诉 判决 法院 官事 重罪 被讼'),('enforcement','执行追偿','强制执行 执行款 赔偿'),
+ ('lawsuit','诉讼纠纷','诉讼 法院 官司 强制执行 纠纷 拘留 扣留 羁押 入狱 出狱 被捕 获释',[
+  ('litigation','诉讼裁判','官司 诉讼 起诉 判决 法院 官事 重罪 被讼 拘留 扣留 羁押 入狱 出狱 被捕 获释'),('enforcement','执行追偿','强制执行 执行款 赔偿'),
   ('settlement','调解和解','和解 调解'),('dispute','纠纷争议','纠纷 争议 争执')]),
  ('objects','物品事务','物品 购买 修理 快递 物件',[
   ('purchase','购买选择','购买 买车 选购'),('quality','品质状态','质量 好用 真伪 真假 坏了'),
@@ -73,6 +73,8 @@ def nodes():
 
 def classify(text):
     text = text.lower()
+    # 官鬼不见 describes a chart, not a missing person/object.
+    text = re.sub(r'(?:(?:官鬼|妻财|用神|元神|忌神|仇神|飞神|伏神)(?:爻)?|(?:父母|兄弟|子孙)爻)(?:不见|不现|不上卦)', '', text)
     found = []
     for node in nodes():
         matched = [a for a in node['aliases'] if a.lower() in text]
@@ -82,6 +84,10 @@ def classify(text):
     found.sort(key=lambda n:(-n['score'],n['id']))
     paths = list(dict.fromkeys(n['id'] for n in found))
     roots = list(dict.fromkeys(p.split('/')[0] for p in paths))
+    # Combine the evidence for an event across its parent and specific subtopics;
+    # a single long role word (合伙人) must not outweigh explicit detention/诉讼.
+    root_scores = {root: sum(n['score'] for n in found if n['id'].split('/')[0] == root) for root in roots}
+    roots.sort(key=lambda root: (-root_scores[root], root))
     primary = roots[0] if roots else None
     return {'status':'inferred_from_text' if found else 'unknown', 'topic':primary,
             'topic_ids':paths, 'roots':roots, 'evidence':found}
@@ -132,7 +138,7 @@ def resolve(topic=None, subtopic=None):
 
 
 def tier(classification, topic, subtopic, include_common=True):
-    if classification.get('scope')=='common' and not include_common:return None
+    if classification.get('scope') == 'common' and not include_common:return None
     if not topic:return 0
     roots=classification.get('roots',[])
     if topic in roots:

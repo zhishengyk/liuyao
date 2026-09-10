@@ -24,7 +24,7 @@ jobs:
       - run: python -m pytest -q
       - run: python scripts/build_release.py
       - name: Test self-contained wheel with uvx
-        run: python scripts/smoke_release.py uvx --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
+        run: python scripts/smoke_release.py --wheel "$PWD"/dist/*-py3-none-any.whl
       - name: Test cached wheel without network access
         run: python scripts/smoke_release.py uvx --offline --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
       - uses: actions/upload-artifact@v4

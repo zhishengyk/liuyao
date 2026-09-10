@@ -14,13 +14,14 @@ from .outline import OUTLINE_SCHEMA, build_outline, catalog_text, evidence_navig
 from .taxonomy import SCHEMA as TAXONOMY_SCHEMA, classify, classify_rule, nodes as topic_nodes
 from .proofreading import SCHEMA as PROOFREADING_SCHEMA, apply as apply_corrections, correction_text, store as store_corrections
 
-PARSER_VERSION = "source-parser-0.4"
+PARSER_VERSION = "source-parser-0.5"
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
-ROW = re.compile(r"(父母|兄弟|子孙|妻财|官鬼)([子丑寅卯辰巳午未申酉戌亥])[木火土金水]?")
-CHAPTER = re.compile(r"^(?:#{1,6}\s+|第[一二三四五六七八九十百\d]+[章节]\s*|[一二三四五六七八九十]+、)")
+ROW = re.compile(rf"(父母|兄弟|子孙|妻财|官鬼)[{STEMS}]?([{BRANCHES}])[木火土金水]?")
+GRAPHIC = re.compile(r"[▅▄━]{2,}(?:[ \t　]+[▅▄━]{2,})?")
+CHAPTER = re.compile(r"^(?:#{1,6}\s+|第[一二三四五六七八九十百\d]+[章节]\s*|[一二三四五六七八九十]+、|.{1,35}[章节]第[一二三四五六七八九十百\d—]+$)")
 OUTCOME = re.compile(r"(?:卦主反馈|反馈\s*[:：，,]|(?:^|[。！？])\s*(?:结果|果于|果然|后果|后验))")
-NO_FEEDBACK = re.compile(r"(?:暂无|尚无|没有|未收到|尚未收到|未有|未见)反馈|反馈\s*[:：]\s*(?:暂无|没有|尚无|待补|未提供)|(?:尚未|暂未|未)反馈")
+NO_FEEDBACK = re.compile(r"(?:暂无|尚无|没有|未收到|尚未收到|未有|未见)反馈|反馈\s*[:：]\s*(?:(?:暂无|没有|尚无)(?:反馈)?(?=$|[。；;，,\s])|待补|未提供)|(?:尚未|暂未|未)反馈")
 AUTHORS = {"liuyao_zixiu_dxj": "王虎应", "zengshan_pingshi_dxj": "王虎应（含原注）", "zengshan_buyi": "野鹤老人等（整理版）"}
 
 
@@ -39,13 +40,13 @@ def read_spans(lines, spans):
 
 
 def symbol_value(text):
-    if "×" in text or "Ｘ" in text:
+    if "×" in text or "Ｘ" in text or re.search(r"(?<![A-Za-z])[Xx](?![A-Za-z])", text):
         return 0
-    if "○" in text or "Ｏ" in text or re.search(r"\bO\b", text):
+    if "○" in text or "Ｏ" in text or re.search(r"(?<![A-Za-z])O(?![A-Za-z])", text):
         return 3
-    if re.search(r"━━\s+━━|▅▅\s+▅▅|″|〃", text):
+    if re.search(r"━━\s+━━|[▅▄]{2}\s+[▅▄]{2}|″|〃", text):
         return 2
-    if "━━━━" in text or "▅▅▅▅▅" in text or "′" in text:
+    if "━━━━" in text or "▅▅▅▅▅" in text or "▄▄▄▄▄" in text or "′" in text:
         return 1
     return None
 
@@ -56,23 +57,98 @@ def name_in(text):
         matches.append((match.start(1), match[1]))
     # Some classics use short names: 得复之震. Restrict to explicit quoted names.
     if not matches:
-        m = re.search(r"得[“\"「]?([\u4e00-\u9fff]{1,3})[”\"」]?之", text)
-        if m and m[1] in {h["name"] for h in HEXAGRAMS.values()}:
-            matches = [(m.start(1), m[1])]
+        m = re.search(r"得[“\"「]?([\u4e00-\u9fff]{1,3})[”\"」]?(?:之|变)[“\"「]?([\u4e00-\u9fff]{1,3})", text)
+        if m:
+            names = {h["name"] for h in HEXAGRAMS.values()}
+            matches = [(m.start(i), m[i].removesuffix("卦")) for i in (1, 2) if m[i].removesuffix("卦") in names]
     return [name for _, name in sorted(set(matches))]
 
 
-def native_row(row):
+def reported_names(header):
+    chart_header = next((re.sub(r"^.*?主变.", "", line) for line in header.splitlines() if re.match(r"^主变", plain(line))), None)
+    if chart_header is not None:
+        parts = re.split(r"[之变]", chart_header, maxsplit=1)
+        # An unreadable primary name must not shift the recognized changed name left.
+        return [next(iter(name_in(part)), None) for part in parts]
+    return name_in(header)
+
+
+def ocr_primary_row(row):
+    if GRAPHIC.search(row):
+        return native_row(row, symbols_before=True)[0]
+    first = re.search(r"父母|兄弟|子孙|妻财|官鬼", row)
+    if first and first.start() < len(row)/2:
+        return ROW.match(row, first.start())
+    return None
+
+
+def native_row(row, symbols_before=None):
     """Choose the symbol-bearing main line, excluding a preceding hidden line."""
     matches = list(ROW.finditer(row))
+    graphics = list(GRAPHIC.finditer(row))
+    if symbols_before is None:
+        symbols_before = bool(graphics and matches and graphics[0].start() < matches[0].start())
+    if symbols_before and graphics:
+        segment_end = graphics[1].start() if len(graphics) > 1 else len(row)
+        m = ROW.search(row, graphics[0].end(), segment_end)
+        if m:
+            return m, symbol_value(row[graphics[0].start():segment_end])
     for i, m in enumerate(matches):
         suffix = row[m.end():matches[i+1].start() if i+1<len(matches) else len(row)]
         value = symbol_value(suffix)
+        if value is None:
+            dots = re.match(r"[\s*]*(、、|、)", suffix)
+            if dots:
+                value = 2 if dots[1] == "、、" else 1
         if value is not None:
             if "动" in suffix and value in (1, 2):
                 value = 3 if value == 1 else 0
             return m, value
-    return None, None
+    # A missing branch label does not erase an explicitly printed yin/yang symbol.
+    short = re.fullmatch(r"\s*(?:父母|兄弟|子孙|妻财|官鬼)[木火土金水]?([′″○×XO])\s*", plain(row))
+    return None, symbol_value(short[1]) if short else None
+
+
+def native_panels(lines, cutoff):
+    """Six adjacent source rows establish a display, even with split headers."""
+    panels, pending = [], []
+    def flush():
+        if len(pending) in (5, 6):
+            before = sum(bool(GRAPHIC.search(row) and ROW.search(row)) and GRAPHIC.search(row).start() < ROW.search(row).start()
+                         for _, row in pending) >= 3
+            panels.append((list(pending), before))
+        pending.clear()
+    for i, line in enumerate(lines[:cutoff]):
+        row = plain(line).lstrip("> ")
+        if not row or PAGE.search(row) or re.fullmatch(r"[|: +\-]+", row):
+            continue
+        if len(row) < 160 and (native_row(row)[1] is not None or
+                              (ROW.search(row) and not re.search(r"[，。；：！？]", row))):
+            pending.append((i, line.strip()))
+        else:
+            flush()
+    flush()
+    return panels
+
+
+def native_question(header_lines, anchor):
+    """Keep the question sentence; long theory and reported results stay in source."""
+    for line in header_lines:
+        explicit = re.search(r"(?:占问事宜|占事|求测内容|所占事宜)[\s:：;；，,]+(.*)", plain(line))
+        if explicit:
+            return explicit[1].strip() or None
+    candidates = [plain(line) for line in header_lines if re.search(r"占|测|问|[?？]", plain(line))
+                  and not re.match(r"^(?:起卦方式|六神|主变卦|神煞)", plain(line))]
+    # The final question before the display is more specific than an earlier preface.
+    question = candidates[-1] if candidates else plain(anchor)
+    date = DATE.search(question)
+    if date and len(question) > 180:
+        question = question[date.start():]
+    cast = re.search(r"(?:占得|得)[“\"「]?(?:[\u4e00-\u9fff]{1,8})(?:卦|之|变)|得[“\"「]?[\u4e00-\u9fff]{1,3}[”\"」]?(?:[，,。]|$)", question)
+    if cast:
+        question = question[:cast.start()]
+    question = re.split(r"[。！？?]", question, maxsplit=1)[0].rstrip(" ，,。；;：:")
+    return question if re.search(r"占|测|问|病|股票|大盘", question) else None
 
 
 def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
@@ -89,11 +165,34 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
 
     anchors = []
     for i, line in enumerate(lines[:cutoff]):
-        if "主变卦" in line or (DATE.search(plain(line)) and re.search(r"[占测].*(?:得|之)|得.*卦", plain(line))):
+        chart_header = bool(re.match(r"^主变", plain(line)))
+        if chart_header or (DATE.search(plain(line)) and re.search(r"[占测].*(?:得|之)|得.*卦", plain(line))):
             # Generic theory without a nearby six-line display is not an event.
             nearby = [l for l in lines[i+1:min(i+65, cutoff)] if l.strip()]
-            if "主变卦" in line or sum(bool(ROW.search(l)) and symbol_value(l) is not None for l in nearby[:15]) >= 5:
+            if chart_header or sum(bool(ROW.search(l)) and symbol_value(l) is not None for l in nearby[:15]) >= 5:
                 anchors.append(i)
+    native_displays, native_starts = {}, {}
+    if source["source_type"] == "native_text":
+        legacy_anchors = set(anchors)
+        anchors = []
+        previous_end = 0
+        for rows, before in native_panels(lines, cutoff):
+            first = rows[0][0]
+            context = [i for i in range(max(previous_end, first-70), first) if lines[i].strip()][-16:]
+            last_heading = next((i for i in reversed(context) if CHAPTER.match(lines[i].strip()) and len(plain(lines[i])) < 110), None)
+            if last_heading is not None:
+                context = [i for i in context if i > last_heading]
+            candidates = [i for i in context if i in legacy_anchors or DATE.search(plain(lines[i]))
+                          or re.search(rf"[{STEMS}][{BRANCHES}]日.*[占测问]|[占测问].*得[^。；;]+|^同日.*[占测问]", plain(lines[i]))]
+            if candidates:
+                old = [i for i in candidates if i in legacy_anchors]
+                a = old[-1] if old else candidates[-1]
+                anchors.append(a)
+                native_displays[a] = (rows, before)
+                earlier = [i for i in context if i <= a and re.search(r"占问事宜|占事|求测内容|[占测问]|[?？]", plain(lines[i]))
+                           and (i == a or len(plain(lines[i])) < 250) and not OUTCOME.search(lines[i])]
+                native_starts[a] = earlier[-1] if earlier else a
+            previous_end = rows[-1][0] + 1
     anchors = sorted(set(anchors))
     by_page = defaultdict(list)
     for a in anchors:
@@ -117,17 +216,23 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
         floor = anchors[ai-1]+1 if ai else 0
         metadata = [i for i in range(max(floor, a-30), a+1) if re.match(r"^求测人", lines[i].strip())]
         start = metadata[-1] if metadata else a
+        start = min(start, native_starts.get(a, a))
         if not metadata:
             for i in range(max(floor, a-8), a):
                 if re.match(r"^\**例[一二三四五六七八九十\d]", lines[i].strip()):
                     start = i
                     break
+            if start == a:
+                questions = [i for i in range(max(floor, a-12), a) if "占问事宜" in lines[i]]
+                if questions:
+                    start = questions[-1]
         starts.append(start)
 
     cases = []
     protected_lines = set(all_diagram_lines)
     for ai, (a, start) in enumerate(zip(anchors, starts)):
         next_start = starts[ai+1] if ai+1 < len(starts) else cutoff
+        next_start = next((i for i in range(a+1, next_start) if re.match(r"^求测人", lines[i].strip())), next_start)
         heading = next((i for i in range(a+1, next_start) if
                         (i in outline_boundaries if outline_boundaries is not None else
                          CHAPTER.match(lines[i].strip()) and not lines[i].startswith("【"))), next_start)
@@ -139,21 +244,28 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
         spans = spans_of(indices)
         raw = read_spans(lines, spans)
         narrative = "\n".join(lines[i] for i in range(start, end) if i not in all_diagram_lines and not PAGE.search(lines[i]))
-        header_lines = lines[start:a+1]
+        native_display = native_displays.get(a)
+        header_end = native_display[0][0][0] if native_display else a+1
+        header_lines = lines[start:header_end]
         question = next((re.sub(r"^.*?占问事宜[\s:：;；，,]*", "", line).strip() for line in header_lines if "占问事宜" in line), plain(lines[a]))
         if not question or question.startswith("主变卦"):
             question = next((plain(line) for line in header_lines if "占" in line or "测" in line), None)
+        if source["source_type"] == "native_text":
+            question = native_question(header_lines, lines[a])
         header = "\n".join(header_lines)
         date_match = DATE.search(plain(header))
         day_match = re.search(rf"([{STEMS}][{BRANCHES}])日", header)
         month_match = re.search(rf"([{BRANCHES}])月", header)
-        date = re.search(r"(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日", header)
+        date = re.search(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", header)
         date_text = f"{int(date[1]):04}-{int(date[2]):02}-{int(date[3]):02}" if date else None
-        time_match = re.search(r"日\s*(\d{1,2})时\s*(\d{1,2})\s*分", header)
+        time_match = re.search(r"日\s*(\d{1,2})\s*时\s*(\d{1,2})\s*分", header)
         time_text = f"{int(time_match[1]):02}:{int(time_match[2]):02}:00" if time_match else None
         values = ds["values"] if ds else None
-        pan_rows = []
-        for i in range(a+1, min(a+55, end)):
+        pan_rows = list(native_display[0]) if native_display else []
+        symbols_before = native_display[1] if native_display else None
+        if native_display:
+            protected_lines.update(range(pan_rows[0][0], pan_rows[-1][0]+1))
+        for i in range(a+1, min(a+55, end)) if not native_display else ():
             row = lines[i].strip()
             if not row:
                 continue
@@ -165,16 +277,20 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
             elif pan_rows or len(row) > 120:
                 break
         if values is None and source["source_type"] == "native_text" and len(pan_rows) == 6:
-            vals = [native_row(row)[1] for _, row in pan_rows]
+            vals = [native_row(row, symbols_before)[1] for _, row in pan_rows]
             if all(v is not None for v in vals):
                 values = list(reversed(vals))
                 protected_lines.update(range(pan_rows[0][0], pan_rows[-1][0]+1))
-        names = name_in(lines[a])
-        void = re.search(r"空亡[:：\s]*([^\]\n]+)", header)
+        names = reported_names(header)
+        void = re.search(r"(?:空亡|旬空)[:：\s]*([^\]）)\n]+)", header)
         issues, calculated = [], None
         month = date_match[1] if date_match else month_match[1] if month_match else None
         day = date_match[2] if date_match else day_match[1] if day_match else None
-        calendar_basis = "reported_ganzhi"
+        calendar_basis = "reported_ganzhi" if month or day else "unknown"
+        if any(re.search(r"(?:^|[。；;])\s*同日[，,、]?", plain(line)) for line in header_lines) and cases and (not month or not day):
+            month = month or cases[-1]["cast"]["month_branch"]
+            day = day or cases[-1]["cast"]["day_ganzhi"]
+            calendar_basis = "explicit_same_day_previous_case"
         if date_text and time_text:
             try:
                 calendar = calendar_values(date_text+"T"+time_text)
@@ -191,14 +307,22 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
             try:
                 calculated = build_chart(values, month_branch=month, day_ganzhi=day)
                 validation = "calculated"
-                if names and names[0] != calculated["primary"]["name"]:
+                if names and names[0] and names[0] != calculated["primary"]["name"]:
                     issues.append("reported_primary_conflicts_with_line_values")
-                if len(names) > 1 and names[1] != calculated["changed"]["name"]:
+                if len(names) > 1 and names[1] and names[1] != calculated["changed"]["name"]:
                     issues.append("reported_changed_conflicts_with_line_values")
                 for position, (_, row) in enumerate(reversed(pan_rows if len(pan_rows) == 6 else []), 1):
-                    m = native_row(row)[0] if source["source_type"] == "native_text" else ROW.search(row)
+                    m = native_row(row, symbols_before)[0] if source["source_type"] == "native_text" else ocr_primary_row(row)
+                    if m is None and source["source_type"] == "ocr_text":
+                        issues.append(f"unreadable_reported_line_{position}_primary_label")
                     if m and position <= 6 and (m[1], m[2]) != (calculated["lines"][position-1]["relative"], calculated["lines"][position-1]["branch"]):
                         issues.append(f"reported_line_{position}_conflicts_with_najia")
+                    # Only an adjacent primary marker is evidence; changed labels may be unreadable.
+                    marker = re.match(r"[\s′″〃○Ｏ×ＸXxOo━▅▄、*“”\"']*(世|应)", row[m.end():]) if m else None
+                    if marker:
+                        role = "shi" if marker[1] == "世" else "ying"
+                        if position != calculated[f"{role}_position"]:
+                            issues.append(f"reported_line_{position}_{role}_conflicts_with_position")
                 if issues:
                     validation = "conflict"
             except ValueError as exc:
@@ -214,7 +338,14 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
         if end == a+220:
             issues.append("case_narrative_boundary_limited")
         analysis_start = pan_rows[-1][0]+1 if len(pan_rows) == 6 else a+1
-        analysis = "\n".join(lines[i] for i in range(analysis_start, end) if i not in all_diagram_lines and not PAGE.search(lines[i])).strip()
+        analysis_indices = [i for i in range(analysis_start, end) if i not in all_diagram_lines and not PAGE.search(lines[i])]
+        analysis = "\n".join(lines[i] for i in analysis_indices).strip()
+        analysis_spans = spans_of(i for i in analysis_indices if lines[i].strip() and not lines[i].strip().isdigit()) if len(pan_rows) == 6 else []
+        if calculated:
+            reported_shi = re.findall(r"(?:^|[。；;！？])\s*本卦世爻\s*(父母|兄弟|子孙|妻财|官鬼)", plain(analysis))
+            if any(relative != calculated["features"]["shi_relative"] for relative in reported_shi):
+                issues.append("reported_primary_shi_relative_conflicts_with_calculated_chart")
+                validation = "conflict"
         feedback_lines = analysis.splitlines()
         outcomes = []
         for i, line in enumerate(feedback_lines):
@@ -237,7 +368,7 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
             "cast": {"date": date_text, "time": time_text, "timezone": None, "calendar_basis": calendar_basis, "month_branch": month, "day_ganzhi": day, "line_values": values, "lines_order": "bottom_to_top", "line_values_basis": "transcribed_diagram" if ds else "native_line_symbols" if values else None},
             "reported_chart": {"raw_header": lines[a], "primary": names[0] if names else None, "changed": names[1] if len(names)>1 else None, "void_raw": void[1] if void else None, "line_text": [row for _, row in pan_rows]},
             "derived": calculated, "features": features,
-            "interpretations": [{"source_id": source["source_id"], "author": source.get("author"), "method_hint": source["method_hint"], "yongshen_reported": yongshen or None, "original_text": analysis}],
+            "interpretations": [{"source_id": source["source_id"], "author": source.get("author"), "method_hint": source["method_hint"], "yongshen_reported": yongshen or None, "original_text": analysis, "source_spans": analysis_spans, "source_span_basis": "text_after_six_chart_rows" if len(pan_rows) == 6 else "unresolved_chart_end"}],
             "outcome": {"status": "reported_explicit" if outcomes else "none", "quotes": outcomes, "event_date": None, "event_timing": "before_or_at_cast" if outcomes and re.search(r"已经发生|现状|过去.*发生", analysis) else "unknown", "independently_verified": False},
             "source": {"source_id": source["source_id"], "path": source["path"], "sha256": source["sha256"], "pdf_pages": sorted({pages[i] for i in indices if pages[i] is not None}), "spans": spans, "original_text": raw, "raw_text_normalization": "python_universal_newlines"},
             "extraction": {"method": "deterministic_parser", "pipeline_version": PARSER_VERSION, "status": "partial" if issues else "parsed", "issues": issues, "chart_validation": validation},
@@ -306,6 +437,8 @@ def import_source(source, root):
     lines = text.splitlines()
     boundaries = {n['start_line']-1: n for n in outline_nodes if n['node_type'] not in ('book', 'front_matter')}
     cases, diagram_lines = extract_cases(source, lines, pages, cutoff, set(boundaries) if outline_nodes else None)
+    case_boundaries = {edge for case in cases for span in case['source']['spans']
+                       for edge in (span['start_line']-1, span['end_line'])}
     if outline_nodes:
         for case in cases:
             node = node_at(outline_nodes, int(case['case_id'].rsplit('_', 1)[1]))
@@ -330,6 +463,8 @@ def import_source(source, root):
         chunks.append(chunk)
         pending.clear()
     for i, line in enumerate(lines):
+        if i in case_boundaries:
+            flush()
         stripped = line.strip()
         reason = None
         if i >= cutoff:
@@ -362,7 +497,7 @@ def import_source(source, root):
             flush()
         pending.append(i)
     flush()
-    case_lines = set()
+    case_lines, case_analysis_lines = set(), set()
     for case in cases:
         classification = classify(case['question']['raw'] or '')
         classification.update(scope='case',basis='question_only')
@@ -377,10 +512,17 @@ def import_source(source, root):
         case['features']['topic'] = classification['topic']
         for span in case['source']['spans']:
             case_lines.update(range(span['start_line'],span['end_line']+1))
+        for interpretation in case['interpretations']:
+            for span in interpretation['source_spans']:
+                case_analysis_lines.update(range(span['start_line'], span['end_line']+1))
     for chunk in chunks:
         theory = '\n'.join(lines[i-1] for i in range(chunk['start_line'],chunk['end_line']+1) if i not in case_lines)
-        nearby = [c['question']['raw'] or '' for c in cases if any(
-            s['start_line'] <= chunk['end_line'] and s['end_line'] >= chunk['start_line'] for s in c['source']['spans'])]
+        related = [c for c in cases if any(s['start_line'] <= chunk['end_line'] and s['end_line'] >= chunk['start_line']
+                                          for s in c['source']['spans'])]
+        nearby = [c['question']['raw'] or '' for c in related]
+        chunk['content_role'] = 'case_excerpt' if related else 'theory'
+        chunk['related_case_ids'] = [c['case_id'] for c in related]
+        chunk['has_case_analysis'] = any(i in case_analysis_lines for i in range(chunk['start_line'], chunk['end_line']+1))
         chunk['classification'] = classify_rule(chunk['chapter'],theory,nearby,chunk['method'])
     coverage = set(reasons)
     for chunk in chunks:
@@ -399,7 +541,7 @@ CREATE TABLE chunks(id TEXT PRIMARY KEY, source_id TEXT NOT NULL, kind TEXT NOT 
 CREATE TABLE cases(id TEXT PRIMARY KEY, source_id TEXT NOT NULL, topic TEXT, method TEXT, duplicate_group TEXT, payload TEXT NOT NULL);
 CREATE TABLE eval_items(id TEXT PRIMARY KEY, payload TEXT NOT NULL);
 CREATE TABLE build_info(key TEXT PRIMARY KEY, value TEXT NOT NULL);
-CREATE VIRTUAL TABLE search_index USING fts5(evidence_id UNINDEXED, kind UNINDEXED, body, tokenize='unicode61');
+CREATE VIRTUAL TABLE search_index USING fts5(evidence_id UNINDEXED, kind UNINDEXED, focus, body, tokenize='unicode61');
 """ + OUTLINE_SCHEMA + TAXONOMY_SCHEMA + PROOFREADING_SCHEMA
 
 
@@ -426,13 +568,13 @@ def ingest(root=None, output=None):
             connection.execute("INSERT INTO sources VALUES(?,?,?)", (sid, dumps(source), text))
             for chunk in chunks:
                 connection.execute("INSERT INTO chunks VALUES(?,?,?,?,?,?,?,?,?)", (chunk["id"], sid, chunk["kind"], chunk["method"], chunk["chapter"], chunk["start_line"], chunk["end_line"], chunk["content_hash"], dumps(chunk)))
-                connection.execute("INSERT INTO search_index VALUES(?,?,?)", (chunk["id"], "rule", " ".join(tokens(chunk["chapter"] + " " + chunk["text"] + ' ' + index_text(chunk.get('outline', {}))))))
+                connection.execute("INSERT INTO search_index VALUES(?,?,?,?)", (chunk["id"], "rule", " ".join(tokens(chunk["chapter"])), " ".join(tokens(chunk["chapter"] + " " + chunk["text"] + ' ' + index_text(chunk.get('outline', {}))))))
             for case in cases:
                 group = case["duplicate_group"]
                 connection.execute("INSERT INTO cases VALUES(?,?,?,?,?,?)", (case["case_id"], sid, case["question"]["topic"], source["method_hint"], group, dumps(case)))
                 # Author judgement/outcome are returned AFTER retrieval, never indexed here.
                 search_text = case_search_text(case) + ' ' + index_text(case.get('outline', {}))
-                connection.execute("INSERT INTO search_index VALUES(?,?,?)", (case["case_id"], "case", " ".join(tokens(search_text))))
+                connection.execute("INSERT INTO search_index VALUES(?,?,?,?)", (case["case_id"], "case", " ".join(tokens(case["question"]["raw"] or "")), " ".join(tokens(search_text))))
             store_outline(connection, report['outline_nodes'], chunks, cases)
             for eid,record in [(c['id'],c) for c in chunks]+[(c['case_id'],c) for c in cases]:
                 classification=record['classification']
@@ -447,6 +589,7 @@ def ingest(root=None, output=None):
         corpus_hash = digest(dumps(manifest) + PARSER_VERSION + implementation_hash)
         connection.execute("INSERT INTO build_info VALUES('corpus_hash',?)", (corpus_hash,))
         connection.execute("INSERT INTO build_info VALUES('parser_version',?)", (PARSER_VERSION,))
+        connection.execute("INSERT INTO build_info VALUES('search_index_version','focused-1')")
         connection.execute("INSERT INTO build_info VALUES('implementation_hash',?)", (implementation_hash,))
         connection.commit()
         if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
