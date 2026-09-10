@@ -95,7 +95,8 @@ def test_relative_definition_titles_do_not_split_chart_or_case_analysis(tmp_path
     _, parsed, chunks, cases, _ = parse(tmp_path, text)
     assert len(cases) == 1
     theory = [c for c in chunks if c['content_role'] == 'theory']
-    assert [c.get('section', {}).get('title') for c in theory] == [None, '一、父母爻', '二、子孙爻']
+    assert chunks[0]['content_role'] == 'heading_only'
+    assert [c.get('section', {}).get('title') for c in theory] == ['一、父母爻', '二、子孙爻']
     assert all(c.get('section', {}).get('start_line', 0) < 4 for c in chunks)
     assert '父母爻：本卦' in cases[0]['interpretations'][0]['original_text']
     assert '子孙爻；本卦' in cases[0]['interpretations'][0]['original_text']
@@ -115,6 +116,34 @@ def test_background_is_structural_and_remains_source_accessible(tmp_path):
         assert retrieved['text'] == chunk['text']
     with sqlite3.connect(db_path) as db:
         assert db.execute('SELECT body FROM sources').fetchone()[0] == text
+
+
+def test_heading_only_units_keep_source_and_full_single_line_rules(tmp_path):
+    text = '# 示例.doc\n> 原文件：示例.doc\n\n用神章第八\n子孙爻；占六畜。\n\n## 单句规则\n用神旺相为吉。\n\n一、父母旺相则有力。\n\n## 取用：父母爻为用神\n\n## 用神发动化空、化破时，多以变爻为应期\n'
+    source, _, chunks, _, _ = parse(tmp_path, text)
+    assert [c['content_role'] for c in chunks] == ['heading_only', 'heading_only', 'theory', 'theory', 'theory', 'theory', 'theory']
+    (tmp_path / 'data').mkdir()
+    (tmp_path / 'data/sources.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf8')
+    output = tmp_path / 'isolated/knowledge.sqlite'
+    ingest(tmp_path, output)
+    with sqlite3.connect(output) as db:
+        assert [r[0] for r in db.execute('SELECT searchable FROM evidence_metadata ORDER BY start_line')] == [0, 0, 1, 1, 1, 1, 1]
+    for chunk in chunks:
+        assert get_source(chunk['id'], db_path=output)['text'] == chunk['text']
+    root = project_root()
+    source = next(json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()
+                  if json.loads(line)['source_id'] == 'zengshan_pingshi_dxj')
+    _, source_text, chunks, _, _ = import_source(source, root)
+    title = next(c for c in chunks if c['id'] == 'rule_zengshan_pingshi_dxj_1')
+    assert title['content_role'] == 'heading_only'
+    assert title['text'] == source_text.splitlines()[0]
+    manifest = [json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()]
+    for source_id, anchors in [('liuyao_zixiu_dxj', [6340]), ('liuyao_xiangfa_jinjie_shang', [11102, 12126]),
+                               ('liuyao_xiangfa_jinjie_xia', [3404])]:
+        source = next(s for s in manifest if s['source_id'] == source_id)
+        chunks = import_source(source, root)[2]
+        for anchor in anchors:
+            assert next(c for c in chunks if c['id'] == f'rule_{source_id}_{anchor}')['content_role'] == 'theory'
 
 
 def test_literal_yongshen_keeps_offsets_and_multiple_choices():

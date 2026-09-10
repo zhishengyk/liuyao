@@ -27,5 +27,28 @@
       "Keep original frozen files/hashes; use a separate new dataset for later blind evaluation.",
       "Any retriever/code changes discovered through this run require fresh-case claims or explicit regression-only labeling."
     ]
+  },
+  {
+    "dataset": "fresh_native8_2026-09-10",
+    "status": "retired_to_regression_after_answer_unsealing",
+    "case_count": 8,
+    "case_ids": [
+      "native_9495d2b31989",
+      "native_db0c0b75ff0d",
+      "native_efcc68e453ee",
+      "native_c95d135ad81c",
+      "native_d1c201228ed6",
+      "native_19df1c4b2f02",
+      "native_53d3a42ff1a7",
+      "native_b1cbf8e6c60f"
+    ],
+    "retrieval_prediction_sha256": "3981d0422fc2c19d7918c5398132d55476fb4fc9eff2c306339e9f87ed88e8f1",
+    "chart_only_prediction_sha256": "813c76a0fba649d8a96059fc3a3e4af7b44f0700ab8b320a953b3ac82c1b39df",
+    "answer_key_sha256": "41152ce13f81f5a86125e89c08d7ffc1bde874766f0a225add7a00a4b29f36bf",
+    "unseal_record": "work/fresh-native-evaluation/answer-unseal.json",
+    "rules": [
+      "Preserve frozen input, predictions and source keys; do not call these eight unseen after unsealing.",
+      "Subsequent query fidelity fixes do not change this frozen comparison or demonstrate prediction uplift."
+    ]
   }
 ]

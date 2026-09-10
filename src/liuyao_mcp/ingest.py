@@ -590,6 +590,7 @@ def import_source(source, root):
             node = node_at(outline_nodes, int(case['case_id'].rsplit('_', 1)[1]))
             case['outline'] = evidence_navigation(node, outline_nodes)
     reasons, chunks, pending = {}, [], []
+    heading_lines = set()
     chapter = source["title"]
     chapter_start = 0
     section = None
@@ -645,11 +646,15 @@ def import_source(source, root):
             flush()
             chapter, chapter_start = plain(stripped), i
             section = None
+            if CHAPTER.match(stripped) and not re.search(r'[，,。！？!?]|\.$|[:：；;]\s*\S', chapter):
+                heading_lines.add(i)
         elif subsection:
             flush()
             section = {'title': subsection[1], 'start_line': i+1,
                        'parent_title': chapter, 'parent_start_line': chapter_start+1,
                        'title_basis': 'source_numbered_subsection' if subsection[1].startswith(('(', '（')) else 'source_relative_definition'}
+            if not plain(stripped)[subsection.end():].strip(' :：；;'):
+                heading_lines.add(i)
         # Don't split a six-line diagram, or a single long paragraph, for size alone.
         if pending and sum(len(lines[j]) for j in pending) >= 1100 and i not in diagram_lines and (i == 0 or not lines[i-1].strip()):
             flush()
@@ -685,6 +690,8 @@ def import_source(source, root):
             chunk['content_role'] = 'background'
         if chart_only(chunk['text']):
             chunk['content_role'] = 'chart_only'
+        if chunk['content_role'] == 'theory' and all(i in heading_lines for i in range(chunk['start_line']-1, chunk['end_line']) if lines[i].strip()):
+            chunk['content_role'] = 'heading_only'
         chunk['related_case_ids'] = [c['case_id'] for c in related]
         chunk['has_case_analysis'] = any(i in case_analysis_lines for i in range(chunk['start_line'], chunk['end_line']+1))
         classification_chapter = chunk.get('section', {}).get('parent_title', chunk['chapter'])
@@ -731,7 +738,7 @@ def store_search_metadata(connection, kind, record, source):
     classification = record['classification']
     spans = record['source']['spans'] if case else [record]
     searchable = bool(case_search_text(record).strip()) if case else (
-        record.get('content_role') not in ('background', 'chart_only') and not (
+        record.get('content_role') not in ('background', 'chart_only', 'heading_only') and not (
             record.get('content_role') == 'case_excerpt' and record.get('has_case_analysis') is False))
     connection.execute('INSERT INTO evidence_metadata VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', (
         eid, kind, source['source_id'], source['method_hint'] if case else record['method'],
