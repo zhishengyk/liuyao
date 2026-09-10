@@ -35,6 +35,7 @@ RELATIVES = r"父母|兄弟|子孙|妻财|官鬼"
 YONGSHEN_LABEL = rf"(?:{RELATIVES})(?:爻)?(?:[{STEMS}]?[{BRANCHES}][木火土金水]?)?(?:爻)?"
 YONGSHEN_SELECTION = rf"{YONGSHEN_LABEL}(?:(?:、|和|及|与|或)?{YONGSHEN_LABEL})*"
 YONGSHEN = re.compile(rf"(?:以|取)?({YONGSHEN_SELECTION})(?:为用神|为用|作(?:为)?用神)|用神(?:为|是)({YONGSHEN_SELECTION})")
+YONGSHEN_COMPLEMENT = re.compile(r"\s*(?:(?:[之的]\s*)?(?:墓库|墓地|元神|原神|忌神|仇神)|[之的]\s*墓)")
 OUTCOME = re.compile(r"(?:卦主反馈|反馈\s*[:：，,]|(?:^|[。！？])\s*(?:结果|果于|果然|后果|后验))")
 NO_FEEDBACK = re.compile(r"(?:暂无|尚无|没有|未收到|尚未收到|未有|未见)反馈|反馈\s*[:：]\s*(?:(?:暂无|没有|尚无)(?:反馈)?(?=$|[。；;，,\s])|待补|未提供)|(?:尚未|暂未|未)反馈")
 AUTHORS = {"liuyao_zixiu_dxj": "王虎应", "zengshan_pingshi_dxj": "王虎应（含原注）", "zengshan_buyi": "野鹤老人等（整理版）"}
@@ -58,12 +59,41 @@ def author_yongshen(lines, indices):
             for match in YONGSHEN.finditer(text):
                 if re.search(r"(?:不|非|未|莫)\s*$", text[:match.start()]):
                     continue
+                if YONGSHEN_COMPLEMENT.match(text, match.end()):
+                    continue
                 for relative in dict.fromkeys(re.findall(RELATIVES, match[1] or match[2])):
                     evidence.append({"relative": relative, "quote": match[0],
                                      "source_spans": [{"start_line": i+1, "end_line": i+1}],
                                      "start_char": sentence.start()+match.start(),
                                      "end_char": sentence.start()+match.end()})
     return list(dict.fromkeys(e["relative"] for e in evidence)), evidence
+
+
+def chart_only(text):
+    """Only explicit chart cells qualify; any narrative keeps the unit searchable."""
+    has_row = False
+    for line in text.splitlines():
+        row = plain(line).strip('> ')
+        if not row:
+            continue
+        if re.fullmatch(r'【卦象结构化[^】]*】', row):
+            continue
+        if CHART_HEADER.match(row):
+            cells = re.sub(CAST_NAMES, '', CHART_HEADER.sub('', row))
+            cells = re.sub(r'本宫|游魂|归魂|六冲|六合|空亡|旬空|卦|宫|之|变', '', cells)
+            if re.fullmatch(rf'[\W\d{STEMS}{BRANCHES}一二三四五六]*', cells):
+                continue
+        if re.fullmatch(r'[|: +\-]+', row) or re.fullmatch(r'\|?\s*(?:爻位|六神|伏神|本卦|主卦|动爻|变卦)(?:[\s|]+(?:爻位|六神|伏神|本卦|主卦|动爻|变卦))*[\s|]*', row):
+            continue
+        if re.fullmatch(r'(?:上|五|四|三|二|初)爻\s+[━▅▄○Ｏ×ＸXOxo′″〃→\s]+', row):
+            has_row = True
+            continue
+        cells = re.sub(rf'青龙|朱雀|勾陈|[腾螣呈]蛇|白虎|玄武|伏神|{RELATIVES}|[{STEMS}{BRANCHES}木火土金水世应伏动爻]', '', row)
+        if ROW.search(row) and symbol_value(row) is not None and re.fullmatch(r'[\s|:：()（）\[\]、━▅▄○Ｏ×ＸXOxo′″〃→\-]*', cells):
+            has_row = True
+            continue
+        return False
+    return has_row
 
 
 def spans_of(indices):
@@ -627,7 +657,9 @@ def import_source(source, root):
             chapter=next((c['chapter'] for c in chunks if c['start_line']<=anchor<=c['end_line']), '')
             inherited=classify(chapter)
             if inherited['roots']:
-                classification={**inherited,'scope':'case','basis':'chapter_only','chapter_evidence':chapter}
+                classification={**inherited, 'topic_ids': list(inherited['roots']),
+                                'evidence': [e for e in inherited['evidence'] if '/' not in e['id']],
+                                'scope':'case','basis':'chapter_only','chapter_evidence':chapter}
         case['classification'] = classification
         case['question']['topic'] = classification['topic']
         case['features']['topic'] = classification['topic']
@@ -644,6 +676,8 @@ def import_source(source, root):
         chunk['content_role'] = 'case_excerpt' if related else 'theory'
         if not related and background_heading(chunk['chapter']):
             chunk['content_role'] = 'background'
+        if chart_only(chunk['text']):
+            chunk['content_role'] = 'chart_only'
         chunk['related_case_ids'] = [c['case_id'] for c in related]
         chunk['has_case_analysis'] = any(i in case_analysis_lines for i in range(chunk['start_line'], chunk['end_line']+1))
         classification_chapter = chunk.get('section', {}).get('parent_title', chunk['chapter'])
@@ -690,7 +724,7 @@ def store_search_metadata(connection, kind, record, source):
     classification = record['classification']
     spans = record['source']['spans'] if case else [record]
     searchable = bool(case_search_text(record).strip()) if case else (
-        record.get('content_role') != 'background' and not (
+        record.get('content_role') not in ('background', 'chart_only') and not (
             record.get('content_role') == 'case_excerpt' and record.get('has_case_analysis') is False))
     connection.execute('INSERT INTO evidence_metadata VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', (
         eid, kind, source['source_id'], source['method_hint'] if case else record['method'],

@@ -1,0 +1,31 @@
+[
+  {
+    "dataset": "holdout13_2026-09-10",
+    "status": "retired_to_regression_after_answer_unsealing",
+    "case_count": 13,
+    "case_ids": [
+      "external_li05",
+      "external_li03",
+      "external_li01",
+      "external_shao09",
+      "external_li02",
+      "external_gua08",
+      "external_li12",
+      "external_gua07",
+      "external_li06",
+      "external_shao08",
+      "external_li07",
+      "external_li04",
+      "external_li08"
+    ],
+    "new_prediction_sha256": "8456a35fbe69a7262eb9c5ded74a64fa7f67a1e258f419522261d6a3e73d4fc2",
+    "old_prediction_sha256": "4a145f7aeaf8db460ce206c5651cba4633bcb08f3cdb1d4b4bf27366a44fa562",
+    "answer_key_sha256": "2dd0876b0d8080e7c832b19458a5b71a61778a208fa92149e7b44a05dd62cd0b",
+    "unseal_record": "work/final-blind-evaluation/answer-unseal.json",
+    "rules": [
+      "Do not describe these13cases as new unseen holdout after this date.",
+      "Keep original frozen files/hashes; use a separate new dataset for later blind evaluation.",
+      "Any retriever/code changes discovered through this run require fresh-case claims or explicit regression-only labeling."
+    ]
+  }
+]

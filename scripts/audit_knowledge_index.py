@@ -33,7 +33,7 @@ def main():
                     assert record['text'] == '\n'.join(sources[record['source_id']][record['start_line']-1:record['end_line']]), eid
                     assert len(record.get('related_case_ids',[])) <= 1, eid
                     assert meta[1] == record['source_id'] and meta[4] == record['content_hash'], eid
-                    if record.get('content_role') == 'background' or (record.get('content_role') == 'case_excerpt' and record.get('has_case_analysis') is False):
+                    if record.get('content_role') in ('background', 'chart_only') or (record.get('content_role') == 'case_excerpt' and record.get('has_case_analysis') is False):
                         assert not meta[2], eid
                 else:
                     focus = record['question']['raw'] or ''

@@ -35,6 +35,14 @@ def test_specific_questions_do_not_recall_unrelated_generic_charts():
     assert all('职称' not in i['question']['raw'] and '往楚' not in i['question']['raw'] for i in lost['items'])
 
 
+def test_single_character_chart_conditions_survive_query_filtering():
+    for query, expected in [('亥 申 相害 回头生', {'亥', '申', '回头生'}),
+                            ('甲 子 金 克 木', {'甲', '子', '金', '克', '木'}),
+                            ('世 财 入墓', {'世', '财', '入墓'})]:
+        result = search_knowledge(query, kind='rule', limit=2)
+        assert expected <= set(result['query_terms'])
+
+
 def test_structural_comparisons_only_use_verified_charts():
     for options in ({'require_valid_chart': True}, {'features': {'shi_relative': '父母'}}):
         result = search_knowledge('工作', kind='case', limit=5, max_chars=150000, **options)

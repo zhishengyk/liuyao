@@ -4,7 +4,7 @@ import json
 import sqlite3
 
 from liuyao_mcp.common import project_root
-from liuyao_mcp.ingest import author_yongshen, import_source, ingest, native_question, read_spans
+from liuyao_mcp.ingest import author_yongshen, chart_only, import_source, ingest, native_question, read_spans
 from liuyao_mcp.retrieval import get_source
 
 
@@ -132,6 +132,70 @@ def test_literal_yongshen_keeps_offsets_and_multiple_choices():
     relatives, evidence = author_yongshen(['以子孙妻财为用神。'], [0])
     assert relatives == ['子孙', '妻财']
     assert {e['quote'] for e in evidence} == {'以子孙妻财为用神'}
+
+
+def test_yongshen_complements_are_not_author_choices():
+    for suffix in ('墓库', '之墓库', '的墓库', '之墓', '之元神', '的元神', '元神', '的忌神', '之仇神'):
+        assert author_yongshen([f'兄弟戌土为用神{suffix}。'], [0]) == ([], [])
+    assert author_yongshen(['用神为父母的元神。'], [0]) == ([], [])
+    for text in ('以父母爻为用神的理由如下。', '以父母爻为用神，兄弟戌土为用神墓库。',
+                 '父母爻为用神墓于戌。'):
+        relatives, evidence = author_yongshen([text], [0])
+        assert relatives == ['父母']
+        assert evidence[0]['quote'] in text
+    root = project_root()
+    source = next(json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()
+                  if json.loads(line)['source_id'] == 'liuyao_zixiu_dxj')
+    _, text, _, cases, _ = import_source(source, root)
+    case = next(c for c in cases if c['case_id'] == 'case_liuyao_zixiu_dxj_10180')
+    assert case['features']['yongshen_reported'] == ['父母']
+    assert '兄弟戌土为用神墓库' in case['interpretations'][0]['original_text']
+    for evidence in case['interpretations'][0]['yongshen_evidence']:
+        assert evidence['relative'] == '父母'
+        line = text.splitlines()[evidence['source_spans'][0]['start_line']-1]
+        assert line[evidence['start_char']:evidence['end_char']] == evidence['quote']
+
+
+def test_chart_only_units_keep_source_but_are_not_searchable(tmp_path):
+    diagram = '【卦象结构化 1｜按原图自上而下：上爻→初爻】\n爻位 本卦 动爻 变卦\n'
+    diagram += '\n'.join(p+'爻 ━━━━━━ → ━━━━━━' for p in '上五四三二初')
+    assert chart_only(diagram)
+    assert chart_only('| 六神 | 本卦 |\n| --- | --- |\n| 青龙 | 父母子水′世 |')
+    for rule in ('用神旺相为吉。', '父母子水′生世', '阳爻：━━━━━━', diagram+'\n父母发动生世。',
+                 diagram+'\n主变卦均为六冲'):
+        assert not chart_only(rule)
+    text = diagram+'\n========== PDF 第 2 页 / 共 2 页 ==========\n用神旺相为吉。\n'
+    source, _, chunks, _, _ = parse(tmp_path, text)
+    assert [c['content_role'] for c in chunks] == ['chart_only', 'theory']
+    (tmp_path / 'data').mkdir()
+    (tmp_path / 'data/sources.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf8')
+    output = tmp_path / 'isolated/knowledge.sqlite'
+    ingest(tmp_path, output)
+    with sqlite3.connect(output) as db:
+        assert [r[0] for r in db.execute('SELECT searchable FROM evidence_metadata ORDER BY start_line')] == [0, 1]
+    assert get_source(chunks[0]['id'], db_path=output)['text'] == diagram
+    root = project_root()
+    source = next(json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()
+                  if json.loads(line)['source_id'] == 'liuyao_lifa_jinjie')
+    chunk = next(c for c in import_source(source, root)[2] if c['id'] == 'rule_liuyao_lifa_jinjie_8226')
+    assert chunk['content_role'] == 'chart_only'
+
+
+def test_chapter_fallback_preserves_root_without_claiming_subtopic(tmp_path):
+    rows = '\n'.join(['父母戌土′应', '兄弟申金′', '官鬼午火′', '妻财卯木″世', '官鬼巳火″', '父母未土″'])
+    for question, basis, paths in [('占此事', 'chapter_only', ['travel']),
+                                    ('占行人何时回家', 'question_only', None)]:
+        text = '行人章第九十四\n卯月乙丑日'+question+'\n'+rows+'\n断曰：此例说明。\n'
+        cases = parse(tmp_path, text)[3]
+        assert len(cases) == 1
+        classification = cases[0]['classification']
+        assert classification['basis'] == basis
+        if paths is not None:
+            assert classification['topic_ids'] == paths
+            assert classification['chapter_evidence'] == '行人章第九十四'
+            assert all('/' not in e['id'] for e in classification['evidence'])
+        else:
+            assert 'travel/return' in classification['topic_ids']
 
 
 def test_yongshen_stays_inside_analysis_and_candidates_remain_ambiguous(tmp_path):

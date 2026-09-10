@@ -87,7 +87,8 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
             report['checks'].append('visually_reviewed_page_readback')
 
             for query, expected in [('入职 财生官 官生世', {'入职', '工作', '财生官', '官生世'}),
-                                    ('父母没有发动', {'父母', '未发动'})]:
+                                    ('父母没有发动', {'父母', '未发动'}),
+                                    ('戊 未 土 生 克', {'戊', '未', '土', '生', '克'})]:
                 found = await call('search_knowledge', query=query, limit=2, max_chars=30000)
                 assert expected <= set(found['query_terms']), found['query_terms']
                 assert found['retrieval'] == 'bm25' and not found['models']

@@ -57,6 +57,13 @@ DEFINITIONS = [
 GENERAL = re.compile(r'用神|元神|忌神|仇神|六亲|月建|日辰|旺衰|旬空|月破|动爻|变爻|进神|退神|三合|六合|六冲|生克|神煞|卦身|应期')
 GENERAL_CHAPTER = re.compile(r'^(?:第[一二三四五六七八九十百\d]+章\s*)?[冲合]$')
 BACKGROUND_CONTEXT = re.compile(r'工作单位|男友|女友|合伙人|合作伙伴|医院|医生|班主任|帮忙')
+QUESTION_EVENT = re.compile(r'(?<!预)[占测问](?!得|者|卦|之|题|[，,。；;：:\s]|$)')
+REFERENCE_QUESTION = re.compile(r'[占测问](?:何|几|什么时候|是否|能否|可否|她|他|它|其|此|这|该|能|可|会|有无)')
+STATUS_QUESTION = re.compile(r'[占测问](?:目前|现在|当前|最近|近来)?(?:人身)?(?:安危|安全|平安|下落|去向|吉凶|成败|得失|进展|结果|前景|情况|近况|现状|消息)')
+ADDITIONAL_EVENT = re.compile(r'(?:另外|同时|还有|也|再|又|兼|并)(?:想|要|想要)?$')
+CAUSAL_EVENT = re.compile(r'影响|导致|耽误|妨碍|阻碍')
+ACTIVITY_TIME = re.compile(r'(?:看病|就医|上班|工作|学习|上学|出差|出行|旅行|购物|吃饭|洗澡)(?:的时候|时候|之时|时)(?!间|期|段|刻)')
+WEATHER_QUESTION = re.compile(r'[占测问](阴晴|晴雨|风雨|顺风|逆风|晴|雨|雪|风|阴)(?=$|[，,。；;？！?]|何|几|能|会|可|否|不|有|无|停|止|起|下|转|来|去)')
 SCHEMA = '''CREATE TABLE topics(id TEXT PRIMARY KEY,parent_id TEXT,title TEXT NOT NULL);
 CREATE TABLE evidence_classification(evidence_id TEXT PRIMARY KEY,scope TEXT NOT NULL,payload TEXT NOT NULL);
 CREATE TABLE evidence_topics(evidence_id TEXT NOT NULL,topic_id TEXT NOT NULL,
@@ -73,6 +80,19 @@ def nodes():
     return result
 
 
+def topic_matches(text, catalog):
+    found = []
+    weather = [match[1] for match in WEATHER_QUESTION.finditer(text)]
+    for node in catalog:
+        matched = [a for a in node['aliases'] if a.lower() in text]
+        if node['id'] in ('weather','weather/weather'):
+            matched = list(dict.fromkeys(matched + weather))
+        if matched:
+            found.append({'id':node['id'],'matched_terms':matched,
+                          'score':sum(len(a) for a in matched)})
+    return found
+
+
 def classify(text):
     text = text.lower()
     # 官鬼不见 describes a chart, not a missing person/object.
@@ -80,20 +100,35 @@ def classify(text):
     # A role/place is useful when no event is stated; explicit events retain all
     # their labels, including separate work, health, and other matters together.
     catalog, parts, context = nodes(), [], []
+    event = QUESTION_EVENT.search(text)
+    if event and event.start() and not CAUSAL_EVENT.search(text):
+        prefix, question = text[:event.start()], text[event.start():]
+        prefix_roots = {hit['id'].split('/')[0] for hit in topic_matches(prefix,catalog)}
+        question_roots = {hit['id'].split('/')[0] for hit in topic_matches(question,catalog)}
+        # A named question after a narrative preface establishes the event.
+        # Status/reference follow-ups need their earlier event; they do not name
+        # an independent event like "问比赛名次" or "测雨何时停".
+        if (prefix_roots-question_roots and question_roots
+                and not REFERENCE_QUESTION.match(question)
+                and not STATUS_QUESTION.match(question)
+                and not ADDITIONAL_EVENT.search(prefix)
+                and not ('lost' in prefix_roots and 'travel' in question_roots)):
+            context.append(prefix.rstrip(' ，,。；;'))
+            text = question
     for clause in re.split(r'以及|另外|同时|还有|[；;]|和(?!好|解)|及(?!格)', text):
+        if not CAUSAL_EVENT.search(clause):
+            without_activity = ACTIVITY_TIME.sub('',clause)
+            if without_activity != clause and topic_matches(BACKGROUND_CONTEXT.sub('',without_activity),catalog):
+                context.extend(ACTIVITY_TIME.findall(clause))
+                clause = without_activity
         event_text = BACKGROUND_CONTEXT.sub('', clause)
-        if any(a.lower() in event_text for node in catalog for a in node['aliases']):
+        if topic_matches(event_text,catalog):
             parts.append(event_text)
             context.extend(BACKGROUND_CONTEXT.findall(clause))
         else:
             parts.append(clause)
     event_text = ' '.join(parts)
-    found = []
-    for node in catalog:
-        matched = [a for a in node['aliases'] if a.lower() in event_text]
-        if matched:
-            found.append({'id':node['id'],'matched_terms':matched,
-                          'score':sum(len(a) for a in matched)})
+    found = topic_matches(event_text,catalog)
     found.sort(key=lambda n:(-n['score'],n['id']))
     paths = list(dict.fromkeys(n['id'] for n in found))
     roots = list(dict.fromkeys(p.split('/')[0] for p in paths))

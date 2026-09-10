@@ -60,6 +60,55 @@ def test_event_context_preserves_multiple_matters_and_role_only_fallbacks():
         assert classify(question)['topic'] == root
 
 
+def test_named_questions_exclude_narrative_and_activity_background():
+    for question,roots in [
+        ('例十、戌月辛亥日，一日本学员跟随我学习预测，摇卦测在北京举行的马拉松比赛中，日本的选手旭化成能获胜否',{'affairs'}),
+        ('例五、戌月庚戌日，一日本人跟随我学习六爻预测，当时天正在下雨，测雨何时停',{'weather'}),
+        ('辰月甲戌日，行舟占顺风',{'weather'}),
+        ('例二、亥月庚午日，某男测到医院看病时把钱丢失，可找回否',{'lost'}),
+        ('我最近正在准备考试，摇卦问店铺生意如何',{'wealth'}),
+        ('上班时手机丢失，能否找到',{'lost'}),
+        ('旅行的时候身体出现症状，问病情如何',{'health'}),
+    ]:
+        assert set(classify(question)['roots']) == roots
+    assert '看病时' in classify('看病时把钱包丢失')['background_context']
+    assert classify('行舟占顺风')['topic_ids'] == ['weather','weather/weather']
+    for question in ('问风水如何','问风险如何','问阴宅如何'):
+        assert 'weather' not in classify(question)['roots']
+
+
+def test_question_focus_preserves_multiple_events_causes_and_references():
+    for question,roots in [
+        ('先测学习进展，再问比赛名次',{'study','affairs'}),
+        ('某男测身体病情，另外问工作调动能否成功',{'health','job'}),
+        ('既问考试成绩，也问店铺经营',{'study','wealth'}),
+        ('看病时会不会耽误考试',{'health','study'}),
+        ('身体有病，问考试是否会受影响',{'health','study'}),
+        ('去医院看病，另外问考试能否通过',{'health','study'}),
+        ('女儿离家三天未归，问何时能回来',{'lost','travel'}),
+        ('老婆生气出走，通过电话测老婆何时回家，会不会和自己离婚',{'lost','travel','relationship'}),
+        ('工作时间能否调整',{'job'}),
+    ]:
+        assert set(classify(question)['roots']) == roots
+    assert 'wealth/business' in classify('想做生意测财运')['topic_ids']
+    assert 'health/treatment' in classify('预定明天手术，测自己病情')['topic_ids']
+
+
+def test_generic_status_followups_keep_the_earlier_event():
+    for question,topic in [
+        ('孩子离家后没有消息，问安危与下落','lost'),
+        ('朋友去外地出差，问目前人身安全','travel'),
+        ('钱包丢失，问现在安危和去向','lost'),
+        ('合伙人被拘留，问近况和消息','lawsuit'),
+        ('准备申请住房，问进展如何','property'),
+    ]:
+        assert classify(question)['topic']==topic
+    # A new named event is still distinct from the prefatory activity.
+    assert classify('我正在学习预测，问比赛结果')['roots']==['affairs']
+    assert classify('出差前学习预测，测雨何时停')['roots']==['weather']
+    assert classify('问人身安全')['topic']=='health'
+
+
 def test_hierarchical_retrieval_and_common_rule_switch():
     assert len(get_topics()['items'])==14
     assert 'relationship/reconciliation' in {x['id'] for x in get_topics('relationship')['items']}

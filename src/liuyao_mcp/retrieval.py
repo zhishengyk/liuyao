@@ -9,12 +9,14 @@ import sqlite3
 import time
 
 from .common import NEGATED_TECHNICAL, database_path, digest, dumps, plain, retrieval_data_dir, tokens
+from .chart import STEMS, BRANCHES
 from .ingest import PAGE, read_spans
 from .outline import read_outline, related_cases
 from .taxonomy import resolve as resolve_topic, tier as topic_tier, classify as classify_topic
 from .proofreading import page_reviews
 
 STOP = set("的 了 是 在 我 你 他 她 这个 一下 怎么 什么 如何 是否 能否 请 帮 用 看 想 要 能 不能 吗 有 没有".split())
+SINGLE_QUERY_TERMS = set(STEMS + BRANCHES + "木火土金水生克冲合刑害墓空破绝旺衰动静伏世应财官父兄孙")
 FEATURE_LABELS = {'shi_relative':'世爻六亲', 'ying_relative':'应爻六亲',
                   'yongshen_relative':'调用方已选用神六亲', 'yongshen_void':'用神旬空',
                   'yongshen_moving':'用神发动', 'yongshen_month_break':'用神月破',
@@ -144,7 +146,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         topic = inferred['topic']
         subtopic = next((p for p in inferred['topic_ids'] if '/' in p and p.startswith(topic+'/')),None) if topic else None
     exclude_ids, exclude_case_ids = set(exclude_ids or []), set(exclude_case_ids or [])
-    terms = list(dict.fromkeys(t for t in tokens(query) if t not in STOP and (len(t)>1 or t in "冲合刑墓空")))[:50]
+    terms = list(dict.fromkeys(t for t in tokens(query) if t not in STOP and (len(t)>1 or t in SINGLE_QUERY_TERMS)))[:50]
     if not terms and not features and not outline_ids and not topic:
         raise ValueError("请提供有意义的查询文本或结构特征")
     if outline_ids and len(outline_ids) > 100:

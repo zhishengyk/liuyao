@@ -6,7 +6,7 @@
         "--python",
         "3.11",
         "--from",
-        "https://github.com/zhishengyk/liuyao/releases/download/v0.6.3/liuyao_mcp-0.6.3-py3-none-any.whl",
+        "https://github.com/zhishengyk/liuyao/releases/download/v0.6.4/liuyao_mcp-0.6.4-py3-none-any.whl",
         "liuyao-mcp"
       ],
       "startup_timeout_sec": 180,
