@@ -1,0 +1,15 @@
+{
+  "source_id": "liuyao_lifa_jinjie",
+  "pdf_page": 4,
+  "pdf_sha256": "1bdc301863a359b1186060fdcaae5e0bc9ebaa58c330c92f8955db08eeb53636",
+  "original_sha256": "9548c295593d142afbe4f7723eab6cd74cf9b367fcf8046a5bcf86bd291310cb",
+  "status": "visually_checked",
+  "method": "assistant_word_by_word_against_rendered_pdf",
+  "review_date": "2026-09-10",
+  "text": "日冲旺相有气变爻 70\n日冲休囚衰败变爻 71\n日冲旬空变爻 72\n日冲回头生克变爻 76\n日冲化进退神变爻 78\n四 日冲飞伏神 79\n日冲伏神 79\n冲飞露伏 81\n冲破元神 83\n第三节 日月冲爻 84\n日月冲静爻 84\n日月冲空爻 87\n日月冲动生爻 88\n日月冲动爻 92\n日月冲变爻 94\n第四节 动爻冲爻 96\n动爻冲静爻 96\n动爻冲空爻 103\n动爻冲动爻 107\n动爻冲伏神 113\n第八章 合 119\n第一节 月建合爻 119\n月建生合 119\n月建平合 121\n月建克合 122\n月合取象 125\n第二节 日辰合爻 128\n日辰生合 128\n日辰平合 129\n日辰克合 134\n日合取象 135",
+  "unclear": [],
+  "normalization": "原书文字逐字核对；排版换行归一化；外加商业水印不纳入书籍正文",
+  "excluded_regions": [
+    "顶部商业资源水印"
+  ]
+}

@@ -11,8 +11,10 @@ import sqlite3
 from .chart import BRANCHES, STEMS, HEXAGRAMS, build_chart, calendar_values
 from .common import case_search_text, digest, dumps, normalized, plain, project_root, tokens, topic_of
 from .outline import OUTLINE_SCHEMA, build_outline, catalog_text, evidence_navigation, index_text, node_at, store_outline
+from .taxonomy import SCHEMA as TAXONOMY_SCHEMA, classify, classify_rule, nodes as topic_nodes
+from .proofreading import SCHEMA as PROOFREADING_SCHEMA, apply as apply_corrections, correction_text, store as store_corrections
 
-PARSER_VERSION = "source-parser-0.3"
+PARSER_VERSION = "source-parser-0.4"
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(r"(父母|兄弟|子孙|妻财|官鬼)([子丑寅卯辰巳午未申酉戌亥])[木火土金水]?")
@@ -299,6 +301,9 @@ def import_source(source, root):
     if source["pdf_pages"] and ([p["page"] for p in page_anchors] != list(range(1, source["pdf_pages"]+1)) or any(p["total"] != source["pdf_pages"] for p in page_anchors)):
         raise ValueError(f"OCR page sequence mismatch: {source['source_id']}")
     outline_nodes = build_outline(source, lines, pages, root)
+    original_body = text
+    source, text = apply_corrections(source, text, root)
+    lines = text.splitlines()
     boundaries = {n['start_line']-1: n for n in outline_nodes if n['node_type'] not in ('book', 'front_matter')}
     cases, diagram_lines = extract_cases(source, lines, pages, cutoff, set(boundaries) if outline_nodes else None)
     if outline_nodes:
@@ -357,6 +362,26 @@ def import_source(source, root):
             flush()
         pending.append(i)
     flush()
+    case_lines = set()
+    for case in cases:
+        classification = classify(case['question']['raw'] or '')
+        classification.update(scope='case',basis='question_only')
+        if not classification['roots'] and source['method_hint']!='xiangfa':
+            anchor=int(case['case_id'].rsplit('_',1)[1])
+            chapter=next((c['chapter'] for c in chunks if c['start_line']<=anchor<=c['end_line']), '')
+            inherited=classify(chapter)
+            if inherited['roots']:
+                classification={**inherited,'scope':'case','basis':'chapter_only','chapter_evidence':chapter}
+        case['classification'] = classification
+        case['question']['topic'] = classification['topic']
+        case['features']['topic'] = classification['topic']
+        for span in case['source']['spans']:
+            case_lines.update(range(span['start_line'],span['end_line']+1))
+    for chunk in chunks:
+        theory = '\n'.join(lines[i-1] for i in range(chunk['start_line'],chunk['end_line']+1) if i not in case_lines)
+        nearby = [c['question']['raw'] or '' for c in cases if any(
+            s['start_line'] <= chunk['end_line'] and s['end_line'] >= chunk['start_line'] for s in c['source']['spans'])]
+        chunk['classification'] = classify_rule(chunk['chapter'],theory,nearby,chunk['method'])
     coverage = set(reasons)
     for chunk in chunks:
         coverage.update(range(chunk["start_line"]-1, chunk["end_line"]))
@@ -364,6 +389,7 @@ def import_source(source, root):
         raise AssertionError("Unaccounted source lines")
     report = {"source_id": source["source_id"], "sha256": source["sha256"], "total_lines": len(lines), "covered_lines": len(coverage), "page_anchors": page_anchors, "chunks": len(chunks), "cases": len(cases), "case_status": dict(Counter(c["extraction"]["status"] for c in cases)), "chart_validation": dict(Counter(c["extraction"]["chart_validation"] for c in cases)), "excluded_ranges": [{"reason": reason, **span} for reason in sorted(set(reasons.values())) for span in spans_of(i for i, r in reasons.items() if r == reason)]}
     report['outline_nodes'] = outline_nodes
+    report['_original_body'] = original_body
     return source, text, chunks, cases, report
 
 
@@ -374,7 +400,7 @@ CREATE TABLE cases(id TEXT PRIMARY KEY, source_id TEXT NOT NULL, topic TEXT, met
 CREATE TABLE eval_items(id TEXT PRIMARY KEY, payload TEXT NOT NULL);
 CREATE TABLE build_info(key TEXT PRIMARY KEY, value TEXT NOT NULL);
 CREATE VIRTUAL TABLE search_index USING fts5(evidence_id UNINDEXED, kind UNINDEXED, body, tokenize='unicode61');
-"""
+""" + OUTLINE_SCHEMA + TAXONOMY_SCHEMA + PROOFREADING_SCHEMA
 
 
 def ingest(root=None, output=None):
@@ -393,9 +419,10 @@ def ingest(root=None, output=None):
     reports, all_cases = [], []
     try:
         connection.executescript(SCHEMA)
-        connection.executescript(OUTLINE_SCHEMA)
+        connection.executemany('INSERT INTO topics VALUES(?,?,?)',((n['id'],n['parent_id'],n['title']) for n in topic_nodes()))
         for source, text, chunks, cases, report in parsed:
             sid = source["source_id"]
+            connection.execute('INSERT INTO original_sources VALUES(?,?)',(sid,report.pop('_original_body')))
             connection.execute("INSERT INTO sources VALUES(?,?,?)", (sid, dumps(source), text))
             for chunk in chunks:
                 connection.execute("INSERT INTO chunks VALUES(?,?,?,?,?,?,?,?,?)", (chunk["id"], sid, chunk["kind"], chunk["method"], chunk["chapter"], chunk["start_line"], chunk["end_line"], chunk["content_hash"], dumps(chunk)))
@@ -407,9 +434,16 @@ def ingest(root=None, output=None):
                 search_text = case_search_text(case) + ' ' + index_text(case.get('outline', {}))
                 connection.execute("INSERT INTO search_index VALUES(?,?,?)", (case["case_id"], "case", " ".join(tokens(search_text))))
             store_outline(connection, report['outline_nodes'], chunks, cases)
+            for eid,record in [(c['id'],c) for c in chunks]+[(c['case_id'],c) for c in cases]:
+                classification=record['classification']
+                connection.execute('INSERT INTO evidence_classification VALUES(?,?,?)',
+                                   (eid,classification['scope'],dumps(classification)))
+                ids=set(classification['topic_ids'])|set(classification['roots'])
+                connection.executemany('INSERT INTO evidence_topics VALUES(?,?)',((eid,t) for t in ids))
             reports.append(report)
             all_cases.extend(cases)
-        implementation_hash = digest("".join(Path(__file__).with_name(name).read_text(encoding="utf-8") for name in ("ingest.py", "chart.py", "common.py", "outline.py")) + dumps(json.loads(catalog_text(root))))
+        store_corrections(connection,root)
+        implementation_hash = digest("".join(Path(__file__).with_name(name).read_text(encoding="utf-8") for name in ("ingest.py", "chart.py", "common.py", "outline.py", "taxonomy.py", "patterns.py", "proofreading.py")) + dumps(json.loads(catalog_text(root))) + dumps(json.loads(correction_text(root))))
         corpus_hash = digest(dumps(manifest) + PARSER_VERSION + implementation_hash)
         connection.execute("INSERT INTO build_info VALUES('corpus_hash',?)", (corpus_hash,))
         connection.execute("INSERT INTO build_info VALUES('parser_version',?)", (PARSER_VERSION,))
@@ -421,6 +455,13 @@ def ingest(root=None, output=None):
         connection.close()
     temp.replace(out)
     report = {"parser_version": PARSER_VERSION, "implementation_hash": implementation_hash, "corpus_hash": corpus_hash, "sources": reports, "total_chunks": sum(r["chunks"] for r in reports), "total_cases": len(all_cases), "total_ocr_pages": sum(len(r["page_anchors"]) for r in reports), "limitations": ["OCR correctness unverified", "semantic fields may be partial", "duplicate grouping is conservative and may miss rewrites"]}
+    review=json.loads(correction_text(root))
+    report['ocr_review']={key:review.get(key,0) for key in ('machine_compared_pages','visually_checked_pages')}
+    report['classification']={'topic_roots':sum(n['parent_id'] is None for n in topic_nodes()),
+                              'subtopics':sum(n['parent_id'] is not None for n in topic_nodes()),
+                              'classified_cases':sum(bool(c['classification']['roots']) for c in all_cases),
+                              'unclassified_cases':sum(not c['classification']['roots'] for c in all_cases),
+                              'status':'automatic_labels_not_manually_verified'}
     (out.parent / "cases.jsonl").write_text("".join(dumps(c)+"\n" for c in all_cases), encoding="utf-8")
     (out.parent / "ingest_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     return report

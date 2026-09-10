@@ -1,0 +1,17 @@
+{
+  "source_id": "liuyao_lifa_jinjie",
+  "pdf_page": 7,
+  "pdf_sha256": "1bdc301863a359b1186060fdcaae5e0bc9ebaa58c330c92f8955db08eeb53636",
+  "original_sha256": "9548c295593d142afbe4f7723eab6cd74cf9b367fcf8046a5bcf86bd291310cb",
+  "status": "visually_checked",
+  "method": "assistant_word_by_word_against_rendered_pdf",
+  "review_date": "2026-09-10",
+  "text": "对于这些理论的解析与运用，将在本书一一论述。\n本书共有四章，分别为冲、合、日月的特殊作用以及应爻的用法，对实战中大部分类型的理法做了分类归纳总结，供易友们参考。书中卦例来源于本人实战以及易友探讨卦例，由于水平有限，很多理论尚在验证摸索中，书中谬误的地方在所难免，不足之处敬请各位易学同仁批评指正！\n青岚\n2018年4月3日",
+  "unclear": [],
+  "normalization": "原书文字逐字核对；排版换行归一化；外加商业水印不纳入书籍正文",
+  "excluded_regions": [
+    "顶部商业资源水印",
+    "页下部叠加商业广告"
+  ],
+  "printed_page": 2
+}

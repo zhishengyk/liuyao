@@ -1,0 +1,26 @@
+{
+  "source_id": "liuyao_lifa_jinjie",
+  "pdf_page": 5,
+  "pdf_sha256": "1bdc301863a359b1186060fdcaae5e0bc9ebaa58c330c92f8955db08eeb53636",
+  "original_sha256": "9548c295593d142afbe4f7723eab6cd74cf9b367fcf8046a5bcf86bd291310cb",
+  "status": "visually_checked",
+  "method": "assistant_word_by_word_against_rendered_pdf",
+  "review_date": "2026-09-10",
+  "text": "日合动爻〔目录页码残缺〕\n日合变爻〔目录页码末位残缺，可辨“14”〕\n第三节 日月合爻 143\n第四节 动爻合爻 149\n一 动爻合静爻 149\n动爻生合静爻 149\n动爻克合静爻 150\n动爻平合静爻 152\n暗动合爻 154\n二 动爻合动爻 156\n三 动爻合破爻 163\n四 动变相合 169\n变爻生合动爻 170\n变爻克合动爻 174\n变爻平合动爻 175\n变出用神相合 177\n第五节 月破日合临日 181\n月破临日生合 181\n月破平合克合 185\n月破日合取象 189\n第九章 日月的特殊作用 191\n第一节 特殊旺相 191\n第二节 特殊衰败 198\n第三节 过旺反凶 201\n第四节 过衰反吉 211\n第五节 日月入爻 220\n第六节 指定而占 226\n第十章 应爻的用法 239",
+  "unclear": [
+    {
+      "item": "日合动爻",
+      "field": "toc_page",
+      "reason": "原图右侧页码残缺"
+    },
+    {
+      "item": "日合变爻",
+      "field": "toc_page",
+      "reason": "原图仅可辨14，末位不清，不根据正文猜填"
+    }
+  ],
+  "normalization": "原书文字逐字核对；排版换行归一化；外加商业水印不纳入书籍正文",
+  "excluded_regions": [
+    "顶部商业资源水印"
+  ]
+}

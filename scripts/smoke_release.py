@@ -26,7 +26,15 @@ async def main():
         params = StdioServerParameters(command=command, args=args, env=env, cwd=Path(cwd))
         async with Client(params, read_timeout_seconds=180) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source", "get_outline"}
+            assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source", "get_outline", "get_topics"}
+            topics=await client.call_tool('get_topics',{'topic':'relationship'})
+            assert not topics.is_error,topics
+            topics_data=topics.structured_content
+            assert 'relationship/reconciliation' in {t['id'] for t in topics_data.get('result',topics_data)['items']}
+            reviewed=await client.call_tool('get_source',{'evidence_id':'page:liuyao_lifa_jinjie:18'})
+            assert not reviewed.is_error,reviewed
+            review_data=reviewed.structured_content
+            assert review_data.get('result',review_data)['text_version']=='visually_reviewed_page'
             outline = await client.call_tool('get_outline', {'parent_id': 'xf_shang_c01'})
             assert not outline.is_error, outline
             outline_data = outline.structured_content
@@ -46,6 +54,7 @@ async def main():
             chart_data = chart.structured_content
             chart_data = chart_data.get('result',chart_data)
             assert '| 上爻 |' in chart_data['display']['markdown']
+            assert len(chart_data['patterns']['combination_checks'])==18
             for kind, count in (("rule", 12), ("case", 8)):
                 result = await client.call_tool("search_knowledge", {"query": "工作 官鬼 用神", "kind": kind, "max_chars": 150000})
                 assert not result.is_error, result
@@ -60,7 +69,7 @@ async def main():
                 assert original["source"]["sha256"] == data["items"][0]["source_hash"]
                 if kind == "rule":
                     assert original["text"] == data["items"][0]["quote"]
-    print("Installed release: chart, directory, scene/rule/case retrieval and source lookup passed.")
+    print("Installed release: chart patterns, topic hierarchy, directory, retrieval and reviewed sources passed.")
 
 
 if __name__ == "__main__":

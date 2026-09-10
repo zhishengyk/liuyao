@@ -7,6 +7,8 @@
 - **本地排盘与检索**：下载完成后离线运行，无需额外模型或API Key；接入端AI按其原有方式运行。
 - **可直接展示的排盘**：本变卦并排，包含六神、伏神、纳甲六亲、动爻、世应、干支与农历。
 - **象法目录与场景检索**：按原书PDF核对目录，支持跨章节查场景、按目录范围查用法与案例，并回查章首条件。
+- **事项分类**：理法与卦例支持“大类 → 小类”，同小类优先，补充公共理法；象法仍按场景与目录查询。
+- **格局线索**：排盘提供刑害、长生十二阶段、反吟伏吟、隔山化爻等结构条件及来源，供AI核对适用条件。
 
 当前正式功能是中文BM25＋六爻结构匹配，候选语义筛选交给宿主AI。SQLite向量组件已实现并测试，但全库语义编码与神经reranker仍是实验，默认安装不会下载BGE模型。
 
@@ -25,7 +27,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 也可以手动安装本版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.5.0/liuyao_mcp-0.5.0-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.0/liuyao_mcp-0.6.0-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -39,7 +41,7 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.5.0/liuyao_mcp-0.5.0-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.0/liuyao_mcp-0.6.0-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -110,7 +112,7 @@ flowchart TD
     subgraph Build["离线建库：资料更新时执行"]
         Books["已确定的6份资料"] --> Parse["自动解析、去重、保留出处"]
         Parse --> Rules["理法与象法知识块"]
-        Parse --> Cases["结构化卦例 JSON"]
+        Parse --> Cases["结构化卦例 JSON、大类与小类"]
         PDF["象法PDF目录核对"] --> OutlineDB["目录节点、用法与案例关联"]
         OutlineDB --> DB
         Rules --> DB[("SQLite知识库与检索索引")]
@@ -122,8 +124,11 @@ flowchart TD
         User["问题、六次爻值、起卦时间"] --> AI["ChatGPT / Codex 理解问题"]
         AI --> Chart["MCP 排盘"]
         Chart --> Facts["盘面事实与检索条件"]
-        Facts --> RuleSearch["理法与象法检索"]
-        Facts --> CaseSearch["相似卦例检索"]
+        Facts --> RuleSearch["分类理法＋公共理法／象法场景检索"]
+        Facts --> CaseSearch["同小类优先＋盘面结构匹配"]
+        AI --> Topics["MCP get_topics：浏览大类与小类"]
+        Topics --> RuleSearch
+        Topics --> CaseSearch
         AI --> Outline["MCP get_outline：浏览象法目录"]
         Outline --> RuleSearch
         Outline --> CaseSearch
@@ -141,6 +146,7 @@ flowchart TD
     Local --> CaseSearch
     Local --> Source
     Local --> Outline
+    Local --> Topics
 ```
 
 图中的检索包括两路：论述回答“应参考哪些规则”，卦例回答“有哪些可比较的盘面与解释”。AI结合占问、六亲、世应、动爻、空破及已找到的证据，选择查询角度，并按需要调整返回数量、过滤条件和补查范围。读取候选后再判断适用性；相同卦名、相同结论或较高检索分数都不等于可直接照搬。新卦仅作为查询，不自动写入历史案例库。
@@ -148,6 +154,8 @@ flowchart TD
 检索数量由AI每次主动选择：简单问题少量起查，复杂问题或证据有分歧时扩查，并排除已读条目。论述和卦例没有固定配额；关键判断有适用原文支持、重要分歧已核对后停止，资料不足则明确说明。
 
 象法采用原书目录与场景检索：`get_outline`浏览册、章、节和用法，`search_knowledge(method="xiangfa")`按场景查询，`outline_ids`可限定某个目录及其后代。象法模式不按事项大类过滤；`get_source`补充目录上下文和关联案例。详见[PDF核对目录](docs/六爻象法进阶目录.md)与[接口说明](docs/象法目录与场景索引方案.md)。
+
+理法与卦例可用`get_topics`浏览14个大类、62个小类，分别传入`topic`、`subtopic`。例如先查“姻缘感情 → 复合挽回”，再根据世应、动爻和空破筛选；通用理法可以跨事项补查。自动分类保留匹配依据与未分类项，不能把标签当成人工核验。格局识别也只返回盘面前提与书籍出处，吉凶和具体事件仍需AI结合场景及原文判断。详见[分类与格局实现说明](docs/分类与格局实现说明.md)。
 
 ## 更新
 
@@ -173,5 +181,7 @@ powershell -ExecutionPolicy Bypass -File scripts/install.ps1
 ## 资料与边界
 
 首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件，清单及哈希见[data/sources.jsonl](data/sources.jsonl)。候选卦例可能存在OCR错误、字段缺失和原书排盘冲突，工具会保留问题，不把候选数量当作已核验数量。历史反馈是原作者的记载，不等于独立验证或未来预测保证。
+
+三本扫描资料共811页，正在按原图逐页逐字校对。机器对照与视觉核准分别计数，进度和阶段稿见[OCR逐字校对进度](docs/OCR逐字校对进度.md)。检索返回的`page_reviews`提供已核准页的回查入口；未校对页面仍明确保留OCR状态。
 
 原始资料归档包含1,862个Markdown文件，保留原目录结构：[资料目录](Markdown归档/README.md)。原始文档、图片、音频和转换附件未上传；旧文档中的本地图片链接可能无法在GitHub显示。

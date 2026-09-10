@@ -11,7 +11,7 @@ def test_real_stdio_protocol():
         params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8"})
         async with Client(params) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source","get_outline"}
+            assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source","get_outline","get_topics"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
             outline = await client.call_tool('get_outline', {'parent_id': 'xf_shang_c01'})
             assert not outline.is_error

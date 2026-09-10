@@ -51,7 +51,7 @@ def test_filter_unknown_and_exclusion():
     assert structure_match({"moving_positions":[]},{"moving_positions":[]})["matched"]
     assert structure_match({"moving_positions":[4,5]},{"moving_positions":[3,4,5]})["different"]
     romance = search_knowledge("是否继续感情还是创业",kind="case",topic="relationship",max_chars=150000)
-    assert romance["items"] and all(x["question"]["topic"]=="relationship" for x in romance["items"])
+    assert romance["items"] and all('relationship' in x['classification']['roots'] or not x['classification']['roots'] for x in romance['items'])
     case = search_knowledge("求职",kind="case")["items"][0]
     rules = search_knowledge("工作",exclude_case_ids=[case["evidence_id"]])
     for item in rules["items"]:

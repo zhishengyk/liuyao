@@ -100,7 +100,7 @@ def case_search_text(case):
     """Shared BM25/dense/reranker input. Author conclusions and outcomes excluded."""
     features = case.get("features", {})
     parts = [case["question"]["raw"] or ""]
-    labels = {"topic":"占类", "shi_relative":"世爻六亲", "ying_relative":"应爻六亲", "shi_ying_relations":"世应关系", "moving_positions":"动爻位置", "void_positions":"旬空爻位", "month_break_positions":"月破爻位", "yongshen_reported":"作者取用候选"}
+    labels = {"topic":"占类", "shi_relative":"世爻六亲", "ying_relative":"应爻六亲", "shi_ying_relations":"世应关系", "moving_positions":"动爻位置", "void_positions":"旬空爻位", "month_break_positions":"月破爻位", "yongshen_reported":"作者取用候选", "pattern_names":"结构格局"}
     for key,label in labels.items():
         value = features.get(key)
         if value is not None:

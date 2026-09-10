@@ -2,7 +2,7 @@
   "mcpServers": {
     "liuyao": {
       "command": "uvx",
-      "args": ["--python", "3.11", "--from", "https://github.com/zhishengyk/liuyao/releases/download/v0.5.0/liuyao_mcp-0.5.0-py3-none-any.whl", "liuyao-mcp"],
+      "args": ["--python", "3.11", "--from", "https://github.com/zhishengyk/liuyao/releases/download/v0.6.0/liuyao_mcp-0.6.0-py3-none-any.whl", "liuyao-mcp"],
       "startup_timeout_sec": 180,
       "env": {"UV_CONCURRENT_INSTALLS": "1"}
     }
