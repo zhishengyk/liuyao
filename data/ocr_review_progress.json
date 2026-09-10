@@ -1,7 +1,7 @@
 {
   "total_pages": 811,
   "machine_compared_pages": 811,
-  "visually_checked_pages": 62,
+  "visually_checked_pages": 82,
   "books": [
     {
       "source_id": "liuyao_lifa_jinjie",
@@ -68,10 +68,30 @@
         59,
         60,
         61,
-        62
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
       ],
-      "next_page": 63,
-      "remaining": 195
+      "next_page": 83,
+      "remaining": 175
     },
     {
       "source_id": "liuyao_xiangfa_jinjie_shang",

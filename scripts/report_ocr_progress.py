@@ -5,6 +5,20 @@ from pathlib import Path
 from liuyao_mcp.proofreading import correction_text
 
 
+def markdown_page(text):
+    lines=[]
+    diagram=False
+    for line in text.splitlines():
+        is_diagram='━━' in line
+        if is_diagram!=diagram:
+            lines += ['```text'] if is_diagram else ['```','']
+            diagram=is_diagram
+        lines.append(line)
+        if not is_diagram and not line.startswith('|'):lines.append('')
+    if diagram:lines.append('```')
+    return '\n'.join(lines)
+
+
 def main():
     root=Path(__file__).resolve().parents[1]
     data=json.loads(correction_text(root))
@@ -28,7 +42,7 @@ def main():
                         '这是已逐字对照原图的阶段稿，尚未完成的页面不收录。〔……〕为校注，不是原书文字。','']
             for page in reviewed:
                 record=json.loads((root/'data/proofread_pages'/source['source_id']/f'{page:04}.json').read_text(encoding='utf8'))
-                transcript += [f'## PDF第{page}页','',record['text'],'']
+                transcript += [f'## PDF第{page}页','',markdown_page(record['text']),'']
                 if record['unclear']:transcript += ['校对疑点：'+json.dumps(record['unclear'],ensure_ascii=False),'']
             folder=root/'docs/proofread';folder.mkdir(exist_ok=True)
             (folder/(source['source_id']+'.md')).write_text('\n'.join(transcript),encoding='utf8')
