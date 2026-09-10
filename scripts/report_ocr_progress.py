@@ -35,6 +35,7 @@ def main():
     document += ['',f"机器对照已覆盖{report['machine_compared_pages']}页；严格逐字核对已完成{report['visually_checked_pages']}/{report['total_pages']}页。二者分别统计。",'',
                  '逐页成果保存在[data/proofread_pages](../data/proofread_pages)，每页记录原PDF哈希、页码、完整校订文字和疑点。机器候选与差异统计保存在[data/ocr_corrections.json](../data/ocr_corrections.json)。', '',
                  '已核准的页可通过`get_source("page:来源ID:PDF页码")`读取；未核准页会明确报尚未完成逐字校对。原始证据仍可照常查询。', '',
+                 '此表统计源码中的逐页成果，可能领先于已安装发行包；用户端可读取哪些校订页，以对应版本的Release说明和工具实际返回的page_reviews为准。', '',
                  '续作时从上表“下一页”开始。逐页查看原图，校核整页文字与图表，再保存单页JSON；禁止用机器识别分数直接批量标记visually_checked。','']
     (root/'data/ocr_review_progress.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     (root/'docs/OCR逐字校对进度.md').write_text('\n'.join(document),encoding='utf8')
