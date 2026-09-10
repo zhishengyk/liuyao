@@ -6,12 +6,13 @@
         "--python",
         "3.11",
         "--from",
-        "https://github.com/zhishengyk/liuyao/releases/download/v0.6.6/liuyao_mcp-0.6.6-py3-none-any.whl",
+        "https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl",
         "liuyao-mcp"
       ],
       "startup_timeout_sec": 180,
       "env": {
-        "UV_CONCURRENT_INSTALLS": "1"
+        "UV_CONCURRENT_INSTALLS": "1",
+        "UV_LINK_MODE": "copy"
       }
     }
   }

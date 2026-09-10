@@ -20,7 +20,8 @@ from mcp.client.stdio import StdioServerParameters
 async def main():
     env = {k: v for k, v in os.environ.items()
            if not k.startswith('LIUYAO_') and k not in ('PYTHONPATH', 'PYTHONHOME')}
-    env.update(PYTHONIOENCODING='utf-8', UV_PYTHON_DOWNLOADS='never')
+    env.update(PYTHONIOENCODING='utf-8', UV_PYTHON_DOWNLOADS='never',
+               UV_CONCURRENT_INSTALLS='1', UV_LINK_MODE='copy')
     command = sys.argv[1] if len(sys.argv) > 1 else sys.executable
     args = sys.argv[2:] if len(sys.argv) > 1 else ['-I', '-m', 'liuyao_mcp.server']
     wheel = None
@@ -95,9 +96,11 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
             assert any(c['relative']=='父母' and c['scope']=='hidden'
                        for c in found['items'][0]['case']['features']['yongshen_candidates'])
             report['checks'].append('hidden_changed_selection_and_scoped_retrieval')
-            reviewed = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:124')
-            assert reviewed['text_version'] == 'visually_reviewed_page' and reviewed['pdf_pages'] == [124]
+            reviewed = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:204')
+            assert reviewed['text_version'] == 'visually_reviewed_page' and reviewed['pdf_pages'] == [204]
             assert reviewed['text'] and 'unclear' in reviewed
+            ambiguous = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:140')
+            assert len(ambiguous['unclear']) == 2 and '原图中横不清' in ambiguous['text']
             noted = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:106')
             assert noted['notes'] and '搞暖味' in noted['text']
             report['checks'].append('visually_reviewed_page_readback')

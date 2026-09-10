@@ -24,10 +24,10 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 
 它会注册GitHub插件目录，下载对应预建包，完成离线自检，再安装插件。**不需要克隆源码仓库、手工修改JSON或重新建库。** 安装后由Codex更新插件，新版程序与数据库在首次启动时自动下载，日常复用缓存，无需为每次升级重新运行脚本。
 
-也可以手动安装对应发行版。以下0.6.6命令须以对应Release的wheel实际可用为前提；候选测试请使用已核验的本地wheel路径：
+也可以通过以下命令安装对应发行版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.6/liuyao_mcp-0.6.6-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -41,7 +41,7 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.6/liuyao_mcp-0.6.6-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
