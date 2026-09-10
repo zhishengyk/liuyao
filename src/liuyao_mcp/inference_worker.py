@@ -9,7 +9,7 @@ import threading
 import time
 
 from .common import digest, dumps, runtime_root as project_root
-from .semantic import model_key, model_lock
+from .semantic import model_key, model_lock, reranker_precision
 
 
 def text_windows(tokenizer, text, max_tokens, query=None):
@@ -38,6 +38,9 @@ def text_windows(tokenizer, text, max_tokens, query=None):
 class Models:
     def __init__(self):
         self.metadata = model_lock()
+        self.reranker_precision = reranker_precision()
+        self.identity = model_key(self.metadata,roles=None,precision=self.reranker_precision)
+        self.quantization_ms = 0.0
         self.lock = threading.Lock()
         # Reuse one Torch thread: disposable HTTP threads accumulate CPU runtime memory.
         self.compute = ThreadPoolExecutor(max_workers=1, thread_name_prefix="liuyao-model")
@@ -67,6 +70,10 @@ class Models:
             raise ValueError("预期单一相关性logit的reranker")
         model.eval()
         model.to(device="cpu",dtype=torch.float32)
+        if role == "reranker" and self.reranker_precision == "dynamic_int8_per_channel":
+            started = time.perf_counter()
+            torch.ao.quantization.quantize_dynamic(model,{torch.nn.Linear:torch.ao.quantization.per_channel_dynamic_qconfig},dtype=torch.qint8,inplace=True)
+            self.quantization_ms = round((time.perf_counter()-started)*1000,2)
         if role=="embedding":
             from pathlib import Path
             pooling = Path(path)/"1_Pooling/config.json"
@@ -120,7 +127,7 @@ class Models:
                 window_scores = []
                 windows = text_windows(tokenizer,text,max_tokens,query)
                 for _,_,piece in windows:
-                    key = digest(query+"\x00"+piece)
+                    key = digest(self.reranker_precision+"\x00"+query+"\x00"+piece)
                     score = self.rerank_cache.get(key)
                     if score is None:
                         inputs = tokenizer(query,piece,return_tensors="pt",truncation=False)
@@ -130,7 +137,7 @@ class Models:
                     window_scores.append(score)
                 scores.append(max(window_scores))
                 counts.append(len(windows))
-            return {"scores":scores,"window_counts":counts,"model":self.metadata["reranker"]["name"],"revision":self.metadata["reranker"]["revision"],"precision":"float32","device":"cpu","is_probability":False}
+            return {"scores":scores,"window_counts":counts,"model":self.metadata["reranker"]["name"],"revision":self.metadata["reranker"]["revision"],"precision":self.reranker_precision,"quantization_ms":self.quantization_ms,"device":"cpu","is_probability":False}
 
 
 def main():
@@ -151,13 +158,13 @@ def main():
             if self.path != "/health":
                 self.respond(404,{"error":"unknown endpoint"})
                 return
-            self.respond(200,{"root":str(project_root()),"source":__file__,"pid":os.getpid(),"model_key":model_key(models.metadata,roles=None),"loaded":list(models.models),"device":"cpu"})
+            self.respond(200,{"root":str(project_root()),"source":__file__,"pid":os.getpid(),"model_key":models.identity,"loaded":list(models.models),"device":"cpu","precision":{"embedding":"float32","reranker":models.reranker_precision},"quantization_ms":models.quantization_ms})
 
         def do_POST(self):
             try:
                 body = json.loads(self.rfile.read(int(self.headers.get("Content-Length","0"))))
                 if self.path == "/stop":
-                    if body.get("root") != str(project_root()) or body.get("model_key") != model_key(models.metadata,roles=None):
+                    if body.get("root") != str(project_root()) or body.get("model_key") != models.identity:
                         self.respond(409,{"error":"worker ownership mismatch"})
                         return
                     self.respond(200,{"stopping":True,"pid":os.getpid()})

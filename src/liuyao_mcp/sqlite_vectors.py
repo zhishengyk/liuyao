@@ -82,23 +82,29 @@ def search_vectors(path, query_vectors, kind, allowed_ids, limit):
         load_extension(db)
         db.execute('PRAGMA query_only=ON')
         manifest = json.loads(db.execute('SELECT payload FROM semantic_metadata').fetchone()[0])
-        allowed = json.dumps(sorted(allowed_ids))
+        if isinstance(allowed_ids, tuple) and len(allowed_ids)==2 and isinstance(allowed_ids[1],dict):
+            # Internal retrieval SQL is parameterized and runs on this index snapshot.
+            scope_sql, params = allowed_ids
+            scope = f'SELECT evidence_id FROM ({scope_sql})'
+        else:
+            scope = 'SELECT value FROM json_each(:allowed)'
+            params = {'allowed':json.dumps(sorted(allowed_ids))}
         for vector in query_vectors:
             packed = pack_vector(vector, manifest['dimensions'])
             # ponytail: exact scan for this small corpus; consider vec0 if measured latency requires it.
-            matches = db.execute('''
+            matches = db.execute(f'''
                 WITH scored AS MATERIALIZED (
-                    SELECT evidence_id, start, end, 1-vec_distance_cosine(embedding, ?) AS score
+                    SELECT evidence_id, start, end, 1-vec_distance_cosine(embedding, :vector) AS score
                     FROM semantic_vectors
-                    WHERE kind=? AND evidence_id IN (SELECT value FROM json_each(?))
+                    WHERE kind=:kind AND evidence_id IN ({scope})
                 ), ranked AS (
                     SELECT *, row_number() OVER (
                         PARTITION BY evidence_id ORDER BY score DESC, start, end
                     ) AS position FROM scored
                 )
                 SELECT evidence_id, start, end, score FROM ranked WHERE position=1
-                ORDER BY score DESC, evidence_id LIMIT ?
-            ''', (packed, kind, allowed, limit+1))
+                ORDER BY score DESC, evidence_id LIMIT :vector_limit
+            ''', dict(params,vector=packed,kind=kind,vector_limit=limit+1))
             for eid, start, end, score in matches:
                 candidate = {'evidence_id': eid, 'score': score, 'span': [start, end]}
                 previous = best.get(eid)

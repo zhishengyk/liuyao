@@ -8,13 +8,18 @@ from pathlib import Path
 import sqlite3
 import time
 
-from .common import NEGATED_TECHNICAL, case_search_text, database_path, digest, dumps, plain, retrieval_data_dir, tokens, topic_of
+from .common import NEGATED_TECHNICAL, database_path, digest, dumps, plain, retrieval_data_dir, tokens
 from .ingest import PAGE, read_spans
 from .outline import read_outline, related_cases
 from .taxonomy import resolve as resolve_topic, tier as topic_tier, classify as classify_topic
 from .proofreading import page_reviews
 
 STOP = set("的 了 是 在 我 你 他 她 这个 一下 怎么 什么 如何 是否 能否 请 帮 用 看 想 要 能 不能 吗 有 没有".split())
+FEATURE_LABELS = {'shi_relative':'世爻六亲', 'ying_relative':'应爻六亲',
+                  'yongshen_relative':'调用方已选用神六亲', 'yongshen_void':'用神旬空',
+                  'yongshen_moving':'用神发动', 'yongshen_month_break':'用神月破',
+                  'shi_ying_relations':'世应关系', 'moving_positions':'动爻位置',
+                  'void_positions':'旬空爻位', 'month_break_positions':'月破爻位'}
 
 
 @contextmanager
@@ -72,6 +77,50 @@ def case_summary(case):
     return {"cast": case["cast"], "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
 
 
+def structural_candidates(db, scope_sql, params, features, limit):
+    """Score the small indexed feature cells in SQLite, without reading case payloads."""
+    requested = []
+    for key, expected in features.items():
+        if expected is None:
+            continue
+        selector = (features.get('yongshen_relative') or '') if key in (
+            'yongshen_void','yongshen_moving','yongshen_month_break') else ''
+        items = expected if isinstance(expected,list) else [expected]
+        requested.append({'key':key,'selector':selector,'expected':expected,
+                          'items':items,'positions':key.endswith('_positions')})
+    if not requested:
+        return []
+    # Known-but-different cells count in the denominator; absent/null cells remain unknown.
+    # Array subsets, empty arrays, repeated positions and author-selected-line ambiguity
+    # follow structure_match. The query does not depend on lexical or dense candidates.
+    item_columns = "CASE WHEN type IN ('integer','real','true','false') THEN 'number' ELSE type END, value"
+    sql = f"""WITH eligible AS ({scope_sql}), requested AS (
+        SELECT json_extract(value,'$.key') AS key,json_extract(value,'$.selector') AS selector,
+               value AS request FROM json_each(:features)
+    ), compared AS (
+        SELECT f.evidence_id, CASE WHEN json_type(f.value)='array' THEN
+            CASE WHEN json_extract(r.request,'$.positions') THEN NOT EXISTS (
+                SELECT {item_columns},count(*) FROM json_each(f.value) GROUP BY 1,2
+                EXCEPT SELECT {item_columns},count(*) FROM json_each(r.request,'$.items') GROUP BY 1,2
+            ) AND NOT EXISTS (
+                SELECT {item_columns},count(*) FROM json_each(r.request,'$.items') GROUP BY 1,2
+                EXCEPT SELECT {item_columns},count(*) FROM json_each(f.value) GROUP BY 1,2
+            ) ELSE CASE WHEN json_array_length(r.request,'$.items')=0
+                THEN json_array_length(f.value)=0 ELSE NOT EXISTS (
+                    SELECT {item_columns} FROM json_each(r.request,'$.items')
+                    EXCEPT SELECT {item_columns} FROM json_each(f.value)) END END
+            ELSE (json_type(f.value)=json_type(r.request,'$.expected') OR (
+                json_type(f.value) IN ('integer','real','true','false') AND
+                json_type(r.request,'$.expected') IN ('integer','real','true','false')))
+                AND json_extract(f.value,'$')=json_extract(r.request,'$.expected') END AS matched
+        FROM requested r JOIN case_features f ON f.key=r.key AND f.selector=r.selector
+        WHERE f.evidence_id IN (SELECT evidence_id FROM eligible)
+    ) SELECT evidence_id,sum(matched) AS matched_count,1.0*sum(matched)/count(*) AS score
+      FROM compared GROUP BY evidence_id HAVING sum(matched)>0
+      ORDER BY score DESC,matched_count DESC,evidence_id LIMIT :structural_limit"""
+    return list(db.execute(sql,dict(params,features=dumps(requested),structural_limit=limit)))
+
+
 def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False):
     started = time.perf_counter()
     config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
@@ -100,81 +149,102 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         raise ValueError("请提供有意义的查询文本或结构特征")
     if outline_ids and len(outline_ids) > 100:
         raise ValueError('outline_ids单次最多100个目录节点')
-    candidate_limit = max(60, limit*5 + len(exclude_ids))
+    candidate_limit = max(60, limit*5)
     with connect(db_path) as db:
-        if 'focus' not in {r['name'] for r in db.execute('PRAGMA table_info(search_index)')}:
+        version = db.execute("SELECT value FROM build_info WHERE key='search_index_version'").fetchone()
+        if version is None or version[0] != 'focused-2':
             raise ValueError('知识库检索索引版本过旧，请更新发布包或重新运行 liuyao-ingest')
-        outline_allowed = None
         if outline_ids:
-            valid_nodes = {r[0] for r in db.execute('SELECT id FROM outline_nodes')}
-            if set(outline_ids) - valid_nodes:
+            unknown = db.execute('SELECT value FROM json_each(?) EXCEPT SELECT id FROM outline_nodes',
+                                 (dumps(outline_ids),)).fetchall()
+            if unknown:
                 raise ValueError('未知目录节点，请先get_outline')
-            placeholders = ','.join('?' for _ in outline_ids)
-            outline_allowed = {r[0] for r in db.execute(
-                f'SELECT evidence_id FROM evidence_outline WHERE node_id IN ({placeholders})', outline_ids)}
-        sources = {r["id"]: json.loads(r["metadata"]) for r in db.execute("SELECT id,metadata FROM sources")}
-        all_cases = {r["id"]: (r, json.loads(r["payload"])) for r in db.execute("SELECT * FROM cases")} if kind=='case' or exclude_case_ids or exclude_ids else {}
-        empty_cases = {eid for eid, (_, case) in all_cases.items() if not case_search_text(case).strip()} if kind == 'case' else set()
-        classifications = {r[0]:json.loads(r[1]) for r in db.execute('SELECT evidence_id,payload FROM evidence_classification')}
+        excluded_groups = {r[0] for r in db.execute(
+            'SELECT duplicate_group FROM cases WHERE id IN (SELECT value FROM json_each(?))',
+            (dumps(sorted(exclude_case_ids | exclude_ids)),))}
+        if excluded_groups and (exclude_case_ids or kind == 'case'):
+            exclude_ids.update(r[0] for r in db.execute(
+                'SELECT id FROM cases WHERE duplicate_group IN (SELECT value FROM json_each(?))',
+                (dumps(sorted(excluded_groups)),)))
+        params = {'kind':kind, 'topic':topic, 'subtopic':subtopic,
+                  'excluded':dumps(sorted(exclude_ids)), 'groups':dumps(sorted(excluded_groups)),
+                  'outline':dumps(outline_ids or []), 'method':method, 'author':author}
+        conditions = ['e.kind=:kind', 'e.searchable=1']
+        if exclude_ids:
+            conditions.append('e.evidence_id NOT IN (SELECT value FROM json_each(:excluded))')
+        if method != 'all':
+            conditions.append("e.method IN (:method,'mixed')")
+        if author:
+            conditions.append('instr(e.author,:author)>0')
+        if outline_ids:
+            conditions.append('e.evidence_id IN (SELECT evidence_id FROM evidence_outline WHERE node_id IN (SELECT value FROM json_each(:outline)))')
+        if kind == 'case' and (require_valid_chart or features):
+            conditions.append('e.chart_valid=1')
+        if not include_common:
+            conditions.append("e.scope!='common'")
+        category = '0'
+        if topic:
+            same_topic = 'e.evidence_id IN (SELECT evidence_id FROM evidence_topics WHERE topic_id=:topic)'
+            same_subtopic = 'e.evidence_id IN (SELECT evidence_id FROM evidence_topics WHERE topic_id=:subtopic)'
+            branches = [same_topic]
+            if include_common:
+                branches.append("e.scope='common'")
+            if include_unknown:
+                branches.append('e.root_count=0')
+            conditions.append('('+' OR '.join(branches)+')')
+            category = f"CASE WHEN {same_topic} THEN CASE WHEN :subtopic IS NULL OR {same_subtopic} THEN 0 ELSE 1 END WHEN e.scope='common' THEN 2 ELSE 3 END"
+        if kind == 'rule' and exclude_case_ids and excluded_groups:
+            conditions.append("""NOT EXISTS (
+                SELECT 1 FROM case_spans s JOIN cases c ON c.id=s.evidence_id
+                WHERE c.duplicate_group IN (SELECT value FROM json_each(:groups))
+                AND s.source_id=e.source_id AND e.start_line<=s.end_line AND e.end_line>=s.start_line)""")
+        scope_sql = 'SELECT e.*, e.rowid AS insertion_order, '+category+' AS category_rank FROM evidence_metadata e WHERE '+' AND '.join(conditions)
+        sources, classifications, records = {}, {}, {}
+        def record_for(eid):
+            if eid not in records:
+                records[eid] = db.execute('SELECT * FROM evidence_metadata WHERE evidence_id=?',(eid,)).fetchone()
+            return records[eid]
+        def payload_for(eid):
+            if eid not in payloads:
+                table = 'cases' if kind == 'case' else 'chunks'
+                payloads[eid] = json.loads(db.execute(f'SELECT payload FROM {table} WHERE id=?',(eid,)).fetchone()[0])
+            return payloads[eid]
         def category_rank(eid):
-            fallback = {'roots':[all_cases[eid][0]['topic']]} if kind=='case' and all_cases[eid][0]['topic'] else {}
-            tier = topic_tier(classifications.get(eid,fallback),topic,subtopic,include_common)
-            return None if tier == 3 and not include_unknown else tier
-        excluded_groups = {all_cases[c][0]["duplicate_group"] for c in exclude_case_ids | exclude_ids if c in all_cases}
-        excluded_ranges = defaultdict(list)
-        for row, case in all_cases.values():
-            if row["duplicate_group"] in excluded_groups and (exclude_case_ids or kind == "case"):
-                exclude_ids.add(row["id"])
-                if exclude_case_ids:
-                    excluded_ranges[row["source_id"]].extend(case["source"]["spans"])
+            if eid not in classifications:
+                classifications[eid] = json.loads(db.execute('SELECT payload FROM evidence_classification WHERE evidence_id=?',(eid,)).fetchone()[0])
+            return topic_tier(classifications[eid],topic,subtopic,include_common)
         ranks, bm25_values, dense_values, reranker_values, payloads = defaultdict(float), {}, {}, {}, {}
         corpus_hash = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
         focus_weight = 8 if kind == 'case' else 2
-        sql = f"SELECT evidence_id,bm25(search_index,0,0,{focus_weight},1) AS score FROM search_index WHERE search_index MATCH ? AND kind=? ORDER BY score"
-        lexical = list(db.execute(sql, (" OR ".join('"'+t+'"' for t in terms), kind))) if terms else []
-        def allowed(eid, record):
-            source = sources[record["source_id"]]
-            if eid in empty_cases:
-                return False
-            if kind == 'rule':
-                passage = json.loads(record['payload'])
-                if passage.get('content_role') == 'case_excerpt' and passage.get('has_case_analysis') is False:
-                    return False
-            if outline_allowed is not None and eid not in outline_allowed:
-                return False
-            if eid in exclude_ids or (method != "all" and record["method"] not in (method, "mixed")):
-                return False
-            if author and author not in (source.get("author") or ""):
-                return False
-            if kind == 'case' and (require_valid_chart or features) and all_cases[eid][1]['extraction']['chart_validation'] != 'calculated':
-                return False
-            if category_rank(eid) is None:
-                return False
-            if kind == "rule" and any(record["start_line"] <= s["end_line"] and record["end_line"] >= s["start_line"] for s in excluded_ranges[record["source_id"]]):
-                return False
-            return True
-        records = {r["id"]: r for r in db.execute("SELECT * FROM chunks")} if kind == "rule" else {k: r for k, (r, _) in all_cases.items()}
         outline_overflow = False
         if (outline_ids or topic) and not terms and not features:
-            browse = sorted((eid for eid in records if allowed(eid, records[eid])),
-                            key=lambda eid: (category_rank(eid),records[eid]['source_id'], records[eid]['start_line'] if kind == 'rule'
-                                             else all_cases[eid][1]['source']['spans'][0]['start_line']))
+            browse = list(db.execute(f'WITH eligible AS ({scope_sql}) SELECT evidence_id FROM eligible ORDER BY category_rank,source_id,start_line,insertion_order LIMIT :candidate_limit',
+                                     dict(params,candidate_limit=candidate_limit+1)))
             outline_overflow = len(browse) > candidate_limit
-            for rank, eid in enumerate(browse[:candidate_limit], 1):
-                ranks[eid] += 1/(60+rank)
-        lexical = [r for r in lexical if r["evidence_id"] in records and allowed(r["evidence_id"], records[r["evidence_id"]])]
-        if topic:lexical.sort(key=lambda r:category_rank(r['evidence_id']))
+            for rank, row in enumerate(browse[:candidate_limit], 1):
+                ranks[row['evidence_id']] += 1/(60+rank)
+        # FTS scores still use the complete index; only eligible candidates cross to Python.
+        sql = f"""WITH eligible AS ({scope_sql})
+            SELECT evidence_id,bm25(search_index,0,0,{focus_weight},1) AS score FROM search_index
+            WHERE search_index MATCH :match AND kind=:kind
+            AND evidence_id IN (SELECT evidence_id FROM eligible)
+            ORDER BY score LIMIT :candidate_limit"""
+        lexical = list(db.execute(sql,dict(params,match=' OR '.join('"'+t+'"' for t in terms),candidate_limit=candidate_limit+1))) if terms else []
         lexical_overflow = len(lexical) > candidate_limit
         for rank, row in enumerate(lexical[:candidate_limit], 1):
-            eid = row["evidence_id"]
+            eid = row['evidence_id']
             ranks[eid] += 1/(60+rank)
-            bm25_values[eid] = row["score"]
+            bm25_values[eid] = row['score']
         timings["bm25_ms"] = round((time.perf_counter()-started)*1000,2)
-        semantic_query = query + ("\n盘面条件："+dumps(features) if features else "")
+        context_titles = [row[0] for key in (topic,subtopic) if key
+                          for row in db.execute('SELECT title FROM topics WHERE id=?',(key,))]
+        semantic_query = query + ('\n事项范围：'+' / '.join(context_titles) if context_titles else '')
+        if features:
+            semantic_query += '\n已知盘面条件：'+dumps({FEATURE_LABELS.get(k,k):v for k,v in features.items() if v is not None})
         dense_overflow = False
         if mode != "bm25":
             from .vector_index import dense_search
-            allowed_ids = {eid for eid,row in records.items() if allowed(eid,row)}
+            allowed_ids = (scope_sql, params)
             dense,details = dense_search(semantic_query,kind,allowed_ids,candidate_limit,corpus_hash,db_path)
             timings["dense_ms"] = details["elapsed_ms"]
             model_info["embedding"] = details["model"]
@@ -187,31 +257,31 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         matches = {}
         structural_overflow = False
         if kind == "case" and features:
-            structural = []
-            for eid, (row, case) in all_cases.items():
-                if not allowed(eid, row):
-                    continue
-                match = structure_match(features, case["features"])
-                matches[eid] = match
-                if match["matched"]:
-                    structural.append((eid, match))
-            structural.sort(key=lambda pair: (category_rank(pair[0]), -pair[1]["score"], -len(pair[1]["matched"]), pair[0]))
+            structural = structural_candidates(db, scope_sql, params, features, candidate_limit+1)
             structural_overflow = len(structural) > candidate_limit
-            for rank, (eid, _) in enumerate(structural[:candidate_limit], 1):
-                ranks[eid] += 1/(60+rank)
+            for rank, row in enumerate(structural[:candidate_limit], 1):
+                ranks[row['evidence_id']] += 1/(60+rank)
         ordered = sorted(ranks, key=lambda eid: (-ranks[eid], eid))
         seen_hashes = set()
         if kind == "rule":
-            seen_hashes.update(records[e]["content_hash"] for e in exclude_ids if e in records)
+            seen_hashes.update(r[0] for r in db.execute(
+                "SELECT group_id FROM evidence_metadata WHERE kind='rule' AND evidence_id IN (SELECT value FROM json_each(?))",
+                (dumps(sorted(exclude_ids)),)))
         eligible = []
         for eid in ordered:
-            row = records[eid]
-            group = row["content_hash"] if kind == "rule" else row["duplicate_group"]
+            row = record_for(eid)
+            group = row["group_id"]
             if group in seen_hashes:
                 continue
             seen_hashes.add(group)
-            payloads[eid] = json.loads(row["payload"])
             eligible.append(eid)
+        case_tiers = {}
+        if kind == 'case' and topic and eligible:
+            case_tiers = dict(db.execute(f'''WITH eligible AS ({scope_sql})
+                SELECT evidence_id,category_rank FROM eligible
+                WHERE evidence_id IN (SELECT value FROM json_each(:candidate_ids))''',
+                dict(params,candidate_ids=dumps(eligible))))
+            eligible.sort(key=case_tiers.__getitem__)
         rerank_overflow = False
         if mode == "hybrid_rerank" and eligible:
             from .semantic import ensure_worker, request
@@ -220,40 +290,38 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             selected = eligible[:rerank_count]
             rerank_overflow = len(eligible)>len(selected)
             ensure_worker()
-            reranked = request("rerank",{"query":semantic_query,"texts":[document_text(kind,payloads[eid]) for eid in selected],"max_tokens":1024})
+            reranked = request("rerank",{"query":semantic_query,"texts":[document_text(kind,payload_for(eid)) for eid in selected],"max_tokens":1024})
             if len(reranked["scores"]) != len(selected):
                 raise ValueError("reranker返回的分数数量不一致")
             reranker_values = dict(zip(selected,reranked["scores"]))
             eligible = sorted(selected,key=lambda eid:(-reranker_values[eid],-ranks[eid],eid))
             timings["reranker_ms"] = reranked["elapsed_ms"]
             model_info["reranker"] = {"name":reranked["model"],"revision":reranked["revision"],"device":reranked["device"],"precision":reranked["precision"],"scored_candidates":len(selected),"scored_windows":sum(reranked["window_counts"])}
-        # Keep diversity without discarding the only relevant available source.
-        per_source = defaultdict(int)
-        preferred, deferred = [], []
-        for eid in eligible:
-            sid = records[eid]["source_id"]
-            (preferred if per_source[sid] < max(2, (limit+1)//2) else deferred).append(eid)
-            per_source[sid] += 1
-        eligible = preferred + deferred
-        if topic:
-            eligible.sort(key=category_rank)
+        # Cases answer a particular event; keep the requested subtype ahead of its
+        # parent fallback. General rules retain the model's relevance ordering.
+        if case_tiers:
+            eligible.sort(key=case_tiers.__getitem__)
         items, used_chars, budget_skipped = [], 0, []
         for eid in eligible:
             if len(items) == limit:
                 break
-            record, payload = records[eid], payloads[eid]
-            source = sources[record["source_id"]]
+            record, payload = record_for(eid), payload_for(eid)
+            if record['source_id'] not in sources:
+                sources[record['source_id']] = json.loads(db.execute('SELECT metadata FROM sources WHERE id=?',(record['source_id'],)).fetchone()[0])
+            source = sources[record['source_id']]
             item = {"evidence_id": eid, "kind": "case" if kind == "case" else payload["kind"], "source_id": source["source_id"], "title": source["title"], "author": source.get("author"), "method": record["method"], "source_path": source["path"], "source_hash": source["sha256"], "source_type": source["source_type"], "review_status": "unreviewed", "ranking": {"rrf_score": ranks[eid], "bm25": bm25_values.get(eid), "dense_cosine":dense_values.get(eid),"reranker_score":reranker_values.get(eid), "is_probability": False}}
             if kind == "rule":
                 item.update({"chapter": payload["chapter"], "quote": payload["text"], "source_spans": [{"start_line": payload["start_line"], "end_line": payload["end_line"]}], "pdf_pages": payload["pages"]})
                 item['content_role'] = payload.get('content_role', 'passage')
+                if payload.get('section'):item['section'] = payload['section']
                 item['related_case_ids'] = [c for c in payload.get('related_case_ids', []) if c not in exclude_ids]
             else:
                 item.update({"question": payload["question"], "case": case_summary(payload), "source_spans": payload["source"]["spans"], "pdf_pages": payload["source"]["pdf_pages"], "structure_match": matches.get(eid, structure_match(features, payload["features"]))})
             if payload.get('outline'):
                 item['outline'] = payload['outline']
                 item['related_cases'] = related_cases(db, payload['outline']['node_id'], exclude_ids=exclude_ids)
-            item['classification'] = classifications.get(eid,{})
+            category_rank(eid)
+            item['classification'] = classifications[eid]
             if item['pdf_pages']:
                 item['page_reviews'] = page_reviews(db, source['source_id'], item['pdf_pages'])
             if topic:
@@ -265,7 +333,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             items.append(item)
             used_chars += size
         timings["total_ms"] = round((time.perf_counter()-started)*1000,2)
-        return {"query": query, "query_terms": terms, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
+        return {"query": query, "query_terms": terms, "query_context": context_titles, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
 
 
 def get_topics(topic=None, db_path=None):
@@ -360,6 +428,10 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
             result['total_corrections_in_range']=len(corrections)
         if case and offset == 0:
             structured = {k: v for k, v in data.items() if k != "source"}
+            if data['extraction']['chart_validation'] != 'calculated':
+                structured.pop('derived', None)
+                structured['computed_chart_omitted'] = {'reason': 'chart_not_validated',
+                                                       'status': data['extraction']['chart_validation']}
             required = len(dumps(structured))+len(text)
             if required <= max_chars:
                 result["structured_case"] = structured

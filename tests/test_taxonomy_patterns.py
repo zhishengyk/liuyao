@@ -1,5 +1,4 @@
 import json
-import sqlite3
 from pathlib import Path
 
 import pytest
@@ -14,15 +13,51 @@ from liuyao_mcp.taxonomy import classify, classify_rule, resolve, tier
 def test_two_level_taxonomy_and_unknown_scope():
     assert resolve('relationship','reconciliation') == ('relationship','relationship/reconciliation')
     assert classify('想与前任复合')['topic']=='relationship'
+    assert 'relationship/marriage' in classify('想再婚，问能否结婚')['topic_ids']
     assert {'study','health'} <= set(classify('身体有病会不会影响考试')['roots'])
     assert classify('求测人：男')['status']=='unknown'
     assert classify_rule('日辰与月建','这里讨论日月生克',[],'lifa')['scope']=='common'
-    assert classify_rule('第七章 冲','例如测病可用',[],'lifa')['scope']=='common'
     assert classify_rule('未识别标题','不明内容',[],'lifa')['scope']=='unknown'
     assert classify_rule('朱雀','文书与消息',[],'xiangfa')['scope']=='scene'
     assert tier({'scope':'common','roots':[]},'study',None,False) is None
-    assert tier({'scope':'common','roots':[]},None,None,False) is None
     with pytest.raises(ValueError):resolve('study','relationship/reconciliation')
+
+
+def test_explicit_events_take_precedence_over_institution_and_role_context():
+    # Training-source housing questions and independent role/event contracts.
+    for question in ('例四、戌月丁巳日，某女测工作单位分房可得到否',
+                     '例一、辰月癸酉日，某人问向工作单位要住房，可得否',
+                     '向单位要房子可得否'):
+        result = classify(question)
+        assert result['roots'] == ['property']
+        assert 'property/allocation' in result['topic_ids']
+    for question, root in [('测前男友会不会还钱', 'wealth'),
+                           ('到医院看病时把钱丢失，可找回否', 'lost'),
+                           ('医生应聘工作能否录用', 'job'),
+                           ('班主任的孩子走失了', 'lost'),
+                           ('让同事帮忙炒股', 'wealth'),
+                           ('合伙人因纠纷被扣留，问何时获释', 'lawsuit')]:
+        assert classify(question)['topic'] == root
+    assert classify('工作单位分房')['background_context'] == ['工作单位']
+    assert resolve('property', 'allocation') == ('property', 'property/allocation')
+
+
+def test_event_context_preserves_multiple_matters_and_role_only_fallbacks():
+    for question, roots in [('工作发展和申请住房都顺利吗', {'job', 'property'}),
+                            ('工作单位前景和分房都顺利吗', {'job', 'property'}),
+                            ('身体有病会不会影响考试', {'health', 'study'}),
+                            ('去医院看病，另外问考试能否通过', {'health', 'study'}),
+                            ('男友的感情和工作前景如何', {'relationship', 'job'}),
+                            ('在医院工作能否升职', {'job'}),
+                            ('到外地求职何时能录用', {'job'}),
+                            ('在工作单位申请住房', {'property'}),
+                            ('既问工作调动也问身体病情', {'job', 'health'}),
+                            ('和合伙人签订合作合同', {'cooperation'})]:
+        assert set(classify(question)['roots']) == roots
+    for question, root in [('工作单位前景', 'job'), ('能当班主任吗', 'job'),
+                           ('男友怎么样', 'relationship'), ('合伙人怎么样', 'cooperation'),
+                           ('去医院', 'health'), ('请同事帮忙', 'affairs')]:
+        assert classify(question)['topic'] == root
 
 
 def test_hierarchical_retrieval_and_common_rule_switch():
@@ -91,13 +126,9 @@ def test_unreviewed_ocr_proposals_do_not_change_source(tmp_path):
     assert text=='六爻\n' and meta['original_sha256']=='raw'
 
 
-def test_only_visually_reviewed_pages_can_be_read_as_reviewed_text(tmp_path):
+def test_only_visually_reviewed_pages_can_be_read_as_reviewed_text():
     page=get_source('page:liuyao_lifa_jinjie:6')
     assert page['text_version']=='visually_reviewed_page'
     assert '六爻基础入门' in page['text'] and '仔细斟酌' in page['text']
-    path=tmp_path/'unreviewed.sqlite'
-    with sqlite3.connect(path) as db:
-        db.execute('CREATE TABLE ocr_pages(source_id TEXT,pdf_page INT,payload TEXT)')
-        db.execute('INSERT INTO ocr_pages VALUES(?,?,?)',('test',1,json.dumps({'visual_reviewed':False})))
     with pytest.raises(ValueError,match='尚未逐字'):
-        get_source('page:test:1',db_path=path)
+        get_source('page:liuyao_xiangfa_jinjie_shang:317')

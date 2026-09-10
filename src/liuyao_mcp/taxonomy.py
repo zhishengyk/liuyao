@@ -5,7 +5,7 @@ import re
 DEFINITIONS = [
  ('relationship','姻缘感情','感情 婚姻 恋爱 姻缘 男友 女友 对象 缘分',[
   ('new_relationship','认识与择偶','相亲 桃花 脱单 找对象 情书'),('development','恋爱发展','谈朋友 恋爱 交往 缘分'),
-  ('reconciliation','复合挽回','复合 复婚 和好 挽回'),('marriage','结婚与婚姻发展','结婚 婚期 婚姻 婚后'),
+  ('reconciliation','复合挽回','复合 复婚 和好 挽回'),('marriage','结婚与婚姻发展','结婚 再婚 婚期 婚姻 婚后'),
   ('separation','分手离婚','分手 离婚 分开 悔婚'),('intentions','对方态度','喜欢我 爱我 对我 真心 诚心')]),
  ('study','学业考试','考试 考学 升学 学习 成绩 学业',[
   ('exam','考试成绩','考试 考试成绩 考研 笔试 考公 公务员考试 资格考试 乡试 会试 科试 童试 赴试'),('admission','升学录取','录取 考上 升学 入学'),
@@ -24,8 +24,9 @@ DEFINITIONS = [
   ('business','经营创业','生意 开店 店铺 创业 经营 开铺 经商 卦馆'),('deal','买卖交易','买卖 交易 卖出 成交 贸易 卖掉 签单'),
   ('investment','投资收益','投资 股票 炒股 基金 外汇'),('debt','借贷回款','借钱 还钱 借款 欠款 回款 讨债'),
   ('income','收入财运','财运 求财 占财 收入 工资 奖金 利润 挣钱 获利 赚钱 摸奖 抽奖 中奖 奖券 彩票 管理财务')]),
- ('property','房产居家','房屋 房子 买房 卖房 租房 搬家 装修',[
+ ('property','房产居家','房屋 房子 住房 买房 卖房 租房 搬家 装修',[
   ('purchase','买卖房产','买房 卖房 买房子 卖房子 购房 二手房'),('rental','租赁住房','租房 房租 租金 租这个 写字楼'),
+  ('allocation','住房分配','分房 分配住房 申请住房 要住房 要房子'),
   ('moving','搬家迁居','搬家 迁居 新迁住宅'),('renovation','装修修造','装修 修造 建房'),('condition','房屋状况','房屋情况 房子情况 居住环境 风水')]),
  ('cooperation','合作签约','合作 合伙 签约 谈判 合同',[
   ('partner','合作对象','合作对象 合伙人 合作伙伴'),('negotiation','谈判协商','谈判 协商 商谈'),
@@ -55,6 +56,7 @@ DEFINITIONS = [
 
 GENERAL = re.compile(r'用神|元神|忌神|仇神|六亲|月建|日辰|旺衰|旬空|月破|动爻|变爻|进神|退神|三合|六合|六冲|生克|神煞|卦身|应期')
 GENERAL_CHAPTER = re.compile(r'^(?:第[一二三四五六七八九十百\d]+章\s*)?[冲合]$')
+BACKGROUND_CONTEXT = re.compile(r'工作单位|男友|女友|合伙人|合作伙伴|医院|医生|班主任|帮忙')
 SCHEMA = '''CREATE TABLE topics(id TEXT PRIMARY KEY,parent_id TEXT,title TEXT NOT NULL);
 CREATE TABLE evidence_classification(evidence_id TEXT PRIMARY KEY,scope TEXT NOT NULL,payload TEXT NOT NULL);
 CREATE TABLE evidence_topics(evidence_id TEXT NOT NULL,topic_id TEXT NOT NULL,
@@ -75,9 +77,20 @@ def classify(text):
     text = text.lower()
     # 官鬼不见 describes a chart, not a missing person/object.
     text = re.sub(r'(?:(?:官鬼|妻财|用神|元神|忌神|仇神|飞神|伏神)(?:爻)?|(?:父母|兄弟|子孙)爻)(?:不见|不现|不上卦)', '', text)
+    # A role/place is useful when no event is stated; explicit events retain all
+    # their labels, including separate work, health, and other matters together.
+    catalog, parts, context = nodes(), [], []
+    for clause in re.split(r'以及|另外|同时|还有|[；;]|和(?!好|解)|及(?!格)', text):
+        event_text = BACKGROUND_CONTEXT.sub('', clause)
+        if any(a.lower() in event_text for node in catalog for a in node['aliases']):
+            parts.append(event_text)
+            context.extend(BACKGROUND_CONTEXT.findall(clause))
+        else:
+            parts.append(clause)
+    event_text = ' '.join(parts)
     found = []
-    for node in nodes():
-        matched = [a for a in node['aliases'] if a.lower() in text]
+    for node in catalog:
+        matched = [a for a in node['aliases'] if a.lower() in event_text]
         if matched:
             found.append({'id':node['id'],'matched_terms':matched,
                           'score':sum(len(a) for a in matched)})
@@ -89,8 +102,11 @@ def classify(text):
     root_scores = {root: sum(n['score'] for n in found if n['id'].split('/')[0] == root) for root in roots}
     roots.sort(key=lambda root: (-root_scores[root], root))
     primary = roots[0] if roots else None
-    return {'status':'inferred_from_text' if found else 'unknown', 'topic':primary,
-            'topic_ids':paths, 'roots':roots, 'evidence':found}
+    result = {'status':'inferred_from_text' if found else 'unknown', 'topic':primary,
+              'topic_ids':paths, 'roots':roots, 'evidence':found}
+    if context:
+        result['background_context'] = context
+    return result
 
 
 def classify_rule(chapter, theory_text, case_questions, method):

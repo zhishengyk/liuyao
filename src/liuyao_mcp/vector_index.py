@@ -18,7 +18,7 @@ def document_text(kind,payload):
     return payload["chapter"]+"\n"+plain(payload["text"]) if kind=="rule" else case_search_text(payload)
 
 
-def build_index(db_path=None):
+def build_index(db_path=None, activate=True):
     import numpy as np
     path = Path(db_path or database_path()).resolve()
     if not path.is_file():
@@ -74,9 +74,10 @@ def build_index(db_path=None):
     manifest = {"index_version":INDEX_VERSION,"corpus_hash":corpus,"model_key":key,"models":{role:{k:v for k,v in item.items() if k!='path'} for role,item in models.items()},"generation":generation,"source_documents":len(docs)+len(excluded_empty),"excluded_empty_evidence_ids":excluded_empty,"documents":len(docs),"vectors":len(entries),"dimensions":int(matrix.shape[1]),"dtype":"float32","pooling":"cls_l2","max_tokens":MAX_EMBED_TOKENS,"whole_text_covered_by_windows":True,"cached_documents":cached,"encoded_documents":new,"elapsed_seconds":round(time.perf_counter()-started,2)}
     write_index(output/"knowledge.sqlite", manifest, entries, matrix, source=path)
     (output/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf8")
-    temporary = folder/"active.next.json"
-    temporary.write_text(dumps({"generation":generation}),encoding="utf8")
-    temporary.replace(folder/"active.json")
+    if activate:
+        temporary = folder/"active.next.json"
+        temporary.write_text(dumps({"generation":generation}),encoding="utf8")
+        temporary.replace(folder/"active.json")
     return manifest
 
 
@@ -109,8 +110,9 @@ def dense_search(query,kind,allowed_ids,limit,corpus_hash,db_path=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--database",type=Path)
+    parser.add_argument("--no-activate",action="store_true",help="Build a candidate snapshot without changing active.json")
     args = parser.parse_args()
-    print(dumps(build_index(args.database)))
+    print(dumps(build_index(args.database,activate=not args.no_activate)))
 
 
 if __name__ == "__main__":

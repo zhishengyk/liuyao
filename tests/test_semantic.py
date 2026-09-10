@@ -100,7 +100,7 @@ def test_hybrid_reranker_reorders_dense_candidates(monkeypatch,tmp_path):
     from liuyao_mcp import vector_index, semantic
     from liuyao_mcp.sqlite_vectors import write_index
     with sqlite3.connect(database_path()) as db:
-        ids = [r[0] for r in db.execute("SELECT id FROM chunks WHERE source_id='liuyao_lifa_jinjie' ORDER BY id LIMIT 2")]
+        ids = [r[0] for r in db.execute("SELECT evidence_id FROM evidence_metadata WHERE kind='rule' AND searchable=1 AND source_id='liuyao_lifa_jinjie' ORDER BY evidence_id LIMIT 2")]
         corpus = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
     snapshot = tmp_path/'knowledge.sqlite'
     manifest = {'dimensions':2,'generation':'fixture','corpus_hash':corpus,'model_key':'fixture',

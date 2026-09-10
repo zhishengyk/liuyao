@@ -118,11 +118,22 @@ def model_lock(required=("embedding",)):
     return models
 
 
-def model_key(models=None, roles=("embedding",)):
+def reranker_precision():
+    precision = os.environ.get("LIUYAO_RERANK_PRECISION", "float32")
+    if precision not in ("float32", "dynamic_int8_per_channel"):
+        raise ValueError("LIUYAO_RERANK_PRECISION=float32/dynamic_int8_per_channel")
+    return precision
+
+
+def model_key(models=None, roles=("embedding",), precision=None):
     from importlib.metadata import version
     models = models if models is not None else model_lock()
     spec = {role:{k:v for k,v in value.items() if k!='path'} for role,value in models.items() if roles is None or role in roles}
     spec["runtime"] = {name:version(name) for name in ("torch","transformers")}
+    if "reranker" in spec:
+        precision = precision or reranker_precision()
+        if precision != "float32":
+            spec["runtime"]["reranker_precision"] = precision
     return digest(dumps(spec))
 
 
@@ -166,6 +177,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action",choices=["prepare","warm","health","activate","stop"])
     parser.add_argument("--download-source",choices=["modelscope","huggingface"],default="modelscope")
+    parser.add_argument("--mode",choices=["hybrid","hybrid_rerank"],default="hybrid",help="activate检索模式；重排需显式选择hybrid_rerank")
     args = parser.parse_args()
     if args.action == "prepare":
         print(dumps(prepare_models(download_source=args.download_source)))
@@ -178,18 +190,21 @@ def main():
         from .retrieval import search_knowledge
         results = []
         for kind,query in (("rule","工作 用神 旬空"),("case","求职面试能否录用")):
-            result = search_knowledge(query,kind=kind,retrieval_mode="hybrid_rerank")
-            if not result["items"] or any(i["ranking"]["reranker_score"] is None for i in result["items"]):
-                raise ValueError("真实混合检索及重排未通过，未启用默认模式")
+            result = search_knowledge(query,kind=kind,retrieval_mode=args.mode)
+            if not result["items"] or not any(i["ranking"]["dense_cosine"] is not None for i in result["items"]):
+                raise ValueError("真实混合检索未通过，未启用默认模式")
+            if args.mode == "hybrid_rerank" and any(i["ranking"]["reranker_score"] is None for i in result["items"]):
+                raise ValueError("真实重排未通过，未启用默认模式")
             results.append(result)
         folder = retrieval_data_dir()
         config_path = folder/"retrieval-config.json"
         config = json.loads(config_path.read_text(encoding="utf8")) if config_path.exists() else {}
-        config["mode"] = "hybrid_rerank"
-        config.setdefault("rerank_candidates",40)
+        config["mode"] = args.mode
+        if args.mode == "hybrid_rerank":
+            config.setdefault("rerank_candidates",40)
         config_path.write_text(json.dumps(config,ensure_ascii=False,indent=2),encoding="utf8")
         (folder/"semantic-index/activation.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf8")
-        print(dumps({"default_mode":"hybrid_rerank","checks":[{"kind":r["kind"],"returned_count":r["returned_count"],"models":r["models"],"timings":r["timings"]} for r in results]}))
+        print(dumps({"default_mode":args.mode,"checks":[{"kind":r["kind"],"retrieval":r["retrieval"],"returned_count":r["returned_count"],"models":r["models"],"timings":r["timings"]} for r in results]}))
     elif args.action == "stop":
         health = request("health",timeout=2)
         if health.get("root") != str(runtime_root()):

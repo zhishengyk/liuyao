@@ -62,6 +62,7 @@ def test_all_inference_callers_reuse_one_compute_thread(monkeypatch):
     import threading
     from liuyao_mcp import inference_worker
     monkeypatch.setattr(inference_worker, "model_lock", lambda: {})
+    monkeypatch.setattr(inference_worker, "model_key", lambda *args, **kwargs: "fixture")
     seen = []
     def compute(*args):
         seen.append(threading.current_thread())

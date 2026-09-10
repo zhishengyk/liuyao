@@ -121,7 +121,8 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
             assert '占文书' not in previous['text']
             assert following['structured_case']['cast']['day_ganzhi'] == '丙申'
             assert following['structured_case']['cast']['month_branch'] is None
-            assert following['structured_case']['derived'] is None
+            assert 'derived' not in following['structured_case']
+            assert following['structured_case']['computed_chart_omitted']['reason'] == 'chart_not_validated'
             report['checks'].append('case_boundaries_header_exclusion_and_exact_sources')
 
             for anchor, values in [(5002, [2, 1, 1, 3, 2, 1]), (5853, [1, 1, 1, 2, 2, 1])]:
@@ -131,6 +132,7 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
                 case = fixed['structured_case']
                 assert case['cast']['line_values'] == values
                 assert case['extraction']['chart_validation'] == 'calculated'
+                assert case['derived']['features']
                 assert case['outcome']['independently_verified'] is False
                 assert fixed['source']['original_sha256'] == raw['source']['sha256'] != fixed['source']['sha256']
                 assert fixed['source_spans'] == raw['source_spans'] and fixed['text'] != raw['text']

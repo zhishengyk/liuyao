@@ -158,14 +158,81 @@ def test_actual_ocr_boundaries_and_conflicting_transcription(monkeypatch):
     assert spaced_date["cast"]["time"] == "20:42:00"
     assert spaced_date["cast"]["day_ganzhi"] == "己丑"
     assert spaced_date["extraction"]["chart_validation"] == "conflict"
-    assert "reported_primary_conflicts_with_line_values" in spaced_date["extraction"]["issues"]
+    assert "transcribed_diagram_conflicts_with_reported_chart" in spaced_date["extraction"]["issues"]
+    assert spaced_date['cast']['line_values'] is None
+    assert any('reported_hexagram_name_conflict' in c['conflicts'] for c in spaced_date['extraction']['diagram_match']['candidates'])
     assert "占盖房子" not in by_case["case_liuyao_lifa_jinjie_9475"]["source"]["original_text"]
     assert by_case["case_liuyao_lifa_jinjie_9522"]["question"]["raw"] == "占盖房子有政府部门的人来干涉吗"
     assert reported_names("主变卦。 洋天央 之 乾为天") == [None, "乾"]
     assert ocr_primary_row("朱雀 国国国 子孙目金 本国本国 子孙申金") is None
     uncorrected_shi = by_case["case_liuyao_lifa_jinjie_8561"]
-    assert "reported_primary_shi_relative_conflicts_with_calculated_chart" in uncorrected_shi["extraction"]["issues"]
-    assert uncorrected_shi["extraction"]["chart_validation"] == "conflict"
+    assert uncorrected_shi['cast']['line_values'] is None
+    assert uncorrected_shi['extraction']['diagram_match']['status'] == 'insufficient_evidence'
+    assert all(c['label_evidence_count'] == 0 for c in uncorrected_shi['extraction']['diagram_match']['candidates'])
+    assert uncorrected_shi["extraction"]["chart_validation"] == "not_run"
+
+
+def test_reviewed_cross_page_diagrams_follow_actual_chart_rows():
+    root = project_root()
+    source = next(json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()
+                  if json.loads(line)['source_id'] == 'liuyao_xiangfa_jinjie_shang')
+    _, text, _, cases, _ = import_source(source, root)
+    by_id = {c['case_id']: c for c in cases}
+    # Independently PDF-checked tables on pages 145/146; first header ends page 145.
+    for anchor, values, table_page, diagram_start in [
+        (6432, [1, 2, 0, 1, 2, 1], 145, 6456),
+        (6453, [2, 2, 0, 1, 1, 3], 146, 6500),
+        (6490, [3, 1, 2, 1, 1, 1], 146, 6509),
+    ]:
+        case = by_id[f'case_liuyao_xiangfa_jinjie_shang_{anchor}']
+        assert case['cast']['line_values'] == values
+        assert case['extraction']['chart_validation'] == 'calculated'
+        match = case['extraction']['diagram_match']
+        assert match['status'] == 'matched' and match['table_pages'] == [table_page]
+        compatible = [c for c in match['candidates'] if c['label_evidence_count'] and not c['conflicts']]
+        assert [c['start_line'] for c in compatible] == [diagram_start]
+        assert read_spans(text.splitlines(), case['source']['spans']) == case['source']['original_text']
+    assert by_id['case_liuyao_xiangfa_jinjie_shang_6453']['derived']['shi_position'] == 3
+    assert by_id['case_liuyao_xiangfa_jinjie_shang_6453']['derived']['ying_position'] == 6
+
+
+def test_unreviewed_cross_page_graph_is_rejected_and_prefix_is_not_lost(monkeypatch):
+    monkeypatch.setattr('liuyao_mcp.ingest.apply_corrections', lambda source, text, root: (source, text))
+    root = project_root()
+    source = next(json.loads(line) for line in (root / 'data/sources.jsonl').read_text(encoding='utf8').splitlines()
+                  if json.loads(line)['source_id'] == 'liuyao_xiangfa_jinjie_shang')
+    _, _, _, cases, _ = import_source(source, root)
+    by_id = {c['case_id']: c for c in cases}
+    assert 'case_liuyao_xiangfa_jinjie_shang_6432' in by_id
+    case = by_id['case_liuyao_xiangfa_jinjie_shang_6453']
+    assert case['cast']['line_values'] is None
+    assert case['extraction']['chart_validation'] == 'conflict'
+    assert case['extraction']['diagram_match']['table_pages'] == [146]
+    assert all(c['start_line'] >= 6500 for c in case['extraction']['diagram_match']['candidates'])
+    assert all('爻' not in row[:2] and '→' not in row for row in case['reported_chart']['line_text'])
+    assert reported_names('” 主变卦 天地否 之 泽山咸') == ['否', '咸']
+
+
+def test_equal_page_counts_do_not_assign_ambiguous_diagrams(tmp_path):
+    table = '''玄武 ▅▅▅▅▅ 父母戌土 世
+白虎 ▅▅▅▅▅ 兄弟申金
+腾蛇 ▅▅▅▅▅ 官鬼午火
+勾陈 ▅▅▅▅▅ 父母辰土 应
+朱雀 ▅▅▅▅▅ 妻财寅木
+青龙 ▅▅▅▅▅ 子孙子水
+'''
+    diagram = '【卦象结构化｜自上而下】\n' + '\n'.join(p+'爻 ━━━━━━ → ━━━━━━' for p in '上五四三二初')+'\n'
+    text = '========== PDF 第 1 页 / 共 1 页 ==========\n'
+    for n in (1, 2):
+        text += f'求测人：{n}\n占问事宜：问工作\n子月甲子日\n” 主变卦 乾为天 之 乾为天\n{table}断曰：本例的说明。\n'
+    text += diagram + diagram
+    blob = text.encode('utf8');(tmp_path / 'book.md').write_bytes(blob)
+    source = dict(source_id='test_book', path='book.md', title='配图归属测试', source_type='ocr_text',
+                  method_hint='lifa', pdf_pages=1, sha256=hashlib.sha256(blob).hexdigest())
+    cases = import_source(source, tmp_path)[3]
+    assert len(cases) == 2
+    assert all(c['cast']['line_values'] is None for c in cases)
+    assert all(c['extraction']['diagram_match']['status'] == 'ambiguous' for c in cases)
 
 
 def test_pdf_reviewed_corrections_repair_charts_without_verifying_outcomes():
