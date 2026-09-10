@@ -65,4 +65,4 @@ GitHub发行来源为`liuyao-assistant@liuyao`。已有personal开发版时，�
 
 ## 验证
 
-`codex plugin list --json`应显示目标插件已安装并启用。新会话中发送README的起卦示例，检查`build_chart`、`search_knowledge`、`get_source`；象法目录可调用新增的`get_outline`。可让AI“查看六神之象目录，再查材料审核相关象法，核对原文条件”，检查目录路径、场景结果和导语回查。CLI注册成功不代替桌面界面的实际使用验证。
+`codex plugin list --json`应显示目标插件已安装并启用。新会话中发送README的起卦示例，检查`build_chart`、`search_knowledge`、`get_source`；象法目录用`get_outline`，理法与案例分类用`get_topics`。可让AI“查看六神之象目录，再查材料审核相关象法，核对原文条件”，或“浏览姻缘小类，查复合案例并补充公共理法”。排盘还应返回`patterns`及其原文引用，校订页可通过`page_reviews`里的ID读取。CLI注册成功不代替桌面界面的实际使用验证。
