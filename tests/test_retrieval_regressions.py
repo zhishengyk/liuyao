@@ -43,6 +43,13 @@ def test_single_character_chart_conditions_survive_query_filtering():
         assert expected <= set(result['query_terms'])
 
 
+def test_unlisted_short_tokens_are_not_silently_reduced_to_another_concept():
+    transformed = search_knowledge('子孙化鬼', kind='rule', limit=3)
+    assert {'子孙', '化', '鬼'} <= set(transformed['query_terms'])
+    external = search_knowledge('外应', kind='rule', limit=3)
+    assert external['query_terms'] == ['外应']
+
+
 def test_structural_comparisons_only_use_verified_charts():
     for options in ({'require_valid_chart': True}, {'features': {'shi_relative': '父母'}}):
         result = search_knowledge('工作', kind='case', limit=5, max_chars=150000, **options)
