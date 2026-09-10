@@ -26,7 +26,21 @@ async def main():
         params = StdioServerParameters(command=command, args=args, env=env, cwd=Path(cwd))
         async with Client(params, read_timeout_seconds=180) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source"}
+            assert {t.name for t in listed.tools} == {"build_chart", "search_knowledge", "get_source", "get_outline"}
+            outline = await client.call_tool('get_outline', {'parent_id': 'xf_shang_c01'})
+            assert not outline.is_error, outline
+            outline_data = outline.structured_content
+            assert len(outline_data.get('result', outline_data)['items']) == 7
+            scene = await client.call_tool('search_knowledge', {'query': '材料审核', 'method': 'xiangfa',
+                                                               'outline_ids': ['xf_shang_c01_s02'], 'limit': 2})
+            assert not scene.is_error, scene
+            scene_data = scene.structured_content
+            scene_data = scene_data.get('result', scene_data)
+            assert scene_data['returned_count'] == 2
+            contextual = await client.call_tool('get_source', {'evidence_id': scene_data['items'][0]['evidence_id'], 'max_chars': 10000})
+            assert not contextual.is_error, contextual
+            context_data = contextual.structured_content
+            assert context_data.get('result', context_data)['outline_context']
             chart = await client.call_tool("build_chart", {"line_values": [2]*6, "month_branch": "卯", "day_ganzhi": "庚子"})
             assert not chart.is_error, chart
             chart_data = chart.structured_content
@@ -46,7 +60,7 @@ async def main():
                 assert original["source"]["sha256"] == data["items"][0]["source_hash"]
                 if kind == "rule":
                     assert original["text"] == data["items"][0]["quote"]
-    print("Installed release: chart, rule/case retrieval and source lookup passed.")
+    print("Installed release: chart, directory, scene/rule/case retrieval and source lookup passed.")
 
 
 if __name__ == "__main__":

@@ -11,8 +11,18 @@ def test_real_stdio_protocol():
         params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8"})
         async with Client(params) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source"}
+            assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source","get_outline"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
+            outline = await client.call_tool('get_outline', {'parent_id': 'xf_shang_c01'})
+            assert not outline.is_error
+            navigation = outline.structured_content
+            navigation = navigation.get('result', navigation)
+            assert len(navigation['items']) == 7
+            scoped = await client.call_tool('search_knowledge', {'query': '', 'method': 'xiangfa', 'limit': 2,
+                                                                'outline_ids': ['xf_shang_c01_s04']})
+            assert not scoped.is_error
+            scoped_data = scoped.structured_content
+            assert scoped_data.get('result', scoped_data)['returned_count'] == 2
             chart = await client.call_tool("build_chart",{"line_values":[2]*6,"month_branch":"卯","day_ganzhi":"庚子"})
             assert not chart.is_error
             found = await client.call_tool("search_knowledge",{"query":"旬空 用神","kind":"rule"})

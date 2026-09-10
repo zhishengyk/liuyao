@@ -10,8 +10,9 @@ import sqlite3
 
 from .chart import BRANCHES, STEMS, HEXAGRAMS, build_chart, calendar_values
 from .common import case_search_text, digest, dumps, normalized, plain, project_root, tokens, topic_of
+from .outline import OUTLINE_SCHEMA, build_outline, catalog_text, evidence_navigation, index_text, node_at, store_outline
 
-PARSER_VERSION = "source-parser-0.2"
+PARSER_VERSION = "source-parser-0.3"
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(r"(父母|兄弟|子孙|妻财|官鬼)([子丑寅卯辰巳午未申酉戌亥])[木火土金水]?")
@@ -72,7 +73,7 @@ def native_row(row):
     return None, None
 
 
-def extract_cases(source, lines, pages, cutoff):
+def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
     diagrams, all_diagram_lines = defaultdict(list), set()
     for i, line in enumerate(lines[:cutoff]):
         if "【卦象结构化" not in line:
@@ -125,7 +126,9 @@ def extract_cases(source, lines, pages, cutoff):
     protected_lines = set(all_diagram_lines)
     for ai, (a, start) in enumerate(zip(anchors, starts)):
         next_start = starts[ai+1] if ai+1 < len(starts) else cutoff
-        heading = next((i for i in range(a+1, next_start) if CHAPTER.match(lines[i].strip()) and not lines[i].startswith("【")), next_start)
+        heading = next((i for i in range(a+1, next_start) if
+                        (i in outline_boundaries if outline_boundaries is not None else
+                         CHAPTER.match(lines[i].strip()) and not lines[i].startswith("【"))), next_start)
         end = min(next_start, heading, a+220)
         ds = assigned.get(a)
         indices = [i for i in range(start, end) if i not in all_diagram_lines]
@@ -295,7 +298,13 @@ def import_source(source, root):
         pages.append(page)
     if source["pdf_pages"] and ([p["page"] for p in page_anchors] != list(range(1, source["pdf_pages"]+1)) or any(p["total"] != source["pdf_pages"] for p in page_anchors)):
         raise ValueError(f"OCR page sequence mismatch: {source['source_id']}")
-    cases, diagram_lines = extract_cases(source, lines, pages, cutoff)
+    outline_nodes = build_outline(source, lines, pages, root)
+    boundaries = {n['start_line']-1: n for n in outline_nodes if n['node_type'] not in ('book', 'front_matter')}
+    cases, diagram_lines = extract_cases(source, lines, pages, cutoff, set(boundaries) if outline_nodes else None)
+    if outline_nodes:
+        for case in cases:
+            node = node_at(outline_nodes, int(case['case_id'].rsplit('_', 1)[1]))
+            case['outline'] = evidence_navigation(node, outline_nodes)
     reasons, chunks, pending = {}, [], []
     chapter = source["title"]
     chapter_start = 0
@@ -307,13 +316,21 @@ def import_source(source, root):
         method = source["method_hint"]
         if method == "mixed":
             method = "xiangfa" if re.search(r"象法|取象|类象|六神", chapter) else "lifa"
-        chunks.append({"id": f"rule_{source['source_id']}_{start+1}", "source_id": source["source_id"], "kind": "passage", "chapter": chapter, "chapter_start": chapter_start+1, "start_line": start+1, "end_line": end, "pages": sorted({pages[i] for i in pending if pages[i] is not None}), "text": body, "method": method, "content_hash": digest(normalized(body))})
+        chunk = {"id": f"rule_{source['source_id']}_{start+1}", "source_id": source["source_id"], "kind": "passage", "chapter": chapter, "chapter_start": chapter_start+1, "start_line": start+1, "end_line": end, "pages": sorted({pages[i] for i in pending if pages[i] is not None}), "text": body, "method": method, "content_hash": digest(normalized(body))}
+        if outline_nodes:
+            node = node_at(outline_nodes, start+1)
+            chunk['outline'] = evidence_navigation(node, outline_nodes)
+            chunk['chapter'] = ' / '.join(p['title'] for p in node['path'][1:])
+            chunk['chapter_start'] = node['start_line']
+        chunks.append(chunk)
         pending.clear()
     for i, line in enumerate(lines):
         stripped = line.strip()
         reason = None
         if i >= cutoff:
             reason = "validation_copy"
+        elif outline_nodes and i+1 < outline_nodes[0]['body_start_line']:
+            reason = 'front_matter'
         elif not stripped:
             reason = "blank"
         elif PAGE.search(line):
@@ -331,7 +348,8 @@ def import_source(source, root):
             if reason not in ("blank",):
                 flush()
             continue
-        if CHAPTER.match(stripped) and len(plain(stripped)) < 110:
+        is_heading = i in boundaries if outline_nodes else CHAPTER.match(stripped) and len(plain(stripped)) < 110
+        if is_heading:
             flush()
             chapter, chapter_start = plain(stripped), i
         # Don't split a six-line diagram, or a single long paragraph, for size alone.
@@ -345,6 +363,7 @@ def import_source(source, root):
     if len(coverage) != len(lines):
         raise AssertionError("Unaccounted source lines")
     report = {"source_id": source["source_id"], "sha256": source["sha256"], "total_lines": len(lines), "covered_lines": len(coverage), "page_anchors": page_anchors, "chunks": len(chunks), "cases": len(cases), "case_status": dict(Counter(c["extraction"]["status"] for c in cases)), "chart_validation": dict(Counter(c["extraction"]["chart_validation"] for c in cases)), "excluded_ranges": [{"reason": reason, **span} for reason in sorted(set(reasons.values())) for span in spans_of(i for i, r in reasons.items() if r == reason)]}
+    report['outline_nodes'] = outline_nodes
     return source, text, chunks, cases, report
 
 
@@ -374,21 +393,23 @@ def ingest(root=None, output=None):
     reports, all_cases = [], []
     try:
         connection.executescript(SCHEMA)
+        connection.executescript(OUTLINE_SCHEMA)
         for source, text, chunks, cases, report in parsed:
             sid = source["source_id"]
             connection.execute("INSERT INTO sources VALUES(?,?,?)", (sid, dumps(source), text))
             for chunk in chunks:
                 connection.execute("INSERT INTO chunks VALUES(?,?,?,?,?,?,?,?,?)", (chunk["id"], sid, chunk["kind"], chunk["method"], chunk["chapter"], chunk["start_line"], chunk["end_line"], chunk["content_hash"], dumps(chunk)))
-                connection.execute("INSERT INTO search_index VALUES(?,?,?)", (chunk["id"], "rule", " ".join(tokens(chunk["chapter"] + " " + chunk["text"]))))
+                connection.execute("INSERT INTO search_index VALUES(?,?,?)", (chunk["id"], "rule", " ".join(tokens(chunk["chapter"] + " " + chunk["text"] + ' ' + index_text(chunk.get('outline', {}))))))
             for case in cases:
                 group = case["duplicate_group"]
                 connection.execute("INSERT INTO cases VALUES(?,?,?,?,?,?)", (case["case_id"], sid, case["question"]["topic"], source["method_hint"], group, dumps(case)))
                 # Author judgement/outcome are returned AFTER retrieval, never indexed here.
-                search_text = case_search_text(case)
+                search_text = case_search_text(case) + ' ' + index_text(case.get('outline', {}))
                 connection.execute("INSERT INTO search_index VALUES(?,?,?)", (case["case_id"], "case", " ".join(tokens(search_text))))
+            store_outline(connection, report['outline_nodes'], chunks, cases)
             reports.append(report)
             all_cases.extend(cases)
-        implementation_hash = digest("".join(Path(__file__).with_name(name).read_text(encoding="utf-8") for name in ("ingest.py", "chart.py", "common.py")))
+        implementation_hash = digest("".join(Path(__file__).with_name(name).read_text(encoding="utf-8") for name in ("ingest.py", "chart.py", "common.py", "outline.py")) + dumps(json.loads(catalog_text(root))))
         corpus_hash = digest(dumps(manifest) + PARSER_VERSION + implementation_hash)
         connection.execute("INSERT INTO build_info VALUES('corpus_hash',?)", (corpus_hash,))
         connection.execute("INSERT INTO build_info VALUES('parser_version',?)", (PARSER_VERSION,))

@@ -9,6 +9,7 @@ import time
 
 from .common import database_path, digest, dumps, plain, retrieval_data_dir, tokens, topic_of
 from .ingest import PAGE, read_spans
+from .outline import read_outline, related_cases
 
 STOP = set("的 了 是 在 我 你 他 她 这个 一下 怎么 什么 如何 是否 能否 请 帮 用 看 想 要 能 不能 吗 有 没有".split())
 
@@ -67,7 +68,7 @@ def case_summary(case):
     return {"cast": case["cast"], "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
 
 
-def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None):
+def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None):
     started = time.perf_counter()
     config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
     config = json.loads(config_path.read_text(encoding="utf8")) if config_path.is_file() else {}
@@ -81,14 +82,26 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
     if not 1 <= limit <= 100 or not 1000 <= max_chars <= 500000:
         raise ValueError("limit 范围1..100，max_chars范围1000..500000")
     features = features or {}
-    if kind == "case" and topic is None:
+    if method == 'xiangfa':
+        topic = None
+    elif kind == "case" and topic is None:
         topic = topic_of(query)
     exclude_ids, exclude_case_ids = set(exclude_ids or []), set(exclude_case_ids or [])
     terms = list(dict.fromkeys(t for t in tokens(query) if t not in STOP and (len(t)>1 or t in "冲合刑墓空")))[:50]
-    if not terms and not features:
+    if not terms and not features and not outline_ids:
         raise ValueError("请提供有意义的查询文本或结构特征")
+    if outline_ids and len(outline_ids) > 100:
+        raise ValueError('outline_ids单次最多100个目录节点')
     candidate_limit = max(60, limit*5 + len(exclude_ids))
     with connect(db_path) as db:
+        outline_allowed = None
+        if outline_ids:
+            valid_nodes = {r[0] for r in db.execute('SELECT id FROM outline_nodes')}
+            if set(outline_ids) - valid_nodes:
+                raise ValueError('未知目录节点，请先get_outline')
+            placeholders = ','.join('?' for _ in outline_ids)
+            outline_allowed = {r[0] for r in db.execute(
+                f'SELECT evidence_id FROM evidence_outline WHERE node_id IN ({placeholders})', outline_ids)}
         sources = {r["id"]: json.loads(r["metadata"]) for r in db.execute("SELECT id,metadata FROM sources")}
         all_cases = {r["id"]: (r, json.loads(r["payload"])) for r in db.execute("SELECT * FROM cases")}
         excluded_groups = {all_cases[c][0]["duplicate_group"] for c in exclude_case_ids | exclude_ids if c in all_cases}
@@ -104,6 +117,8 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         lexical = list(db.execute(sql, (" OR ".join('"'+t+'"' for t in terms), kind))) if terms else []
         def allowed(eid, record):
             source = sources[record["source_id"]]
+            if outline_allowed is not None and eid not in outline_allowed:
+                return False
             if eid in exclude_ids or (method != "all" and record["method"] not in (method, "mixed")):
                 return False
             if author and author not in (source.get("author") or ""):
@@ -114,6 +129,14 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 return False
             return True
         records = {r["id"]: r for r in db.execute("SELECT * FROM chunks")} if kind == "rule" else {k: r for k, (r, _) in all_cases.items()}
+        outline_overflow = False
+        if outline_ids and not terms and not features:
+            browse = sorted((eid for eid in records if allowed(eid, records[eid])),
+                            key=lambda eid: (records[eid]['source_id'], records[eid]['start_line'] if kind == 'rule'
+                                             else all_cases[eid][1]['source']['spans'][0]['start_line']))
+            outline_overflow = len(browse) > candidate_limit
+            for rank, eid in enumerate(browse[:candidate_limit], 1):
+                ranks[eid] += 1/(60+rank)
         lexical = [r for r in lexical if r["evidence_id"] in records and allowed(r["evidence_id"], records[r["evidence_id"]])]
         lexical_overflow = len(lexical) > candidate_limit
         for rank, row in enumerate(lexical[:candidate_limit], 1):
@@ -199,6 +222,9 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 item.update({"chapter": payload["chapter"], "quote": payload["text"], "source_spans": [{"start_line": payload["start_line"], "end_line": payload["end_line"]}], "pdf_pages": payload["pages"]})
             else:
                 item.update({"question": payload["question"], "case": case_summary(payload), "source_spans": payload["source"]["spans"], "pdf_pages": payload["source"]["pdf_pages"], "structure_match": matches.get(eid, structure_match(features, payload["features"]))})
+            if payload.get('outline'):
+                item['outline'] = payload['outline']
+                item['related_cases'] = related_cases(db, payload['outline']['node_id'], exclude_ids=exclude_ids)
             size = len(dumps(item))
             if used_chars+size > max_chars:
                 budget_skipped.append({"evidence_id": eid, "required_chars": size})
@@ -206,7 +232,21 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             items.append(item)
             used_chars += size
         timings["total_ms"] = round((time.perf_counter()-started)*1000,2)
-        return {"query": query, "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, "items": items}
+        return {"query": query, "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(kind=='case' and topic), "items": items}
+
+
+def get_outline(source_id=None, parent_id=None, limit=50, offset=0, db_path=None):
+    if not 1 <= limit <= 100 or offset < 0:
+        raise ValueError('limit范围1..100，offset非负')
+    with connect(db_path) as db:
+        rows = read_outline(db, source_id, parent_id)
+        selected = rows[offset:offset+limit]
+        for node in selected:
+            node['child_count'] = db.execute('SELECT count(*) FROM outline_nodes WHERE parent_id=?', (node['node_id'],)).fetchone()[0]
+            node['related_cases'] = related_cases(db, node['node_id'])
+        has_more = offset+len(selected) < len(rows)
+        return {'source_id': source_id, 'parent_id': parent_id, 'items': selected,
+                'total': len(rows), 'has_more': has_more, 'next_offset': offset+len(selected) if has_more else None}
 
 
 def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_chars: int = 40000, db_path=None):
@@ -215,11 +255,15 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
     with connect(db_path) as db:
         row = db.execute("SELECT source_id,payload FROM chunks WHERE id=?", (evidence_id,)).fetchone()
         case = False
+        outline_node = False
         if row is None:
             row = db.execute("SELECT source_id,payload FROM cases WHERE id=?", (evidence_id,)).fetchone()
             case = True
         if row is None:
-            raise ValueError("未知 evidence_id；请先检索")
+            row = db.execute('SELECT source_id,payload FROM outline_nodes WHERE id=?', (evidence_id,)).fetchone()
+            outline_node, case = row is not None, False
+        if row is None:
+            raise ValueError("未知 evidence_id；请先检索或get_outline")
         data = json.loads(row["payload"])
         src = db.execute("SELECT * FROM sources WHERE id=?", (row["source_id"],)).fetchone()
         metadata = json.loads(src["metadata"])
@@ -246,4 +290,26 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
                 result["structured_case"] = structured
             else:
                 result["structured_case_omitted"] = {"reason":"content_budget","required_chars":required}
+        if outline_node:
+            result['outline_node'] = data
+            result['related_cases'] = related_cases(db, evidence_id)
+        elif data.get('outline'):
+            result['outline'] = data['outline']
+            result['related_cases'] = related_cases(db, data['outline']['node_id'])
+            contexts = []
+            remaining = max_chars - len(text) - len(dumps(result.get('structured_case', {})))
+            omitted = []
+            for ref in data['outline']['intro_refs']:
+                if any(s['start_line'] <= ref['start_line'] and s['end_line'] >= ref['end_line'] for s in spans):
+                    continue
+                context = {**ref, 'source_id': row['source_id'], 'source_hash': metadata['sha256'],
+                           'text': read_spans(lines, [ref])}
+                size = len(dumps(context))
+                if size <= remaining:
+                    contexts.append(context)
+                    remaining -= size
+                else:
+                    omitted.append(ref)
+            result['outline_context'] = contexts
+            result['outline_context_omitted'] = omitted
         return result
