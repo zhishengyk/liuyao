@@ -107,19 +107,21 @@ def prepare_models(root=None,download_source="modelscope"):
     return models
 
 
-def model_lock():
+def model_lock(required=("embedding",)):
     path = runtime_root()/".local/models.json"
     if not path.is_file():
         raise ValueError("语义模型未准备，请运行 python -m liuyao_mcp.semantic prepare")
     models = json.loads(path.read_text(encoding="utf8"))
-    if not all(role in models for role in MODEL_IDS):
-        raise ValueError("语义模型尚未下载完成")
+    missing = set(required)-models.keys()
+    if missing:
+        raise ValueError(f"语义模型尚未下载完成：{', '.join(sorted(missing))}")
     return models
 
 
-def model_key(models=None):
+def model_key(models=None, roles=("embedding",)):
     from importlib.metadata import version
-    spec = {role:{k:v for k,v in value.items() if k!='path'} for role,value in (models or model_lock()).items()}
+    models = models if models is not None else model_lock()
+    spec = {role:{k:v for k,v in value.items() if k!='path'} for role,value in models.items() if roles is None or role in roles}
     spec["runtime"] = {name:version(name) for name in ("torch","transformers")}
     return digest(dumps(spec))
 
@@ -141,7 +143,7 @@ def ensure_worker():
             value = request("health",timeout=2)
         except (URLError, TimeoutError, OSError):
             return None
-        if value.get("root") != str(runtime_root()) or value.get("model_key") != model_key():
+        if value.get("root") != str(runtime_root()) or value.get("model_key") != model_key(roles=None):
             raise ValueError("本地语义服务属于其他项目或模型版本；请停止旧服务或调整 LIUYAO_INFERENCE_PORT")
         return value
     existing = health()
@@ -151,7 +153,7 @@ def ensure_worker():
     local = runtime_root()/".local"
     local.mkdir(parents=True,exist_ok=True)
     with (local/"inference-worker.log").open("ab") as log:
-        subprocess.Popen([sys.executable,"-m","liuyao_mcp.inference_worker","--port",str(WORKER_PORT)],cwd=runtime_root(),env={**os.environ,"LIUYAO_ROOT":str(runtime_root()),"PYTHONIOENCODING":"utf-8"},stdin=subprocess.DEVNULL,stdout=log,stderr=log,creationflags=subprocess.CREATE_NO_WINDOW if os.name=="nt" else 0)
+        subprocess.Popen([sys.executable,"-m","liuyao_mcp.inference_worker","--port",str(WORKER_PORT)],cwd=runtime_root(),env={**os.environ,"LIUYAO_ROOT":str(runtime_root()),"PYTHONPATH":os.pathsep.join(filter(None,(str(Path(__file__).resolve().parents[1]),os.environ.get("PYTHONPATH")))),"PYTHONIOENCODING":"utf-8"},stdin=subprocess.DEVNULL,stdout=log,stderr=log,creationflags=subprocess.CREATE_NO_WINDOW if os.name=="nt" else 0)
     for _ in range(100):
         result = health()
         if result:

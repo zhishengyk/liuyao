@@ -1,6 +1,7 @@
 """One loopback process shares BGE models between all local MCP clients."""
 import argparse
 from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
@@ -13,6 +14,10 @@ from .semantic import model_key, model_lock
 
 def text_windows(tokenizer, text, max_tokens, query=None):
     """Cover the entire text with overlapping windows; never silently truncate."""
+    if max_tokens < 8:
+        raise ValueError("max_tokens必须至少为8")
+    if query is not None and len(tokenizer(query,"",add_special_tokens=True)["input_ids"]) >= max_tokens:
+        raise ValueError("查询本身超过模型窗口，请缩短检索条件")
     pending = [(0,len(text))]
     result = []
     while pending:
@@ -34,6 +39,8 @@ class Models:
     def __init__(self):
         self.metadata = model_lock()
         self.lock = threading.Lock()
+        # Reuse one Torch thread: disposable HTTP threads accumulate CPU runtime memory.
+        self.compute = ThreadPoolExecutor(max_workers=1, thread_name_prefix="liuyao-model")
         self.models = {}
         self.tokenizers = {}
         self.embedding_cache = OrderedDict()
@@ -42,6 +49,8 @@ class Models:
     def load(self, role):
         if role in self.models:
             return self.models[role],self.tokenizers[role]
+        if role not in self.metadata:
+            raise ValueError(f"语义模型尚未下载完成：{role}")
         import torch
         from transformers import AutoModel, AutoModelForSequenceClassification, AutoTokenizer
         torch.set_num_threads(min(8,os.cpu_count() or 4))
@@ -76,6 +85,9 @@ class Models:
             cache.popitem(last=False)
 
     def embed(self,texts,max_tokens=768):
+        return self.compute.submit(self._embed,texts,max_tokens).result()
+
+    def _embed(self,texts,max_tokens=768):
         import torch
         with self.lock:
             model,tokenizer = self.load("embedding")
@@ -95,6 +107,11 @@ class Models:
             return {"vectors":vectors,"owners":owners,"spans":spans,"model":self.metadata["embedding"]["name"],"revision":self.metadata["embedding"]["revision"],"precision":"float32","pooling":"cls_l2","device":"cpu"}
 
     def rerank(self,query,texts,max_tokens=1024):
+        return self.compute.submit(self._rerank,query,texts,max_tokens).result()
+
+    def _rerank(self,query,texts,max_tokens=1024):
+        if not isinstance(query,str) or not query.strip():
+            raise ValueError("query必须是非空文本")
         import torch
         with self.lock:
             model,tokenizer = self.load("reranker")
@@ -134,13 +151,13 @@ def main():
             if self.path != "/health":
                 self.respond(404,{"error":"unknown endpoint"})
                 return
-            self.respond(200,{"root":str(project_root()),"pid":os.getpid(),"model_key":model_key(models.metadata),"loaded":list(models.models),"device":"cpu"})
+            self.respond(200,{"root":str(project_root()),"source":__file__,"pid":os.getpid(),"model_key":model_key(models.metadata,roles=None),"loaded":list(models.models),"device":"cpu"})
 
         def do_POST(self):
             try:
                 body = json.loads(self.rfile.read(int(self.headers.get("Content-Length","0"))))
                 if self.path == "/stop":
-                    if body.get("root") != str(project_root()) or body.get("model_key") != model_key(models.metadata):
+                    if body.get("root") != str(project_root()) or body.get("model_key") != model_key(models.metadata,roles=None):
                         self.respond(409,{"error":"worker ownership mismatch"})
                         return
                     self.respond(200,{"stopping":True,"pid":os.getpid()})
@@ -165,8 +182,11 @@ def main():
     # Bind before loading weights. Concurrent starters cannot allocate duplicate models.
     server = ThreadingHTTPServer(("127.0.0.1",args.port),Handler)
     print(dumps({"event":"ready","port":args.port,"pid":os.getpid(),"root":str(project_root())}),flush=True)
-    server.serve_forever()
-    server.server_close()
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
+        models.compute.shutdown(wait=True)
 
 
 if __name__ == "__main__":

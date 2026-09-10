@@ -1,0 +1,468 @@
+{
+  "candidate_count": 30,
+  "accepted_count": 27,
+  "training_source_ids": [
+    "liuyao_zixiu_dxj",
+    "zengshan_pingshi_dxj",
+    "zengshan_buyi",
+    "liuyao_lifa_jinjie",
+    "liuyao_xiangfa_jinjie_shang",
+    "liuyao_xiangfa_jinjie_xia"
+  ],
+  "training_case_count": 1830,
+  "training_db_sha256": "6c8ec7992a2c0254a80b2062105040697eac42ce4ee822d5e6bcec694cb97f01",
+  "source_manifest_sha256": "b27b899855bebc9aa61011c7b56bc3ee6886f053bf26efc67ca72dc2035acce6",
+  "records": [
+    {
+      "id": "li01",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "泽水困",
+        "changed": "水泽节",
+        "main_branches": "寅辰午亥酉未",
+        "moving": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "id": "li02",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷天大壮",
+        "changed": "雷天大壮",
+        "main_branches": "子寅辰午申戌",
+        "moving": []
+      }
+    },
+    {
+      "id": "li03",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "巽为风",
+        "changed": "火风鼎",
+        "main_branches": "丑亥酉未巳卯",
+        "moving": [
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "id": "li04",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷风恒",
+        "changed": "乾为天",
+        "main_branches": "丑亥酉午申戌",
+        "moving": [
+          1,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "id": "li05",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "山火贲",
+        "changed": "山天大畜",
+        "main_branches": "卯丑亥戌子寅",
+        "moving": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "li06",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷地豫",
+        "changed": "坤为地",
+        "main_branches": "未巳卯午申戌",
+        "moving": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "li07",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷地豫",
+        "changed": "雷山小过",
+        "main_branches": "未巳卯午申戌",
+        "moving": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "li08",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "山泽损",
+        "changed": "地天泰",
+        "main_branches": "巳卯丑戌子寅",
+        "moving": [
+          3,
+          6
+        ]
+      }
+    },
+    {
+      "id": "li09",
+      "chart_errors": [
+        "curator marked uncertain OCR/chart"
+      ],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "泽风大过",
+        "changed": "泽地萃",
+        "main_branches": "丑亥酉亥酉未",
+        "moving": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "li10",
+      "chart_errors": [
+        "curator marked uncertain OCR/chart"
+      ],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火风鼎",
+        "changed": "火地晋",
+        "main_branches": "丑亥酉酉未巳",
+        "moving": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "li11",
+      "chart_errors": [
+        "curator marked uncertain OCR/chart"
+      ],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火地晋",
+        "changed": "山雷颐",
+        "main_branches": "未巳卯酉未巳",
+        "moving": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "id": "li12",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "泽山咸",
+        "changed": "水山蹇",
+        "main_branches": "辰午申亥酉未",
+        "moving": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "gua01",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "水山蹇",
+        "changed": "地山谦",
+        "main_branches": "辰午申申戌子",
+        "moving": [
+          5
+        ]
+      }
+    },
+    {
+      "id": "gua02",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷火丰",
+        "changed": "雷泽归妹",
+        "main_branches": "卯丑亥午申戌",
+        "moving": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gua03",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火风鼎",
+        "changed": "水山蹇",
+        "main_branches": "丑亥酉酉未巳",
+        "moving": [
+          2,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "id": "gua04",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火天大有",
+        "changed": "火山旅",
+        "main_branches": "子寅辰酉未巳",
+        "moving": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "gua05",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "地天泰",
+        "changed": "地雷复",
+        "main_branches": "子寅辰丑亥酉",
+        "moving": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "gua06",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "地雷复",
+        "changed": "泽雷随",
+        "main_branches": "子寅辰丑亥酉",
+        "moving": [
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "id": "gua07",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "风火家人",
+        "changed": "水火既济",
+        "main_branches": "卯丑亥未巳卯",
+        "moving": [
+          6
+        ]
+      }
+    },
+    {
+      "id": "gua08",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火风鼎",
+        "changed": "火山旅",
+        "main_branches": "丑亥酉酉未巳",
+        "moving": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "gua09",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "泽风大过",
+        "changed": "泽风大过",
+        "main_branches": "丑亥酉亥酉未",
+        "moving": []
+      }
+    },
+    {
+      "id": "shao01",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "坤为地",
+        "changed": "泽天夬",
+        "main_branches": "未巳卯丑亥酉",
+        "moving": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "id": "shao02",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "雷天大壮",
+        "changed": "雷山小过",
+        "main_branches": "子寅辰午申戌",
+        "moving": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "shao03",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "泽雷随",
+        "changed": "风山渐",
+        "main_branches": "子寅辰亥酉未",
+        "moving": [
+          1,
+          3,
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "id": "shao04",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "巽为风",
+        "changed": "地水师",
+        "main_branches": "丑亥酉未巳卯",
+        "moving": [
+          3,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "id": "shao05",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "山泽损",
+        "changed": "火水未济",
+        "main_branches": "巳卯丑戌子寅",
+        "moving": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "id": "shao06",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "天地否",
+        "changed": "离为火",
+        "main_branches": "未巳卯午申戌",
+        "moving": [
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "id": "shao07",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "火雷噬嗑",
+        "changed": "震为雷",
+        "main_branches": "子寅辰酉未巳",
+        "moving": [
+          6
+        ]
+      }
+    },
+    {
+      "id": "shao08",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "山风蛊",
+        "changed": "地风升",
+        "main_branches": "丑亥酉戌子寅",
+        "moving": [
+          6
+        ]
+      }
+    },
+    {
+      "id": "shao09",
+      "chart_errors": [],
+      "training_signature_matches": [],
+      "text_overlaps": [],
+      "chart_summary": {
+        "primary": "天火同人",
+        "changed": "风雷益",
+        "main_branches": "卯丑亥午申戌",
+        "moving": [
+          3,
+          4
+        ]
+      }
+    }
+  ]
+}

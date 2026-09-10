@@ -47,6 +47,10 @@ def write_index(path, manifest, rows, vectors, source=None):
         if source is not None:
             with closing(sqlite3.connect(Path(source).resolve().as_uri() + '?mode=ro', uri=True)) as original:
                 original.backup(db)
+            if 'corpus_hash' in manifest:
+                copied_corpus = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
+                if copied_corpus != manifest['corpus_hash']:
+                    raise ValueError("建库期间语料已改变，未发布索引；请重新构建以复用已有向量缓存")
         load_extension(db)
         db.executescript('''
             DROP TABLE IF EXISTS semantic_metadata;
