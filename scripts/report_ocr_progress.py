@@ -26,7 +26,9 @@ def main():
     sources=[s for s in manifest if s['source_type']=='ocr_text']
     report={'total_pages':sum(s['pdf_pages'] for s in sources),
             'machine_compared_pages':data.get('machine_compared_pages',0),
-            'visually_checked_pages':data.get('visually_checked_pages',0),'books':[]}
+            'visually_checked_pages':data.get('visually_checked_pages',0),
+            'pages_with_unclear':sum(bool(p.get('unclear')) for p in data.get('pages',[])),
+            'unclear_items':sum(len(p.get('unclear',[])) for p in data.get('pages',[])), 'books':[]}
     document=['# OCR逐字校对进度','',
               '验收标准：逐页逐字对照用户提供的PDF原图。机器识别仅作为底稿；未核准的候选不替换正式原文。',
               '', '| 书籍 | 总页数 | 已逐字核对 | 下一页 |', '| --- | --- | --- | --- |']
@@ -39,7 +41,8 @@ def main():
         document.append(f"| {source['title']} | {entry['total']} | {len(reviewed)} | {entry['next_page'] or '完成'} |")
         if reviewed:
             transcript=['# '+source['title']+'：已核准校订页','',
-                        '这是已逐字对照原图的阶段稿，尚未完成的页面不收录。〔……〕为校注，不是原书文字。','']
+                        '这是已逐字对照原图的阶段稿，尚未完成的页面不收录。〔……〕为校注，不是原书文字。', '',
+                        '字词按原图核对；排版、换行及全半角符号归一化，图表用文字和统一阴阳符号转写。正文不收录外加商业水印。','']
             for page in reviewed:
                 record=json.loads((root/'data/proofread_pages'/source['source_id']/f'{page:04}.json').read_text(encoding='utf8'))
                 transcript += [f'## PDF第{page}页','',markdown_page(record['text']),'']
@@ -47,6 +50,7 @@ def main():
             folder=root/'docs/proofread';folder.mkdir(exist_ok=True)
             (folder/(source['source_id']+'.md')).write_text('\n'.join(transcript),encoding='utf8')
     document += ['',f"机器对照已覆盖{report['machine_compared_pages']}页；严格逐字核对已完成{report['visually_checked_pages']}/{report['total_pages']}页。二者分别统计。",'',
+                 f"已记录的原图疑点：{report['unclear_items']}项，涉及{report['pages_with_unclear']}页；均在逐页稿中标注，不按上下文猜填。", '',
                  '逐页成果保存在[data/proofread_pages](../data/proofread_pages)，每页记录原PDF哈希、页码、完整校订文字和疑点。机器候选与差异统计保存在[data/ocr_corrections.json](../data/ocr_corrections.json)。', '',
                  '已核准的页可通过`get_source("page:来源ID:PDF页码")`读取；未核准页会明确报尚未完成逐字校对。原始证据仍可照常查询。', '',
                  '此表统计源码中的逐页成果，可能领先于已安装发行包；用户端可读取哪些校订页，以对应版本的Release说明和工具实际返回的page_reviews为准。', '',

@@ -1,7 +1,9 @@
 {
   "total_pages": 811,
   "machine_compared_pages": 811,
-  "visually_checked_pages": 82,
+  "visually_checked_pages": 102,
+  "pages_with_unclear": 3,
+  "unclear_items": 4,
   "books": [
     {
       "source_id": "liuyao_lifa_jinjie",
@@ -88,10 +90,30 @@
         79,
         80,
         81,
-        82
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
       ],
-      "next_page": 83,
-      "remaining": 175
+      "next_page": 103,
+      "remaining": 155
     },
     {
       "source_id": "liuyao_xiangfa_jinjie_shang",
