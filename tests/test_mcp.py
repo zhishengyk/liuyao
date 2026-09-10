@@ -25,6 +25,12 @@ def test_real_stdio_protocol():
             assert scoped_data.get('result', scoped_data)['returned_count'] == 2
             chart = await client.call_tool("build_chart",{"line_values":[2]*6,"month_branch":"卯","day_ganzhi":"庚子"})
             assert not chart.is_error
+            hidden = await client.call_tool('build_chart',{'line_values':[2,2,1,1,1,1],
+                'month_branch':'辰','day_ganzhi':'甲子','yongshen_positions':[1],'yongshen_scope':'hidden'})
+            assert not hidden.is_error
+            selected=hidden.structured_content
+            selected=selected.get('result',selected)
+            assert selected['patterns']['yongshen_refs']==[{'scope':'hidden','position':1,'branch':'子'}]
             found = await client.call_tool("search_knowledge",{"query":"旬空 用神","kind":"rule"})
             assert not found.is_error
             data = found.structured_content

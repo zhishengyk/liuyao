@@ -28,7 +28,8 @@ def correction_text(root):
                         pdf_sha256=record['pdf_sha256'],original_sha256=record['original_sha256'],
                         unclear=record['unclear'],normalization=record['normalization'],
                         review_method=record['method'],review_date=record['review_date'],
-                        printed_page=record.get('printed_page'),excluded_regions=record.get('excluded_regions',[]))
+                        printed_page=record.get('printed_page'),excluded_regions=record.get('excluded_regions',[]),
+                        notes=record.get('notes',[]))
     data['machine_compared_pages']=sum('similarity' in p for p in data.get('pages',[]))
     data['visually_checked_pages']=sum(p.get('visual_reviewed',False) for p in data.get('pages',[]))
     return json.dumps(data,ensure_ascii=False,sort_keys=True)

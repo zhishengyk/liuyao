@@ -81,9 +81,25 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
             chart = await call('build_chart', line_values=[2]*6, month_branch='卯', day_ganzhi='庚子')
             assert chart['primary']['name'] == '坤' and '| 上爻 |' in chart['display']['markdown']
             report['checks'].append('tool_schema_topics_and_chart')
-            reviewed = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:102')
-            assert reviewed['text_version'] == 'visually_reviewed_page' and reviewed['pdf_pages'] == [102]
+            hidden = await call('build_chart', line_values=[2,2,1,1,1,1], month_branch='辰',
+                                day_ganzhi='甲子', yongshen_positions=[1], yongshen_scope='hidden')
+            assert hidden['patterns']['yongshen_scope'] == 'hidden'
+            assert hidden['patterns']['yongshen_refs'][0]['scope'] == 'hidden'
+            assert hidden['primary']['lines'][0]['hidden']['moving'] is None
+            changed = await call('build_chart', line_values=[3,1,1,1,1,1], month_branch='辰',
+                                 day_ganzhi='甲子', yongshen_positions=[1], yongshen_scope='changed')
+            assert changed['patterns']['yongshen_refs'][0]['scope'] == 'changed'
+            found = await call('search_knowledge', query='', kind='case', limit=1,
+                               features={'yongshen_relative':'父母','yongshen_scope':'hidden'})
+            assert found['items']
+            assert any(c['relative']=='父母' and c['scope']=='hidden'
+                       for c in found['items'][0]['case']['features']['yongshen_candidates'])
+            report['checks'].append('hidden_changed_selection_and_scoped_retrieval')
+            reviewed = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:124')
+            assert reviewed['text_version'] == 'visually_reviewed_page' and reviewed['pdf_pages'] == [124]
             assert reviewed['text'] and 'unclear' in reviewed
+            noted = await call('get_source', evidence_id='page:liuyao_lifa_jinjie:106')
+            assert noted['notes'] and '搞暖味' in noted['text']
             report['checks'].append('visually_reviewed_page_readback')
 
             for query, expected in [('入职 财生官 官生世', {'入职', '工作', '财生官', '官生世'}),

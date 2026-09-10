@@ -14,7 +14,8 @@ from .outline import OUTLINE_SCHEMA, build_outline, catalog_text, evidence_navig
 from .taxonomy import SCHEMA as TAXONOMY_SCHEMA, classify, classify_rule, nodes as topic_nodes
 from .proofreading import SCHEMA as PROOFREADING_SCHEMA, apply as apply_corrections, correction_text, store as store_corrections
 
-PARSER_VERSION = "source-parser-0.6"
+PARSER_VERSION = "source-parser-0.7"
+SEARCH_INDEX_VERSION = 'focused-3'
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(rf"(父母|兄弟|子孙|妻财|官鬼)[{STEMS}]?([{BRANCHES}])[木火土金水]?")
@@ -497,7 +498,13 @@ def extract_cases(source, lines, pages, cutoff, outline_boundaries=None):
         features = dict(calculated["features"]) if calculated and validation != "conflict" else {}
         features.update({"topic": topic_of(question or ""), "yongshen_reported": yongshen or None, "yongshen_basis": "author_text" if yongshen else None, "chart_feature_status": validation})
         if calculated and validation != "conflict" and yongshen:
-            features["yongshen_candidates"] = [{"position": line["position"], "relative": line["relative"], "void": line["void"], "month_break": line["month_break"], "moving": line["moving"], "selection": "relative_match_not_author_line_selection"} for line in calculated["lines"] if line["relative"] in yongshen]
+            candidates = [('primary', line) for line in calculated['lines']]
+            candidates += [('hidden', line['hidden']) for line in calculated['lines'] if line['hidden']]
+            candidates += [('changed', line['transformation']) for line in calculated['lines'] if line['transformation']]
+            features['yongshen_candidates'] = [
+                {**{key:line[key] for key in ('position','relative','void','month_break','moving')},
+                 'scope':scope, 'selection':'relative_match_not_author_line_selection'}
+                for scope,line in candidates if line['relative'] in yongshen]
         case_id = f"case_{source['source_id']}_{a+1}"
         cases.append({
             "schema_version": "0.2", "case_id": case_id, "related_case_ids": [],
@@ -738,15 +745,20 @@ def store_search_metadata(connection, kind, record, source):
         (eid,source['source_id'],s['start_line'],s['end_line']) for s in spans))
     features = dict(record['features'])
     features['yongshen_relative'] = features.get('yongshen_reported')
-    special = ('yongshen_void','yongshen_moving','yongshen_month_break')
+    special = ('yongshen_void','yongshen_moving','yongshen_month_break','yongshen_scope')
     values = [(eid,key,'',dumps(value)) for key,value in features.items()
               if value is not None and key not in special]
     candidates = features.get('yongshen_candidates', [])
     for selector in {''} | {c['relative'] for c in candidates}:
-        selected = [c for c in candidates if not selector or c['relative'] == selector]
-        if len(selected) == 1:
-            values.extend((eid,key,selector,dumps(selected[0][key.removeprefix('yongshen_')]))
-                          for key in special if selected[0][key.removeprefix('yongshen_')] is not None)
+        related = [c for c in candidates if not selector or c['relative'] == selector]
+        if related and all(c.get('scope') for c in related):
+            values.append((eid,'yongshen_scope',selector,dumps(sorted({c['scope'] for c in related}))))
+        for scope in ('','primary','hidden','changed'):
+            selected = [c for c in related if not scope or c.get('scope')==scope]
+            if len(selected) == 1:
+                scoped_selector = dumps([selector,scope]) if scope else selector
+                values.extend((eid,key,scoped_selector,dumps(selected[0][key.removeprefix('yongshen_')]))
+                              for key in special if key!='yongshen_scope' and selected[0].get(key.removeprefix('yongshen_')) is not None)
     connection.executemany('INSERT INTO case_features VALUES(?,?,?,?)', values)
 
 
@@ -795,7 +807,7 @@ def ingest(root=None, output=None):
         corpus_hash = digest(dumps(manifest) + PARSER_VERSION + implementation_hash)
         connection.execute("INSERT INTO build_info VALUES('corpus_hash',?)", (corpus_hash,))
         connection.execute("INSERT INTO build_info VALUES('parser_version',?)", (PARSER_VERSION,))
-        connection.execute("INSERT INTO build_info VALUES('search_index_version','focused-2')")
+        connection.execute("INSERT INTO build_info VALUES('search_index_version',?)",(SEARCH_INDEX_VERSION,))
         connection.execute("INSERT INTO build_info VALUES('implementation_hash',?)", (implementation_hash,))
         connection.commit()
         if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":

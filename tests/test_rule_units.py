@@ -217,7 +217,10 @@ def test_yongshen_stays_inside_analysis_and_candidates_remain_ambiguous(tmp_path
     case = cases[0]
     assert case['features']['yongshen_reported'] == ['妻财', '子孙']
     choices = case['features']['yongshen_candidates']
-    assert sum(c['relative'] == '妻财' for c in choices) == 2
+    wives = [c for c in choices if c['relative'] == '妻财']
+    assert {(c['scope'], c['position']) for c in wives} == {
+        ('primary', 3), ('primary', 5), ('changed', 1), ('changed', 5)}
+    assert all(c['moving'] is None for c in choices if c['scope'] == 'changed')
     assert all(c['selection'] == 'relative_match_not_author_line_selection' for c in choices)
     interpretation = case['interpretations'][0]
     for item in interpretation['yongshen_evidence']:

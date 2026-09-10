@@ -47,6 +47,7 @@ def main():
                 record=json.loads((root/'data/proofread_pages'/source['source_id']/f'{page:04}.json').read_text(encoding='utf8'))
                 transcript += [f'## PDF第{page}页','',markdown_page(record['text']),'']
                 if record['unclear']:transcript += ['校对疑点：'+json.dumps(record['unclear'],ensure_ascii=False),'']
+                if record.get('notes'):transcript += ['转写说明：'+'；'.join(record['notes']),'']
             folder=root/'docs/proofread';folder.mkdir(exist_ok=True)
             (folder/(source['source_id']+'.md')).write_text('\n'.join(transcript),encoding='utf8')
     document += ['',f"机器对照已覆盖{report['machine_compared_pages']}页；严格逐字核对已完成{report['visually_checked_pages']}/{report['total_pages']}页。二者分别统计。",'',

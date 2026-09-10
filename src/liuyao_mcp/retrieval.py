@@ -10,7 +10,7 @@ import time
 
 from .common import NEGATED_TECHNICAL, database_path, digest, dumps, plain, retrieval_data_dir, tokens
 from .chart import STEMS, BRANCHES
-from .ingest import PAGE, read_spans
+from .ingest import PAGE, SEARCH_INDEX_VERSION, read_spans
 from .outline import read_outline, related_cases
 from .taxonomy import resolve as resolve_topic, tier as topic_tier, classify as classify_topic
 from .proofreading import page_reviews
@@ -18,6 +18,7 @@ from .proofreading import page_reviews
 STOP = set("的 了 是 在 我 你 他 她 这个 一下 怎么 什么 如何 是否 能否 请 帮 用 看 想 要 能 不能 吗 有 没有".split())
 SINGLE_QUERY_TERMS = set(STEMS + BRANCHES + "木火土金水生克冲合刑害墓空破绝旺衰动静伏世应财官父兄孙")
 FEATURE_LABELS = {'shi_relative':'世爻六亲', 'ying_relative':'应爻六亲',
+                  'yongshen_scope':'用神候选所在层',
                   'yongshen_relative':'调用方已选用神六亲', 'yongshen_void':'用神旬空',
                   'yongshen_moving':'用神发动', 'yongshen_month_break':'用神月破',
                   'shi_ying_relations':'世应关系', 'moving_positions':'动爻位置',
@@ -45,12 +46,17 @@ def structure_match(query, features):
         actual = features.get(key)
         if key == "yongshen_relative":
             actual = features.get("yongshen_reported")
-        if key in ("yongshen_void", "yongshen_moving", "yongshen_month_break"):
+        if key in ("yongshen_void", "yongshen_moving", "yongshen_month_break", "yongshen_scope"):
             candidates = features.get("yongshen_candidates", [])
             if query.get("yongshen_relative"):
                 candidates = [c for c in candidates if c["relative"] == query["yongshen_relative"]]
-            # Multiple appearances have no unique author-selected position.
-            actual = candidates[0][key.removeprefix("yongshen_")] if len(candidates) == 1 else None
+            if key=='yongshen_scope':
+                actual=sorted({c['scope'] for c in candidates}) if candidates and all(c.get('scope') for c in candidates) else None
+            else:
+                if query.get('yongshen_scope'):
+                    candidates=[c for c in candidates if c.get('scope')==query['yongshen_scope']]
+                # Do not combine properties from different candidate lines/layers.
+                actual = candidates[0].get(key.removeprefix("yongshen_")) if len(candidates) == 1 else None
         label = f"{key}={dumps(expected)}"
         if actual is None:
             unknown.append(label)
@@ -86,7 +92,9 @@ def structural_candidates(db, scope_sql, params, features, limit):
         if expected is None:
             continue
         selector = (features.get('yongshen_relative') or '') if key in (
-            'yongshen_void','yongshen_moving','yongshen_month_break') else ''
+            'yongshen_void','yongshen_moving','yongshen_month_break','yongshen_scope') else ''
+        if key in ('yongshen_void','yongshen_moving','yongshen_month_break') and features.get('yongshen_scope'):
+            selector=dumps([selector,features['yongshen_scope']])
         items = expected if isinstance(expected,list) else [expected]
         requested.append({'key':key,'selector':selector,'expected':expected,
                           'items':items,'positions':key.endswith('_positions')})
@@ -154,7 +162,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
     candidate_limit = max(60, limit*5)
     with connect(db_path) as db:
         version = db.execute("SELECT value FROM build_info WHERE key='search_index_version'").fetchone()
-        if version is None or version[0] != 'focused-2':
+        if version is None or version[0] != SEARCH_INDEX_VERSION:
             raise ValueError('知识库检索索引版本过旧，请更新发布包或重新运行 liuyao-ingest')
         if outline_ids:
             unknown = db.execute('SELECT value FROM json_each(?) EXCEPT SELECT id FROM outline_nodes',
@@ -383,6 +391,7 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
                     'unclear':review.get('unclear',[]),'normalization':review['normalization'],
                     'review_method':review['review_method'],'review_date':review['review_date'],
                     'printed_page':review.get('printed_page'),'excluded_regions':review.get('excluded_regions',[]),
+                    'notes':review.get('notes',[]),
                     'has_more':more,'next_offset':offset+len(text) if more else None,'total_chars':len(full)}
         row = db.execute("SELECT source_id,payload FROM chunks WHERE id=?", (evidence_id,)).fetchone()
         case = False

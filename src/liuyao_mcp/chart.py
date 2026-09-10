@@ -122,7 +122,14 @@ def line_data(bits, palace_element):
     return result
 
 
-def build_chart(line_values: list[int], cast_time: str | None = None, month_branch: str | None = None, day_ganzhi: str | None = None, timezone: str = "Asia/Shanghai", yongshen_positions: list[int] | None = None) -> dict:
+def calendar_facts(branch, cal, spirit):
+    month = relation(cal['month_branch'], branch)
+    day = relation(cal['day_ganzhi'][1], branch)
+    return {'spirit':spirit, 'void':branch in cal['void'], 'month_relations':month,
+            'day_relations':day, 'month_break':'冲' in month, 'day_clash':'冲' in day}
+
+
+def build_chart(line_values: list[int], cast_time: str | None = None, month_branch: str | None = None, day_ganzhi: str | None = None, timezone: str = "Asia/Shanghai", yongshen_positions: list[int] | None = None, yongshen_scope: str = 'primary') -> dict:
     """初爻到上爻：0老阴、1少阳、2少阴、3老阳。"""
     if len(line_values) != 6 or any(type(v) is not int or v not in (0, 1, 2, 3) for v in line_values):
         raise ValueError("line_values 必须是从初爻到上爻的六个0/1/2/3整数")
@@ -143,13 +150,18 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
     present = {line["relative"] for line in lines}
     spirit = SPIRIT_START[STEMS.index(cal["day_ganzhi"][0])]
     for i, line in enumerate(lines):
-        line.update({"value": line_values[i], "moving": i + 1 in moving, "shi": i + 1 == shi, "ying": i + 1 == ying, "spirit": SIX_SPIRITS[(spirit + i) % 6], "void": line["branch"] in cal["void"], "month_relations": relation(cal["month_branch"], line["branch"]), "day_relations": relation(cal["day_ganzhi"][1], line["branch"])})
-        line["month_break"] = "冲" in line["month_relations"]
-        line["day_clash"] = "冲" in line["day_relations"]
+        line.update({"value": line_values[i], "moving": i + 1 in moving, "shi": i + 1 == shi, "ying": i + 1 == ying,
+                     **calendar_facts(line['branch'], cal, SIX_SPIRITS[(spirit+i)%6])})
         line["hidden"] = pure[i] if pure[i]["relative"] not in present else None
+        if line['hidden']:
+            hidden = line['hidden']
+            hidden.update(moving=None, **calendar_facts(hidden['branch'], cal, line['spirit']))
         line["transformation"] = None
         if line["moving"]:
-            line["transformation"] = {**changed[i], "to_original_relations": relation(changed[i]["branch"], line["branch"]), "advance": (line["branch"], changed[i]["branch"]) in ADVANCE, "retreat": (changed[i]["branch"], line["branch"]) in ADVANCE}
+            line["transformation"] = {**changed[i], **calendar_facts(changed[i]['branch'], cal, line['spirit']),
+                                      'moving':None, "to_original_relations": relation(changed[i]["branch"], line["branch"]),
+                                      "advance": (line["branch"], changed[i]["branch"]) in ADVANCE,
+                                      "retreat": (changed[i]["branch"], line["branch"]) in ADVANCE}
     shi_ying = relation(lines[shi - 1]["branch"], lines[ying - 1]["branch"])
     chart = {
         "engine_version": ENGINE_VERSION, "line_order": "bottom_to_top", "line_values": line_values,
@@ -159,7 +171,7 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
         "interpretation_boundary": "用神、综合旺衰、成局及应期须检索带出处的理法；日冲不直接等于暗动或日破。",
     }
     from .patterns import detect
-    chart['patterns'] = detect(chart, yongshen_positions)
+    chart['patterns'] = detect(chart, yongshen_positions, yongshen_scope)
     chart['features']['pattern_ids'] = sorted({f['pattern_id'] for f in chart['patterns']['facts']})
     chart['features']['pattern_names'] = sorted({f['label'] for f in chart['patterns']['facts']})
     return chart

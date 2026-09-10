@@ -29,6 +29,9 @@ def test_sql_structural_scores_preserve_unknown_lists_and_yongshen():
             {'relative':'官鬼','void':True,'moving':False,'month_break':False},
             {'relative':'妻财','void':False,'moving':True,'month_break':False}]},
         {'numeric':True,'nested':{'a':1}, 'null_list':[None,1]},
+        {'yongshen_reported':['父母'], 'yongshen_candidates':[
+            {'relative':'父母','scope':'hidden','void':True,'moving':None,'month_break':False},
+            {'relative':'父母','scope':'changed','void':False,'moving':None,'month_break':True}]},
     ]
     queries = [
         {'shi_relative':'官鬼','unavailable':True}, {'moving_positions':[]},
@@ -39,6 +42,9 @@ def test_sql_structural_scores_preserve_unknown_lists_and_yongshen():
         {'numeric':1,'nested':{'a':1}}, {'numeric':'true','nested':'{"a":1}'},
         {'null_list':[None]}, {'null_list':[True]}, {'pattern_ids':[{}]},
         {"'; DROP TABLE case_features; --":True},
+        {'yongshen_relative':'父母','yongshen_scope':'hidden','yongshen_void':False},
+        {'yongshen_relative':'父母','yongshen_scope':'changed','yongshen_void':False},
+        {'yongshen_scope':'changed','yongshen_moving':False}, {'yongshen_scope':['hidden','changed']},
     ]
     with sqlite3.connect(':memory:') as db:
         db.row_factory=sqlite3.Row; db.executescript(SCHEMA)

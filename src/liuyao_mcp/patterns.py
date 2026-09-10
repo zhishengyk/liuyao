@@ -3,7 +3,7 @@ from itertools import combinations, product
 
 from .chart import BRANCHES, BRANCH_ELEMENT, relation
 
-VERSION = 'book-structure-1'
+VERSION = 'book-structure-2'
 STAGES = ('长生','沐浴','冠带','临官','帝旺','衰','病','死','墓','绝','胎','养')
 START = {'木':'亥','火':'寅','金':'巳','水':'申','土':'申'}
 HARM = {frozenset(p) for p in ('子未','丑午','寅巳','卯辰','申亥','酉戌')}
@@ -28,11 +28,22 @@ def stage(element, branch):
     return STAGES[(BRANCHES.index(branch)-BRANCHES.index(START[element])) % 12]
 
 
-def detect(chart, yongshen_positions=None):
+def detect(chart, yongshen_positions=None, yongshen_scope='primary'):
     selected = set(yongshen_positions or [])
     if any(type(p) is not int or not 1 <= p <= 6 for p in selected):
         raise ValueError('用神候选爻位须在1..6之间')
+    if yongshen_scope not in ('primary','hidden','changed'):
+        raise ValueError('yongshen_scope须为primary、hidden或changed')
     lines = chart['lines']
+    selected_primary = selected if yongshen_scope == 'primary' else set()
+    yongshen = []
+    for position in sorted(selected):
+        line = lines[position-1]
+        candidate = line if yongshen_scope == 'primary' else line['hidden' if yongshen_scope=='hidden' else 'transformation']
+        if candidate is None:
+            label = '伏神' if yongshen_scope=='hidden' else '动爻所化变爻'
+            raise ValueError(f'第{position}爻没有{label}，不能用另一层的爻代替')
+        yongshen.append(candidate)
     shi = lines[chart['shi_position']-1]
     ying = lines[chart['ying_position']-1]
     moving = [l for l in lines if l['moving']]
@@ -96,7 +107,7 @@ def detect(chart, yongshen_positions=None):
             kind='生中带害' if '生' in relations else '克中带害' if '克' in relations else '纯相害'
             add('harm',[a,b],{'生中带害':'xf_xia_c10_u01','克中带害':'xf_xia_c10_u02','纯相害':'xf_xia_c10_u03'}[kind],kind=kind)
     for a,b in combinations(lines,2):
-        selected_pair = (a['shi'] and (b['ying'] or b['position'] in selected)) or (b['shi'] and (a['ying'] or a['position'] in selected))
+        selected_pair = (a['shi'] and (b['ying'] or b['position'] in selected_primary)) or (b['shi'] and (a['ying'] or a['position'] in selected_primary))
         if a['element']==b['element'] and (a['moving'] or b['moving'] or selected_pair):
             add('double_punishment',[ref(a),ref(b)],'xf_xia_c04_s04',same_branch=a['branch']==b['branch'])
     for l in lines:
@@ -158,11 +169,13 @@ def detect(chart, yongshen_positions=None):
                 direction=direction,basis=basis,requires='两爻是否代表可比较的对象，需结合场景与取用')
 
     hidden=[l['hidden'] for l in lines if l['hidden']]
+    transformed=[l['transformation'] for l in moving]
     for l in lines:
         if l['hidden']:
             add('hidden_flying_relation',[ref(l),ref(l['hidden'],'hidden')],'xf_xia_c05',
                 relations=relation(l['branch'],l['hidden']['branch']))
-    roles=[l for l in lines if l['shi'] or l['position'] in selected]
+    selected_roles=[l for l in yongshen if yongshen_scope!='primary' or not l.get('shi')]
+    roles=[shi]+selected_roles
     day=calendar[1]['branch']
     yima = dict(zip('申子辰寅午戌巳酉丑亥卯未','寅寅寅申申申亥亥亥巳巳巳'))[day]
     motifs = {
@@ -182,13 +195,13 @@ def detect(chart, yongshen_positions=None):
       14:[l for l in lines if l['relative']=='子孙' and (l['spirit']=='白虎' or l['branch']==yima) and chart['primary']['palace_stage']=='游魂'],
       15:[l for l in lines if l['relative']=='妻财' and l['month_break']] if any(l['relative']=='官鬼' for l in hidden) else [],
       16:hidden if {'妻财','子孙'} <= {l['relative'] for l in hidden} else [],
-      17:[t for t in [ying]+[l for l in lines if l['position'] in selected and not l['shi']]
+      17:[t for t in [ying]+selected_roles
           if t['branch']==shi['branch'] or frozenset((shi['branch'],t['branch'])) in DIRECTION_PAIRS],
-      18:[l for l in moving if l['position'] in selected and (l['transformation']['advance'] or l['transformation']['retreat'])]}
+      18:[l for l in moving if l['position'] in selected_primary and (l['transformation']['advance'] or l['transformation']['retreat'])]}
     for number,participants in motifs.items():
         if participants:
             if number==17:participants=[shi]+participants
-            add(f'combination_{number:02}',[ref(l,'hidden' if l in hidden else 'primary') for l in participants],
+            add(f'combination_{number:02}',[ref(l,'hidden' if l in hidden else 'changed' if l in transformed else 'primary') for l in participants],
                 f'xf_shang_c02_u{number:02}',requires='原文场景、对象与旺衰条件；此处仅检出盘面前提')
     checks=[{'source_rule_id':f'xf_shang_c02_u{number:02}',
              'status':'structural_match' if participants else 'needs_yongshen' if not selected and number in (4,7,10,11,17,18) else 'not_detected',
@@ -196,5 +209,6 @@ def detect(chart, yongshen_positions=None):
     return {'version':VERSION,'ruleset':'逐项按所附书籍规则识别，保留作者体系边界', 'facts':facts,'combination_checks':checks,
             'life_stages':stages, 'source_rule_ids':sorted({f['source_rule_id'] for f in facts}|{'xf_shang_c03'}),
             'yongshen_candidates_supplied':sorted(selected),
+            'yongshen_scope':yongshen_scope,'yongshen_refs':[ref(l,yongshen_scope) for l in yongshen],
             'requires_context': ['用神与元神的具体爻位、场景、旺衰及原文例外不能由结构匹配自动推出'],
             'boundary':'命中结构不等于事件结论或吉凶；缺失的场景条件保留待判断'}

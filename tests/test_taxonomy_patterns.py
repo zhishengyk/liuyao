@@ -6,7 +6,7 @@ import pytest
 from liuyao_mcp.chart import build_chart
 from liuyao_mcp.patterns import stage
 from liuyao_mcp.proofreading import apply
-from liuyao_mcp.retrieval import get_topics, get_source, search_knowledge
+from liuyao_mcp.retrieval import get_topics, get_source, search_knowledge, structure_match
 from liuyao_mcp.taxonomy import classify, classify_rule, resolve, tier
 
 
@@ -160,6 +160,47 @@ def test_pattern_features_can_recall_without_keyword_hits():
     assert found['items']
     assert all('geshan_chain' in x['case']['features']['pattern_ids'] for x in found['items'])
     assert all(x['ranking']['bm25'] is None for x in found['items'])
+
+
+def test_yongshen_scope_distinguishes_hidden_from_flying_line():
+    arguments=dict(line_values=[2,2,1,1,1,1],month_branch='辰',day_ganzhi='甲子',yongshen_positions=[1])
+    primary=build_chart(**arguments)
+    hidden=build_chart(**arguments,yongshen_scope='hidden')
+    assert primary['lines'][0]['relative']=='父母'
+    assert hidden['lines'][0]['hidden']['relative']=='子孙'
+    assert primary['patterns']['combination_checks'][3]['status']=='not_detected'
+    motif=next(f for f in hidden['patterns']['facts'] if f['pattern_id']=='combination_04')
+    assert motif['participants']==[{'scope':'hidden','position':1,'branch':'子'}]
+    assert hidden['patterns']['yongshen_refs']==motif['participants']
+    assert hidden['lines'][0]['hidden']['moving'] is None
+    with pytest.raises(ValueError,match='没有伏神'):
+        build_chart([2,2,1,1,1,1],month_branch='辰',day_ganzhi='甲子',yongshen_positions=[3],yongshen_scope='hidden')
+    changed=build_chart([3,1,1,1,1,1],month_branch='辰',day_ganzhi='甲子',
+                        yongshen_positions=[1],yongshen_scope='changed')
+    assert changed['patterns']['yongshen_refs']==[{'scope':'changed','position':1,'branch':'丑'}]
+    assert changed['lines'][0]['transformation']['moving'] is None
+    with pytest.raises(ValueError,match='没有动爻所化变爻'):
+        build_chart([3,1,1,1,1,1],month_branch='辰',day_ganzhi='甲子',
+                    yongshen_positions=[2],yongshen_scope='changed')
+
+
+def test_hidden_yongshen_candidates_participate_in_indexed_retrieval():
+    found=search_knowledge('',kind='case',features={'yongshen_relative':'父母','yongshen_scope':'hidden'},limit=1,max_chars=150000)
+    assert found['items']
+    first=found['items'][0]
+    selected=[c for c in first['case']['features']['yongshen_candidates'] if c['relative']=='父母' and c['scope']=='hidden']
+    assert len(selected)==1 and selected[0]['scope']=='hidden'
+    assert len(first['structure_match']['matched'])==2 and not first['structure_match']['unknown']
+
+
+def test_yongshen_states_do_not_mix_candidates_across_layers():
+    features={'yongshen_reported':['父母'],'yongshen_candidates':[
+        {'relative':'父母','scope':'hidden','void':True,'moving':None,'month_break':False},
+        {'relative':'父母','scope':'changed','void':False,'moving':None,'month_break':True}]}
+    match=structure_match({'yongshen_relative':'父母','yongshen_scope':'hidden','yongshen_void':False},features)
+    assert len(match['matched'])==2 and len(match['different'])==1
+    assert structure_match({'yongshen_void':False},features)['unknown']
+    assert structure_match({'yongshen_scope':'changed','yongshen_moving':False},features)['unknown']
 
 
 def test_unreviewed_ocr_proposals_do_not_change_source(tmp_path):
