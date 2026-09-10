@@ -20,7 +20,8 @@ def main():
     mismatches = []
     with sqlite3.connect(path.as_uri()+'?mode=ro', uri=True) as db:
         info = dict(db.execute('SELECT key,value FROM build_info'))
-        assert info['search_index_version'] == 'focused-2'
+        from liuyao_mcp.ingest import SEARCH_INDEX_VERSION
+        assert info['search_index_version'] == SEARCH_INDEX_VERSION
         sources = {sid: body.splitlines() for sid,body in db.execute('SELECT id,body FROM sources')}
         for table,kind in [('chunks','rule'), ('cases','case')]:
             for eid,raw in db.execute(f'SELECT id,payload FROM {table} ORDER BY id'):

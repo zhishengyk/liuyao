@@ -85,7 +85,7 @@ print(json.dumps({'version':version('liuyao-mcp'),'module':liuyao_mcp.__file__,
                                 day_ganzhi='甲子', yongshen_positions=[1], yongshen_scope='hidden')
             assert hidden['patterns']['yongshen_scope'] == 'hidden'
             assert hidden['patterns']['yongshen_refs'][0]['scope'] == 'hidden'
-            assert hidden['primary']['lines'][0]['hidden']['moving'] is None
+            assert hidden['lines'][0]['hidden']['moving'] is None
             changed = await call('build_chart', line_values=[3,1,1,1,1,1], month_branch='辰',
                                  day_ganzhi='甲子', yongshen_positions=[1], yongshen_scope='changed')
             assert changed['patterns']['yongshen_refs'][0]['scope'] == 'changed'

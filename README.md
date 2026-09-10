@@ -27,7 +27,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 也可以手动安装对应发行版。以下0.6.4命令须等待该版本Release的wheel实际可用；候选测试请使用已核验的本地wheel路径：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.4/liuyao_mcp-0.6.4-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.5/liuyao_mcp-0.6.5-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -41,7 +41,7 @@ codex plugin add liuyao-assistant@liuyao
 先运行上述uvx准备命令，再注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.4/liuyao_mcp-0.6.4-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.5/liuyao_mcp-0.6.5-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -100,6 +100,8 @@ codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/l
 变卦六亲沿用本卦宫五行，变卦世应按其自身八宫位置标注。神煞不代替取用与理法判断。
 
 排盘工具返回结构化JSON及 `display.markdown`；AI可以直接展示表格，不必重新计算或手写纳甲。
+
+查明取用依据后，AI可分别选择显爻、同位伏神或实际动爻所化的变爻，使用各自的旬空与日月关系核查组合条件；相似卦例也保留不同层的候选。详见[取用与排盘指南](docs/起卦与排盘指南.md#显爻伏神和变爻取用)。
 
 ## 资料如何进入分析
 
