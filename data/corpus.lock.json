@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_commit": "a44be4821494a39de5f840b2ac61eb9db639307f",
+  "corpus_snapshot": "0.7.0-alpha.1",
+  "assets": [
+    {
+      "kind": "corpus",
+      "url": "https://api.github.com/repos/zhishengyk/liuyao/releases/assets/556999243",
+      "sha256": "eec2069dec8b85011646946f2d5724d7c900184634eb0bd38b8409b61790a8f5",
+      "size": 5426222,
+      "file_count": 508,
+      "uncompressed_size": 29132366,
+      "name": "liuyao-corpus-0.7.0-alpha.1.zip"
+    },
+    {
+      "kind": "reference",
+      "url": "https://api.github.com/repos/zhishengyk/liuyao/releases/assets/556999241",
+      "sha256": "504effb5e76ddcd432710c5a3d60ef3a94c67c3a19584000beac486e0613fe67",
+      "size": 44967026,
+      "file_count": 1877,
+      "uncompressed_size": 131527902,
+      "name": "liuyao-reference-archive-2026-09-11.zip"
+    }
+  ]
+}

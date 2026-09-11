@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[test]' build uv
+      - name: Restore pinned corpus assets
+        run: python scripts/prepare_corpus.py
       - name: Check tag matches package version
         if: startsWith(github.ref, 'refs/tags/')
         run: python -c "import os; from liuyao_mcp import __version__; assert os.environ['GITHUB_REF_NAME'] == 'v' + __version__"
@@ -40,6 +42,7 @@ jobs:
           python -m pytest -q tests/test_canonical.py tests/test_manual_ingest.py
           tests/test_manual_source_access.py tests/test_rule_references.py
           tests/test_verify_manual_casts.py tests/test_chart.py tests/test_packaging.py
+          tests/test_prepare_corpus.py
       - name: Full suite and legacy migration report
         continue-on-error: ${{ steps.channel.outputs.preview == 'true' }}
         run: python -m pytest -q --junitxml=full-suite.xml
