@@ -22,9 +22,9 @@
 uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.2/liuyao_mcp-0.7.0a2-py3-none-any.whl liuyao-mcp --self-check
 ```
 
-MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不附跟随main的安装脚本；下面的Git目录安装流程使用稳定版。
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不另附安装脚本。下面的Git插件目录跟随main，当前同样指向此重建预发布。
 
-## 稳定版安装到 Codex
+## 安装跟随 main 的 Codex 插件
 
 需要可用的 **Codex CLI** 和 **uv**。先按[uv官方说明](https://docs.astral.sh/uv/getting-started/installation/)安装uv，在新终端确认 `codex --version`、`uvx --version` 能运行。
 
@@ -34,12 +34,11 @@ MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-它会注册GitHub插件目录，下载对应预建包，完成离线自检，再安装插件。**不需要克隆源码仓库、手工修改JSON或重新建库。** 安装后由Codex更新插件，新版程序与数据库在首次启动时自动下载，日常复用缓存，无需为每次升级重新运行脚本。
+该脚本会注册或刷新main上的GitHub插件目录，再按目录中的配置下载预建包并完成离线自检。因此，即使脚本来自最新稳定Release，安装的程序版本仍由当前main决定。**不需要克隆源码仓库、手工修改JSON或重新建库。** 安装后由Codex更新插件，新版程序与数据库在首次启动时自动下载，日常复用缓存，无需为每次升级重新运行脚本。
 
-也可以通过以下命令安装对应发行版：
+也可以直接安装跟随main的插件：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -50,7 +49,7 @@ codex plugin add liuyao-assistant@liuyao
 
 ### VS Code 或其他 MCP 客户端
 
-先运行上述uvx准备命令，再注册本地服务：
+下面的直接MCP入口固定使用0.6.7，不随main切换版本。注册本地服务：
 
 ```powershell
 codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp
