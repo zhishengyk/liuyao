@@ -1,6 +1,6 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-本分支为 **0.7.0-alpha.2 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书覆盖尚未完成，只编译审核完成的切片批次；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。本轮独立 Astra xhigh 测试与已知缺口见[核心规则首轮评估](docs/核心规则首轮盲测评估.md)，没有据此宣称预测准确率提高。
+本分支为 **0.7.0-alpha.3 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第二轮复盘](docs/核心规则第二轮复盘.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -16,10 +16,10 @@
 
 ## 试用预发布
 
-固定预发布 wheel 包含程序与部分手切数据库，首次下载后可以离线运行：
+固定预发布 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.2/liuyao_mcp-0.7.0a2-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.3/liuyao_mcp-0.7.0a3-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不另附安装脚本。下面的Git插件目录跟随main，当前同样指向此重建预发布。
@@ -163,6 +163,8 @@ flowchart TD
 
 手切库的 `get_outline` 浏览当前已有的书籍与人工单元；标签不冒充原书章题。`search_knowledge(method="xiangfa")`按场景查询，`outline_ids`限定已返回的节点；`get_source`回查完整原文及 `required_contexts`。旧版PDF目录文档仍可参考，但其旧ID和行号不能替代新库坐标。
 
+相似案例默认按原问与已知盘面检索。查证具体原书论述或寻找反例时，可显式使用 `kind="case", case_text_scope="full"`，将关键词检索扩展到整段案例；向量与结构比较仍按初始资料进行。全文命中可能来自作者断语、反馈或其他复占段，须回查原文角色。两种范围都排除噪音和待审核案例；盲测查询不得加入待测结果。
+
 ## 更新
 
 **Codex自带Git插件自动更新。** 已核对本机Codex CLI 0.153.0对应源码：启动任务会检查已配置的Git插件目录，发现更新后也会刷新已安装插件的缓存。我们采用这一原生机制，无需另写插件更新器。这是启动时的检查，不代表GitHub推送后客户端立即更新，也不保证客户端一直开启时定时轮询。[Codex 0.153.0实现](https://github.com/openai/codex/blob/rust-v0.153.0/codex-rs/core-plugins/src/manager.rs#L2735-L2939)
@@ -184,12 +186,14 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts/build_release.py --prerelease
 ```
 
-Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_corpus.py` 从Release下载所需语料包，核对SHA-256后恢复到本地；重建包约5.4MB，普通插件用户不需要下载它。完整资料和历史审计归档另约45MB，需要时加 `--include-reference`。恢复脚本不会覆盖已修改的本地语料。
+Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_corpus.py` 从Release下载所需语料包，核对SHA-256后恢复到本地；六书重建包约11.8MB，普通插件用户不需要下载它。完整资料和历史审计归档另约45MB，需要时加 `--include-reference`。恢复脚本不会覆盖已修改的本地语料。
 
-默认安装不下载推理模型。恢复后的手切清单已绑定对应审计，可以直接入库；修改切片后先运行 `scripts/assemble_manual_slices.py`，再按审计文件用 `scripts/attach_chart_audits.py` 重新绑定盘面证明。未绑定记录保持not_run。稳定构建默认要求全书覆盖，预发布必须显式使用 `--prerelease`。旧全套测试仍有依赖旧解析器、旧ID及旧目录的待迁移项；预发布CI要求新的手切合同和隔离安装检查通过，并保留完整测试报告。稳定发布还要求完整测试套件通过。
+默认安装不下载推理模型。恢复后的手切清单已绑定对应审计，可以直接入库；修改切片后先运行 `scripts/assemble_manual_slices.py`，再按审计文件用 `scripts/attach_chart_audits.py` 重新绑定盘面证明。未绑定记录保持not_run。稳定构建默认要求全书覆盖，预发布必须显式使用 `--prerelease`。CI要求完整测试套件和隔离安装检查通过，并保留完整测试报告；预发布也不能跳过未预期的失败。已知的无筛选求职排序缺口显式标为xfail，不计作通过。
+
+反馈审核分批保存在 `data/manual_slices/quality_reviews/shards/`；运行 `scripts/assemble_quality_reviews.py` 合并，既有独立审核会保留为种子。审核与盘面证明合并后再重建 SQLite。发布新语料使用 `scripts/package_corpus.py --output <压缩包路径>`：它按文件系统清单打包并核对切片哈希，不依赖 Git 跟踪状态，排除草稿、生成数据库与模型缓存。语料 ZIP 上传 Release，Git 仅更新小型版本清单。
 
 ## 资料与边界
 
-首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao-corpus-0.7.0-alpha.1.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
+首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/corpus-2026-09-12/liuyao-corpus-2026-09-12.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
 
 原始资料共1,862个Markdown文件；六份建库来源随语料包提供，其余保存在[资料及审计归档](https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao-reference-archive-2026-09-11.zip)。同时恢复两个压缩包即可恢复原目录结构。原始Word、图片、音频和转换附件未上传；旧文档中的本地图片链接可能无法显示。

@@ -30,7 +30,7 @@ def verify(document, unit):
     cast = unit['cast']
     text = resolve_spans(document, cast.get('diagram_spans') or unit['parts']['chart'])['exact_text']
     for key in ('month_branch', 'day_ganzhi'):
-        spans = cast.get('field_spans', {}).get(key, [])
+        spans = cast.get('field_spans', {}).get(key) or cast.get('shared_calendar', {}).get('fields', {}).get(key, [])
         literal = resolve_spans(document, spans)['exact_text'] if spans else ''
         if cast[key] not in re.sub(r'\s+', '', literal):
             raise ValueError(f"{unit['unit_id']}: {key} is not supported by its literal date span")

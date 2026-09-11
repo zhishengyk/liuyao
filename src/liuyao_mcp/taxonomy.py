@@ -52,6 +52,7 @@ DEFINITIONS = [
  ('affairs','日常事务','办事 运势 比赛 评选',[
   ('assistance','求助办事','帮忙 办一件事 谒贵 求人'),('approval','证照审批','许可证 批准 审批 财政局'),
   ('competition','比赛评选','比赛 拿奖 获奖 作品 选中'),('service','日常服务','理发 发型 美容'),
+  ('publication','文稿出版','出版 发表 审稿 书稿'),
   ('fortune','整体运势','流年 运势 终身 命运 前程')])]
 
 GENERAL = re.compile(r'用神|元神|忌神|仇神|六亲|月建|日辰|旺衰|旬空|月破|动爻|变爻|进神|退神|三合|六合|六冲|生克|神煞|卦身|应期')
@@ -95,6 +96,9 @@ def topic_matches(text, catalog):
 
 def classify(text):
     text = text.lower()
+    # 收回来 describes recovery of something, not a person's return journey.
+    text = text.replace('收回来', '收回')
+    text = text.replace('借出去的钱', '借款')
     # 官鬼不见 describes a chart, not a missing person/object.
     text = re.sub(r'(?:(?:官鬼|妻财|用神|元神|忌神|仇神|飞神|伏神)(?:爻)?|(?:父母|兄弟|子孙)爻)(?:不见|不现|不上卦)', '', text)
     # A role/place is useful when no event is stated; explicit events retain all

@@ -16,6 +16,7 @@ from .proofreading import SCHEMA as PROOFREADING_SCHEMA, apply as apply_correcti
 
 PARSER_VERSION = "source-parser-0.7"
 SEARCH_INDEX_VERSION = 'manual-quality-1'
+CASE_TEXT_INDEX_VERSION = 'case-full-1'
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(rf"(父母|兄弟|子孙|妻财|官鬼)[{STEMS}]?([{BRANCHES}])[木火土金水]?")
@@ -588,7 +589,8 @@ def import_source(source, root):
         raise ValueError(f"OCR page sequence mismatch: {source['source_id']}")
     outline_nodes = build_outline(source, lines, pages, root)
     original_body = text
-    source, text = apply_corrections(source, text, root)
+    if source['source_type'] == 'ocr_text':
+        source, text = apply_corrections(source, text, root)
     lines = text.splitlines()
     boundaries = {n['start_line']-1: n for n in outline_nodes if n['node_type'] not in ('book', 'front_matter')}
     cases, diagram_lines = extract_cases(source, lines, pages, cutoff, set(boundaries) if outline_nodes else None)

@@ -11,6 +11,7 @@ from .semantic import ensure_worker, model_key, model_lock, request
 from .sqlite_vectors import manifest_at, search_vectors, write_index
 
 INDEX_VERSION = "sqlite-cosine-windowed-1"
+DOCUMENT_SELECTION = "searchable-only-1"
 MAX_EMBED_TOKENS = 768
 
 
@@ -28,8 +29,13 @@ def build_index(db_path=None, activate=True):
         raise ValueError("请先构建知识库，再构建向量索引")
     with closing(sqlite3.connect(path.as_uri()+'?mode=ro',uri=True)) as db:
         corpus = db.execute("SELECT value FROM build_info WHERE key='corpus_hash'").fetchone()[0]
-        docs = [(eid,"rule",json.loads(payload)) for eid,payload in db.execute("SELECT id,payload FROM chunks ORDER BY id")]
-        docs += [(eid,"case",json.loads(payload)) for eid,payload in db.execute("SELECT id,payload FROM cases ORDER BY id")]
+        source_documents = db.execute('SELECT (SELECT count(*) FROM chunks)+(SELECT count(*) FROM cases)').fetchone()[0]
+        docs = []
+        for table, kind in (("chunks", "rule"), ("cases", "case")):
+            docs.extend((eid,kind,json.loads(payload)) for eid,payload in db.execute(f'''
+                SELECT d.id,d.payload FROM {table} d JOIN evidence_metadata e ON e.evidence_id=d.id
+                WHERE e.searchable=1 ORDER BY d.id'''))
+        excluded_unsearchable = source_documents-len(docs)
     docs = [(eid,kind,document_text(kind,payload)) for eid,kind,payload in docs]
     excluded_empty = [eid for eid,_,text in docs if not text.strip()]
     docs = [(eid,kind,text) for eid,kind,text in docs if text.strip()]
@@ -42,7 +48,7 @@ def build_index(db_path=None, activate=True):
     # A single composite hash avoids exceeding Windows MAX_PATH in deep checkouts.
     cache = folder/"cache"
     cache.mkdir(parents=True,exist_ok=True)
-    generation = digest(corpus+spec_key)
+    generation = digest(corpus+spec_key+DOCUMENT_SELECTION)
     output = folder/generation
     output.mkdir(exist_ok=True)
     ensure_worker()
@@ -75,6 +81,8 @@ def build_index(db_path=None, activate=True):
             print(dumps(progress),flush=True)
     matrix = np.concatenate(matrices,axis=0)
     manifest = {"index_version":INDEX_VERSION,"corpus_hash":corpus,"model_key":key,"models":{role:{k:v for k,v in item.items() if k!='path'} for role,item in models.items()},"generation":generation,"source_documents":len(docs)+len(excluded_empty),"excluded_empty_evidence_ids":excluded_empty,"documents":len(docs),"vectors":len(entries),"dimensions":int(matrix.shape[1]),"dtype":"float32","pooling":"cls_l2","max_tokens":MAX_EMBED_TOKENS,"whole_text_covered_by_windows":True,"cached_documents":cached,"encoded_documents":new,"elapsed_seconds":round(time.perf_counter()-started,2)}
+    manifest.update(source_documents=source_documents, document_selection=DOCUMENT_SELECTION,
+                    excluded_unsearchable_documents=excluded_unsearchable)
     write_index(output/"knowledge.sqlite", manifest, entries, matrix, source=path)
     (output/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf8")
     if activate:

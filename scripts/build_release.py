@@ -41,7 +41,7 @@ def main():
             'database_sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
             'build_info': dict(db.execute("SELECT key,value FROM build_info WHERE key!='coverage_report'")),
             'counts': {table: db.execute(f'SELECT count(*) FROM {table}').fetchone()[0]
-                       for table in ('sources', 'chunks', 'cases', 'search_index', 'ocr_pages', 'ocr_edits')},
+                       for table in ('sources', 'chunks', 'cases', 'search_index', 'case_text_index', 'ocr_pages', 'ocr_edits')},
             'page_status': dict(Counter(page['status'] for page in pages)),
             'chart_status': dict(Counter(json.loads(row[0])['extraction']['chart_validation']
                                          for row in db.execute('SELECT payload FROM cases'))),

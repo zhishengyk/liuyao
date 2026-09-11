@@ -6,12 +6,12 @@ from liuyao_mcp.common import database_path
 from liuyao_mcp.retrieval import get_source
 
 
-def test_source_lookup_does_not_publish_a_conflicting_computed_chart():
+def test_source_lookup_does_not_publish_an_unvalidated_computed_chart():
     path = database_path()
     before = hashlib.sha256(path.read_bytes()).hexdigest()
     with sqlite3.connect(path) as db:
         eid, raw = db.execute("""SELECT id,payload FROM cases
-            WHERE json_extract(payload,'$.extraction.chart_validation')='conflict'
+            WHERE json_extract(payload,'$.extraction.chart_validation')!='calculated'
             AND json_type(payload,'$.derived')='object' ORDER BY id LIMIT 1""").fetchone()
         valid_id = db.execute("""SELECT id FROM cases
             WHERE json_extract(payload,'$.extraction.chart_validation')='calculated'

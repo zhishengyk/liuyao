@@ -3,64 +3,64 @@ import sqlite3
 
 import pytest
 
-from liuyao_mcp.common import database_path
+from liuyao_mcp.common import database_path, dumps
+from liuyao_mcp.ingest import read_spans
 from liuyao_mcp.retrieval import get_outline, get_source, search_knowledge
 
 
-def test_pdf_verified_directory_and_original_text():
+def test_manual_directory_pagination_and_exact_original_text():
     books = get_outline()['items']
-    assert {b['node_id'] for b in books} == {'xf_shang', 'xf_xia'}
-    assert {b['pdf_verification']['pages'] for b in books} == {317, 237}
-    children = get_outline(parent_id='xf_shang_c01')['items']
-    assert len(children) == 7
-    assert children[3]['title'] == '第四节 螣蛇'
-    assert children[3]['pdf_pages'][0] == 91
-    assert children[3]['toc_printed_page'] == 86
-    source = get_source('xf_xia_c09', max_chars=1000)
-    assert source['outline_node']['title'] == '第九章 隔山化爻'
-    assert '隔山化区' in source['text']  # PDF titles must not overwrite quoted OCR.
-    vacancy = get_source('xf_xia_c06_u03', max_chars=1000)['outline_node']
-    assert vacancy['toc_printed_page'] == 82 and vacancy['pdf_pages'][0] == 83
-    page = get_outline(parent_id='xf_shang_c01', limit=2)
-    assert page['has_more'] and page['next_offset'] == 2
-    assert get_outline(parent_id='xf_shang_c01', offset=2, limit=2)['items'][1]['node_id'] == 'xf_shang_c01_s04'
+    with sqlite3.connect(database_path()) as db:
+        sources = {sid: json.loads(meta) for sid, meta in db.execute('SELECT id,metadata FROM sources')}
+    assert len(books) == len(sources) == 6
+    assert {b['source_id'] for b in books} == set(sources)
+    assert all(b['title_basis'] == 'source_manifest' for b in books)
+    parent = next(b['node_id'] for b in books if b['source_id'] == 'liuyao_xiangfa_jinjie_xia')
+    first = get_outline(parent_id=parent, limit=2)
+    assert first['has_more'] and first['next_offset'] == 2
+    second = get_outline(parent_id=parent, offset=2, limit=2)
+    combined = get_outline(parent_id=parent, limit=4)['items']
+    assert first['items'] + second['items'] == combined
+    node = first['items'][0]
+    assert node['title_basis'] == 'manual_unit_label'
+    source = get_source(node['node_id'], max_chars=500000)
+    with sqlite3.connect(database_path()) as db:
+        body = db.execute('SELECT body FROM sources WHERE id=?', (node['source_id'],)).fetchone()[0]
+    assert source['text'] == read_spans(body.split('\n'), node['source_spans'])
+    assert source['source']['total_pdf_pages'] == 237
 
 
-def test_corrected_boundaries_and_all_evidence_links():
+def test_manual_unit_bounds_and_all_evidence_links():
     with sqlite3.connect(database_path()) as db:
         nodes = {nid: json.loads(p) for nid, p in db.execute('SELECT id,payload FROM outline_nodes')}
-        assert len(nodes) == 121
-        for sid, line, expected in [('liuyao_xiangfa_jinjie_shang', 3882, 'xf_shang_c01_s04_u01'),
-                                    ('liuyao_xiangfa_jinjie_shang', 12126, 'xf_shang_c03_s05_u01'),
-                                    ('liuyao_xiangfa_jinjie_xia', 9611, 'xf_xia_c11_s07')]:
-            row = db.execute('SELECT payload FROM chunks WHERE source_id=? AND start_line<=? AND end_line>=?',
-                             (sid, line, line)).fetchone()
-            assert json.loads(row[0])['outline']['node_id'] == expected
-        for eid, sid, start, end, payload in db.execute('SELECT id,source_id,start_line,end_line,payload FROM chunks'):
-            chunk = json.loads(payload)
-            if 'outline' not in chunk:
-                continue
-            node = nodes[chunk['outline']['node_id']]
-            assert node['source_id'] == sid
-            assert node['start_line'] <= start <= end <= node['end_line']
-            assert start >= nodes[chunk['outline']['path'][0]['node_id']]['body_start_line']
+        records = [json.loads(p) for p, in db.execute('SELECT payload FROM chunks UNION ALL SELECT payload FROM cases')]
+        assert len(nodes) == 6 + len({r.get('unit_id', r.get('id')) for r in records})
+        for record in records:
+            case = 'case_id' in record
+            eid = record['case_id'] if case else record['id']
+            source = record['source'] if case else record
+            node = nodes[record['outline']['node_id']]
+            spans = source['spans'] if case else record['source_spans']
+            assert node['source_id'] == source['source_id']
+            assert all(node['start_line'] <= span['start_line'] <= span['end_line'] <= node['end_line'] for span in spans)
             linked = {r[0] for r in db.execute('SELECT node_id FROM evidence_outline WHERE evidence_id=?', (eid,))}
-            assert linked == {p['node_id'] for p in chunk['outline']['path']}
+            assert linked == {p['node_id'] for p in record['outline']['path']}
+            assert node['title_basis'] == 'manual_unit_label'
 
 
-def test_scene_search_contexts_and_cross_topic_cases():
-    found = search_knowledge('材料审核', method='xiangfa', limit=5)
-    target = next(i for i in found['items'] if i['outline']['node_id'] == 'xf_shang_c01_s02_u03')
-    assert target['related_cases']['total_cases'] > 0
-    source = get_source(target['evidence_id'], max_chars=10000)
-    assert 'xf_shang_c01_s02' in {c['node_id'] for c in source['outline_context']}
+def test_rule_parent_contexts_and_cross_topic_scene_search():
     with sqlite3.connect(database_path()) as db:
-        original = db.execute('SELECT body FROM sources WHERE id=?', (target['source_id'],)).fetchone()[0].splitlines()
-    for context in source['outline_context']:
-        assert context['text'] == '\n'.join(original[context['start_line']-1:context['end_line']])
-    small = get_source(target['evidence_id'], max_chars=1000)
-    assert len(small['text']) + sum(len(c['text']) for c in small['outline_context']) <= 1000
-    assert small['outline_context_omitted']
+        rules = [json.loads(p) for p, in db.execute('SELECT payload FROM chunks')]
+        rule = next(r for r in rules if r['method'] == 'xiangfa' and r['required_contexts']
+                    and len(r['text']) + sum(len(dumps(c)) for c in r['required_contexts']) > 1000)
+        source_lines = db.execute('SELECT body FROM sources WHERE id=?', (rule['source_id'],)).fetchone()[0].split('\n')
+    source = get_source(rule['id'], max_chars=500000)
+    assert source['required_contexts'] == rule['required_contexts']
+    for context in source['required_contexts']:
+        assert context['text'] == read_spans(source_lines, context['source_spans'])
+    small = get_source(rule['id'], max_chars=1000)
+    assert len(small['text']) + sum(len(dumps(c)) for c in small['required_contexts']) <= 1000
+    assert small['required_contexts_omitted'] and small['context_read_note']
     params = dict(query='工作 官鬼 求职', kind='case', method='xiangfa', limit=4, max_chars=100000)
     a = search_knowledge(**params, topic='job')
     b = search_knowledge(**params, topic='relationship')
@@ -69,12 +69,14 @@ def test_scene_search_contexts_and_cross_topic_cases():
 
 
 def test_directory_scope_browse_followup_and_validation():
-    params = dict(query='', method='xiangfa', kind='case', outline_ids=['xf_shang_c01_s02'], limit=3, max_chars=100000)
+    book = 'manual_book:liuyao_xiangfa_jinjie_xia'
+    params = dict(query='', method='xiangfa', kind='case', outline_ids=[book], limit=3, max_chars=100000)
     first = search_knowledge(**params)
     ids = [i['evidence_id'] for i in first['items']]
     assert len(ids) == 3
     for item in first['items']:
-        assert 'xf_shang_c01_s02' in {p['node_id'] for p in item['outline']['path']}
+        assert book in {p['node_id'] for p in item['outline']['path']}
+        assert item['case']['quality']['status'] == 'eligible'
     second = search_knowledge(**params, exclude_case_ids=ids)
     assert not set(ids) & {i['evidence_id'] for i in second['items']}
     for item in second['items']:
@@ -82,4 +84,4 @@ def test_directory_scope_browse_followup_and_validation():
     with pytest.raises(ValueError, match='未知目录'):
         search_knowledge('', outline_ids=['missing'])
     with pytest.raises(ValueError, match='来源不符'):
-        get_outline(source_id='liuyao_xiangfa_jinjie_xia', parent_id='xf_shang_c01')
+        get_outline(source_id='liuyao_xiangfa_jinjie_shang', parent_id=book)

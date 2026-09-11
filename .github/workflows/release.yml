@@ -37,14 +37,7 @@ jobs:
               output.write(f'publish_flags={"--prerelease" if preview else ""}\n')
           PY
       - run: python -m liuyao_mcp.ingest ${{ steps.channel.outputs.ingest_flags }}
-      - name: Required manual corpus contracts
-        run: >-
-          python -m pytest -q tests/test_canonical.py tests/test_manual_ingest.py
-          tests/test_manual_source_access.py tests/test_rule_references.py
-          tests/test_verify_manual_casts.py tests/test_chart.py tests/test_packaging.py
-          tests/test_prepare_corpus.py
-      - name: Full suite and legacy migration report
-        continue-on-error: ${{ steps.channel.outputs.preview == 'true' }}
+      - name: Required full test suite
         run: python -m pytest -q --junitxml=full-suite.xml
       - name: Preserve full suite result
         if: always()

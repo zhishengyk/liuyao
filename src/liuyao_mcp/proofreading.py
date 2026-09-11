@@ -36,7 +36,10 @@ def correction_text(root):
 
 
 def apply(source,text,root):
-    data=json.loads(correction_text(root))
+    # Line edits use the original transcription's offsets and hash. Whole-page
+    # canonical reviews have separate coordinates and are not inputs here.
+    path=Path(root)/'data/ocr_corrections.json'
+    data=json.loads(path.read_text(encoding='utf8')) if path.is_file() else {}
     edits=[e for e in data.get('edits',[]) if e['source_id']==source['source_id'] and e.get('visual_verified')]
     if not edits:return source,text
     lines=text.splitlines()

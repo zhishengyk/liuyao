@@ -68,6 +68,66 @@ def audit_cast(root, manifest, cast_index=0):
     return path, record
 
 
+def shared_calendar_fixture(root):
+    source, manifest, lines = fixture_source(root)
+    lines[0] += "共用起卦日期：辰月戊申日。"
+    blob = "\r\n".join(lines).encode('utf8')
+    (root/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(root/'data/canonical/sources.jsonl', source)
+    manifest['units'][0]['spans'][0].update(exact_text=lines[0], quote_sha256=digest(lines[0]))
+    case = manifest['units'][1]
+    cast = case['cast']
+    fields = {}
+    for key in ('month_branch', 'day_ganzhi'):
+        text = cast[key]
+        start = lines[0].index(text)
+        fields[key] = [{'page': None, 'start_line': 1, 'end_line': 1,
+                        'start_column': start, 'end_column': start+len(text),
+                        'exact_text': text, 'quote_sha256': digest(text)}]
+        cast['field_spans'].pop(key)
+    cast['shared_calendar'] = {'basis': 'Question uses the explicitly shared date heading.',
+                               'reviewer': 'source reviewer', 'fields': fields,
+                               'relation_spans': case['parts']['question']}
+    return manifest
+
+
+def test_shared_calendar_keeps_exact_external_provenance_without_certifying_chart(tmp_path):
+    manifest = shared_calendar_fixture(tmp_path)
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    with closing(sqlite3.connect(out)) as db:
+        case = json.loads(db.execute('SELECT payload FROM cases').fetchone()[0])
+    assert case['cast']['month_branch'] == '辰' and case['cast']['day_ganzhi'] == '戊申'
+    assert case['cast']['calendar_basis'] == 'explicit_shared_source_calendar'
+    assert case['cast']['evidence']['day_ganzhi']['source_spans'][0]['start_line'] == 1
+    assert case['cast']['evidence']['day_ganzhi']['scope'] == 'shared_calendar'
+    assert case['extraction']['chart_validation'] == 'not_run'
+    assert case['question']['raw'].startswith('问求职')
+
+
+@pytest.mark.parametrize('bad', ['line_values', 'literal', 'reviewer', 'relation', 'undeclared'])
+def test_shared_calendar_cannot_launder_other_casts_or_unsupported_dates(tmp_path, bad):
+    manifest = shared_calendar_fixture(tmp_path)
+    cast = manifest['units'][1]['cast']
+    shared = cast['shared_calendar']
+    if bad == 'line_values':
+        shared['fields']['line_values'] = cast['field_spans'].pop('line_values')
+    elif bad == 'literal':
+        cast['day_ganzhi'] = '甲子'
+    elif bad == 'reviewer':
+        shared.pop('reviewer')
+    elif bad == 'relation':
+        shared['relation_spans'] = shared['fields']['day_ganzhi']
+    else:
+        cast['field_spans'].update(shared['fields'])
+        cast.pop('shared_calendar')
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    with pytest.raises(ValueError, match='shared calendar|outside'):
+        build_database(tmp_path)
+
+
 def fixture_two_casts(root):
     source, manifest, lines = fixture_source(root)
     lines = lines[:3] + ["第一断：自占以世爻为用。", "母占六爻初至上：3 1 1 1 1 1", "第二断：代占取子孙。", "总论：不可拘泥。", "反馈：最终未录用。"]
@@ -310,7 +370,7 @@ def test_late_disclosed_background_retains_span_metadata_but_never_enters_initia
             "review_note": {"basis": "explicit_later_disclosure"}}
     case["parts"]["background"].append(late)
     if contradictory_overlap:
-        case["parts"]["question"].append(dict(late))
+        case["parts"]["question"].append({**late, "eligible_for_initial_blind_input": True})
     write_json(tmp_path / "data/manual_slices/book.json", manifest)
     out = tmp_path / "knowledge.sqlite"
     if contradictory_overlap:
@@ -868,3 +928,165 @@ def test_case_exclusion_uses_actual_rule_spans_and_required_contexts(tmp_path, s
     assert search_knowledge("用神", kind="rule", db_path=out)["items"]
     found = search_knowledge("用神", kind="rule", exclude_case_ids=["manual.case"], db_path=out)
     assert [item["evidence_id"] for item in found["items"]] == ([] if shared_context else ["manual.rule"])
+
+
+def test_case_full_text_research_is_explicit_and_keeps_event_exclusion(tmp_path):
+    from liuyao_mcp.retrieval import search_knowledge, get_source
+    source,manifest,lines=fixture_source(tmp_path)
+    audit_cast(tmp_path,manifest)
+    database=tmp_path/'knowledge.sqlite'
+    build_database(tmp_path,database)
+    for query in ('丑日可成','另有所指'):
+        initial=search_knowledge(query,kind='case',db_path=database)
+        assert not initial['items'] and initial['case_text_scope']=='initial'
+        full=search_knowledge(query,kind='case',case_text_scope='full',db_path=database)
+        assert [i['evidence_id'] for i in full['items']]==['manual.case']
+        assert full['case_text_scope']=='full' and '反馈' in full['case_text_note']
+        assert query in get_source('manual.case',db_path=database)['text']
+        blocked=search_knowledge(query,kind='case',case_text_scope='full',exclude_case_ids=['manual.case'],db_path=database)
+        assert not blocked['items']
+    with pytest.raises(ValueError,match='kind=case'):
+        search_knowledge('丑日可成',kind='rule',case_text_scope='full',db_path=database)
+
+
+@pytest.mark.parametrize('status',['noise','pending'])
+def test_case_full_text_never_indexes_noise_or_pending(tmp_path,status):
+    from liuyao_mcp.retrieval import search_knowledge
+    source,manifest,lines=fixture_source(tmp_path)
+    manifest['units'][1]['quality']['status']=status
+    write_json(tmp_path/'data/manual_slices/book.json',manifest)
+    database=tmp_path/'knowledge.sqlite'
+    build_database(tmp_path,database)
+    with closing(sqlite3.connect(database)) as db:
+        assert db.execute('SELECT count(*) FROM cases').fetchone()[0]==1
+        assert db.execute('SELECT count(*) FROM case_text_index').fetchone()[0]==0
+    assert not search_knowledge('丑日可成',kind='case',case_text_scope='full',db_path=database)['items']
+
+
+def test_old_manual_snapshot_still_reads_initial_scope_but_not_full(tmp_path):
+    from liuyao_mcp.retrieval import search_knowledge
+    fixture_source(tmp_path)
+    database=tmp_path/'knowledge.sqlite'
+    build_database(tmp_path,database)
+    with closing(sqlite3.connect(database)) as db:
+        db.execute('DROP TABLE case_text_index')
+        db.execute("DELETE FROM build_info WHERE key='case_text_index_version'")
+        db.commit()
+    assert search_knowledge('求职',kind='case',db_path=database)['items']
+    with pytest.raises(ValueError,match='尚无案例全文索引'):
+        search_knowledge('丑日可成',kind='case',case_text_scope='full',db_path=database)
+
+
+@pytest.mark.parametrize('overlap', [False, True])
+def test_followup_question_preserves_role_without_entering_initial_query(tmp_path, overlap):
+    from liuyao_mcp.retrieval import get_source, search_knowledge
+    source, manifest, lines = fixture_source(tmp_path)
+    late_text = '后来追问：能否涨薪？'
+    lines.append(late_text)
+    blob = '\r\n'.join(lines).encode('utf8')
+    (tmp_path/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(tmp_path/'data/canonical/sources.jsonl', source)
+    unit = manifest['units'][1]
+    whole = '\n'.join(lines[1:])
+    unit['spans'][0].update(end_line=5, exact_text=whole, quote_sha256=digest(whole))
+    late = {'page': None, 'start_line': 5, 'end_line': 5, 'exact_text': late_text,
+            'quote_sha256': digest(late_text), 'disclosure_phase': 'after_initial_prediction',
+            'eligible_for_initial_blind_input': False}
+    unit['parts']['question'].append(late)
+    if overlap:
+        unit['parts']['background'].append({**late, 'eligible_for_initial_blind_input': True})
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    out = tmp_path/'knowledge.sqlite'
+    if overlap:
+        with pytest.raises(ValueError, match='late-disclosed question overlaps'):
+            build_database(tmp_path, out)
+        return
+    build_database(tmp_path, out)
+    case = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    assert case['question']['question_only'] == '问求职。'
+    assert all(s['start_line'] != 5 for s in case['question']['source_spans'])
+    assert '涨薪' not in case['question']['raw'] and '涨薪' not in case_search_text(case)
+    assert late_text in case['parts']['question']['exact_text']
+    assert case['parts']['question']['canonical_spans'][-1]['eligible_for_initial_blind_input'] is False
+    assert not search_knowledge('涨薪', kind='case', db_path=out)['items']
+    assert search_knowledge('涨薪', kind='case', case_text_scope='full', db_path=out)['items']
+    unit['parts']['question'][0]['eligible_for_initial_blind_input'] = False
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    with pytest.raises(ValueError, match='question at the selected input stage'):
+        build_database(tmp_path, out)
+
+
+def test_each_caster_uses_its_own_source_question_without_rewriting_shared_event(tmp_path):
+    from liuyao_mcp.retrieval import get_source
+    manifest = fixture_two_casts(tmp_path)
+    source_path = tmp_path/'data/canonical/sources.jsonl'
+    source = json.loads(source_path.read_text(encoding='utf8'))
+    lines = (tmp_path/'source.md').read_text(encoding='utf8').splitlines()
+    later = '母代占子求职。'
+    start = len(lines[1])
+    lines[1] += later
+    blob = '\r\n'.join(lines).encode('utf8')
+    (tmp_path/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(source_path, source)
+    unit = manifest['units'][1]
+    whole = '\n'.join(lines[1:])
+    unit['spans'][0].update(exact_text=whole, quote_sha256=digest(whole))
+    mother = {'page': None, 'start_line': 2, 'end_line': 2, 'start_column': start,
+              'end_column': len(lines[1]), 'exact_text': later, 'quote_sha256': digest(later)}
+    unit['parts']['question'].append(mother)
+    unit['cast']['question_spans'] = [unit['parts']['question'][0]]
+    unit['additional_casts'][0]['question_spans'] = [mother]
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    first = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    second = get_source('manual.case.cast2', db_path=out, max_chars=100000)['structured_case']
+    assert first['question']['question_only'] == '问求职。'
+    assert second['question']['question_only'] == later
+    assert later not in first['question']['raw']
+    assert first['event_id'] == second['event_id']
+    assert first['quality']['status'] == second['quality']['status'] == 'eligible'
+    unit['additional_casts'][0]['question_spans'] = unit['parts']['feedback']
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    with pytest.raises(ValueError, match='outside'):
+        build_database(tmp_path, out)
+
+
+def test_cast_input_override_cannot_silently_drop_late_disclosure(tmp_path):
+    from liuyao_mcp.retrieval import get_source
+    manifest = fixture_two_casts(tmp_path)
+    source_path = tmp_path/'data/canonical/sources.jsonl'
+    source = json.loads(source_path.read_text(encoding='utf8'))
+    lines = (tmp_path/'source.md').read_text(encoding='utf8').splitlines()
+    late_text = '第二次起卦前收到面试通知。'
+    lines.append(late_text)
+    blob = '\r\n'.join(lines).encode('utf8')
+    (tmp_path/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(source_path, source)
+    unit = manifest['units'][1]
+    whole = '\n'.join(lines[1:])
+    unit['spans'][0].update(end_line=len(lines), exact_text=whole, quote_sha256=digest(whole))
+    late = {'page': None, 'start_line': len(lines), 'end_line': len(lines),
+            'exact_text': late_text, 'quote_sha256': digest(late_text)}
+    unit['parts']['background'].append({**late, 'eligible_for_initial_blind_input': False})
+    cast = unit['additional_casts'][0]
+    cast['background_spans'] = [late]
+    path = tmp_path/'data/manual_slices/book.json'
+    out = tmp_path/'knowledge.sqlite'
+    write_json(path, manifest)
+    with pytest.raises(ValueError, match='explicit reviewed input stage'):
+        build_database(tmp_path, out)
+    late['eligible_for_initial_blind_input'] = True
+    write_json(path, manifest)
+    with pytest.raises(ValueError, match='explicit reviewed input stage'):
+        build_database(tmp_path, out)
+    late.update(disclosure_phase='before_second_cast', review_note='原文明确该通知先于第二次起卦。')
+    write_json(path, manifest)
+    build_database(tmp_path, out)
+    first = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    second = get_source('manual.case.cast2', db_path=out, max_chars=100000)['structured_case']
+    assert late_text not in first['question']['raw']
+    assert late_text in second['question']['raw']

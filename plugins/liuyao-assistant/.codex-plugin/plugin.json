@@ -1,6 +1,6 @@
 {
   "name": "liuyao-assistant",
-  "version": "0.7.0-alpha.2",
+  "version": "0.7.0-alpha.3",
   "description": "手动校对与切片重建预览：排盘、规则检索、卦例及出处回查。",
   "author": {
     "name": "zhishengyk"

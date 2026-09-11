@@ -9,7 +9,7 @@ import sqlite3
 import time
 
 from .common import NEGATED_TECHNICAL, database_path, digest, dumps, plain, retrieval_data_dir, tokens
-from .ingest import PAGE, SEARCH_INDEX_VERSION, read_spans
+from .ingest import PAGE, SEARCH_INDEX_VERSION, CASE_TEXT_INDEX_VERSION, read_spans
 from .outline import read_outline, related_cases
 from .taxonomy import resolve as resolve_topic, tier as topic_tier, classify as classify_topic
 from .proofreading import page_reviews
@@ -169,7 +169,7 @@ def rules_overlapping_cases(db, groups):
     return blocked
 
 
-def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False):
+def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False, case_text_scope: str = "initial"):
     started = time.perf_counter()
     config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
     config = json.loads(config_path.read_text(encoding="utf8")) if config_path.is_file() else {}
@@ -179,20 +179,28 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
     timings, model_info = {}, {}
     if kind not in ("rule", "case") or method not in ("all", "lifa", "xiangfa"):
         raise ValueError("kind=rule/case; method=all/lifa/xiangfa")
+    if case_text_scope not in ('initial', 'full') or (kind != 'case' and case_text_scope != 'initial'):
+        raise ValueError('case_text_scope=initial/full；全文查证只适用于kind=case')
+    fts_table = 'case_text_index' if case_text_scope == 'full' else 'search_index'
     limit = (12 if kind == "rule" else 8) if limit is None else limit
     if not 1 <= limit <= 100 or not 1000 <= max_chars <= 500000:
         raise ValueError("limit 范围1..100，max_chars范围1000..500000")
     features = features or {}
     inferred_topics = []
+    hint_paths = []
     if method == 'xiangfa':
         topic,subtopic = None,None
     elif topic or subtopic:
         topic,subtopic = resolve_topic(topic,subtopic)
     elif topic is None:
         inferred = classify_topic(query)
-        # Ambiguous wording can suggest a topic, but must not exclude sources.
+        # Inferred topics are metadata only; ambiguous wording must not change
+        # candidate selection or ranking.
         # A caller can apply a topic filter explicitly after inspecting the task.
         inferred_topics = inferred['roots']
+        children = [path for path in inferred['topic_ids'] if '/' in path]
+        hint_paths = children + [root for root in inferred_topics
+                                 if not any(path.startswith(root+'/') for path in children)]
     exclude_ids, exclude_case_ids = set(exclude_ids or []), set(exclude_case_ids or [])
     # Preserve meaningful single characters; omit only explicit stop words.
     terms = list(dict.fromkeys(t for t in tokens(query) if t not in STOP))[:50]
@@ -205,6 +213,10 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
         version = db.execute("SELECT value FROM build_info WHERE key='search_index_version'").fetchone()
         if version is None or version[0] != SEARCH_INDEX_VERSION:
             raise ValueError('知识库检索索引版本过旧，请更新发布包或重新运行 liuyao-ingest')
+        if case_text_scope == 'full':
+            version = db.execute("SELECT value FROM build_info WHERE key='case_text_index_version'").fetchone()
+            if version is None or version[0] != CASE_TEXT_INDEX_VERSION:
+                raise ValueError('该知识库尚无案例全文索引，请更新发行包或重新建库')
         if outline_ids:
             unknown = db.execute('SELECT value FROM json_each(?) EXCEPT SELECT id FROM outline_nodes',
                                  (dumps(outline_ids),)).fetchall()
@@ -274,8 +286,8 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 ranks[row['evidence_id']] += 1/(60+rank)
         # FTS scores still use the complete index; only eligible candidates cross to Python.
         sql = f"""WITH eligible AS ({scope_sql})
-            SELECT evidence_id,bm25(search_index,0,0,{focus_weight},1) AS score FROM search_index
-            WHERE search_index MATCH :match AND kind=:kind
+            SELECT evidence_id,bm25({fts_table},0,0,{focus_weight},1) AS score FROM {fts_table}
+            WHERE {fts_table} MATCH :match AND kind=:kind
             AND evidence_id IN (SELECT evidence_id FROM eligible)
             ORDER BY score LIMIT :candidate_limit"""
         lexical = list(db.execute(sql,dict(params,match=' OR '.join('"'+t+'"' for t in terms),candidate_limit=candidate_limit+1))) if terms else []
@@ -389,7 +401,12 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             items.append(item)
             used_chars += size
         timings["total_ms"] = round((time.perf_counter()-started)*1000,2)
-        return {"query": query, "query_terms": terms, "query_context": context_titles, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'inferred_topic_hints':inferred_topics,'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
+        result = {"query": query, "query_terms": terms, "query_context": context_titles, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'inferred_topic_hints':inferred_topics,'topic_hint_paths':hint_paths if kind == 'case' else [],'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
+        if kind == 'case':
+            result['case_text_scope'] = case_text_scope
+            if case_text_scope == 'full':
+                result['case_text_note'] = '全文关键词命中可来自作者断语、反馈或同事件其他盘段落；须get_source核对角色，不能当成初始已知条件或通用规则。向量和结构召回仍使用原问题与已知盘面。'
+        return result
 
 
 def get_topics(topic=None, db_path=None):

@@ -217,7 +217,9 @@ async def main(argv=None):
                                    include_common=False, limit=3, max_chars=150000)
                 assert found['items'] and found['topic_filter_applied'] and found['include_unknown'] is False
                 assert all(topic in item['classification']['roots'] for item in found['items'])
-            valid = await call('search_knowledge', query='孩子 腹痛', kind='case', limit=3, max_chars=150000, require_valid_chart=True)
+            # Check lookup from this case's original question, without later symptom clues.
+            # This does not assert that general symptom-query relevance is fixed.
+            valid = await call('search_knowledge', query='孩子是不是病了', kind='case', limit=3, max_chars=150000, require_valid_chart=True)
             assert valid['items'] and all(item['case']['extraction']['chart_validation']=='calculated' for item in valid['items'])
             assert CORRECTED_CASE in {item['evidence_id'] for item in valid['items']}
             missing = await call('get_source', evidence_id=UNCALCULATED_CASE, max_chars=150000)

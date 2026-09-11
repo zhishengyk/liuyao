@@ -32,9 +32,9 @@ def replica(source,output,size,vector_snapshot=None):
         base=db.execute('SELECT count(*) FROM evidence_metadata').fetchone()[0]
         extra=max(0,size-base)
         db.execute('CREATE TEMP TABLE replicas(new_id TEXT PRIMARY KEY,old_id TEXT NOT NULL)')
-        ids=[r[0] for r in db.execute('SELECT evidence_id FROM evidence_metadata ORDER BY rowid')]
+        ids=[r[0] for r in db.execute('SELECT evidence_id FROM evidence_metadata WHERE searchable=1 ORDER BY rowid')]
         db.executemany('INSERT INTO replicas VALUES(?,?)',
-                       ((f'zzsynthetic_{i:06d}:{ids[i%base]}',ids[i%base]) for i in range(extra)))
+                       ((f'zzsynthetic_{i:06d}:{ids[i%len(ids)]}',ids[i%len(ids)]) for i in range(extra)))
         for table in ('evidence_metadata','evidence_topics','evidence_classification','case_features','case_spans','evidence_outline'):
             columns=[r[1] for r in db.execute(f'PRAGMA table_info({table})')]
             selected=','.join('r.new_id' if name=='evidence_id' else 'e.'+name for name in columns)
@@ -90,6 +90,8 @@ def worker(database,repeats):
     with closing(sqlite3.connect(database.as_uri()+'?mode=ro',uri=True)) as db:
         count=db.execute('SELECT count(*) FROM evidence_metadata').fetchone()[0]
         cases=db.execute("SELECT count(*) FROM evidence_metadata WHERE kind='case'").fetchone()[0]
+        searchable=db.execute('SELECT count(*) FROM evidence_metadata WHERE searchable=1').fetchone()[0]
+        searchable_cases=db.execute("SELECT count(*) FROM evidence_metadata WHERE searchable=1 AND kind='case'").fetchone()[0]
         has_vectors=db.execute("SELECT 1 FROM sqlite_master WHERE name='semantic_vectors'").fetchone()
         vector_row=db.execute('SELECT embedding FROM semantic_vectors LIMIT 1').fetchone() if has_vectors else None
         vector_count=db.execute('SELECT count(*) FROM semantic_vectors').fetchone()[0] if has_vectors else 0
@@ -126,6 +128,7 @@ def worker(database,repeats):
     after=sha256(database)
     assert before==after
     return {'database':str(database),'metadata_documents':count,'case_metadata_documents':cases,
+            'searchable_documents':searchable,'searchable_case_documents':searchable_cases,
             'vector_windows':vector_count,'full_payloads':'original corpus only; replica metadata shares duplicate groups',
             'baseline_rss_mib':round(baseline/2**20,2),'peak_rss_mib':round(peak[0]/2**20,2),
             'rss_growth_mib':round((peak[0]-baseline)/2**20,2),'database_unchanged':True,

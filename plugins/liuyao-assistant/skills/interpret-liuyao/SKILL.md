@@ -8,8 +8,10 @@ description: 使用六爻助手MCP排盘，检索六爻理法、象法和相似�
 - 实际断卦先收集问题、六爻和时间，再用 `build_chart` 确认盘面并检索取用依据。六爻按初爻到上爻输入：0老阴、1少阳、2少阴、3老阳；历史卦可给月支和日干支。不依据问题擅自起卦。纯理论问题可直接检索。
 - 先明确所问对象和要判断的结果。指定店铺、学校是否合适，不能仅凭经营或学习字样改成泛问求财、考试。两种取用都有合理依据时分别核查，不把自行选择的问意当已知条件；对象条件、是否实际采用、采用后的收益或成绩分别回答。
 - 用户不会起卦时，可约定字面记0、背面记1，三枚钱摇六次，记录每次背面数0/1/2/3及起卦时间、时区。已有排盘图片时核对六值、动爻与时间，不补齐看不清的内容。展示排盘用返回的 `display.markdown`，不自行重排六神、世应或纳甲。
-- 将生活问法转换为相关术语，保留题意并只加入已知盘面条件。按需要选择 `kind=rule/case`，每次显式设置 `limit`（1..100），围绕缺失依据增减数量，不固定规则与案例比例。检查 `query_terms`、`query_negations`，不能把否定条件当作肯定命中，也不能把期望结果或历史反馈放进查询。
-- `inferred_topic_hints` 只是query事项提示，不会自动硬过滤证据。`get_topics` 是可选分类浏览，非检索前置步骤；确需缩小范围时显式传 `topic/subtopic`。此时按需要设置 `include_common/include_unknown`。manual库的 `classification` 来自人工 `scope/topic_ids` 声明，未标注保持unknown，不把未知资料自动改成公共理法。
+- 由助手按原问选择检索词，保留主体、钱的流向、动作与时限：借出后收回查“回款、还钱”，向人借入查“借款、借到”；本人求职查“应聘、录用”，雇主招人查“招聘、聘用”。任教与上学、欠薪仲裁与涨薪分别查；失物查询区分“找回”与“谁拿走”，不把身份问题改成回收问题。六亲等盘面条件另用 `features` 或补查，不把“父母爻”当亲属健康。按需选 `kind=rule/case` 并显式设置 `limit`（1..100）；不把期望结论或待测反馈写入查询。
+- 案例检索默认 `case_text_scope=initial`，按原问与已知盘面找相似例。查具体作者论述、已知书例或反例时，可显式用 `kind=case,case_text_scope=full` 搜案例原文；该选项只扩展关键词索引，向量与结构范围不变。全文命中可来自断语、反馈、事后复盘或其他复占段，须 `get_source` 核对角色与实际反馈，不能直接当作初始条件、同盘事实或通用规则。事项大类相同不等于原问相似，尤其要区分借入与回款、录用与调动、求学与任教。
+- 在 `method=all/lifa` 下，原问事项明确时主动传 `topic`，需要细分时传 `subtopic`；不确定合法ID才用 `get_topics` 浏览。例如本人应聘某单位可查 `query="应聘 指定单位 录用",kind="case",topic="job",subtopic="job/offer",limit=6`。大类传 `topic`，完整事项路径传 `subtopic`，没有 `topic_path` 入参。细分类只是优先项，仍可能返回同大类候补；按需用 `include_common/include_unknown` 保留公共规则或未分类资料。交叉事项可分开查询，不能把工资仲裁仅筛成收入财运。
+- `inferred_topic_hints/topic_hint_paths` 只是可能误判的提示，不会自动筛选或加分，也不能直接照填为过滤条件。以 `topic_filter_applied` 核实实际筛选；`classification` 来自人工声明，未标注保持unknown，不当成公共理法，也不代表原问动作或角色一定相符。首批结果无关时检查 `query_terms/query_negations`，按原问修正查询词或显式过滤后重查；对拟引用结果用 `get_source` 核对原问、背景、角色及适用条件，不照抄排名。
 - 理法、象法可分别用 `method=lifa/xiangfa`；体系未知记录只在 `method=all` 参选。象法按实际场景和关键爻检索，不按工作、婚姻等事项大类过滤。六神在全盘都会出现，必须结合关键爻和场景使用象义。
 - 规则正文须连同 `required_contexts` 阅读；后者是人工指定的共享导语、作者限制和适用条件。标题或单句不能替代这些条件。阅读 `returned_count`、`has_more`、`budget_skipped`；共享上下文被省略时增加 `max_chars`，长原文按 `get_source` 的 `next_offset` 续读。单纯增加limit不能解除长度预算。
 - `get_outline()` 浏览当前已入库的书籍和人工单位；`source_id/parent_id` 展开节点，`outline_ids` 可限定其证据范围，只有导航条件时允许 `query=''`。`title_basis=manual_unit_label` 是整理者标签，不等同原书章题。一个人工单位可关联同事件多盘；导航有内容不代表全书切片已经完成。原有 `outline_context` 如有返回，也须核对。
@@ -22,6 +24,6 @@ description: 使用六爻助手MCP排盘，检索六爻理法、象法和相似�
 - 同一事件多次起卦由 `cast_sequence`、`related_case_ids` 关联，各盘特征分开比较；`cast_attribution=unspecified` 的作者段不得强行归盘。用 `exclude_case_ids` 隔离历史案例时会排除整个事件，不能把同事件多盘或同案改写算成多次独立成功。
 - 初始输入使用 `question.raw/known_background`。完整 `parts` 保留披露阶段；`eligible_for_initial_blind_input=false`、`disclosure_phase=after_initial_prediction` 等晚披露内容不能回填作者最初已知信息。作者解释、真实反馈和事后复盘分开阅读；未报告反馈仍可保留案例，但不能据此判定预测正确。
 - 在当前对话中比较证据的适用条件、相似点和差异，保留相关的相反解释，不照抄排名或虚构分数。取用、旺衰、成局与应期须附原文依据。关键环节已有适用证据且重要分歧已核对时停止；连续补查无新证据则说明不足，不无限检索或凑数。
-- `coverage_status=incomplete` 或 `allow_partial` 表示部分语料可用，不能宣称全书已完成或作为完整版本发布。`--self-check` 只验证当前可用功能和样本链路，通过也不解除这一限制。新卦只查询，不自动入库。
+- 裸自然语言或关键词仍有错题排序缺口，例如“求职 指定单位 应爻”可混入分房；显式事项过滤测试通过，不证明无过滤相关性已修复。向量或重排也不会自动修复源文错漏、缺图日期或确认引文适用。`coverage_status=incomplete` 或 `allow_partial` 表示部分语料可用，`--self-check` 只验证功能和样本链路，不证明全书完成。新卦只查询，不自动入库。
 
 最终回答先给与证据强度相称的结论，再说明盘面、适用原文、相似案例的差异与仍缺失的信息。分清程序事实、原作者解释、当前AI分析和历史反馈；书籍反馈不等于独立验证或未来预测成功率。

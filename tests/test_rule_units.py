@@ -4,7 +4,7 @@ import json
 import sqlite3
 
 from liuyao_mcp.common import project_root
-from liuyao_mcp.ingest import author_yongshen, chart_only, import_source, ingest, native_question, read_spans
+from liuyao_mcp.ingest import author_yongshen, chart_only, import_source, ingest_legacy, native_question, read_spans
 from liuyao_mcp.retrieval import get_source
 
 
@@ -110,7 +110,7 @@ def test_background_is_structural_and_remains_source_accessible(tmp_path):
     (tmp_path / 'data').mkdir()
     (tmp_path / 'data/sources.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf8')
     db_path = tmp_path / 'separate/knowledge.sqlite'
-    ingest(tmp_path, db_path)
+    ingest_legacy(tmp_path, db_path)
     for chunk in chunks:
         retrieved = get_source(chunk['id'], db_path=db_path)
         assert retrieved['text'] == chunk['text']
@@ -118,14 +118,17 @@ def test_background_is_structural_and_remains_source_accessible(tmp_path):
         assert db.execute('SELECT body FROM sources').fetchone()[0] == text
 
 
-def test_heading_only_units_keep_source_and_full_single_line_rules(tmp_path):
+def test_heading_only_units_keep_source_and_full_single_line_rules(tmp_path, monkeypatch):
+    # This is a legacy segmentation test on fixed raw text, independent of the
+    # new canonical PDF overlays and their separately checked source hashes.
+    monkeypatch.setattr('liuyao_mcp.ingest.apply_corrections', lambda source, text, root: (source, text))
     text = '# 示例.doc\n> 原文件：示例.doc\n\n用神章第八\n子孙爻；占六畜。\n\n## 单句规则\n用神旺相为吉。\n\n一、父母旺相则有力。\n\n## 取用：父母爻为用神\n\n## 用神发动化空、化破时，多以变爻为应期\n'
     source, _, chunks, _, _ = parse(tmp_path, text)
     assert [c['content_role'] for c in chunks] == ['heading_only', 'heading_only', 'theory', 'theory', 'theory', 'theory', 'theory']
     (tmp_path / 'data').mkdir()
     (tmp_path / 'data/sources.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf8')
     output = tmp_path / 'isolated/knowledge.sqlite'
-    ingest(tmp_path, output)
+    ingest_legacy(tmp_path, output)
     with sqlite3.connect(output) as db:
         assert [r[0] for r in db.execute('SELECT searchable FROM evidence_metadata ORDER BY start_line')] == [0, 0, 1, 1, 1, 1, 1]
     for chunk in chunks:
@@ -185,7 +188,8 @@ def test_yongshen_complements_are_not_author_choices():
         assert line[evidence['start_char']:evidence['end_char']] == evidence['quote']
 
 
-def test_chart_only_units_keep_source_but_are_not_searchable(tmp_path):
+def test_chart_only_units_keep_source_but_are_not_searchable(tmp_path, monkeypatch):
+    monkeypatch.setattr('liuyao_mcp.ingest.apply_corrections', lambda source, text, root: (source, text))
     diagram = '【卦象结构化 1｜按原图自上而下：上爻→初爻】\n爻位 本卦 动爻 变卦\n'
     diagram += '\n'.join(p+'爻 ━━━━━━ → ━━━━━━' for p in '上五四三二初')
     assert chart_only(diagram)
@@ -199,7 +203,7 @@ def test_chart_only_units_keep_source_but_are_not_searchable(tmp_path):
     (tmp_path / 'data').mkdir()
     (tmp_path / 'data/sources.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf8')
     output = tmp_path / 'isolated/knowledge.sqlite'
-    ingest(tmp_path, output)
+    ingest_legacy(tmp_path, output)
     with sqlite3.connect(output) as db:
         assert [r[0] for r in db.execute('SELECT searchable FROM evidence_metadata ORDER BY start_line')] == [0, 1]
     assert get_source(chunks[0]['id'], db_path=output)['text'] == diagram

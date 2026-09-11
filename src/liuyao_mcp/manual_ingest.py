@@ -11,7 +11,7 @@ import tempfile
 from .canonical import load_document, resolve_span, resolve_spans
 from .chart import build_chart
 from .common import case_search_text, digest, dumps, project_root, tokens
-from .ingest import SCHEMA, SEARCH_INDEX_VERSION, store_search_metadata
+from .ingest import SCHEMA, SEARCH_INDEX_VERSION, CASE_TEXT_INDEX_VERSION, store_search_metadata
 from .outline import store_outline
 from .rule_references import load_mapping, store_mapping
 from .taxonomy import nodes as topic_nodes
@@ -132,9 +132,12 @@ def _classification(unit, case=False):
     if scope not in ("common", "topic", "subtopic", "scene", "example", "unknown", "case"):
         raise ValueError("manual scope is not a supported classification scope")
     declared = "scope" in unit or "topic_ids" in unit
-    return {"status": "manually_reviewed" if topics or scope not in ("case", "unknown") else "unknown",
+    result = {"status": "manually_reviewed" if topics or scope not in ("case", "unknown") else "unknown",
             "scope": scope, "basis": "manual_slice_review" if declared else "not_annotated",
             "topic": roots[0] if roots else None, "topic_ids": topics, "roots": roots, "evidence": []}
+    if unit.get("topic_review"):
+        result["review"] = unit["topic_review"]
+    return result
 
 
 def _offsets(document):
@@ -217,6 +220,23 @@ def _case(root, document, unit, whole, source):
         cast_evidence["cast"] = _resolved(document, cast.pop("source_spans"))
     for part in cast_evidence.values():
         _inside(offsets, part, whole)
+    shared = cast.get("shared_calendar")
+    if shared:
+        if any(not isinstance(shared.get(key), str) or not shared[key].strip()
+               for key in ("basis", "reviewer")):
+            raise ValueError("shared calendar requires an explicit source basis and reviewer")
+        relation = _resolved(document, shared.get("relation_spans", []))
+        if not relation["exact_text"].strip():
+            raise ValueError("shared calendar requires the local continuation statement")
+        _inside(offsets, relation, whole)
+        for key, spans in shared["fields"].items():
+            if key not in ("month_branch", "day_ganzhi", "year_ganzhi", "hour_ganzhi") or key in cast_evidence:
+                raise ValueError("shared calendar accepts only separately sourced calendar fields")
+            evidence = _resolved(document, spans)
+            if not cast.get(key) or cast[key] not in "".join(evidence["exact_text"].split()):
+                raise ValueError("shared calendar value must occur literally in its source span")
+            cast_evidence[key] = {**evidence, "scope": "shared_calendar", "basis": shared["basis"],
+                                  "reviewer": shared["reviewer"], "relation": relation}
     for field in ("line_values", "month_branch", "day_ganzhi", "year_ganzhi", "hour_ganzhi"):
         if cast.get(field) is not None and not (cast_evidence.get(field, {}).get("source_spans")
                                                or cast_evidence.get("cast", {}).get("source_spans")):
@@ -231,16 +251,20 @@ def _case(root, document, unit, whole, source):
     issues = ["missing_" + key for key in ("line_values", "month_branch", "day_ganzhi") if cast.get(key) is None]
     if derived and not verified:
         issues.append("source_chart_not_independently_verified")
-    question = parts["question"]["exact_text"]
-    initial_background = _resolved(document, [span for span in unit["parts"]["background"]
-                                              if span.get("eligible_for_initial_blind_input") is not False])
-    withheld_background = _resolved(document, [span for span in unit["parts"]["background"]
-                                               if span.get("eligible_for_initial_blind_input") is False])
-    initial_spans = parts["question"]["source_spans"] + initial_background["source_spans"]
-    if any(max(a, c) < min(b, d)
-           for a, b in _intervals(offsets, withheld_background["source_spans"])
-           for c, d in _intervals(offsets, initial_spans)):
-        raise ValueError("late-disclosed background overlaps initial question or eligible background")
+    initial, withheld = {}, {}
+    for role in ("question", "background"):
+        initial[role] = _resolved(document, [span for span in unit["parts"][role]
+                                             if span.get("eligible_for_initial_blind_input") is not False])
+        withheld[role] = _resolved(document, [span for span in unit["parts"][role]
+                                              if span.get("eligible_for_initial_blind_input") is False])
+    initial_spans = initial["question"]["source_spans"] + initial["background"]["source_spans"]
+    for role in withheld:
+        if any(max(a, c) < min(b, d)
+               for a, b in _intervals(offsets, withheld[role]["source_spans"])
+               for c, d in _intervals(offsets, initial_spans)):
+            raise ValueError(f"late-disclosed {role} overlaps initial question or eligible background")
+    question = initial["question"]["exact_text"]
+    initial_background = initial["background"]
     background = initial_background["exact_text"]
     question_text = "\n".join(text for text in (question, background if background not in question else "") if text)
     if not question:
@@ -272,7 +296,7 @@ def _case(root, document, unit, whole, source):
     cast.update(line_values=values, month_branch=month, day_ganzhi=day,
                 date=cast.get("date"), time=cast.get("time"), lines_order="bottom_to_top",
                 line_values_basis="manual_transcription" if values is not None else None,
-                calendar_basis="manual_transcription" if month or day else "unknown",
+                calendar_basis="explicit_shared_source_calendar" if shared else "manual_transcription" if month or day else "unknown",
                 evidence=cast_evidence)
     feedback = parts["feedback"]
     event_id = unit.get("event_id")
@@ -298,8 +322,9 @@ def _case(root, document, unit, whole, source):
             "question": {"raw": question_text, "question_only": question, "background": background,
                          "known_background": background,
                          "topic": classification["topic"],
-                         "source_spans": parts["question"]["source_spans"],
-                         "background_spans": initial_background["source_spans"]},
+                         "source_spans": initial["question"]["source_spans"],
+                         "background_spans": initial_background["source_spans"],
+                         **({"stage": unit["question_stage"]} if unit.get("question_stage") else {})},
             "cast": cast, "derived": derived, "features": features, "author_yongshen": author_yongshen,
             "reported_chart": {"raw_header": parts["chart"]["exact_text"],
                                "primary": None, "changed": None, "void_raw": None,
@@ -349,6 +374,22 @@ def _case_records(root, document, unit, whole, source):
         parts = dict(unit.get("parts", {}))
         if cast.get("diagram_spans") is not None:
             parts["chart"] = cast["diagram_spans"]
+        for role, field in (("question", "question_spans"), ("background", "background_spans")):
+            if cast.get(field) is not None:
+                _inside(offsets, _resolved(document, cast[field]),
+                        _resolved(document, unit["parts"][role]))
+                withheld = [span for original_role in ("question", "background")
+                            for span in unit["parts"][original_role]
+                            if span.get("eligible_for_initial_blind_input") is False]
+                for span in cast[field]:
+                    if any(max(a, c) < min(b, d)
+                           for a, b in _intervals(offsets, _resolved(document, [span])["source_spans"])
+                           for c, d in _intervals(offsets, _resolved(document, withheld)["source_spans"])):
+                        flag = span.get("eligible_for_initial_blind_input")
+                        if flag is not False and not (flag is True and span.get("disclosure_phase")
+                                                       and span.get("review_note")):
+                            raise ValueError(f"{ids[index]}: cast override of late-disclosed {role} requires an explicit reviewed input stage")
+                parts[role] = cast[field]
         for role in ("author_analysis", "post_feedback_analysis"):
             if role in parts:
                 parts[role] = [span for span in parts[role] if span.get("cast_index") in (None, index)]
@@ -490,6 +531,8 @@ def _parse(root, source):
             quality = _case_quality(document, unit, whole, quality_reviews)
             records = _case_records(root, document, unit, whole, source)
             for record in records:
+                if quality["status"] == "eligible" and not record["question"]["question_only"].strip():
+                    raise ValueError("eligible case requires a question at the selected input stage")
                 record["quality"] = quality
             cases.extend(records)
             continue
@@ -592,6 +635,7 @@ def build_database(root=None, out=None, allow_partial=False):
     try:
         with closing(sqlite3.connect(temp)) as db:
             db.executescript(SCHEMA)
+            db.execute("CREATE VIRTUAL TABLE case_text_index USING fts5(evidence_id UNINDEXED,kind UNINDEXED,focus,body,tokenize='unicode61')")
             db.executemany("INSERT INTO topics VALUES(?,?,?)", ((n["id"], n["parent_id"], n["title"]) for n in topic_nodes()))
             for source, document, chunks, cases, _ in parsed:
                 sid = source["source_id"]
@@ -610,6 +654,7 @@ def build_database(root=None, out=None, allow_partial=False):
                     if case["quality"]["status"] == "eligible":
                         indexed = case if case["extraction"]["chart_validation"] == "calculated" else {**case, "derived": None}
                         db.execute("INSERT INTO search_index VALUES(?,?,?,?)", (case["case_id"], "case", " ".join(tokens(case["question"]["raw"])), " ".join(tokens(case_search_text(indexed)))))
+                        db.execute("INSERT INTO case_text_index VALUES(?,?,?,?)", (case["case_id"], "case", " ".join(tokens(case["question"]["raw"])), " ".join(tokens(case["source"]["original_text"]))))
                 for record in chunks + cases:
                     kind = "case" if "case_id" in record else "rule"
                     eid = record["case_id"] if kind == "case" else record["id"]
@@ -622,6 +667,7 @@ def build_database(root=None, out=None, allow_partial=False):
             if {row[0]: json.loads(row[1]) for row in db.execute("SELECT reference_id,payload FROM rule_references")} != mapping:
                 raise ValueError("rule reference mapping changed during database build")
             info = {"mode": "manual-corpus", "parser_version": VERSION, "search_index_version": SEARCH_INDEX_VERSION,
+                    "case_text_index_version": CASE_TEXT_INDEX_VERSION,
                     "implementation_hash": implementation_hash, "corpus_hash": report["corpus_hash"],
                     "coverage_status": report["status"], "allow_partial": str(bool(allow_partial)).lower(),
                     "rule_references_sha256": report["rule_references_sha256"],
