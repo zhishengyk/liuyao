@@ -1,6 +1,6 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-本分支为 **0.7.0-alpha.1 手动切片重建预发布**。六书覆盖尚未完成，只编译审核完成的切片批次；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。本轮独立 Astra xhigh 测试与已知缺口见[核心规则首轮评估](docs/核心规则首轮盲测评估.md)，没有据此宣称预测准确率提高。
+本分支为 **0.7.0-alpha.2 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书覆盖尚未完成，只编译审核完成的切片批次；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。本轮独立 Astra xhigh 测试与已知缺口见[核心规则首轮评估](docs/核心规则首轮盲测评估.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -19,7 +19,7 @@
 固定预发布 wheel 包含程序与部分手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao_mcp-0.7.0a1-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.2/liuyao_mcp-0.7.0a2-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不附跟随main的安装脚本；下面的Git目录安装流程使用稳定版。
