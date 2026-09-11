@@ -1,0 +1,819 @@
+{
+  "schema_version": "core-pilot-independent-grading-1",
+  "graded_at": "2026-09-11T06:16:05.024105+00:00",
+  "grader": "codex-agent:/root/rebuild_core_eval_prep",
+  "scope": "core_rule_application_only_not_full_corpus_validation",
+  "independence": {
+    "root_grade_read": false,
+    "predictor_contacted_to_revise": false,
+    "predictions_or_frozen_rules_modified": false,
+    "new_prediction_calls": 0,
+    "permitted_unseal_record_sha256": "9adf88fb06288bbbaf4594512e2bacfbdd16e6791383542815308d24daaf890d"
+  },
+  "verified_input_hashes": {
+    "predictions.json": "925e28b7f0efcd27fbd68658a3a116e86f5773fc8e9d652d9b760904bd1372e7",
+    "predictions.md": "b31c4739c91527b831baec5e768ccfdccdccc1af03cad2c6e79d45d691d039ac",
+    "predictions.lock.json": "6799dcb7c58e6dd2ed932b977a7f5fb5ffc6295973ce6b21513444a6bf65e782",
+    "blind-inputs.json": "3e99fc55f4f46440790ae21d8143bdd339442246874f6c466449bf5b7ce1fff2",
+    "sealed-key.json": "f77aac2fd214d87ed7f1a07ed4b5a1463ddef8483629acc6923c043c93ee055a",
+    "rules-only.sqlite": "0b2196def79556ca99aed9ff3c373416a89990b948604d49f94de69afe6ba2c2"
+  },
+  "grading_policy": [
+    "逐维给证据，不要求每例使用无源的六神或完整旺衰论证。",
+    "仅明确反馈作事实参考；原断和建议分别标识。",
+    "首断后背景与事后解释不可作为先验；作者错判不作gold。",
+    "不按书籍作者归类机械断理法或象法，保留mixed案例的实际使用链。",
+    "预测锁定前不得向解释者披露key或原文结果。"
+  ],
+  "grading_interpretation": [
+    "仅复现书中反馈记载，不是现实独立验证。",
+    "不设置事后数值权重、不压成通过率；各例问意、反馈覆盖与预测明确程度不同。",
+    "部分相容、具体命中、未预测、不可验证、与反馈评价方向不符分别列示。",
+    "未预测有反馈的时间或细节表示覆盖缺失，不等同已给出错误日期或细节。",
+    "原作者未经反馈确认的推断和与盘面冲突的句子不设为gold。"
+  ],
+  "numeric_total_score": null,
+  "overall_accuracy": null,
+  "summary": {
+    "direction_supported_cases": [
+      "C03",
+      "C04"
+    ],
+    "partial_sequence_direction_match_cases": [
+      "C01"
+    ],
+    "negative_direction_only_compatible_specific_outcome_missing": [
+      "C02"
+    ],
+    "appraisal_direction_mismatch_but_profitability_untestable": [
+      "C05"
+    ],
+    "original_question_effect_untestable_and_attendance_not_predicted": [
+      "C06"
+    ],
+    "timing_predictions_made": 0,
+    "source_has_explicit_time_but_prediction_abstained": [
+      "C04"
+    ],
+    "source_chart_conflict_cases": [
+      "C06"
+    ],
+    "key_method_gap_cases": [
+      "C05",
+      "C06"
+    ],
+    "warning": "这些类别不是互相等价的答对/答错标签，不可据此生成6例通过率。"
+  },
+  "cases": [
+    {
+      "anonymousID": "C01",
+      "source_unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0188_wang_marriage_reversal",
+      "prediction_json_pointer": "/0",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "长期偏不利，短期可推进",
+          "result": "主断不看好长期稳定相守，偏向以后关系难以维持；短期仍有谈婚、订婚或成婚的机会，不能将婚事推进等同于长久幸福。",
+          "confidence": "中低"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [
+          {
+            "type": "prediction",
+            "statement": "若双方尚未结婚，短期较可能谈及或推动婚事。",
+            "confidence": "中低",
+            "evidence_ids": [
+              "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+            ]
+          }
+        ],
+        "abstain": false,
+        "abstain_scope": null
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 188,
+            "start_line": 7,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 15,
+            "exact_text": "占问事宜：测与男友将来发展如何",
+            "quote_sha256": "844543d590a1e95d893e7442f0b7d1c3eabc64163a2819f1a6629deecf6e8329",
+            "cast_index": 0
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 188,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 17,
+            "end_column": 102,
+            "author": "王虎应（本书转述）",
+            "exact_text": "女测姻缘，取官鬼为用神。应爻官鬼亥水衰败旬空，仅凭这一点，足以断两人缘分渺茫，何况离为火为六冲卦，于是王虎应大师断其两人不能结婚，而且二爻胎位子孙月破日克，断卦主没有生育",
+            "quote_sha256": "d32c3bb695faac5cb930d0257616c6123bb45bfec06e07f5ad289e53f9987f8a",
+            "cast_index": 0
+          },
+          {
+            "page": 189,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 11,
+            "author": "王虎应（本书转述）",
+            "exact_text": "能力，怕将来没有孩子。",
+            "quote_sha256": "1fe171903dfc9b337989328c531643a310073d655bd2a872cb6e240fe911d0f2",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 189,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 11,
+            "end_column": 101,
+            "exact_text": "让人大跌眼镜的是，卦主不仅和男友结婚了，而且怀上了孩子，还专程来嘲笑了王大师一番，让大师很是尴尬。后来卦主在一次洗澡的时候滑倒，孩子流产，失去了生育能力，并且离婚了，这都是后话了。",
+            "quote_sha256": "427db277abe5c884f5097255b9c74530486c34dab9a8cd4fca03a5240f82b1f3",
+            "cast_index": 0
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 189,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 83,
+            "author": "王虎应（本书转述）",
+            "exact_text": "分析其能结婚的原因，王虎应认为，是初爻父母卯木与日辰五行相同，这是婚期将近的意思，独发又代表决定性因素，所以才会结婚。但是用神毕竟衰败旬空不吉，所以结婚后，也会离婚。",
+            "quote_sha256": "b2143ea0a2320e433161fd7af6e04ada22b5e32dbefd2f8dee1652e85ee05b79",
+            "cast_index": 0
+          },
+          {
+            "page": 189,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 87,
+            "author": "本书作者",
+            "exact_text": "我并不是太同意这个说法，也研究出了更加合理的解释，这里其他说法暂且不去研究，单就父母临日，合日或与日辰五行相同，在测两人缘分时，是否可以代表婚期已近？经验证，还真有这么回事。",
+            "quote_sha256": "45d96a324277e225782fb12c976883657cc96fe6d1b2f043738f2e7bc4c71b5b",
+            "cast_index": 0
+          }
+        ]
+      },
+      "overall": "宽方向部分符合；没有完整复现成婚、怀孕及后续事故的事件链。",
+      "core_rule_application": {
+        "status": "supported_with_conditional_language",
+        "assessment": "父卯与寅日同木、现有男友情境正确；将未婚作为显式条件，婚事推进与长期稳定分开，符合用法02及其限制。预测只说谈婚、订婚或成婚有机会，不能升级为明确命中结婚。",
+        "rule_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "supported",
+        "assessment": "女测男友取应位三爻官鬼亥，世六爻为求测者；父卯只辅助婚事，没有把父母当男友主用。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "supported_with_unresolved_school_difference",
+        "assessment": "未土克亥水、官亥旬空、寅亥合而亥水生寅木均核对正确；没有误读工具关系标签为寅日生亥。父卯得日同类且动生世，也被保留。合起与合绊的书际分歧有指出，未宣称已统一解决。"
+      },
+      "moving_changed": {
+        "status": "supported",
+        "assessment": "初父卯动化辰，没有回头克；没有让变辰越位克三爻官亥。"
+      },
+      "six_spirits": {
+        "status": "not_required_not_used",
+        "assessment": "此例未以六神推出具体结果；原作者该段也没有六神论证，不扣分。"
+      },
+      "counterevidence": {
+        "status": "explicitly_handled",
+        "assessment": "列出六冲变六合、父动生世、日合静爻合起等有利反证，并说明更侧重官鬼弱空与婚后限制。六冲变六合条文明言不看用神径断吉，预测没有隐去其强度，但最终取舍仍是解释者权衡，不能说所有引用一致支持长期不利。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "outcome_early",
+          "feedback_fact": "与男友结婚",
+          "prediction_claim": "短期有谈婚、订婚或成婚机会",
+          "assessment": "partial_broad_match",
+          "reason": "婚事推进方向相容，但多个选项加机会措辞不是明确成婚预测。"
+        },
+        {
+          "dimension": "outcome_later",
+          "feedback_fact": "后来离婚",
+          "prediction_claim": "以后关系难以维持、长期不稳定",
+          "assessment": "supported_direction",
+          "reason": "长期不稳方向与离婚相符，未明确给出离婚事件。"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": "怀孕",
+          "prediction_claim": null,
+          "assessment": "not_predicted"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": "洗澡滑倒、流产、失去生育能力",
+          "prediction_claim": null,
+          "assessment": "not_predicted",
+          "reason": "这些是反馈中新增的事件，不可由长期不利概括成细节命中。"
+        },
+        {
+          "dimension": "timing",
+          "feedback_fact": null,
+          "prediction_claim": null,
+          "assessment": "not_evaluable_no_source_time"
+        }
+      ],
+      "source_cautions": [
+        "转述的原首断不能结婚、没有生育能力，与最初成婚怀孕反馈冲突；后来离婚及失去生育能力不能抹去首断错误。",
+        "父母同日五行的个案解释在源中属事后讨论，本书作者还明确保留意见；不把其当首断已经预测成功。"
+      ]
+    },
+    {
+      "anonymousID": "C02",
+      "source_unit_id": "liuyao_lifa_jinjie.manual.p0143_lawsuit",
+      "prediction_json_pointer": "/1",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "不利，倾向败诉或未获所求胜利",
+          "result": "倾向官司难赢，难取得自己所期待的胜诉结果。",
+          "confidence": "中低"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [],
+        "abstain": false,
+        "abstain_scope": null
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 143,
+            "start_line": 5,
+            "end_line": 5,
+            "exact_text": "占问事宜：官司能赢吗",
+            "quote_sha256": "041daa4bf8a76c385b84d9550443087612ab0e15b4af95328f5f89646535f801"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 143,
+            "start_line": 18,
+            "end_line": 18,
+            "exact_text": "测打官司，以世爻为自己，应爻为对方。世爻妻财午火发动克应，说明卦主是因为钱的事情主动告对方，而且已经告了。卦为地水师卦，兴师动众之意。然而，日辰合绊世爻，又生应爻，日辰为官鬼爻，官鬼为官方，法院，说明法院会从中说合，劝卦主撤诉，维护对方。两间爻发动为阻隔，案件也非常艰难，不如撤诉，讲和为上策。",
+            "quote_sha256": "faab033b72797fedb80da19852538ff80526aa93afb4f9600062cb95b5d2789e"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 143,
+            "start_line": 19,
+            "end_line": 19,
+            "exact_text": "反馈：确实是因为钱的事情告对方，后来卦主说觉得打官司太麻烦了，不想打官司，撤诉了。",
+            "quote_sha256": "c4d1ff7d00d3a48024acf6dacdc822f085cbe6f96ad6da1fb8ea4061097d29fa"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "overall": "宽泛不利方向相容；明确撤诉及金钱争议未预测，法院胜负不可判定。",
+      "core_rule_application": {
+        "status": "partly_applied",
+        "assessment": "识别世午明动与未日相合受绊，保留日合动爻限制，符合核心规则。未进一步指出撤诉或事情已启动后停止；不得把一般难赢自动计作撤诉命中。",
+        "rule_ids": [
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "supported",
+        "assessment": "世三爻为我方，应六爻为对方；没有把官鬼旺直接等同求测人胜诉。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "supported_with_weighting_uncertainty",
+        "assessment": "世午受亥月克、日合不是日生，五爻亥临月动受酉回生，均有盘面依据。四爻丑已明动，未日冲不是暗动；丑制亥是反证，预测有所保留。最终强弱排序是通则下的权衡，源文没有独立确认其为实际撤诉原因。"
+      },
+      "moving_changed": {
+        "status": "supported",
+        "assessment": "区分三处明动，酉变爻只回生五爻本位亥，没有跨位作用。寅子静空未偷换成元忌双动。"
+      },
+      "six_spirits": {
+        "status": "supported_but_not_outcome_evidence",
+        "assessment": "螣蛇难缠只作诉讼情境相容，没有据此预测法官态度或判罚；原作者该段不使用六神，不能要求复制额外六神推理。"
+      },
+      "counterevidence": {
+        "status": "explicitly_handled",
+        "assessment": "丑官动制亥兄有利我方的反证被指出，并因此降低把握。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "court_judgment",
+          "feedback_fact": null,
+          "prediction_claim": "倾向败诉或未获所求胜利；官司难赢",
+          "assessment": "not_evaluable_no_judgment",
+          "reason": "反馈是撤诉，没有胜败判决，不能评分法院败诉命中。"
+        },
+        {
+          "dimension": "outcome",
+          "feedback_fact": "觉得打官司麻烦，撤诉",
+          "prediction_claim": "难取得所期待的胜诉结果",
+          "assessment": "weak_direction_compatible_specific_event_not_predicted",
+          "reason": "仅宽泛未得所求相容，未预测撤诉、主动停止或嫌麻烦的决策。"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": "因钱的事情告对方",
+          "prediction_claim": null,
+          "assessment": "not_predicted"
+        },
+        {
+          "dimension": "timing",
+          "feedback_fact": null,
+          "prediction_claim": null,
+          "assessment": "not_evaluable_no_source_time"
+        }
+      ],
+      "source_cautions": [
+        "法院劝撤诉、维护对方是原作者断语，反馈未确认；不设为事实评分项。",
+        "原作者说因为钱且已起诉有对应反馈或问事背景，但不能把预测未明确说出的细节补入预测。"
+      ]
+    },
+    {
+      "anonymousID": "C03",
+      "source_unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0191_house_sale",
+      "prediction_json_pointer": "/2",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "当前出售受阻；具体应期弃断",
+          "result": "当前条件下难以顺利卖出，近期成交偏难；何时能够成交没有足够依据，明确弃断具体售出时间。",
+          "confidence": "方向中低；应期不足"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [
+          {
+            "type": "prediction",
+            "statement": "出售过程较可能遇到议价困难，或报价、成交条件难达到目前预期。",
+            "confidence": "中",
+            "evidence_ids": [
+              "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+            ]
+          }
+        ],
+        "abstain": true,
+        "abstain_scope": "具体成交应期；保留当前出售受阻的方向判断。"
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 192,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 12,
+            "exact_text": "占问事宜：房子何时卖出去",
+            "quote_sha256": "9b1a2483c1f9e8e46247a296609dd9c774b642fa2826f9184f1e88f64245a2bb",
+            "cast_index": 0
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 192,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 78,
+            "exact_text": "卖房子是为了钱，应该以妻财为用神，以父母为房子。二爻父母亥水临勾陈，说明是个旧房子，发动化妻财丑土回头克，这就是典型的房子定价太高，卖不出去，需要降价处理。",
+            "quote_sha256": "83b3c84c68440e906704c1725e63d169fc68365c6a10d68e1d4a7761444c4205",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 192,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 78,
+            "end_column": 90,
+            "exact_text": "结果卖了很久也没卖出去。",
+            "quote_sha256": "80eb073a837b6b5825f1e82839801ddaf9a3370596f164945c3c00d98a9cdc32",
+            "cast_index": 0
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "overall": "出售受阻方向有反馈支持；具体售出时间弃断，议价原因未获反馈证实。",
+      "core_rule_application": {
+        "status": "supported",
+        "assessment": "交易情境下父亥发动化财丑，使用父财互化的价格或预期分支，没有套用婚史分支；保留了多种可能而未断具体金额。",
+        "rule_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "supported",
+        "assessment": "买卖以财为主，父母为房；二父同支而二动五静，择二爻有规则依据；应初爻与世四爻财未混同。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "supported",
+        "assessment": "世丑受寅月克；父亥月合、申日生，与其化财回头克并存。没有把申金误说成生丑土。原案例没有逐项展开这些旺衰判断，属于解释者另引通则的增补。"
+      },
+      "moving_changed": {
+        "status": "supported_with_unresolved_timing",
+        "assessment": "父亥化丑回头克，应丑化卯回头克均与盘相符。巳酉丑支组作为条件候选，注意变巳旬空，未直接指定巳月成交。"
+      },
+      "six_spirits": {
+        "status": "not_used_unverified_author_detail_not_required",
+        "assessment": "没有推旧房。原作者由勾陈推旧房，但反馈未确认，不能将未预测旧房列为事实失分。"
+      },
+      "counterevidence": {
+        "status": "handled_without_mechanical_pattern_result",
+        "assessment": "父亥月合日生、三合候选的潜在有利条件没有隐去，未将空填实机械等同成交。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "outcome",
+          "feedback_fact": "卖了很久仍未卖出",
+          "prediction_claim": "当前难顺利卖出，近期成交偏难",
+          "assessment": "supported_direction",
+          "reason": "受阻方向相符；预测的近期与反馈很久没有共同明确时间窗，不升级为准确应期。"
+        },
+        {
+          "dimension": "sale_date",
+          "feedback_fact": null,
+          "prediction_claim": null,
+          "assessment": "abstained_and_no_source_sale_date",
+          "reason": "原问何时卖出未被回答；反馈也未给最终售出日期，不能计算应期准确率。"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": null,
+          "prediction_claim": "议价困难，报价或成交条件难达到预期",
+          "assessment": "unverified_prediction",
+          "reason": "明确反馈仅称久未卖出，没有确认原因是价格、议价或预期。"
+        }
+      ],
+      "source_cautions": [
+        "旧房、定价太高、需要降价均为原作者推断或建议，明确反馈没有分别证实。",
+        "不能将未售出扩大为永久卖不出去，也不能编造最终成交时间、降价幅度或金额。"
+      ]
+    },
+    {
+      "anonymousID": "C04",
+      "source_unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0186_nephew_accident",
+      "prediction_json_pointer": "/3",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "偏吉，凶中有救",
+          "result": "倾向侄子能够保住性命，并有苏醒、逐渐恢复的希望；不主断死亡。",
+          "confidence": "中"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [],
+        "abstain": false,
+        "abstain_scope": null
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 186,
+            "start_line": 6,
+            "end_line": 6,
+            "start_column": 0,
+            "end_column": 14,
+            "exact_text": "占问事宜：测侄子车祸昏迷吉凶",
+            "quote_sha256": "34e37a2e9474d60e39ee2a755b06b7788d5304cea69ebf8448e46443169d797b",
+            "cast_index": 0
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 187,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 199,
+            "exact_text": "以子孙申金为用神。初爻父母独发化回头生，来克伤世爻子孙，父母为车，借第四爻父母午火临白虎，初爻为地，五爻为路，这是非常典型的虎父伤身车祸之象。子孙虽然在日月旺相，但是动爻独发回头生的力量强大，说明车祸还是很严重的。好在日辰辰土与上爻戌土相冲，戌土虽然在月建休囚，但是有初爻父母巳火发动生戌土，此时，戌土有力，被日冲为暗动，形成了巳火生戌土，戌土生申金的吉利格局。戌土暗动生用神，所以断戌月必定有救。",
+            "quote_sha256": "90c01a8c4c86ee4b5ab144b8c2f67ac8b0d59e9010bfa7c447e85c156f4d2e71",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 187,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 199,
+            "end_column": 223,
+            "exact_text": "后来反馈，10月12日开始恢复知觉，可以认人了，",
+            "quote_sha256": "a0e44c6ff48c547facc303509b1fe90cfebf121eb9ae35771a5abb5ca07de6e9",
+            "cast_index": 0
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 187,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 223,
+            "end_column": 230,
+            "exact_text": "时间正是戌月。",
+            "quote_sha256": "3e6836ca2a0c229613b64bcfd39a92e6eef8747c2368bcfde334bfbb2dc1c035",
+            "cast_index": 0
+          }
+        ]
+      },
+      "overall": "恢复方向有反馈支持，暗动通关核心链复现；苏醒时间与认人细节未预测。",
+      "core_rule_application": {
+        "status": "supported_general_branch_author_specific_borrowing_not_reproduced",
+        "assessment": "确知车祸昏迷，不能计作本轮预测。典型白虎父动条件未成立：白虎父午静，实际动父巳临朱雀；解释者使用规则允许的其他六神父母动克世分支，且不据此断死亡，条件应用成立。原作者借第四爻父午白虎的具体借神步骤没有复现，但不能要求在无单独来源时强行借神。",
+        "rule_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident",
+          "liuyao_zixiu_dxj.full.l4308.rule"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "supported",
+        "assessment": "唯一子孙申为侄子，持世仍指侄子；未把世偷换成叔叔自身安危。戌土为生申元神候选。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "supported",
+        "assessment": "申得酉月同类、辰日生，不空不破；戌虽月不扶但得明动巳火生，辰日冲静戌可按所引条件论暗动。巳生戌、戌生申的通关救应链与源案例吻合，且明确这是人工条件判断。"
+      },
+      "moving_changed": {
+        "status": "supported",
+        "assessment": "父巳独发化寅回头生的凶象与元神救应并看；变寅不越位冲五爻申，伏子水也未当明动。"
+      },
+      "six_spirits": {
+        "status": "supported_boundary",
+        "assessment": "白虎父静与朱雀父动分清；没有把初爻直接写成白虎，没有依据车祸象断死亡。具体借第四爻白虎的作者路径未复现，记方法覆盖差异而非盘面错误。"
+      },
+      "counterevidence": {
+        "status": "explicitly_handled",
+        "assessment": "旺用不能抵消一切动克，动父回生的严重不利与戌暗动救应同时列出。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "outcome",
+          "feedback_fact": "开始恢复知觉，可以认人",
+          "prediction_claim": "能够保住性命，并有苏醒、逐渐恢复希望",
+          "assessment": "supported_direction",
+          "reason": "苏醒恢复方向相符；只证实反馈时已恢复知觉，不证实长期存活、完全康复或无后遗症。"
+        },
+        {
+          "dimension": "timing",
+          "feedback_fact": "10月12日；书中后注称戌月",
+          "prediction_claim": null,
+          "assessment": "not_predicted_despite_source_time",
+          "reason": "预测明确不提供苏醒日期。此为应期覆盖缺失，不是预测了错误日期。"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": "可以认人",
+          "prediction_claim": null,
+          "assessment": "not_predicted_as_specific_detail",
+          "reason": "苏醒希望不能自动计为认人这一具体恢复能力的命中。"
+        },
+        {
+          "dimension": "known_before_cast",
+          "feedback_fact": "车祸昏迷",
+          "prediction_claim": "明确作为输入事实",
+          "assessment": "excluded_from_prediction_credit"
+        }
+      ],
+      "source_cautions": [
+        "原书反馈仅记录开始恢复知觉与认人，未给完全康复、出院或长期预后；不能扩写。",
+        "原断借另一父爻白虎来构造典型虎父伤身，不能当作初爻真实六神为白虎。",
+        "原反馈日期未再次写年，本评分保留原文10月12日及书内戌月说明，不另作历法核验。"
+      ]
+    },
+    {
+      "anonymousID": "C05",
+      "source_unit_id": "liuyao_lifa_jinjie.manual.p0142_rent_shop",
+      "prediction_json_pointer": "/4",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "条件性偏吉",
+          "result": "以租店经营求财为问意，倾向这处店铺可以经营并有获利机会；过程有压力和阻滞，不能断轻松顺遂。",
+          "confidence": "低"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [],
+        "abstain": false,
+        "abstain_scope": null
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 142,
+            "start_line": 5,
+            "end_line": 5,
+            "exact_text": "占问事宜：租这个店铺好吗",
+            "quote_sha256": "7c1d91658d79b1593a1fbe20adb423c8a71dbf674f6095d21d52f90317a8b6a9"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 142,
+            "start_line": 18,
+            "end_line": 18,
+            "exact_text": "指定租店铺好坏，以父母为店铺，兼看应爻。本卦中世临鬼爻朱雀不吉，父母卯木伏藏不现，应爻子孙未土月破日克，十分衰败，子孙为财源，说明挣不到什么钱。好在日辰寅木与世爻平合，寅木为父母，代表另外的店铺，说明卦主已经看好了另一家店铺。",
+            "quote_sha256": "75c2bf7850c638848b5c78b8fbcaf268cbde08ae55ceda22bf90e9a85faa23d0"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 143,
+            "start_line": 1,
+            "end_line": 1,
+            "exact_text": "卦主反馈：觉得这家店铺不太好，另租了一家，已经开业了，做的是食品档口生意。",
+            "quote_sha256": "03d4fa319b52a7b476ae706cd742d7c69c48c3a99ef8c5dea0795b2561a4a88b"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "overall": "指定店铺评价与选择未对上；经营利润没有反馈，不能判盈利预测的实证对错。",
+      "core_rule_application": {
+        "status": "partial_scope_shift_and_missing_application",
+        "assessment": "原问是指定店铺租赁好坏，解释者显式假定经营收益为主，主财辅父，缩窄了所问。已注意世亥日合，但未处理源案例以平合取另外店铺的路径，也未给改租判断。此例静爻平合的完整细则不在本批两条理法规则内，需区分规则覆盖缺口与解释者应用缺失。",
+        "rule_ids": [
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "partial",
+        "assessment": "取财预测收益有一般经营通则，且承认假设；父卯作为店铺辅助、世亥为自己均有依据。但原案例主父兼应，解释者未给指定店铺与替代店铺的太极点比较，应五爻子孙未的场所评价作用基本未落实。不能只因取用不同就判算法错误，但本次题意覆盖不足。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "mixed_supported_facts_and_omitted_adverse_branch",
+        "assessment": "财酉得丑月生，动子丑临月、虽旬空化空仍有气，有通则依据；世亥受月土和动丑克的反证也保留。应未月破且被寅木克是明确不利盘面，预测仅提月破后因缺专项依据未纳入评价。原作者把应未衰直接推无收入也缺实际反馈，不能拿这一推断压倒其他旺动财源并强设gold。"
+      },
+      "moving_changed": {
+        "status": "supported_but_result_underidentified",
+        "assessment": "丑动化子相合、非回头克，旺动空非永久无用；两酉财静而非元忌双动通关，均区分正确。由此推有获利机会仍依赖经营问意和力量取舍。"
+      },
+      "six_spirits": {
+        "status": "not_used_no_forced_gold",
+        "assessment": "未据世鬼朱雀推店铺凶事，也未套其他不适用组合。原作者世鬼朱雀不吉是其解释，不是反馈已确认的独立事件，不能强迫同样断凶。"
+      },
+      "counterevidence": {
+        "status": "partial",
+        "assessment": "世受动土克的强反证被明确指出并降低把握；但应位财源的月破日克与指定店铺选择问题处理不足。没有证据证明忽略它可用低把握措辞补救。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "reported_appraisal",
+          "feedback_fact": "卦主觉得指定店铺不太好",
+          "prediction_claim": "这处店铺可以经营并有获利机会，条件性偏吉",
+          "assessment": "direction_mismatch_to_reported_appraisal",
+          "reason": "正向适宜经营判断与反馈中的负面店铺评价不一致，但反馈是求测人的评价，不是经营损益实证。"
+        },
+        {
+          "dimension": "rental_decision",
+          "feedback_fact": "另租一家并已开业",
+          "prediction_claim": null,
+          "assessment": "not_predicted",
+          "reason": "未预测放弃原店、改租及已经开业。"
+        },
+        {
+          "dimension": "detail",
+          "feedback_fact": "食品档口生意",
+          "prediction_claim": null,
+          "assessment": "not_predicted"
+        },
+        {
+          "dimension": "profitability",
+          "feedback_fact": null,
+          "prediction_claim": "有获利机会",
+          "assessment": "not_evaluable_original_shop_not_operated",
+          "reason": "原店未租，原文没有原店经营收入成本；不能计作盈利命中或亏损错判。"
+        },
+        {
+          "dimension": "timing",
+          "feedback_fact": null,
+          "prediction_claim": null,
+          "assessment": "not_evaluable_no_source_time"
+        }
+      ],
+      "source_cautions": [
+        "原作者挣不到钱是未经经营反馈验证的推断，不能作为事实gold。",
+        "反馈确认另租，不等于确认起卦时已经看好另一家；原作者对事前心理的推断仍未完全核实。",
+        "平合在指定理法shard中无完整定义，不能仅凭寅亥六合就宣称另一店铺是机械必然结果。"
+      ]
+    },
+    {
+      "anonymousID": "C06",
+      "source_unit_id": "liuyao_lifa_jinjie.manual.p0143_school",
+      "prediction_json_pointer": "/5",
+      "prediction_claims": {
+        "main_prediction": {
+          "type": "prediction",
+          "direction": "偏吉，有帮助",
+          "result": "倾向去这所学校对学习和成绩有一定帮助，但不能保证立即或大幅提高。",
+          "confidence": "中低"
+        },
+        "timing_prediction": null,
+        "detail_predictions": [],
+        "abstain": false,
+        "abstain_scope": null
+      },
+      "source_evidence": {
+        "question": [
+          {
+            "page": 143,
+            "start_line": 22,
+            "end_line": 22,
+            "exact_text": "占问事宜：去这所学校上学对自己成绩有帮助吗",
+            "quote_sha256": "c68aa845c4c7aab4adf222e5867cd1d18dff038f5f5f4f89b2041688a81baa29"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 144,
+            "start_line": 13,
+            "end_line": 13,
+            "exact_text": "以应爻为这所学校。应爻父母酉金日生为旺，又临青龙生世爻，这所学校名气不错，对自己学习有利。然而，世爻发动克应爻，说明卦主不太看好这所学校，并且世爻被日辰合拌，最终也不会去。",
+            "quote_sha256": "27c2e14e8a9f710e9ae0cd8cd65e8aaec9d21a7024901b17c0c03057885513a9"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 144,
+            "start_line": 14,
+            "end_line": 14,
+            "exact_text": "反馈：学校确实不错，后来去试听了一节课，最终也没去成。",
+            "quote_sha256": "1271855885635a0d24f268157a226d3d7011f3479b4e00ce7fe15b87c787854d"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "overall": "实际成绩帮助不可验证；试听后未正式去未预测，日合与暗动救应的优先关系仍有缺口。",
+      "core_rule_application": {
+        "status": "partial_with_unresolved_effectiveness_condition",
+        "assessment": "识别世午明动被未日合，但把其主要用作减弱忌神，又假设午动生丑支持暗动，最后偏吉。所引动逢日合为绊住不能动与午仍有效生丑之间没有给出解除合绊或另一明确规则的桥接，只注明力度不确定，未完成核心条件核对；也未推首动后停止就读。",
+        "rule_ids": [
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+          "liuyao_zixiu_dxj.full.l4308.rule",
+          "zengshan_pingshi_dxj-l5786-hidden-strength"
+        ]
+      },
+      "taiji_yongshen": {
+        "status": "supported_with_explicit_extension",
+        "assessment": "应父酉为指定学校，世午为求测者，与原案例太极点一致；父酉进一步映射成绩提升是解释者声明的延伸，并非条文直接测分数。世所化父酉与上爻父酉未混位。"
+      },
+      "strength_day_combine_hidden_movement": {
+        "status": "conditional_gap",
+        "assessment": "父酉得未日生、世午被亥月克及未日合，基本盘面正确。丑静被未日冲，月不生扶；据午动生助论较弱暗动，前提受午日合绊与月克影响。新评允许弱暗动是可用反证，但不能自动证明此处午有效生丑、丑有效通关，链条仍未证成。 这是规则取舍未解决，不判丑绝不可能暗动，也不以作者最终未去反推暗动论必错。"
+      },
+      "moving_changed": {
+        "status": "partial",
+        "assessment": "财午化父酉确为同位变化；化用例外及应期条文没有直接保证成绩改善，预测已承认。把它作为学习事项落实辅助仍属延伸推论，反馈未正式入学不支持其落实。"
+      },
+      "six_spirits": {
+        "status": "not_used_source_sentence_conflicted",
+        "assessment": "未据青龙推学校声誉，不扣无源细节分。原作者应父酉临青龙生世句中的生世与午火世爻五行冲突，不能当作必须复现的六神加生克依据。"
+      },
+      "counterevidence": {
+        "status": "identified_but_not_resolved",
+        "assessment": "世财克父、日合绊、午火月克均提到，但弱忌与能生元神的双重使用缺乏明确条件区分；低把握和不确定说明有助校准，不能替代推理缺口。拒套父财互化的学费、婚史及化死标签是正确边界。"
+      },
+      "feedback_tests": [
+        {
+          "dimension": "academic_improvement",
+          "feedback_fact": null,
+          "prediction_claim": "去该校对学习和成绩有一定帮助",
+          "assessment": "not_evaluable_no_attendance_or_score_outcome",
+          "reason": "未正式去，没有入学前后成绩变化，属于未实现条件下的效果判断，不能评分提高或不提高。"
+        },
+        {
+          "dimension": "school_quality",
+          "feedback_fact": "学校确实不错",
+          "prediction_claim": "学校对学习有一定帮助",
+          "assessment": "weakly_compatible_not_measured_effect",
+          "reason": "宽泛正面方向相容，但不错不等于实际成绩改善；不能据此计成绩预测命中。"
+        },
+        {
+          "dimension": "attendance",
+          "feedback_fact": "试听一节课，最终没去成",
+          "prediction_claim": null,
+          "assessment": "not_predicted",
+          "reason": "未预测试听、最终不正式就读；也不能把有帮助的条件句反写成预测一定入学。"
+        },
+        {
+          "dimension": "timing",
+          "feedback_fact": null,
+          "prediction_claim": null,
+          "assessment": "not_evaluable_no_source_time"
+        }
+      ],
+      "source_cautions": [
+        "原文称应爻父母酉金生世，而盘中世为妻财午火；酉金不生午火，同段又说世发动克应。此处是源文生克方向冲突，不作gold。",
+        "原作者说对学习有利与最终不去可以并存，反馈只确认学校不错和未去，并未验证成绩效果。",
+        "不太看好学校是作者推断，反馈未直接确认首断时的心理。"
+      ]
+    }
+  ]
+}

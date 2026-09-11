@@ -1,0 +1,4431 @@
+{
+  "schema_version": "manual-slices-1",
+  "source_id": "liuyao_xiangfa_jinjie_xia",
+  "source_sha256": "6979e3ea34b439208535e96fc8e247cb1172c4ed2a7bd54362d14b3348cfacfa",
+  "batch": {
+    "status": "complete",
+    "description": "完整第二节寅巳申刑，第三节标题前停止",
+    "start": {
+      "page": 15,
+      "line": 17
+    },
+    "end": {
+      "page": 30,
+      "line": 12
+    },
+    "next_cursor": {
+      "page": 30,
+      "line": 13
+    },
+    "proofread_pages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  "units": [
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0015-yin-si-shen",
+      "kind": "rule",
+      "title": "寅巳申三刑：出现方式、持势之刑及凶危细节",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 15,
+          "start_line": 17,
+          "end_line": 18,
+          "author": "青岚阁",
+          "quote_sha256": "71866900dbe5e83d23f45ba35210ad44037100c04a5fd99cb5c3b51205266a61"
+        },
+        {
+          "page": 16,
+          "start_line": 1,
+          "end_line": 1,
+          "author": "青岚阁",
+          "quote_sha256": "809c3172ecee10d9b149da8bf87fe26eb23ac12e235a889aee00494d6183d160"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0016-complete-in-chart",
+      "kind": "rule",
+      "title": "寅巳申模式一：卦内三支俱全",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 16,
+          "start_line": 2,
+          "end_line": 2,
+          "author": "青岚阁",
+          "quote_sha256": "41a04943e8ec9952ccd392abf3943f5fb2b571355dc53b9fb20de52f35358e0b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0016-career-choice",
+      "kind": "case",
+      "title": "2018年4月16日坚持还是另谋出路：坎之节",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 16,
+          "start_line": 3,
+          "end_line": 17,
+          "author": "青岚阁",
+          "quote_sha256": "cba9156197492a69cc29c27cb346d6f8a0f7ceec5625e318addbe2e43dbf2a49"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 16,
+            "start_line": 4,
+            "end_line": 4,
+            "author": "青岚阁",
+            "quote_sha256": "c083541095a02ef102b39dfba8d619cf57edd7098158f0e88d02a780512f8628"
+          }
+        ],
+        "background": [
+          {
+            "page": 16,
+            "start_line": 3,
+            "end_line": 3,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 16,
+            "start_line": 5,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "e8157340c464633ebc28034a9bf477620c5eb19d1064f9e88ada9ced7fcd26c6"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 16,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "d2c927b333904892c16df9770a0a753bb835d47c00926f951465b07cf51745fb"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 16,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "bd84ff861eab86a812b792f501293496901f81f5cb6b2d890e456628b93c1798"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "辰",
+        "day_ganzhi": "戊寅",
+        "hour_ganzhi": "己未",
+        "diagram_spans": [
+          {
+            "page": 16,
+            "start_line": 10,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "b64a101129b071ffb6ecad2a8e6ac2c62bca25d28bd9f0ce6a06e12532338ed7"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 16,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 16,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 16,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 16,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 16,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 16,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 16,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 16,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "2dafa1780f6e53b8740109fba3a0f1e1c3e8274d6b89839d6fc274fb48f9bb6e"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 16,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "05bc995ae308b55a685d4b27a3cf0851baeb78e95d4462976428ef8b0b5151d5"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 16,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "4602147dc57de681bac8eec038ebefbb22c0296e64beaeaf96801fec51cca3a6"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 16,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "5872ce94de259ac56d287974faf912116cedc66e8ac40af249ebe5aa85e2d3cc"
+            }
+          ]
+        },
+        "month_ganzhi": "丙辰"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0016-career-choice",
+      "quality": {
+        "status": "noise",
+        "reason": "原问坚持或另谋哪条路径更好；反馈只有会认真考虑建议，没有实际换工作或路径后果，无法直接验证主结果。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0017-breakfast-shop",
+      "kind": "case",
+      "title": "2019年5月10日早餐店生意：履之困，执照受阻官方要求搬物",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 17,
+          "start_line": 1,
+          "end_line": 15,
+          "author": "青岚阁",
+          "quote_sha256": "f7169edd32dcc38fa55e6fe4fd89f877ba473e68d32c45fbc502a0e7af735b5e"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 17,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "cb6e08d6cd20bff52e06d76d28faac29e0332f2ebdc712e32e7a0f7c63698872"
+          }
+        ],
+        "background": [
+          {
+            "page": 17,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 17,
+            "start_line": 3,
+            "end_line": 13,
+            "author": "青岚阁",
+            "quote_sha256": "1231c24366fa124c567e6b49eeed7ac2225968f3953d70cadfb62f08802bfab7"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 17,
+            "start_line": 14,
+            "end_line": 14,
+            "author": "青岚阁",
+            "quote_sha256": "192d762350b14385f40dbf9b3f387e485c9e6c1c198abddc8d7914bbfa4c668a"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 17,
+            "start_line": 15,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "9d56122185238ca41e278ed10b5a491c1a83d455bfc87c3c50a1331e7aa44691"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          3,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "巳",
+        "day_ganzhi": "丁未",
+        "hour_ganzhi": "戊申",
+        "diagram_spans": [
+          {
+            "page": 17,
+            "start_line": 8,
+            "end_line": 13,
+            "author": "青岚阁",
+            "quote_sha256": "c55dcc277a2484cde2d4d304adffdaeddb1faabc313858f9284baf04f0b37c7a"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 17,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 17,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 17,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 17,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 17,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 17,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 17,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 17,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "0a15957bf9abe2fe93705ac2959ef6e87b3f43cebaf9a24b947fa356ad3c5b55"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 17,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "c99efa15a21ed6928dbacd3b30ea2e11c24c066a861d23a71b172412ad554deb"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 17,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "b737309ed62139f450fa8194da64ec5bd8fb06fed7345258159d6b3c48d1f13a"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 17,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "2a34d9a178a6263a284fae091a8ea0e29e37c1100d1248d6da10f1b8436244be"
+            }
+          ]
+        },
+        "month_ganzhi": "己巳"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0017-breakfast-shop",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问已有早餐店经营前景；不出一月确因营业执照无法办理遭官方要求搬走店物且无法解决，直接验证经营受阻。未把个人安全的附带担忧当已验。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "妻财",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 17,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 15,
+              "quote_sha256": "8d13be958047bb3c99a8d36a2b6cda8a43ad50868b3d3dda6e05b4ecc92d5cb8",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0017-father-missing",
+      "kind": "case",
+      "title": "2019年6月17日父亲走失：坎之兑，戌日找回",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 17,
+          "start_line": 16,
+          "end_line": 20,
+          "author": "青岚阁",
+          "quote_sha256": "3f65c83e797c71eb980c3106ef9ab240db7834d27225e03ca12d47d3880a144c"
+        },
+        {
+          "page": 18,
+          "start_line": 1,
+          "end_line": 10,
+          "author": "青岚阁",
+          "quote_sha256": "590ea0433af7c27686bea1aba0db75bc95b03a9b6517d2d532107fe6000d338b"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 17,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "db93c684e94ab14e9e3c30645a6c524ea782e72c0fb91b1a35ea4183d3eb8a50"
+          }
+        ],
+        "background": [
+          {
+            "page": 17,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 17,
+            "start_line": 18,
+            "end_line": 20,
+            "author": "青岚阁",
+            "quote_sha256": "e2b6197be822aaeda1fdd681c48cc905f45ce0de0de4160b084eae1f29afabe2"
+          },
+          {
+            "page": 18,
+            "start_line": 1,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "4addb04d4c9e04b3d04d64e28fa353c54dff87fdc66daf4e834f1518e0013b93"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 18,
+            "start_line": 9,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "4d185e26f66475de2386e8ae0eac2abc4509b565279af1381d3d1531874510bd"
+          },
+          {
+            "page": 18,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "end_column": 56,
+            "quote_sha256": "d6445229feae4e0abfdf691abc78719221c019fe94c2aa8653f4dbb40bce0b9d"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 18,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 56,
+            "quote_sha256": "e42ba6582d56dad7cbcb911f14f5c40043f694ca89276f93236ed54431b4ca31"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          0,
+          1,
+          2
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "午",
+        "day_ganzhi": "乙酉",
+        "hour_ganzhi": "癸未",
+        "diagram_spans": [
+          {
+            "page": 18,
+            "start_line": 3,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "fa61c6f737340fc63d617123dfc976027895d03f6c5b8e54d7341e369da1e47f"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 18,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 18,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 18,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 18,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 18,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 18,
+              "start_line": 3,
+              "end_line": 3,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 18,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "577e4b04bc84d894447005576496bb0308548824e9ea65240dfbd8774d53a7aa"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "43a3e5ccd0d13965442de1b6aed5848d20b81035e893519422b3538321ac9caa"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "197512d0e46497ce6402abc3065b8293fdf6e692c033886fb02c38f53d71fa14"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "a5846bd873e419a98c09c408f0ad9034ab56f13bb8c716feeb1354870465a9fd"
+            }
+          ]
+        },
+        "month_ganzhi": "庚午"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0017-father-missing",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问走失父亲能否找回；明确反馈戌日找回，主结果可以直接核验。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "父母",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 18,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 7,
+              "quote_sha256": "1915312bcb1c0807c8f32306ca3c8238debd853ef52fa6b6379b9f7509b7885d",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0018-two-branches-plus-date",
+      "kind": "rule",
+      "title": "寅巳申模式二：卦内两支借一日月支成刑",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 18,
+          "start_line": 11,
+          "end_line": 11,
+          "author": "青岚阁",
+          "quote_sha256": "2cb21ad3572197e95d16b43e591d17eb088c5c5c846420e85d48e3882872c729"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0018-expand-investment",
+      "kind": "case",
+      "title": "2019年3月5日某产品能否加大投资：节之需",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 18,
+          "start_line": 12,
+          "end_line": 24,
+          "author": "青岚阁",
+          "quote_sha256": "bfd7018f9f62d9c2d93c51b1f27edcbb53f5d81ab4eb7ab263679ba7cf36fc50"
+        },
+        {
+          "page": 19,
+          "start_line": 1,
+          "end_line": 2,
+          "author": "青岚阁",
+          "quote_sha256": "0b788535ba6ac3b61b0113f2a676b1863cab802c551a9cba6065d2b8dbb5a482"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 18,
+            "start_line": 13,
+            "end_line": 13,
+            "author": "青岚阁",
+            "quote_sha256": "3aaac5e6614f9f8e9366e415a1ac401e5a6cecb87589e92f827a29dbc91c3444"
+          }
+        ],
+        "background": [
+          {
+            "page": 18,
+            "start_line": 12,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          }
+        ],
+        "chart": [
+          {
+            "page": 18,
+            "start_line": 14,
+            "end_line": 24,
+            "author": "青岚阁",
+            "quote_sha256": "3fd573bcbef631fdb969bb2c7639c2d4ee88624c6276032a2b25412ccd52c893"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 19,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "949bcd4d4beeda2f65c1b9533e7d4415f6c15360a3f0c4c88329cc049f27c10e"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 19,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "7adfc380326e79c5ca12505b0019324656935c96d9f04db3d6fe7851b4108a05"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          1,
+          0,
+          2,
+          1,
+          2
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "寅",
+        "day_ganzhi": "辛丑",
+        "hour_ganzhi": "乙未",
+        "diagram_spans": [
+          {
+            "page": 18,
+            "start_line": 19,
+            "end_line": 24,
+            "author": "青岚阁",
+            "quote_sha256": "8223ac03ad6cf360e20b493344ea11d9e04a58bd984cdac48e8c36ae2bbc7dd7"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 18,
+              "start_line": 24,
+              "end_line": 24,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 18,
+              "start_line": 23,
+              "end_line": 23,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 18,
+              "start_line": 22,
+              "end_line": 22,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 18,
+              "start_line": 21,
+              "end_line": 21,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 18,
+              "start_line": 20,
+              "end_line": 20,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 18,
+              "start_line": 19,
+              "end_line": 19,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 18,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "e6fff25ec9c01f9db5f321bdfd61861b3c4378aca90b41fdbaf5deee8d092048"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "c88cda56e48a9e9a1255491bb52c0af25e121bec23d1f7342f0b100cdbcef4b7"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "92674dede22ac3befa32348c912e15640fd74962be970215c078b8bcf5cf799c"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 18,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "fddf7004e2e6211dce1c833af41b8c052f67afd78837ca1599188e818a485575"
+            }
+          ]
+        },
+        "month_ganzhi": "丙寅"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0018-expand-investment",
+      "quality": {
+        "status": "noise",
+        "reason": "原问加大投资是否合适；反馈仅现有产品每年利润和麻烦、打算放弃，未实施或反馈新增投资后的结果，不能用既往盈利代替增投验证。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "妻财",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 19,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 19,
+              "quote_sha256": "e7963f04449d2f90dcd7ce70bbe2251280646a62ad338025986c443a6720f7ed",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0019-bank-contract",
+      "kind": "case",
+      "title": "2018年8月9日让银行查借款合同：蒙之中孚，银行拒查",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 19,
+          "start_line": 3,
+          "end_line": 16,
+          "author": "青岚阁",
+          "quote_sha256": "fd19083dcbfb4eac283f08667884184db1e8c38cddf9663f1749c866284f903d"
+        },
+        {
+          "page": 20,
+          "start_line": 1,
+          "end_line": 1,
+          "author": "青岚阁",
+          "quote_sha256": "e0fb500a7c936f1bc84134c7aa05ce7a8dd4b75c8aa0278c93a0926a08c2b2a1"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 19,
+            "start_line": 4,
+            "end_line": 4,
+            "author": "青岚阁",
+            "quote_sha256": "7d8a1c9fa42639d4b09f0496faef0645d2925b3e215136927cb523665a9ba822"
+          }
+        ],
+        "background": [
+          {
+            "page": 19,
+            "start_line": 3,
+            "end_line": 3,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 19,
+            "start_line": 5,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "57173a9fefaad7ba084404d2b4d09a89251a8f33a08b5defb64d2576ed6f09ee"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 19,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "4c4d895e1a669ed6780b62db843abc9c9d2c984fec1bb87c4dadb3a4a24b33f5"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 20,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "e0fb500a7c936f1bc84134c7aa05ce7a8dd4b75c8aa0278c93a0926a08c2b2a1"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          2,
+          0,
+          1
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "申",
+        "day_ganzhi": "癸酉",
+        "hour_ganzhi": "己未",
+        "diagram_spans": [
+          {
+            "page": 19,
+            "start_line": 10,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "5452c676bbd35f7b5df4137140f6fba684d1d613feecb3a5dfba9748c02c4ab8"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 19,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 19,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 19,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 19,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 19,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 19,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 19,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 19,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 19,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "e7018276509deaff91391efe9a0563419b99d7663a962f20b14740f726ac7a32"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 19,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "4602147dc57de681bac8eec038ebefbb22c0296e64beaeaf96801fec51cca3a6"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 19,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "9df3c716d885f8f78defa6835dae76c6283d009f09148cedae34f9baa5577d69"
+            }
+          ]
+        },
+        "month_ganzhi": "庚申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0019-bank-contract",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问本次通过银行查询借款合同能否成功；实际银行拒绝查询，未取得合同，直接验证该办事路径不成功。此判断不等于合同本身不存在。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0020-exam-interview",
+      "kind": "case",
+      "title": "2019年1月20日省考是否进面试：需之既济",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 20,
+          "start_line": 2,
+          "end_line": 16,
+          "author": "青岚阁",
+          "quote_sha256": "13d0457d8d85f12d68ec51b1ed989301ce06d63679dffc1da66aef21111ce67a"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 20,
+            "start_line": 3,
+            "end_line": 3,
+            "author": "青岚阁",
+            "quote_sha256": "bb9ac7f5a481cf7dd9b708f82fe287f106b883647465094819d4a13330a60581"
+          }
+        ],
+        "background": [
+          {
+            "page": 20,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 20,
+            "start_line": 4,
+            "end_line": 14,
+            "author": "青岚阁",
+            "quote_sha256": "e962fa9a05106dc78f0c14aa07804acd953724cdab4333c80018d0e6783742d5"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 20,
+            "start_line": 15,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "c2cb9a030488fc5feb6f96f54e2d74d3425f1d1c316000c63db7ce1055dc30d3"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 20,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "092c4dbb8dbc7820f9c482835283724b478e80cbd32942f966e081e9d74c9968"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          3,
+          1,
+          2,
+          1,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "丑",
+        "day_ganzhi": "丁巳",
+        "hour_ganzhi": "丁未",
+        "diagram_spans": [
+          {
+            "page": 20,
+            "start_line": 9,
+            "end_line": 14,
+            "author": "青岚阁",
+            "quote_sha256": "f16a80ea4fb8aa325be4e6b339314fd3cc5412c226f9d2f1366fc7b045d440ac"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 20,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 20,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 12,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 20,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 20,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 20,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 20,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 20,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 20,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "025de7b314cf32b90bf285c523a514139d0beae784576481eef4d006ca9b44a4"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 20,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "be43f1f201927e7574512ecc7e1fb4f070388ff0873af549e14675745190c418"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 20,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "c99efa15a21ed6928dbacd3b30ea2e11c24c066a861d23a71b172412ad554deb"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 20,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "2dc3418cb9b6586072511e1bf23dc83482da32df74f72365d9e5e192e4e179cc"
+            }
+          ]
+        },
+        "month_ganzhi": "乙丑"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0020-exam-interview",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问此次省考能否进面试；明确反馈没有通过，直接对应主结果。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 20,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 12,
+              "quote_sha256": "973d1743e4c7130d5a813eb4e49689a2c759e9bfd32e5d1ed50b7b215016a2a3",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0020-travel-changed-destination",
+      "kind": "case",
+      "title": "2018年12月6日出行顺否：涣之中孚，后改目的地出行",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 20,
+          "start_line": 17,
+          "end_line": 21,
+          "author": "青岚阁",
+          "quote_sha256": "190e342b647c984e636cf924f8a0524943da80429c34071ad71ea5cd7e25d2d9"
+        },
+        {
+          "page": 21,
+          "start_line": 1,
+          "end_line": 10,
+          "author": "青岚阁",
+          "quote_sha256": "ce11cdc5fa15ee3744c0aa34d91b04f3032c566963b16342ff296bd341b2c77a"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 20,
+            "start_line": 18,
+            "end_line": 18,
+            "author": "青岚阁",
+            "quote_sha256": "ec9a20e7973b6b9d0ad252006048568af52496b58c134c6bfecdf925cefb1158"
+          }
+        ],
+        "background": [
+          {
+            "page": 20,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          },
+          {
+            "page": 21,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 37,
+            "end_column": 50,
+            "quote_sha256": "9ec3262fca71ed9fbf4a32e8fd6576b401be7bdd1c1718bf80daf4b932e8c19b",
+            "eligible_for_initial_blind_input": false
+          }
+        ],
+        "chart": [
+          {
+            "page": 20,
+            "start_line": 19,
+            "end_line": 21,
+            "author": "青岚阁",
+            "quote_sha256": "432caec8a43cf26247a52fd0860f68a75c050a50b30ae3d56066a1e96178b4df"
+          },
+          {
+            "page": 21,
+            "start_line": 1,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "c47e173d83a31c6f0bc0a241371ac5eddb49aca2e9ef91af92e4d5c42ea2e059"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 21,
+            "start_line": 9,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "391bf6b178bb621da31a9240757c2a92882fd61e46e33daecc3673991a4aa81e"
+          },
+          {
+            "page": 21,
+            "start_line": 10,
+            "end_line": 10,
+            "author": null,
+            "end_column": 37,
+            "quote_sha256": "7516f9e98462cf81f1a5e31568dc8093df94d5bf61e2c1eb92109bed87a34c50"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 21,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 50,
+            "quote_sha256": "f5131e64debe9064823ef6d5469cb92360941ebfa0fc5933a478b6188572d26a"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          2,
+          1,
+          1
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "亥",
+        "day_ganzhi": "壬申",
+        "hour_ganzhi": "丁未",
+        "diagram_spans": [
+          {
+            "page": 21,
+            "start_line": 3,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "65820e4dec3dd73e29435e13276cc66a10cbf8734a3f9af17ba38df22d326fbb"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 21,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 21,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 21,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 21,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 21,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 21,
+              "start_line": 3,
+              "end_line": 3,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 21,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 21,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "b8b4d9a7ca0ba049184a7d4c161cb8e06b37c10b2b513f1e0b2c3801ea313552"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 21,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "5950de696d39a7f00cd805b838a115c497668b307832f055ec89bbb6f56529ff"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 21,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "c99efa15a21ed6928dbacd3b30ea2e11c24c066a861d23a71b172412ad554deb"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 21,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "c51183379d1f248eea263bf3de7264d5fdb7a11270d90cac857c4dca354b043a"
+            }
+          ]
+        },
+        "month_ganzhi": "癸亥"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0020-travel-changed-destination",
+      "quality": {
+        "status": "noise",
+        "reason": "原问原定出行是否顺利；后因劝阻改了目的地才出行顺利，原行程没有实现，不能用新行程结果验证原问。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "本书作者分析与未具名学员的大凶判断分开。害怕不敢行动是后披露背景，eligible=false。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0021-boyfriend-connection",
+      "kind": "case",
+      "title": "2018年12月6日与男友缘分：蒙之临，仅反馈对方过去离异坐牢",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 21,
+          "start_line": 11,
+          "end_line": 15,
+          "author": "青岚阁",
+          "quote_sha256": "cad1c570995d7225c4c8b761c32a08dc445a032511b5f43676271e08b9fea89e"
+        },
+        {
+          "page": 22,
+          "start_line": 1,
+          "end_line": 10,
+          "author": "青岚阁",
+          "quote_sha256": "b124632521528cef8a95e7a8ac6e98a1a185b3e528624fd81e6bc7eba971411c"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 21,
+            "start_line": 12,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "8073475fe50a864ce500872adcac3aa2e6ffa701c49bf97b149aceb7a647febb"
+          }
+        ],
+        "background": [
+          {
+            "page": 21,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          }
+        ],
+        "chart": [
+          {
+            "page": 21,
+            "start_line": 13,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "432caec8a43cf26247a52fd0860f68a75c050a50b30ae3d56066a1e96178b4df"
+          },
+          {
+            "page": 22,
+            "start_line": 1,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "39e45dc0e0eb2b59c746e52efa5d8db733a622dea2e9be94de6410be6eeac4a5"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 22,
+            "start_line": 9,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "91c20f51f4105241653027c41f68f7b523869590f0fa83f6b230c2a7ca0e57e4"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 22,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "end_column": 30,
+            "quote_sha256": "a263aa81aaad27853ba398669aa9391a28aaa74ca30ebfbacca0e8d8bae59324"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 22,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 30,
+            "quote_sha256": "ac8722b0a7ab4ed2bf9e5e0393fbb77da34e1679b032e1d200b00becd3c5888c"
+          }
+        ]
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "亥",
+        "day_ganzhi": "壬申",
+        "hour_ganzhi": "丁未",
+        "diagram_spans": [
+          {
+            "page": 22,
+            "start_line": 3,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "29fe871d112565bbfca946421c40e27e2fa2dafcb72f1f22af3e027d244d4555"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 22,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 22,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 22,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 22,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 22,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 22,
+              "start_line": 3,
+              "end_line": 3,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 22,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 22,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "b8b4d9a7ca0ba049184a7d4c161cb8e06b37c10b2b513f1e0b2c3801ea313552"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 22,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "5950de696d39a7f00cd805b838a115c497668b307832f055ec89bbb6f56529ff"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 22,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "c99efa15a21ed6928dbacd3b30ea2e11c24c066a861d23a71b172412ad554deb"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 22,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "c51183379d1f248eea263bf3de7264d5fdb7a11270d90cac857c4dca354b043a"
+            }
+          ]
+        },
+        "month_ganzhi": "癸亥"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0021-boyfriend-connection",
+      "quality": {
+        "status": "noise",
+        "reason": "原问两人缘分与关系发展，主断短期不会分；具体反馈只确认对方此前离异坐牢，未给当前两人后来是否在一起，辅助过往细节不能替代关系主结果。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 22,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 12,
+              "quote_sha256": "83fb6a094a2c518939b21e6d7208fcd02612b31186038b73a36d7b26974a6a76",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0022-kindergarten-shareholder",
+      "kind": "case",
+      "title": "2018年8月29日幼儿园新增股东对自己影响：蒙之损",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 22,
+          "start_line": 11,
+          "end_line": 15,
+          "author": "青岚阁",
+          "quote_sha256": "6fce53f81201338fcd568c51125be0ca518f3995bd9b1cf34c4a479528da39c7"
+        },
+        {
+          "page": 23,
+          "start_line": 1,
+          "end_line": 11,
+          "author": "青岚阁",
+          "quote_sha256": "e4298d7eb56480ea3c94d0d63b453c6e217c49e29bf6c505a5fc15cab5d10cfa"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 22,
+            "start_line": 12,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "96ed32a53241b781aa73ea1f82d4c1185e1416dcd6da41cb967334e76abcf7bd"
+          }
+        ],
+        "background": [
+          {
+            "page": 22,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          }
+        ],
+        "chart": [
+          {
+            "page": 22,
+            "start_line": 13,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "abd1d8cf8a748bb580f058d72cd83530531e93cf2a52bc4b815d0e4eece3cfa7"
+          },
+          {
+            "page": 23,
+            "start_line": 1,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "73bc0f90c8287db3f7cf56d26aedb41392cc85a0fb7854a9f071bf58cc7cff18"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 23,
+            "start_line": 9,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "2abcc7df180f98966f6bfaeaee531baaa7891cab98ff728e141e904ca5601e77"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 23,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "quote_sha256": "44ef82ef6663bc4fa4bebe0cdb5caeb618dbd6c3ba03d5fe5be25c3098fd1b22"
+          },
+          {
+            "page": 23,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "start_column": 128,
+            "quote_sha256": "a0725d356e7ef934af0f012e190b79aab2ed5039825d06d58aa2939f3ecb6257"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 23,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "end_column": 128,
+            "quote_sha256": "02fe7e1fb4f4dcbccc8ed63365856a7710cf1bcf2746d6c82db35053f559480b"
+          }
+        ]
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "申",
+        "day_ganzhi": "癸巳",
+        "hour_ganzhi": "己未",
+        "diagram_spans": [
+          {
+            "page": 23,
+            "start_line": 3,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "1cd528c2871fc92a41f359d683494f457ddd95c5b4952f551ef1069cef2dc1bc"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 23,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 23,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 23,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 23,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 23,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 23,
+              "start_line": 3,
+              "end_line": 3,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 23,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 23,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 23,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "080242e6fd29ec54fba4f23c2a936ce333ccc1cf4365594afcce4aefbb9c235d"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 23,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "4602147dc57de681bac8eec038ebefbb22c0296e64beaeaf96801fec51cca3a6"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 23,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "9df3c716d885f8f78defa6835dae76c6283d009f09148cedae34f9baa5577d69"
+            }
+          ]
+        },
+        "month_ganzhi": "庚申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0022-kindergarten-shareholder",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问新增股东对自身影响，反馈明确监管不许本人再任股东、幼儿园新增人替代，主问的股东地位受影响有直接事实。后续暗股建议及协议单列，不倒算为原先预测的自动结局。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0023-investment-collapse",
+      "kind": "case",
+      "title": "2019年8月12日投资赔钱及对方崩盘：临之坎，放弃投资",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 23,
+          "start_line": 12,
+          "end_line": 15,
+          "author": "青岚阁",
+          "quote_sha256": "0256444b6a7b6c4e89d5062334c6587a2869520e96bcf749786c68333b341d8b"
+        },
+        {
+          "page": 24,
+          "start_line": 1,
+          "end_line": 11,
+          "author": "青岚阁",
+          "quote_sha256": "2fa649f6d64f6a8d98e620fce3c08ad547cca1cff6f4c05e76360115bb33d296"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 23,
+            "start_line": 13,
+            "end_line": 13,
+            "author": "青岚阁",
+            "quote_sha256": "39f9ad7a8d4eb0c8ecf592d4b8ca0f2465604e460491b3593310ffea15f574f7"
+          }
+        ],
+        "background": [
+          {
+            "page": 23,
+            "start_line": 12,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          },
+          {
+            "page": 24,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 0,
+            "end_column": 7,
+            "quote_sha256": "c9a9d64390e0288ce17f60be6c7bdfd1c7bd54b3df0c462674c942931b1253be"
+          }
+        ],
+        "chart": [
+          {
+            "page": 23,
+            "start_line": 14,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "b3537a40c9b985de2984efda640c0260085968452180f2c4804cc1770442531b"
+          },
+          {
+            "page": 24,
+            "start_line": 1,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "cfbc97cd40029602091f99bd9a34474847f88fcc9419335513c0ec116d98d113"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 24,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "start_column": 7,
+            "quote_sha256": "cf5c8bfa6c2618d617f4dd31c4b3931f74b0d371106012bb6993fdbec68d18cd"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 24,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "quote_sha256": "9e09637b211dc936cb84c58114955396954f17bbaead391ba66b89ad9db93f57"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          3,
+          1,
+          2,
+          2,
+          0,
+          2
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "申",
+        "day_ganzhi": "辛巳",
+        "hour_ganzhi": "丙申",
+        "diagram_spans": [
+          {
+            "page": 24,
+            "start_line": 4,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "0846e8d30f7196a13cc8f0ce35d6e0a179e326b16b4224d50bec2f2461b72539"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 24,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 24,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 24,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 24,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 24,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": 24,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 24,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "676c22abf5ce485f4c23b3ccbd8d1bc6149869764bbecd7c106c87e17459887f"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "96d830b47e0bfc905a0a6318bc0b417e672cfb5f352aa049326aaa12cc854bb9"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "5950de696d39a7f00cd805b838a115c497668b307832f055ec89bbb6f56529ff"
+            }
+          ]
+        },
+        "month_ganzhi": "壬申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0023-investment-collapse",
+      "quality": {
+        "status": "noise",
+        "reason": "原问投资是否亏损及对方是否崩盘；仅反馈放弃投资，没有实际投资损益或对方崩盘的后验事实，不能验证原问。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "妻财",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 24,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 31,
+              "quote_sha256": "4fe754bd7b7e9c31e41f42db32186595fca04f5440305abbbdb1317ba4ebffa9",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0024-one-branch-plus-dates",
+      "kind": "rule",
+      "title": "寅巳申模式三：卦内一支借日月，多为日积月累之因",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 24,
+          "start_line": 12,
+          "end_line": 12,
+          "author": "青岚阁",
+          "quote_sha256": "a9b70968f195f3579add4eca32bb09692939b7323720ab5d4cd0bbea07efb831"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0024-marriage-general",
+      "kind": "case",
+      "title": "2019年8月24日女自占婚姻：泰卦，只有笼统认同反馈",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 24,
+          "start_line": 13,
+          "end_line": 24,
+          "author": "青岚阁",
+          "quote_sha256": "4ec7732d5c20e7d9f6a7905f895c85b38200557278714f8703fd04c9552912b1"
+        },
+        {
+          "page": 25,
+          "start_line": 1,
+          "end_line": 2,
+          "author": "青岚阁",
+          "quote_sha256": "2ea79ff61a0672923ef32050dca29e46d6c33ac5b69c5bd10631a6cbfb0f7bec"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 24,
+            "start_line": 13,
+            "end_line": 13,
+            "author": "青岚阁",
+            "start_column": 11,
+            "quote_sha256": "265591d80d740bd7c42c64d529b8bd8396f468f008efacff2634fbca7fc61fcd"
+          }
+        ],
+        "background": [
+          {
+            "page": 24,
+            "start_line": 13,
+            "end_line": 13,
+            "author": "青岚阁",
+            "end_column": 11,
+            "quote_sha256": "ac4a1f02a0361733f3bde32f4251feb425e074143feb65a03782bb94411fbf1f"
+          },
+          {
+            "page": 25,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "start_column": 0,
+            "end_column": 7,
+            "quote_sha256": "d3a0bb68cf78eafc053029dc12506d88a539e6c4e97cde85c811891457564c8d"
+          }
+        ],
+        "chart": [
+          {
+            "page": 24,
+            "start_line": 14,
+            "end_line": 24,
+            "author": "青岚阁",
+            "quote_sha256": "f2c091991041f0f61fe4dd9dcfd2c4ef1f85f07fafb9747d072d2f5fa8bc5bf8"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 25,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "start_column": 7,
+            "quote_sha256": "1336106748c1200bcae6a7f009fb722dd72093bbe25f392cf756bb4a694bb674"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 25,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "05909e4fa4f5c3707816af72cf1a51ae7593f20030a23a4886fb657854147eee"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "申",
+        "day_ganzhi": "癸巳",
+        "hour_ganzhi": "辛酉",
+        "diagram_spans": [
+          {
+            "page": 24,
+            "start_line": 19,
+            "end_line": 24,
+            "author": "青岚阁",
+            "quote_sha256": "ff6b8d733e721b4f160fe310ab40a9916c950b2e0905ce1ff91ad8fb93eefa10"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 24,
+              "start_line": 24,
+              "end_line": 24,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 24,
+              "start_line": 23,
+              "end_line": 23,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 24,
+              "start_line": 22,
+              "end_line": 22,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 24,
+              "start_line": 21,
+              "end_line": 21,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 24,
+              "start_line": 20,
+              "end_line": 20,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 24,
+              "start_line": 19,
+              "end_line": 19,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 24,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "080242e6fd29ec54fba4f23c2a936ce333ccc1cf4365594afcce4aefbb9c235d"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "0d7a5f7766e332b4fc324f5e056d655ef3601cbe1c989299c00ca613f13e7cdf"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 24,
+              "start_line": 17,
+              "end_line": 17,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "5950de696d39a7f00cd805b838a115c497668b307832f055ec89bbb6f56529ff"
+            }
+          ]
+        },
+        "month_ganzhi": "壬申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0024-marriage-general",
+      "quality": {
+        "status": "noise",
+        "reason": "原问婚姻状态，分析涉及不合与出轨等；反馈只有基本是这样，没有明确的婚姻事实或具体结果，无法直接核验主断。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 25,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 14,
+              "quote_sha256": "0c9cb1442a7f1aaee23e24bd5052e491033a4ec71d2439e9b4e48580c048a708",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0025-wife-crash",
+      "kind": "case",
+      "title": "2016年5月14日妻车祸住院吉凶：困卦，18日后亡",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 25,
+          "start_line": 3,
+          "end_line": 17,
+          "author": "青岚阁",
+          "quote_sha256": "cfb52240bdf43d161d536d252e82e8b073f9080356062376f65aaaa6790ce0b7"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 25,
+            "start_line": 4,
+            "end_line": 4,
+            "author": "青岚阁",
+            "quote_sha256": "6aaa4e20dae96a9deeb3f761f08dd482285c6bf3e3db5bf2ee9b99680414ea11"
+          }
+        ],
+        "background": [
+          {
+            "page": 25,
+            "start_line": 3,
+            "end_line": 3,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 25,
+            "start_line": 5,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "0dbd30362132d044b253728beabd39c478a0bae707e34c911e1db1a65e873f58"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 25,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "f00548a871aa73ccc539d68dc908e1e7a1dc6bfa68d303ad8a1aab8d7e30f2ac"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 25,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "3bdfc216ecd941e04969882c1ffdd9f0176016b77c02fc421f939a4033f39124"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          1,
+          2,
+          1,
+          1,
+          2
+        ],
+        "year_ganzhi": "丙申",
+        "month_branch": "巳",
+        "day_ganzhi": "丙申",
+        "hour_ganzhi": "癸巳",
+        "diagram_spans": [
+          {
+            "page": 25,
+            "start_line": 10,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "ecbd1fe6ab4a30250b5ce89c33b8d7aa4848422c9a28f8d281fdb3cb17283414"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 25,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 25,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 25,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 25,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 25,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 25,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 25,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "96d830b47e0bfc905a0a6318bc0b417e672cfb5f352aa049326aaa12cc854bb9"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 25,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "0a15957bf9abe2fe93705ac2959ef6e87b3f43cebaf9a24b947fa356ad3c5b55"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 25,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "96d830b47e0bfc905a0a6318bc0b417e672cfb5f352aa049326aaa12cc854bb9"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 25,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "080242e6fd29ec54fba4f23c2a936ce333ccc1cf4365594afcce4aefbb9c235d"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 25,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "080242e6fd29ec54fba4f23c2a936ce333ccc1cf4365594afcce4aefbb9c235d"
+            }
+          ]
+        },
+        "month_ganzhi": "癸巳"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0025-wife-crash",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问车祸住院妻子的吉凶；明确18天后甲寅日亡，直接核验病势主结果。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "妻财",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 25,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 7,
+              "quote_sha256": "e2620fe7efcd1557be80cfb559a25b53d4ee234dadcc971c24171c7f20be0539",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0025-tibet-job",
+      "kind": "case",
+      "title": "2019年2月16日该不该去西藏工作：睽之噬嗑，职位取消",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 25,
+          "start_line": 18,
+          "end_line": 18,
+          "author": "青岚阁",
+          "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+        },
+        {
+          "page": 26,
+          "start_line": 1,
+          "end_line": 15,
+          "author": "青岚阁",
+          "quote_sha256": "25728c5ddf29ed79085e00541042a5b73d81364459a871236c7769cdceccb4bc"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 26,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "661a42a9b4aa9deb77afebb44097492e256642faf00dd7b0f40b919fcad72678"
+          }
+        ],
+        "background": [
+          {
+            "page": 25,
+            "start_line": 18,
+            "end_line": 18,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          },
+          {
+            "page": 26,
+            "start_line": 13,
+            "end_line": 13,
+            "author": "青岚阁",
+            "quote_sha256": "3d1f27dd43a5bf6361c3c1dbb3922adb48f1a5769648037275001077a4dcdcc3"
+          }
+        ],
+        "chart": [
+          {
+            "page": 26,
+            "start_line": 2,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "510ae2c344905b097451fd329f2d1af1e5437096ce7fbc6cf5eec4d4e154a1c5"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 26,
+            "start_line": 14,
+            "end_line": 14,
+            "author": "青岚阁",
+            "quote_sha256": "7ddf89a2aeb6dd94dc87e8a752aed2850dd81f57911552953bce81f093fd66c0"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 26,
+            "start_line": 15,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "691335712cfd3e92cfe4ae1a45b617c7745ebb73a3c76e082d74aa288425d116"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          3,
+          2,
+          1,
+          2,
+          1
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "寅",
+        "day_ganzhi": "甲申",
+        "hour_ganzhi": "癸酉",
+        "diagram_spans": [
+          {
+            "page": 26,
+            "start_line": 7,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "682d8cafd24a60bffa818fa1551cd9398dbee746d0215c3310c42f8ee160e28b"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 26,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 26,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 26,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 26,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 26,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 26,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 26,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 26,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "e6fff25ec9c01f9db5f321bdfd61861b3c4378aca90b41fdbaf5deee8d092048"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 26,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "1bf230e36244b31f8023067e22ef872b3e4d70d99aae6675af21b3456a9b7d54"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 26,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "e7018276509deaff91391efe9a0563419b99d7663a962f20b14740f726ac7a32"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 26,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "fddf7004e2e6211dce1c833af41b8c052f67afd78837ca1599188e818a485575"
+            }
+          ]
+        },
+        "month_ganzhi": "丙寅"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0025-tibet-job",
+      "quality": {
+        "status": "noise",
+        "reason": "背景明确原问该不该去及工作适合与否；职位后来取消，未到西藏任职。取消只验证机会变动，无法验证适应性、收益与原路径是否更好。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0026-colleague-stock",
+      "kind": "case",
+      "title": "2019年5月11日让同事炒股：讼之否，未投资",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 26,
+          "start_line": 16,
+          "end_line": 20,
+          "author": "青岚阁",
+          "quote_sha256": "82f1333b05ded098330c56cf77d681869ddcfcc7778713ee347e66e32aaddeb7"
+        },
+        {
+          "page": 27,
+          "start_line": 1,
+          "end_line": 10,
+          "author": "青岚阁",
+          "quote_sha256": "eecf77356374f78e84f375a4a4fc6848a32152ac4ccb5bafeb78854f56d8cd04"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 26,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "1cc222bc25529f8437f624deaa73ffd9bb01ca9016982cd69d7b0f47d9e462e0"
+          }
+        ],
+        "background": [
+          {
+            "page": 26,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 26,
+            "start_line": 18,
+            "end_line": 20,
+            "author": "青岚阁",
+            "quote_sha256": "6896e4b4dab9491f8ec84fbe86ae386fe1f39f85469bb126a469ffc801a08158"
+          },
+          {
+            "page": 27,
+            "start_line": 1,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "cc3fe9669df40b5f4c176472c315bda4c235952fe33d1f7d43a86341bc9ed42e"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 27,
+            "start_line": 9,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "1840d96b5e43080d84097e57ef6c4ab9608ff285100becdb01d01686d3e8c770"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 27,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "quote_sha256": "c5b50721383b7c65a14adc4fb7a4314e66ba00646a0bc3792d1a85eec4d8716f"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "巳",
+        "day_ganzhi": "戊申",
+        "hour_ganzhi": "辛酉",
+        "diagram_spans": [
+          {
+            "page": 27,
+            "start_line": 3,
+            "end_line": 8,
+            "author": "青岚阁",
+            "quote_sha256": "9caa395deda775e15a9123f66955e96a104fc0a938e1e4983ac86068b88c8096"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 27,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 27,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 27,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 27,
+              "start_line": 3,
+              "end_line": 3,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 27,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "0a15957bf9abe2fe93705ac2959ef6e87b3f43cebaf9a24b947fa356ad3c5b55"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "b737309ed62139f450fa8194da64ec5bd8fb06fed7345258159d6b3c48d1f13a"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "0d7a5f7766e332b4fc324f5e056d655ef3601cbe1c989299c00ca613f13e7cdf"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "2a34d9a178a6263a284fae091a8ea0e29e37c1100d1248d6da10f1b8436244be"
+            }
+          ]
+        },
+        "month_ganzhi": "己巳"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0026-colleague-stock",
+      "quality": {
+        "status": "noise",
+        "reason": "原问委托同事炒股的结果；实际没有投资委托，不能验证其操盘能力或给卦主带来的损益。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0027-internship",
+      "kind": "case",
+      "title": "2019年8月21日能否找到实习工作：观之剥，仅一次面试失败",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 27,
+          "start_line": 11,
+          "end_line": 24,
+          "author": "青岚阁",
+          "quote_sha256": "ce6de00f9405b5ed1632066f195915c6fa3ce2ca7efd53372efd8bbd3abb7be6"
+        },
+        {
+          "page": 28,
+          "start_line": 1,
+          "end_line": 2,
+          "author": "青岚阁",
+          "quote_sha256": "23f76551f55c5732192e0871d4297138a317cb47805f9fdbf3cd4e90d67c1dfd"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 27,
+            "start_line": 12,
+            "end_line": 12,
+            "author": "青岚阁",
+            "quote_sha256": "97d3c12b7b37a8a9053d134e6118556fce3192e6c6ea5c4a20911e610704969a"
+          }
+        ],
+        "background": [
+          {
+            "page": 27,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 27,
+            "start_line": 13,
+            "end_line": 23,
+            "author": "青岚阁",
+            "quote_sha256": "5a6153fa53e054652ecb7cb891c552fdedf2c8564538a1abe1082af963f5ad5d"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 27,
+            "start_line": 24,
+            "end_line": 24,
+            "author": "青岚阁",
+            "quote_sha256": "bbddf4844ffc8d06ac59558fa75f969c3c9c0199431553a06c0ab497756f7a90"
+          },
+          {
+            "page": 28,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "e2160da3ccd643e0bf6ce9b646b7ee2f006e95207cddbcd9a63da324832a3b44"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 28,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "0cdc902b1c4558da18049a4e163176349f26aa0227a8e9afe01ed37a1ee60dab"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          2,
+          2,
+          2,
+          3,
+          1
+        ],
+        "year_ganzhi": "己亥",
+        "month_branch": "申",
+        "day_ganzhi": "庚寅",
+        "hour_ganzhi": "乙酉",
+        "diagram_spans": [
+          {
+            "page": 27,
+            "start_line": 18,
+            "end_line": 23,
+            "author": "青岚阁",
+            "quote_sha256": "8b5cc6bea2de26de53d796ded6849dba00c5d1ad868f8ce3d71ea413b4602e3e"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 27,
+              "start_line": 23,
+              "end_line": 23,
+              "author": "青岚阁",
+              "start_column": 6,
+              "end_column": 11,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 22,
+              "end_line": 22,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 21,
+              "end_line": 21,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 20,
+              "end_line": 20,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 27,
+              "start_line": 19,
+              "end_line": 19,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 12,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 27,
+              "start_line": 18,
+              "end_line": 18,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "254882618a1725eefd366b4e254b762375a02eac70163fe363e252fe999744b0"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 27,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "f522fcf9618f30ac7180b92b2b8660858b2ded7fd08f5a101ded263a795be923"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "43a3e5ccd0d13965442de1b6aed5848d20b81035e893519422b3538321ac9caa"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 27,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "5950de696d39a7f00cd805b838a115c497668b307832f055ec89bbb6f56529ff"
+            }
+          ]
+        },
+        "month_ganzhi": "壬申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0027-internship",
+      "quality": {
+        "status": "noise",
+        "reason": "原问最终能否找到实习及工作情况；只反馈月底一家面试未过，未明确最终是否找到。不能将一次过程受阻替代完整求职主结果。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 27,
+              "start_line": 24,
+              "end_line": 24,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 12,
+              "quote_sha256": "8a55ce5f4b247b19ff3f07084be8a3013059172eb6f2e43574ff5b2431580c93",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0028-two-branches",
+      "kind": "rule",
+      "title": "寅巳申模式四：只有两支时以冲、生、合兼取刑细节",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 28,
+          "start_line": 3,
+          "end_line": 3,
+          "author": "青岚阁",
+          "quote_sha256": "8d6697cdffb8399a8b00d75bc6fb4ecf1558cc34ce0b2c8cff1a376a99977345"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0028-contact-relationship",
+      "kind": "case",
+      "title": "2018年8月21日此次联系能否改善关系：噬嗑卦",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 28,
+          "start_line": 4,
+          "end_line": 16,
+          "author": "青岚阁",
+          "quote_sha256": "3c143246cb33aeaec8c5f3a4bde535b1fdb582894a2d6b2d8acee566ee7e46db"
+        },
+        {
+          "page": 29,
+          "start_line": 1,
+          "end_line": 2,
+          "author": "青岚阁",
+          "quote_sha256": "4a192d4d486fe2e163ed316c63fb5ca09ce4761e48d4f9bb3a1ab539c9b94984"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 28,
+            "start_line": 5,
+            "end_line": 5,
+            "author": "青岚阁",
+            "quote_sha256": "f4ec76745d127356c1dc5e538fdfbc1d46d19745c447e48eda66e4365be80ee7"
+          }
+        ],
+        "background": [
+          {
+            "page": 28,
+            "start_line": 4,
+            "end_line": 4,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          }
+        ],
+        "chart": [
+          {
+            "page": 28,
+            "start_line": 6,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "6afd56d0d5be0548758d6abaacdecd051ada88804571397c691b0a11c4772829"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 29,
+            "start_line": 1,
+            "end_line": 1,
+            "author": "青岚阁",
+            "quote_sha256": "48ad92ad40457146e2f6269f3adc7685f71a01686f2dff49142753c43b7c5818"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 29,
+            "start_line": 2,
+            "end_line": 2,
+            "author": "青岚阁",
+            "quote_sha256": "beef4ac947144103d0a6b40eeeaf3a77cae9952d8f12df24ac5530afba2eebf3"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          2,
+          2,
+          1,
+          2,
+          1
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "申",
+        "day_ganzhi": "乙酉",
+        "hour_ganzhi": "乙酉",
+        "diagram_spans": [
+          {
+            "page": 28,
+            "start_line": 11,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "fad0f012c576659a2b477ac61e0e41f8e33b495bd4a01b04c96e1db13abf160f"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 28,
+              "start_line": 16,
+              "end_line": 16,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 28,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 28,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 28,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 28,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 28,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 28,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 28,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "7de7745eeffd7dc66e21fbb050328e08430054e90cff984e7c5c88ef50d8e2b1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 28,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "43a3e5ccd0d13965442de1b6aed5848d20b81035e893519422b3538321ac9caa"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 28,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "43a3e5ccd0d13965442de1b6aed5848d20b81035e893519422b3538321ac9caa"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 28,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "9df3c716d885f8f78defa6835dae76c6283d009f09148cedae34f9baa5577d69"
+            }
+          ]
+        },
+        "month_ganzhi": "庚申"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0028-contact-relationship",
+      "quality": {
+        "status": "noise",
+        "reason": "原问此次联系是否改善两人关系；反馈只有对方欠债躲债官司等背景，没有联系是否进行及关系后来变化，未直接验证主问。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      },
+      "author_yongshen": [
+        {
+          "relative": "父母",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 29,
+              "start_line": 1,
+              "end_line": 1,
+              "author": "青岚阁",
+              "start_column": 0,
+              "end_column": 25,
+              "quote_sha256": "e3376a42e6a1e3ccbe3d7abd1c648652b05e884ddad9553093c619b2c189e6b3",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0029-shoes-shipping",
+      "kind": "case",
+      "title": "2018年12月3日鞋子发货否：困卦，催后才发",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 29,
+          "start_line": 3,
+          "end_line": 17,
+          "author": "青岚阁",
+          "quote_sha256": "e7cd094d3509a60b74927b4c029b12868f238bc17dbee92ba724aae96da60767"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 29,
+            "start_line": 4,
+            "end_line": 4,
+            "author": "青岚阁",
+            "quote_sha256": "7fbd641c8b0da53eebd5be8ec3c119011c9c3e4f0cdd404506ec61c365d88c45"
+          }
+        ],
+        "background": [
+          {
+            "page": 29,
+            "start_line": 3,
+            "end_line": 3,
+            "author": "青岚阁",
+            "quote_sha256": "0780fced27e434a7ca678dcbab9b0b850ae72bee9b35f026242f25baff5b2f53"
+          }
+        ],
+        "chart": [
+          {
+            "page": 29,
+            "start_line": 5,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "74babc582d9a8e424092c86d94250262e22b05403b333dba208e26d910600213"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 29,
+            "start_line": 16,
+            "end_line": 16,
+            "author": "青岚阁",
+            "quote_sha256": "2236c460eaac6d784048e52d98d92a885e8f4367bc2305525ba00563a63a24ff"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 29,
+            "start_line": 17,
+            "end_line": 17,
+            "author": "青岚阁",
+            "quote_sha256": "03dfc9288b937317711f6eca52dec688d612d519ccfd03cc5873cedaaa5bb35b"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          1,
+          2,
+          1,
+          1,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "亥",
+        "day_ganzhi": "己巳",
+        "hour_ganzhi": "癸酉",
+        "diagram_spans": [
+          {
+            "page": 29,
+            "start_line": 10,
+            "end_line": 15,
+            "author": "青岚阁",
+            "quote_sha256": "9270499c22754a88bb75a9d28b9a19423c16564d08f05928ef5c09c5a710180b"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 29,
+              "start_line": 15,
+              "end_line": 15,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 29,
+              "start_line": 14,
+              "end_line": 14,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 29,
+              "start_line": 13,
+              "end_line": 13,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 29,
+              "start_line": 12,
+              "end_line": 12,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 29,
+              "start_line": 11,
+              "end_line": 11,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 29,
+              "start_line": 10,
+              "end_line": 10,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 29,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 29,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "b8b4d9a7ca0ba049184a7d4c161cb8e06b37c10b2b513f1e0b2c3801ea313552"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 29,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "2a34d9a178a6263a284fae091a8ea0e29e37c1100d1248d6da10f1b8436244be"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 29,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "e7018276509deaff91391efe9a0563419b99d7663a962f20b14740f726ac7a32"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 29,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "c51183379d1f248eea263bf3de7264d5fdb7a11270d90cac857c4dca354b043a"
+            }
+          ]
+        },
+        "month_ganzhi": "癸亥"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0029-shoes-shipping",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问鞋是否已发货；向对方查询后确认未发，催促后才发，直接验证原时点未发货及其后经过。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0029-bird-dream",
+      "kind": "case",
+      "title": "2018年11月16日梦中鸟叫主何吉凶：需之既济，子病破财",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 29,
+          "start_line": 18,
+          "end_line": 21,
+          "author": "青岚阁",
+          "quote_sha256": "18f9a4a887fe618e0a79a08438fb15f32289d8fa902ed244f06aee69ebeb0ae2"
+        },
+        {
+          "page": 30,
+          "start_line": 1,
+          "end_line": 11,
+          "author": "青岚阁",
+          "quote_sha256": "16eb8e7798b516882181bada4e6873230128925cbaa64463359842d83a5d104b"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 29,
+            "start_line": 19,
+            "end_line": 19,
+            "author": "青岚阁",
+            "quote_sha256": "b48b4d2dc195725555c3991b16639a6e9c557b9893e22d4eab4fa13bc847ed00"
+          }
+        ],
+        "background": [
+          {
+            "page": 29,
+            "start_line": 18,
+            "end_line": 18,
+            "author": "青岚阁",
+            "quote_sha256": "a3de3bcbca91995e103468e06adc2c2e13c5677ec62a25ce131dc4434a822a45"
+          }
+        ],
+        "chart": [
+          {
+            "page": 29,
+            "start_line": 20,
+            "end_line": 21,
+            "author": "青岚阁",
+            "quote_sha256": "56e622abbdfbbcff67d72ea2c14c09664da4f89461f115765fea0c0284f799fa"
+          },
+          {
+            "page": 30,
+            "start_line": 1,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "162543f235455600639892af9cb68f175b2d56bdebc3dbf8d6baf67eda66e797"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 30,
+            "start_line": 10,
+            "end_line": 10,
+            "author": "青岚阁",
+            "quote_sha256": "7466e650d136c2c7665faaa2884d79a8639de2f630d33e54791ab9366814d517"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 30,
+            "start_line": 11,
+            "end_line": 11,
+            "author": "青岚阁",
+            "quote_sha256": "8990749ecd38059337a3f0800a3dea56fe37f0a8c78074409be784e031bb30b9"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          3,
+          1,
+          2,
+          1,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "亥",
+        "day_ganzhi": "壬子",
+        "hour_ganzhi": "戊申",
+        "diagram_spans": [
+          {
+            "page": 30,
+            "start_line": 4,
+            "end_line": 9,
+            "author": "青岚阁",
+            "quote_sha256": "58bf01a38fdf8ed2625f6d9f6b2add09870f37ba24fa47a35edbfee2d0aa2e35"
+          }
+        ],
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 30,
+              "start_line": 9,
+              "end_line": 9,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 30,
+              "start_line": 8,
+              "end_line": 8,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 12,
+              "quote_sha256": "1f444cd5d56c5aa0895aaeecc7a4ab9dde91b1b16bb1bb2fa4a7a1bc44619cc5"
+            },
+            {
+              "page": 30,
+              "start_line": 7,
+              "end_line": 7,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 30,
+              "start_line": 6,
+              "end_line": 6,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            },
+            {
+              "page": 30,
+              "start_line": 5,
+              "end_line": 5,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "8252c535b964db21b271ec7153e2032f5bb1008a975cb3eaed733ca655165a2c"
+            },
+            {
+              "page": 30,
+              "start_line": 4,
+              "end_line": 4,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 8,
+              "quote_sha256": "2557ee4bc0a88ae1b89506adee7eb1ac1ce69c6783c0662e8b300107bd03ca86"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 30,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 3,
+              "end_column": 5,
+              "quote_sha256": "268303c3bb7a26bfce84415bafa50a8ad814b53d2951b1e13f5af0cbf028a5ca"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 30,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 8,
+              "end_column": 9,
+              "quote_sha256": "b8b4d9a7ca0ba049184a7d4c161cb8e06b37c10b2b513f1e0b2c3801ea313552"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 30,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 11,
+              "end_column": 13,
+              "quote_sha256": "e1698f7ea577ba3849bfbbc770a94f4188aab5adc49ad0f2e4fde065e4ebd535"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 30,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 15,
+              "end_column": 17,
+              "quote_sha256": "b737309ed62139f450fa8194da64ec5bd8fb06fed7345258159d6b3c48d1f13a"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 30,
+              "start_line": 2,
+              "end_line": 2,
+              "author": "青岚阁",
+              "start_column": 7,
+              "end_column": 9,
+              "quote_sha256": "c51183379d1f248eea263bf3de7264d5fdb7a11270d90cac857c4dca354b043a"
+            }
+          ]
+        },
+        "month_ganzhi": "癸亥"
+      },
+      "event_id": "liuyao_xiangfa_jinjie_xia-p0029-bird-dream",
+      "quality": {
+        "status": "eligible",
+        "reason": "原问梦兆所主吉凶及应事，原断具体指出子女病灾破财，反馈明确孩子肺炎住院并已花钱，直接给出所断凶事。没有把梦作为疾病原因。",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1"
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原问、背景、完整卦图、原分析、实际反馈及事后解释逐段人工分开；未以分析补反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_xia-p0030-two-branch-summary",
+      "kind": "rule",
+      "title": "寅巳申仅两支时刑意多不明显，附吉凶取象或略去",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 30,
+          "start_line": 12,
+          "end_line": 12,
+          "author": "青岚阁",
+          "quote_sha256": "36927ba376035254b66df0e672d74d9bd1d755b49762f5bc2d33d62148188e2c"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_original_image_read_and_page_proofread",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐页亲读原图，按完整语义命题手切；段落跨页以有序page spans保留。"
+      }
+    }
+  ],
+  "exclusions": []
+}

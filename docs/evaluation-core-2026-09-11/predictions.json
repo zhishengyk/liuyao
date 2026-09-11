@@ -1,0 +1,4379 @@
+[
+  {
+    "anonymousID": "C01",
+    "question_summary": "占问事宜：测与男友将来发展如何",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：女，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        3,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "calendar": {
+        "month_branch": "未",
+        "day_ganzhi": "丙寅",
+        "void": [
+          "戌",
+          "亥"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "辛未",
+        "day_ganzhi": "丙寅",
+        "year_ganzhi": null,
+        "hour_ganzhi": null,
+        "date": null,
+        "time": null
+      },
+      "primary": {
+        "name": "离",
+        "full_name": "离为火",
+        "upper": "离",
+        "lower": "离",
+        "palace": "离",
+        "palace_element": "火",
+        "palace_stage": "本宫"
+      },
+      "changed": {
+        "full_name": "火山旅",
+        "palace": "离",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 6,
+      "ying_position": 3,
+      "moving_positions": [
+        1
+      ],
+      "void_positions": [
+        3
+      ],
+      "month_break_positions": [
+        2
+      ],
+      "day_clash_positions": [],
+      "primary_six_clash": true,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "卯",
+          "element": "木",
+          "relative": "父母",
+          "value": 3,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "朱雀",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 1,
+            "yin_yang": "阴",
+            "stem": "丙",
+            "branch": "辰",
+            "element": "土",
+            "relative": "子孙",
+            "shi": true,
+            "ying": false,
+            "spirit": "朱雀",
+            "void": false,
+            "month_relations": [
+              "同五行"
+            ],
+            "day_relations": [
+              "克"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "受克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 2,
+          "yin_yang": "阴",
+          "stem": "己",
+          "branch": "丑",
+          "element": "土",
+          "relative": "子孙",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "冲",
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": true,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 3,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "亥",
+          "element": "水",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": true,
+          "spirit": "螣蛇",
+          "void": true,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "合",
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 4,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "酉",
+          "element": "金",
+          "relative": "妻财",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "生"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 5,
+          "yin_yang": "阴",
+          "stem": "己",
+          "branch": "未",
+          "element": "土",
+          "relative": "子孙",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 6,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "巳",
+          "element": "火",
+          "relative": "兄弟",
+          "value": 1,
+          "moving": false,
+          "shi": true,
+          "ying": false,
+          "spirit": "青龙",
+          "void": false,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 1
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 6
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 3,
+        "scope": "primary",
+        "relative": "官鬼",
+        "branch": "亥",
+        "role": "男友与长期关系的主用神",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2140.rule",
+          "liuyao_zixiu_dxj.full.l2260.rule",
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "女性问现有男友，取唯一官鬼，恰居应位；不从空亡反推取用。"
+      },
+      {
+        "position": 6,
+        "scope": "primary",
+        "relative": "兄弟",
+        "branch": "巳",
+        "role": "求测者自身",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "世爻定位自己，辅助判断双方关系。"
+      },
+      {
+        "position": 1,
+        "scope": "primary",
+        "relative": "父母",
+        "branch": "卯",
+        "role": "婚事推进的辅助象",
+        "basis_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+        ],
+        "selection_basis": "只作交往未婚情境的婚事指标，不替代主用神。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l3536.rule",
+          "zengshan_buyi.manual.L02842C0000.rule",
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving"
+        ],
+        "applicable_conditions": "须核日月五行、动静和空爻生扶；静爻逢合在不同原文中有合起、合绊之别。",
+        "application_and_inference": "官亥水受未月土克又旬空；寅日与亥合，五行却是亥水生寅木，不能误写成日生官。古法合起是有利反证，日合静爻合绊的另一解释也不直接解决月克与空。主用神不扎实，长期持续性偏弱。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l2708.rule",
+          "zengshan_buyi.manual.L02382C0000.rule"
+        ],
+        "applicable_conditions": "得日扶的动爻可生相关爻；变爻只回作用本位。",
+        "application_and_inference": "父卯得寅日比扶，动生世巳，卯化辰无回头克，有助关系推进。辰土虽为子孙，不能越位克三爻亥官而直接断分手。"
+      },
+      {
+        "evidence_ids": [
+          "zengshan_buyi.manual.L02922C0000.rule",
+          "liuyao_zixiu_dxj.full.l2700.rule",
+          "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+        ],
+        "applicable_conditions": "六冲变六合径断吉是古文特殊主张；取用总则和婚事象法又要求长期稳固看用神。",
+        "application_and_inference": "离六冲变旅六合是和合反证，不能遗漏；不把这一特殊古说扩大成一律不看用神。短期推进与长期稳定分开，最终对长久相守取偏不利，降低把握。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+        ],
+        "applicable_conditions": "父母临日、合日或同五行；须已交往或谈婚论嫁且未婚，尚未见面的相亲不适用；婚后稳固仍看用神。必读导语要求结合具体事项。",
+        "application_and_inference": "已知正在与男友交往，父卯与寅日同木，满足同五行及交往前提。以尚未结婚为条件，推婚事有推进机会；不把已订婚、已婚写成观测事实，不指定婚期。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "长期偏不利，短期可推进",
+      "result": "主断不看好长期稳定相守，偏向以后关系难以维持；短期仍有谈婚、订婚或成婚的机会，不能将婚事推进等同于长久幸福。",
+      "confidence": "中低"
+    },
+    "abstain": false,
+    "abstain_scope": null,
+    "timing_prediction": null,
+    "detail_predictions": [
+      {
+        "type": "prediction",
+        "statement": "若双方尚未结婚，短期较可能谈及或推动婚事。",
+        "confidence": "中低",
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+        ]
+      }
+    ],
+    "uncertainties": [
+      "年、时及公历日期缺失，保持未知，不推算绝对婚期。",
+      "未确认双方婚姻登记状态，婚事辅助象采用尚未结婚的条件。",
+      "六冲变六合、父动生世支持和合；官受月克旬空削弱长久关系，反向证据并存。",
+      "日合静爻合起与合绊的书际差异未被静默合并。"
+    ],
+    "evidence_ids": [
+      "liuyao_zixiu_dxj.full.l2140.rule",
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l3536.rule",
+      "zengshan_buyi.manual.L02842C0000.rule",
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L02922C0000.rule",
+      "liuyao_zixiu_dxj.full.l2700.rule"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "liuyao_zixiu_dxj.full.l2140.rule": {
+        "title": "官鬼爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 13,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "d45aefc36267170453a6e1a1ff02c911709fa74de1c45f9872bdf64ada401e92",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2260.rule": {
+        "title": "按六亲含义选择用神的事项范围",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 13,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "7c75849c9270634a8276ec7a3ebad0d8936823c5a06d3e8eaae06f3545fa9453",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2212.rule": {
+        "title": "世爻与应爻的角色及世爻一般忌宜",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "a563d64ac744dc9d06715ad98e406318887af5a203b8db9b2af4763c84e25b25",
+        "required_contexts_omitted": []
+      },
+      "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage": {
+        "title": "父母临日定婚期：已有交往未婚者的条件与婚后限制",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 10,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "text_sha256": "3691ecacfa62635db37cae3b8d2448a1b739f96096c67a66698d34f783c11e95",
+        "required_contexts": [
+          {
+            "canonical_spans": [
+              {
+                "end_column": 226,
+                "end_line": 2,
+                "page": 186,
+                "start_column": 0,
+                "start_line": 2
+              }
+            ],
+            "end_column": 226,
+            "end_line": 2,
+            "exact_text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。",
+            "page": 186,
+            "quote_sha256": "733a2ba9d467b27947cf3b5a8f3e840b6c43836d361e23992f824cd346cb8fcd",
+            "source_spans": [
+              {
+                "end_column": 226,
+                "end_line": 8045,
+                "start_column": 0,
+                "start_line": 8045
+              }
+            ],
+            "start_column": 0,
+            "start_line": 2,
+            "text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。"
+          }
+        ],
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3536.rule": {
+        "title": "旬空爻的有用无用、动静及生扶条件",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "b106022bb3c87c70403f5f117c0fbf293fa3da11fa94b241edf3abca19b1f5d5",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02842C0000.rule": {
+        "title": "六合的形式、合起合绊化扶与用神条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 20,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "f81847be61c4113cacd318eca176960906b80c8d66e1f3bffa8b8a07995a08d8",
+        "required_contexts_omitted": []
+      },
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving": {
+        "title": "日合动爻与日合静爻的合绊含义",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2708.rule": {
+        "title": "元神定义及可生用神的六种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5e2e3ef5053fbb5926ac340c3efc7f761a62e7ea7698c9b3b11c1e88d46d8b90",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02382C0000.rule": {
+        "title": "变爻只作用本位动爻及日月权力的教学例",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 17,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "93a42cdbe6fd7660a0b5299a53eee7b7dda6786fd3d8a9bf9701d7c9b4709d37",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02922C0000.rule": {
+        "title": "六冲变六合及六合变六合的占类喜忌",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 18,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5d0bc19d9a499ce150db9c5026e09c85eea96a3bd0bbad4b9a23337bfa208731",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2700.rule": {
+        "title": "用神吉凶取决于日月和相关爻作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      }
+    }
+  },
+  {
+    "anonymousID": "C02",
+    "question_summary": "占问事宜：官司能赢吗",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：男，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "calendar": {
+        "month_branch": "亥",
+        "day_ganzhi": "丁未",
+        "void": [
+          "寅",
+          "卯"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "辛亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "乙巳",
+        "date": "2017-11-16",
+        "time": "10:11"
+      },
+      "primary": {
+        "name": "师",
+        "full_name": "地水师",
+        "upper": "坤",
+        "lower": "坎",
+        "palace": "坎",
+        "palace_element": "水",
+        "palace_stage": "归魂"
+      },
+      "changed": {
+        "full_name": "泽风大过",
+        "palace": "震",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 3,
+      "ying_position": 6,
+      "moving_positions": [
+        3,
+        4,
+        5
+      ],
+      "void_positions": [
+        1
+      ],
+      "month_break_positions": [],
+      "day_clash_positions": [
+        4
+      ],
+      "primary_six_clash": false,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阴",
+          "stem": "戊",
+          "branch": "寅",
+          "element": "木",
+          "relative": "子孙",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "朱雀",
+          "void": true,
+          "month_relations": [
+            "合",
+            "生"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 2,
+          "yin_yang": "阳",
+          "stem": "戊",
+          "branch": "辰",
+          "element": "土",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 3,
+          "yin_yang": "阴",
+          "stem": "戊",
+          "branch": "午",
+          "element": "火",
+          "relative": "妻财",
+          "value": 0,
+          "moving": true,
+          "shi": true,
+          "ying": false,
+          "spirit": "螣蛇",
+          "void": false,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "合",
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 3,
+            "yin_yang": "阳",
+            "stem": "辛",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "shi": false,
+            "ying": false,
+            "spirit": "螣蛇",
+            "void": false,
+            "month_relations": [
+              "受生"
+            ],
+            "day_relations": [
+              "生"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "受克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 4,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "丑",
+          "element": "土",
+          "relative": "官鬼",
+          "value": 0,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "冲",
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": true,
+          "hidden": null,
+          "transformation": {
+            "position": 4,
+            "yin_yang": "阳",
+            "stem": "丁",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "shi": true,
+            "ying": false,
+            "spirit": "白虎",
+            "void": false,
+            "month_relations": [
+              "同五行"
+            ],
+            "day_relations": [
+              "克"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "受克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 5,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "亥",
+          "element": "水",
+          "relative": "兄弟",
+          "value": 0,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 5,
+            "yin_yang": "阳",
+            "stem": "丁",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "shi": false,
+            "ying": false,
+            "spirit": "玄武",
+            "void": false,
+            "month_relations": [
+              "受生"
+            ],
+            "day_relations": [
+              "生"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "生"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 6,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "酉",
+          "element": "金",
+          "relative": "父母",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": true,
+          "spirit": "青龙",
+          "void": false,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 2
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 7
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 3,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "午",
+        "role": "我方胜负的主用神",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2248.rule",
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "胜负看世爻所代表的我方；官鬼可表示官府诉讼，不把官鬼旺直接等同我方赢。"
+      },
+      {
+        "position": 6,
+        "scope": "primary",
+        "relative": "父母",
+        "branch": "酉",
+        "role": "诉讼相对方",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "应爻作对方，比较受扶和生克。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+          "zengshan_buyi.manual.L05806C0000.rule"
+        ],
+        "applicable_conditions": "月克与日合分别判断；动逢合可绊住，后逢冲开仍可应吉凶。",
+        "application_and_inference": "世午火受亥月水克，未日合午却不是生火。世动日合，主动争取亦有牵绊，不能以合担保胜诉。"
+      },
+      {
+        "evidence_ids": [
+          "zengshan_buyi.manual.L02382C0000.rule",
+          "liuyao_zixiu_dxj.full.l2708.rule",
+          "zengshan_buyi.manual.L02102C0000.rule"
+        ],
+        "applicable_conditions": "旺动忌神化回头生有力，须查制服与元神救应；变爻不越位。",
+        "application_and_inference": "五爻亥兄临月发动化酉父回头生，直接克世午。酉变爻只回生本位亥水。寅子虽月合有气，仍静而旬空，不能当已成立的元忌双动。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l4308.rule",
+          "zengshan_pingshi_dxj-l4206-day-moving-dispersal",
+          "liuyao_zixiu_dxj.full.l2248.rule"
+        ],
+        "applicable_conditions": "日冲明动爻不是暗动，也不自动冲散；应比较相关动爻作用。",
+        "application_and_inference": "丑官已明动，未日冲中同类，不排除其效力。它动克亥兄是救应反证，同时受世午所生并生应酉。世受月克和旺兄回头生克的压力更直接，暂判难赢；不将丑官动认定为法院必帮某一方。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+          "liuyao_zixiu_dxj.full.l2200.rule"
+        ],
+        "applicable_conditions": "父财互化分财运交易和婚恋场景；六神单一类象须结合问事。",
+        "application_and_inference": "世财午化父酉有结构，但未给交易或婚恋纠纷背景，不能据此推费用、婚史或败诉。螣蛇难缠类象至多与已知诉讼相容，不独立决定胜负。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "不利，倾向败诉或未获所求胜利",
+      "result": "倾向官司难赢，难取得自己所期待的胜诉结果。",
+      "confidence": "中低"
+    },
+    "abstain": false,
+    "abstain_scope": null,
+    "timing_prediction": null,
+    "detail_predictions": [],
+    "uncertainties": [
+      "未给原告被告、争点、诉求与审级，不预测判赔、刑罚或法官态度。",
+      "丑土动克亥兄支持我方，故不作高把握必败断语。",
+      "没有足以直接套用的本案诉讼专项条文，胜负是世应生克通则的当前解释。",
+      "玄武兄动等不可用象法引用未作为原文证据。"
+    ],
+    "evidence_ids": [
+      "liuyao_zixiu_dxj.full.l2248.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "zengshan_buyi.manual.L05806C0000.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "zengshan_buyi.manual.L02102C0000.rule",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "zengshan_pingshi_dxj-l4206-day-moving-dispersal",
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+      "liuyao_zixiu_dxj.full.l2200.rule"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "liuyao_zixiu_dxj.full.l2248.rule": {
+        "title": "问明目的与关系后取用及世应原则",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "541519691c11309ac11f7653eb057c8281b356d0231d2dd9b353a9237bea5b67",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2212.rule": {
+        "title": "世爻与应爻的角色及世爻一般忌宜",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "a563d64ac744dc9d06715ad98e406318887af5a203b8db9b2af4763c84e25b25",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving": {
+        "title": "日合动爻与日合静爻的合绊含义",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L05806C0000.rule": {
+        "title": "动逢合绊仍可待冲开应吉凶",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L02382C0000.rule": {
+        "title": "变爻只作用本位动爻及日月权力的教学例",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 17,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "93a42cdbe6fd7660a0b5299a53eee7b7dda6786fd3d8a9bf9701d7c9b4709d37",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2708.rule": {
+        "title": "元神定义及可生用神的六种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5e2e3ef5053fbb5926ac340c3efc7f761a62e7ea7698c9b3b11c1e88d46d8b90",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02102C0000.rule": {
+        "title": "元神无力、忌神有力无力与用神须有根",
+        "records": [
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l4308.rule": {
+        "title": "暗动与日破的旺衰条件",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "92dcd8ef572dc54ea15ba2d01710f7fc11a2c91346fc520f440e0d7385f34f4f",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l4206-day-moving-dispersal": {
+        "title": "旺动日冲愈强，衰动之散少见，不应一概论散",
+        "records": [
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform": {
+        "title": "父财互化价难定，姻缘需防女有婚：财运与感情分情境",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 11,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [
+          {
+            "canonical_spans": [
+              {
+                "end_column": 226,
+                "end_line": 2,
+                "page": 186,
+                "start_column": 0,
+                "start_line": 2
+              }
+            ],
+            "end_column": 226,
+            "end_line": 2,
+            "exact_text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。",
+            "page": 186,
+            "quote_sha256": "733a2ba9d467b27947cf3b5a8f3e840b6c43836d361e23992f824cd346cb8fcd",
+            "source_spans": [
+              {
+                "end_column": 226,
+                "end_line": 8045,
+                "start_column": 0,
+                "start_line": 8045
+              }
+            ],
+            "start_column": 0,
+            "start_line": 2,
+            "text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。"
+          }
+        ],
+        "text_sha256": "14201cbad69de7011f8ca5aade8182902f261486c018f926e4c4c021ed9e3654",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2200.rule": {
+        "title": "呈蛇的类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      }
+    }
+  },
+  {
+    "anonymousID": "C03",
+    "question_summary": "占问事宜：房子何时卖出去",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：女，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        0,
+        3,
+        1,
+        0,
+        2,
+        0
+      ],
+      "calendar": {
+        "month_branch": "寅",
+        "day_ganzhi": "丙申",
+        "void": [
+          "辰",
+          "巳"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "丙寅",
+        "day_ganzhi": "丙申",
+        "year_ganzhi": "己亥",
+        "hour_ganzhi": "丙申",
+        "date": "2019-02-28",
+        "time": "15:49"
+      },
+      "primary": {
+        "name": "升",
+        "full_name": "地风升",
+        "upper": "坤",
+        "lower": "巽",
+        "palace": "震",
+        "palace_element": "木",
+        "palace_stage": "四世"
+      },
+      "changed": {
+        "full_name": "离为火",
+        "palace": "离",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 4,
+      "ying_position": 1,
+      "moving_positions": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "void_positions": [],
+      "month_break_positions": [],
+      "day_clash_positions": [],
+      "primary_six_clash": false,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阴",
+          "stem": "辛",
+          "branch": "丑",
+          "element": "土",
+          "relative": "妻财",
+          "value": 0,
+          "moving": true,
+          "shi": false,
+          "ying": true,
+          "spirit": "朱雀",
+          "void": false,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 1,
+            "yin_yang": "阳",
+            "stem": "己",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "shi": false,
+            "ying": false,
+            "spirit": "朱雀",
+            "void": false,
+            "month_relations": [
+              "同五行"
+            ],
+            "day_relations": [
+              "克"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 2,
+          "yin_yang": "阳",
+          "stem": "辛",
+          "branch": "亥",
+          "element": "水",
+          "relative": "父母",
+          "value": 3,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "合",
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": {
+            "position": 2,
+            "yin_yang": "阴",
+            "stem": "庚",
+            "branch": "寅",
+            "element": "木",
+            "relative": "兄弟",
+            "moving": null,
+            "spirit": "勾陈",
+            "void": false,
+            "month_relations": [
+              "同五行"
+            ],
+            "day_relations": [
+              "冲",
+              "克"
+            ],
+            "month_break": false,
+            "day_clash": true
+          },
+          "transformation": {
+            "position": 2,
+            "yin_yang": "阴",
+            "stem": "己",
+            "branch": "丑",
+            "element": "土",
+            "relative": "妻财",
+            "shi": false,
+            "ying": false,
+            "spirit": "勾陈",
+            "void": false,
+            "month_relations": [
+              "克"
+            ],
+            "day_relations": [
+              "受生"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 3,
+          "yin_yang": "阳",
+          "stem": "辛",
+          "branch": "酉",
+          "element": "金",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "螣蛇",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 4,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "丑",
+          "element": "土",
+          "relative": "妻财",
+          "value": 0,
+          "moving": true,
+          "shi": true,
+          "ying": false,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": {
+            "position": 4,
+            "yin_yang": "阳",
+            "stem": "庚",
+            "branch": "午",
+            "element": "火",
+            "relative": "子孙",
+            "moving": null,
+            "spirit": "白虎",
+            "void": false,
+            "month_relations": [
+              "生"
+            ],
+            "day_relations": [
+              "受克"
+            ],
+            "month_break": false,
+            "day_clash": false
+          },
+          "transformation": {
+            "position": 4,
+            "yin_yang": "阳",
+            "stem": "己",
+            "branch": "酉",
+            "element": "金",
+            "relative": "官鬼",
+            "shi": false,
+            "ying": false,
+            "spirit": "白虎",
+            "void": false,
+            "month_relations": [
+              "受克"
+            ],
+            "day_relations": [
+              "同五行"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "受生"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 5,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "亥",
+          "element": "水",
+          "relative": "父母",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "合",
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 6,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "酉",
+          "element": "金",
+          "relative": "官鬼",
+          "value": 0,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "青龙",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 6,
+            "yin_yang": "阳",
+            "stem": "己",
+            "branch": "巳",
+            "element": "火",
+            "relative": "子孙",
+            "shi": true,
+            "ying": false,
+            "spirit": "青龙",
+            "void": true,
+            "month_relations": [
+              "生"
+            ],
+            "day_relations": [
+              "合",
+              "受克"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 3
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 8
+        },
+        {
+          "batch": "predictor-astra-07-source-audit",
+          "call_index": 21
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 4,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "丑",
+        "role": "出售交易及到手款项的主用神",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2260.rule",
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "买卖成败取财；两丑财均动，四爻持世对应卖方所得，初爻应财另看买方。"
+      },
+      {
+        "position": 2,
+        "scope": "primary",
+        "relative": "父母",
+        "branch": "亥",
+        "role": "房屋与出售手续",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2136.rule",
+          "zengshan_pingshi_dxj-l2198-parents-selection"
+        ],
+        "selection_basis": "两父同支，二动五静，按两现择动取二爻。"
+      },
+      {
+        "position": 1,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "丑",
+        "role": "买方状态",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "初爻居应位，不与持世财混为一爻。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "zengshan_buyi.manual.L02382C0000.rule"
+        ],
+        "applicable_conditions": "财主买卖，父母辅助房屋；须区分本位动变和他爻。",
+        "application_and_inference": "世财丑受寅月克，申日不直接生土；应财丑动化卯回头克。父亥虽月合日生，却化丑回头克。卖方财弱，买方与手续有阻，不宜断快速顺利成交。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l4520.rule",
+          "zengshan_buyi.manual.L02382C0000.rule"
+        ],
+        "applicable_conditions": "巳酉丑成局须核动变、空破填实及合局作用，候选不等于成立。",
+        "application_and_inference": "四、上爻动变形成巳酉丑支组，但所化巳火旬空。即使后来填实，仍须判断金局生父、泄财与其他动爻的综合影响，不看到巳字就定巳月必售出。"
+      },
+      {
+        "evidence_ids": [
+          "zengshan_buyi.manual.L03722C0000.rule",
+          "liuyao_zixiu_dxj.full.l5320.rule"
+        ],
+        "applicable_conditions": "应期先定吉凶条件并分远近，结合空合和克神受制，不以多个候选日期代替预测。",
+        "application_and_inference": "现有规则不能排除互相冲突的应期，也无预期出售期限。保留当前成交受阻方向，明确不给月份或日期。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+        ],
+        "applicable_conditions": "交易财运场景，父化财或财化父，可指价格难谈、预期难达或本金较高；导语要求按具体事情选分支。",
+        "application_and_inference": "卖房且二爻父亥动化财丑，情境与变向成立。推议价或预期难协调；不用婚史分支，不断房价、折让比例或资金数额。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "当前出售受阻；具体应期弃断",
+      "result": "当前条件下难以顺利卖出，近期成交偏难；何时能够成交没有足够依据，明确弃断具体售出时间。",
+      "confidence": "方向中低；应期不足"
+    },
+    "abstain": true,
+    "abstain_scope": "具体成交应期；保留当前出售受阻的方向判断。",
+    "timing_prediction": null,
+    "detail_predictions": [
+      {
+        "type": "prediction",
+        "statement": "出售过程较可能遇到议价困难，或报价、成交条件难达到目前预期。",
+        "confidence": "中",
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+        ]
+      }
+    ],
+    "uncertainties": [
+      "原问重在何时卖出，缺足够可审核应期依据，故将本例标记为具体应期弃断。",
+      "当前不顺不扩大为永久卖不出去。",
+      "巳酉丑支组存在而巳空，填实时点与作用不能直接等同成交。",
+      "未给售价、挂牌时长、买家或合同，不补造金额与买家身份。"
+    ],
+    "evidence_ids": [
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "zengshan_pingshi_dxj-l2198-parents-selection",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "liuyao_zixiu_dxj.full.l4520.rule",
+      "zengshan_buyi.manual.L03722C0000.rule",
+      "liuyao_zixiu_dxj.full.l5320.rule",
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "liuyao_zixiu_dxj.full.l2260.rule": {
+        "title": "按六亲含义选择用神的事项范围",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 13,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "7c75849c9270634a8276ec7a3ebad0d8936823c5a06d3e8eaae06f3545fa9453",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2212.rule": {
+        "title": "世爻与应爻的角色及世爻一般忌宜",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "a563d64ac744dc9d06715ad98e406318887af5a203b8db9b2af4763c84e25b25",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2136.rule": {
+        "title": "父母爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 12,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "326c324fbd25e523d9a3a60a1be49afb86b48280ef33dc7356287d1a0081cb56",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l2198-parents-selection": {
+        "title": "占父母以父母爻为用神：两现择旺或择动，论生克空破",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02382C0000.rule": {
+        "title": "变爻只作用本位动爻及日月权力的教学例",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 17,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "93a42cdbe6fd7660a0b5299a53eee7b7dda6786fd3d8a9bf9701d7c9b4709d37",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l4520.rule": {
+        "title": "三合局的构成、参与爻与待时成局条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 12,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "text_sha256": "3f3bec9aaaac43b7a13fa415cef10aa86d6833fa7c662cb889dd77dde03ac015",
+        "required_contexts": [],
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L03722C0000.rule": {
+        "title": "各门类应期总注：值冲合墓、生旺衰绝与远近",
+        "records": [
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l5320.rule": {
+        "title": "应期定义、过去未来及远近尺度",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform": {
+        "title": "父财互化价难定，姻缘需防女有婚：财运与感情分情境",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 11,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [
+          {
+            "canonical_spans": [
+              {
+                "end_column": 226,
+                "end_line": 2,
+                "page": 186,
+                "start_column": 0,
+                "start_line": 2
+              }
+            ],
+            "end_column": 226,
+            "end_line": 2,
+            "exact_text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。",
+            "page": 186,
+            "quote_sha256": "733a2ba9d467b27947cf3b5a8f3e840b6c43836d361e23992f824cd346cb8fcd",
+            "source_spans": [
+              {
+                "end_column": 226,
+                "end_line": 8045,
+                "start_column": 0,
+                "start_line": 8045
+              }
+            ],
+            "start_column": 0,
+            "start_line": 2,
+            "text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。"
+          }
+        ],
+        "text_sha256": "14201cbad69de7011f8ca5aade8182902f261486c018f926e4c4c021ed9e3654",
+        "required_contexts_omitted": []
+      }
+    }
+  },
+  {
+    "anonymousID": "C04",
+    "question_summary": "占问事宜：测侄子车祸昏迷吉凶",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：男，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        3,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "calendar": {
+        "month_branch": "酉",
+        "day_ganzhi": "丙辰",
+        "void": [
+          "子",
+          "丑"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "己酉",
+        "day_ganzhi": "丙辰",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "丙申",
+        "date": "2017-09-26",
+        "time": "16:30"
+      },
+      "primary": {
+        "name": "履",
+        "full_name": "天泽履",
+        "upper": "乾",
+        "lower": "兑",
+        "palace": "艮",
+        "palace_element": "土",
+        "palace_stage": "五世"
+      },
+      "changed": {
+        "full_name": "天水讼",
+        "palace": "离",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 5,
+      "ying_position": 2,
+      "moving_positions": [
+        1
+      ],
+      "void_positions": [
+        3
+      ],
+      "month_break_positions": [
+        2
+      ],
+      "day_clash_positions": [
+        6
+      ],
+      "primary_six_clash": false,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阳",
+          "stem": "丁",
+          "branch": "巳",
+          "element": "火",
+          "relative": "父母",
+          "value": 3,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "朱雀",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 1,
+            "yin_yang": "阴",
+            "stem": "戊",
+            "branch": "寅",
+            "element": "木",
+            "relative": "官鬼",
+            "shi": false,
+            "ying": true,
+            "spirit": "朱雀",
+            "void": false,
+            "month_relations": [
+              "克"
+            ],
+            "day_relations": [
+              "受克"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "生"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 2,
+          "yin_yang": "阳",
+          "stem": "丁",
+          "branch": "卯",
+          "element": "木",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": true,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "冲",
+            "克"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": true,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 3,
+          "yin_yang": "阴",
+          "stem": "丁",
+          "branch": "丑",
+          "element": "土",
+          "relative": "兄弟",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "螣蛇",
+          "void": true,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 4,
+          "yin_yang": "阳",
+          "stem": "壬",
+          "branch": "午",
+          "element": "火",
+          "relative": "父母",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 5,
+          "yin_yang": "阳",
+          "stem": "壬",
+          "branch": "申",
+          "element": "金",
+          "relative": "子孙",
+          "value": 1,
+          "moving": false,
+          "shi": true,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "同五行"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": {
+            "position": 5,
+            "yin_yang": "阴",
+            "stem": "丙",
+            "branch": "子",
+            "element": "水",
+            "relative": "妻财",
+            "moving": null,
+            "spirit": "玄武",
+            "void": true,
+            "month_relations": [
+              "生"
+            ],
+            "day_relations": [
+              "克"
+            ],
+            "month_break": false,
+            "day_clash": false
+          },
+          "transformation": null
+        },
+        {
+          "position": 6,
+          "yin_yang": "阳",
+          "stem": "壬",
+          "branch": "戌",
+          "element": "土",
+          "relative": "兄弟",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "青龙",
+          "void": false,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "冲",
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": true,
+          "hidden": null,
+          "transformation": null
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 4
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 9
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 5,
+        "scope": "primary",
+        "relative": "子孙",
+        "branch": "申",
+        "role": "侄子安危的主用神",
+        "basis_ids": [
+          "zengshan_buyi.manual.L02014.rule",
+          "liuyao_zixiu_dxj.full.l2152.rule"
+        ],
+        "selection_basis": "侄子明确属于晚辈，取唯一子孙申；其持世仍指侄子，不偷换为叔叔身体。"
+      },
+      {
+        "position": 6,
+        "scope": "primary",
+        "relative": "兄弟",
+        "branch": "戌",
+        "role": "生子孙之元神候选",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2708.rule"
+        ],
+        "selection_basis": "土生申金，静戌日冲且得动火生助，须审核暗动。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l2708.rule"
+        ],
+        "applicable_conditions": "用神有根有日月生扶，仍须查动克与救应。",
+        "application_and_inference": "申金得酉月同类扶、辰日生，不空不破，是旺用。父巳动化寅回头生，有克子孙的不利方向，不能只凭申旺忽略。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l4308.rule",
+          "zengshan_pingshi_dxj-l5786-hidden-strength",
+          "zengshan_buyi.manual.L05862C0000.rule",
+          "liuyao_zixiu_dxj.full.l2708.rule",
+          "zengshan_pingshi_dxj-l2902-ineffective-jishen"
+        ],
+        "applicable_conditions": "日冲静爻须月扶或动爻生助等才论暗动；元忌同动转生还须元神有效、用神有根。",
+        "application_and_inference": "戌土受辰日同类冲，虽不得酉月生扶，但有巳火明动生助，倾向论元神戌暗动。火生土、土生申可转移火克金的压力，旺用有根，支持凶中有救。暗动是按条件作的人工解释，不是程序已定事实。"
+      },
+      {
+        "evidence_ids": [
+          "zengshan_buyi.manual.L02382C0000.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule"
+        ],
+        "applicable_conditions": "伏、变不能任意当主卦明动；变爻只回作用本位。",
+        "application_and_inference": "寅是初爻所化，不越位冲五爻申另加凶；申下伏子水妻财旬空，也不偷换成侄子或已发动的救应。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident"
+        ],
+        "applicable_conditions": "父母白虎动克世为典型，其他六神父母动克世也可能伤身，五爻道路可增强；必读导语要求情境综合。",
+        "application_and_inference": "车祸昏迷是输入事实，不是本轮发现。白虎父午静，未满足白虎父动条件；实际动者是朱雀父巳，对五爻申有克，与广义父母动克世伤身条文相容。只解释已知背景，不据白虎、五爻或车祸象直接断死亡。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "偏吉，凶中有救",
+      "result": "倾向侄子能够保住性命，并有苏醒、逐渐恢复的希望；不主断死亡。",
+      "confidence": "中"
+    },
+    "abstain": false,
+    "abstain_scope": null,
+    "timing_prediction": null,
+    "detail_predictions": [],
+    "uncertainties": [
+      "戌土能否有效暗动转生是关键解释，已列条件，但不是确定事实。",
+      "未给昏迷持续时间和治疗进程，不套近病久病空合规则。",
+      "不预测苏醒日期、完全康复、后遗症种类或医学指标。"
+    ],
+    "evidence_ids": [
+      "zengshan_buyi.manual.L02014.rule",
+      "liuyao_zixiu_dxj.full.l2152.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "zengshan_pingshi_dxj-l5786-hidden-strength",
+      "zengshan_buyi.manual.L05862C0000.rule",
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "zengshan_buyi.manual.L02014.rule": {
+        "title": "用神章第八：子孙爻取用与制鬼解忧剥官",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 14,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "d50196b7ad6d485b9fd1299797a2d311a2f9093af0f925dce379462eb97b9c5f",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2152.rule": {
+        "title": "子孙爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2708.rule": {
+        "title": "元神定义及可生用神的六种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5e2e3ef5053fbb5926ac340c3efc7f761a62e7ea7698c9b3b11c1e88d46d8b90",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l4308.rule": {
+        "title": "暗动与日破的旺衰条件",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "92dcd8ef572dc54ea15ba2d01710f7fc11a2c91346fc520f440e0d7385f34f4f",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l5786-hidden-strength": {
+        "title": "新评释：暗动力量依月扶、合生克及日冲带克不同，可只冲半力",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L05862C0000.rule": {
+        "title": "贪生贪合忘刑克与旺衰动静",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 16,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "ce9dbece0f261af6a7a4458f0fcf6e3f3f4490410ef7b39f51b494fe29161942",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen": {
+        "title": "忌神不能克用神的七种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 19,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "8603754ff2f105c69004419fd8629037118d92eb82cbd17df0b0fe6230497aef",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02382C0000.rule": {
+        "title": "变爻只作用本位动爻及日月权力的教学例",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 17,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "93a42cdbe6fd7660a0b5299a53eee7b7dda6786fd3d8a9bf9701d7c9b4709d37",
+        "required_contexts_omitted": []
+      },
+      "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident": {
+        "title": "虎父伤身防车祸及父母临其他六神的情境限制",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "text_sha256": "0a9b34581dacfdc4cda261cb4b0f4618e417bdb12961a5c903e5ae16c0ca10c6",
+        "required_contexts": [
+          {
+            "canonical_spans": [
+              {
+                "end_column": 226,
+                "end_line": 2,
+                "page": 186,
+                "start_column": 0,
+                "start_line": 2
+              }
+            ],
+            "end_column": 226,
+            "end_line": 2,
+            "exact_text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。",
+            "page": 186,
+            "quote_sha256": "733a2ba9d467b27947cf3b5a8f3e840b6c43836d361e23992f824cd346cb8fcd",
+            "source_spans": [
+              {
+                "end_column": 226,
+                "end_line": 8045,
+                "start_column": 0,
+                "start_line": 8045
+              }
+            ],
+            "start_column": 0,
+            "start_line": 2,
+            "text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。"
+          }
+        ],
+        "required_contexts_omitted": []
+      }
+    }
+  },
+  {
+    "anonymousID": "C05",
+    "question_summary": "占问事宜：租这个店铺好吗",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：男，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "calendar": {
+        "month_branch": "丑",
+        "day_ganzhi": "甲寅",
+        "void": [
+          "子",
+          "丑"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "癸丑",
+        "day_ganzhi": "甲寅",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "甲戌",
+        "date": "2018-01-22",
+        "time": "20:42"
+      },
+      "primary": {
+        "name": "鼎",
+        "full_name": "火风鼎",
+        "upper": "离",
+        "lower": "巽",
+        "palace": "离",
+        "palace_element": "火",
+        "palace_stage": "二世"
+      },
+      "changed": {
+        "full_name": "火天大有",
+        "palace": "乾",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 2,
+      "ying_position": 5,
+      "moving_positions": [
+        1
+      ],
+      "void_positions": [
+        1
+      ],
+      "month_break_positions": [
+        5
+      ],
+      "day_clash_positions": [],
+      "primary_six_clash": false,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阴",
+          "stem": "辛",
+          "branch": "丑",
+          "element": "土",
+          "relative": "子孙",
+          "value": 0,
+          "moving": true,
+          "shi": false,
+          "ying": false,
+          "spirit": "青龙",
+          "void": true,
+          "month_relations": [
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": {
+            "position": 1,
+            "yin_yang": "阳",
+            "stem": "己",
+            "branch": "卯",
+            "element": "木",
+            "relative": "父母",
+            "moving": null,
+            "spirit": "青龙",
+            "void": false,
+            "month_relations": [
+              "受克"
+            ],
+            "day_relations": [
+              "同五行"
+            ],
+            "month_break": false,
+            "day_clash": false
+          },
+          "transformation": {
+            "position": 1,
+            "yin_yang": "阳",
+            "stem": "甲",
+            "branch": "子",
+            "element": "水",
+            "relative": "官鬼",
+            "shi": false,
+            "ying": false,
+            "spirit": "青龙",
+            "void": true,
+            "month_relations": [
+              "合",
+              "克"
+            ],
+            "day_relations": [
+              "受生"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "合",
+              "受克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 2,
+          "yin_yang": "阳",
+          "stem": "辛",
+          "branch": "亥",
+          "element": "水",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": true,
+          "ying": false,
+          "spirit": "朱雀",
+          "void": false,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "合",
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 3,
+          "yin_yang": "阳",
+          "stem": "辛",
+          "branch": "酉",
+          "element": "金",
+          "relative": "妻财",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "生"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 4,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "酉",
+          "element": "金",
+          "relative": "妻财",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "螣蛇",
+          "void": false,
+          "month_relations": [
+            "生"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 5,
+          "yin_yang": "阴",
+          "stem": "己",
+          "branch": "未",
+          "element": "土",
+          "relative": "子孙",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": true,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "冲",
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": true,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 6,
+          "yin_yang": "阳",
+          "stem": "己",
+          "branch": "巳",
+          "element": "火",
+          "relative": "兄弟",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 5
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 10
+        },
+        {
+          "batch": "predictor-astra-07-source-audit",
+          "call_index": 22
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 3,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "酉",
+        "role": "经营收益主用候选",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2260.rule",
+          "zengshan_buyi.manual.L05466C0000.rule"
+        ],
+        "selection_basis": "默认租店为经营求财；三四静酉财日月空破相同，不强行唯一化。"
+      },
+      {
+        "position": 4,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "酉",
+        "role": "并列收益候选",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2260.rule",
+          "zengshan_buyi.manual.L05466C0000.rule"
+        ],
+        "selection_basis": "同支同层两财不自动代表两份收益或两个店铺。"
+      },
+      {
+        "position": 2,
+        "scope": "primary",
+        "relative": "官鬼",
+        "branch": "亥",
+        "role": "求测者承受与处境",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "世爻定位自己，不由官鬼持世自动断灾。"
+      },
+      {
+        "position": 1,
+        "scope": "hidden",
+        "relative": "父母",
+        "branch": "卯",
+        "role": "店铺、租约辅助对象",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2136.rule",
+          "zengshan_buyi.manual.L04014C0000.rule"
+        ],
+        "selection_basis": "主卦父不现，取初爻伏父；moving=null，不当明动。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l2708.rule",
+          "liuyao_zixiu_dxj.full.l2260.rule"
+        ],
+        "applicable_conditions": "经营求财须主财有根、元神能生，不只凭持世六亲。",
+        "application_and_inference": "酉财得丑月生；寅日不是克酉金的方向。初爻子孙丑临月动生财，是收益的主要正向依据。财有根又得旺元生，倾向有获利机会。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3536.rule",
+          "zengshan_buyi.manual.L02842C0000.rule",
+          "zengshan_buyi.manual.L05790C0000.rule",
+          "zengshan_buyi.manual.L02430C0000.rule"
+        ],
+        "applicable_conditions": "旺动空、动化空非永久无用；旬内仍可等待，动化合与回头克不同。",
+        "application_and_inference": "元丑旬空且化子亦空，但临月明动，不作一空到底。丑化子为动化合，没有回头克。可有等待牵绊，不断永久无财源或出空当天必盈利。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule",
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+          "zengshan_buyi.manual.L05862C0000.rule",
+          "zengshan_pingshi_dxj-l3586-moving-over-static",
+          "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique"
+        ],
+        "applicable_conditions": "世受克与财生扶须兼看；元忌同动条件不能放宽为静爻都已参与。",
+        "application_and_inference": "世亥受月土克、寅日合，动丑亦有克世方向，是强反证。酉财静，不宣称元忌双动通关已成立。主方向按财有根且得旺元生取低把握偏吉，不许诺轻松或确定净利。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l2152.rule"
+        ],
+        "applicable_conditions": "子孙取财源须经营问事；其他组合须有可用原文及对象条件。",
+        "application_and_inference": "子孙丑动与财源角色相关，已纳入理法。应位白虎子孙未月破不能借胎产标题断生意；虎雀、反吟、进退位无可用完整象法依据，不另造店铺凶事、装修或房东信息。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "条件性偏吉",
+      "result": "以租店经营求财为问意，倾向这处店铺可以经营并有获利机会；过程有压力和阻滞，不能断轻松顺遂。",
+      "confidence": "低"
+    },
+    "abstain": false,
+    "abstain_scope": null,
+    "timing_prediction": null,
+    "detail_predictions": [],
+    "uncertainties": [
+      "行业、租金、租期及是否只问签约未知，本断采用经营收益为主的假设。",
+      "财得旺元生是正向依据，世受动土克是强反证，综合把握低。",
+      "两静财同支同层不能唯一选定，未当成两个独立财源。",
+      "无具体收入费用，不给净利润或签约日期。"
+    ],
+    "evidence_ids": [
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "zengshan_buyi.manual.L05466C0000.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "zengshan_buyi.manual.L04014C0000.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3536.rule",
+      "zengshan_buyi.manual.L02842C0000.rule",
+      "zengshan_buyi.manual.L05790C0000.rule",
+      "zengshan_buyi.manual.L02430C0000.rule",
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "zengshan_buyi.manual.L05862C0000.rule",
+      "zengshan_pingshi_dxj-l3586-moving-over-static",
+      "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique",
+      "liuyao_zixiu_dxj.full.l2152.rule"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "liuyao_zixiu_dxj.full.l2260.rule": {
+        "title": "按六亲含义选择用神的事项范围",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 13,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "7c75849c9270634a8276ec7a3ebad0d8936823c5a06d3e8eaae06f3545fa9453",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L05466C0000.rule": {
+        "title": "用神两现择用及空破应期",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 15,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "ec1bb218f6856bf413f373463eabb039392d7c200276c2f48ee99a9b73591c4b",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2212.rule": {
+        "title": "世爻与应爻的角色及世爻一般忌宜",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "a563d64ac744dc9d06715ad98e406318887af5a203b8db9b2af4763c84e25b25",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2136.rule": {
+        "title": "父母爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 12,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "326c324fbd25e523d9a3a60a1be49afb86b48280ef33dc7356287d1a0081cb56",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L04014C0000.rule": {
+        "title": "飞伏神取法及姤求财遁求子孙的假设教学",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l2708.rule": {
+        "title": "元神定义及可生用神的六种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5e2e3ef5053fbb5926ac340c3efc7f761a62e7ea7698c9b3b11c1e88d46d8b90",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3536.rule": {
+        "title": "旬空爻的有用无用、动静及生扶条件",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "b106022bb3c87c70403f5f117c0fbf293fa3da11fa94b241edf3abca19b1f5d5",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02842C0000.rule": {
+        "title": "六合的形式、合起合绊化扶与用神条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 20,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "f81847be61c4113cacd318eca176960906b80c8d66e1f3bffa8b8a07995a08d8",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L05790C0000.rule": {
+        "title": "冲空、合处逢冲与动化空的应验",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L02430C0000.rule": {
+        "title": "月建当权、生克飞伏动变与旬内仍空",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving": {
+        "title": "日合动爻与日合静爻的合绊含义",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L05862C0000.rule": {
+        "title": "贪生贪合忘刑克与旺衰动静",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 16,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "ce9dbece0f261af6a7a4458f0fcf6e3f3f4490410ef7b39f51b494fe29161942",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l3586-moving-over-static": {
+        "title": "动爻可克静爻，旺静不能克动爻",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique": {
+        "title": "新评释：财持世也会破财，兄持世而财旺入库或合财也可得财",
+        "records": [
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2152.rule": {
+        "title": "子孙爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      }
+    }
+  },
+  {
+    "anonymousID": "C06",
+    "question_summary": "占问事宜：去这所学校上学对自己成绩有帮助吗",
+    "chart_facts": {
+      "type": "observed_input_and_tool_output",
+      "known_background": [
+        "求测人：男，手工指定(起卦方式)"
+      ],
+      "line_values_bottom_to_top": [
+        2,
+        1,
+        0,
+        2,
+        2,
+        2
+      ],
+      "calendar": {
+        "month_branch": "亥",
+        "day_ganzhi": "丁未",
+        "void": [
+          "寅",
+          "卯"
+        ],
+        "basis": "supplied_ganzhi",
+        "convention": "Asia/Shanghai; 节气换月; 00:00换日; 不换算真太阳时"
+      },
+      "input_calendar": {
+        "month_ganzhi": "癸亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "戊戌",
+        "hour_ganzhi": "戊申",
+        "date": "2018-11-11",
+        "time": "16:03"
+      },
+      "primary": {
+        "name": "师",
+        "full_name": "地水师",
+        "upper": "坤",
+        "lower": "坎",
+        "palace": "坎",
+        "palace_element": "水",
+        "palace_stage": "归魂"
+      },
+      "changed": {
+        "full_name": "地风升",
+        "palace": "震",
+        "relative_basis": "original_palace_element"
+      },
+      "shi_position": 3,
+      "ying_position": 6,
+      "moving_positions": [
+        3
+      ],
+      "void_positions": [
+        1
+      ],
+      "month_break_positions": [],
+      "day_clash_positions": [
+        4
+      ],
+      "primary_six_clash": false,
+      "primary_six_harmony": false,
+      "lines": [
+        {
+          "position": 1,
+          "yin_yang": "阴",
+          "stem": "戊",
+          "branch": "寅",
+          "element": "木",
+          "relative": "子孙",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "朱雀",
+          "void": true,
+          "month_relations": [
+            "合",
+            "生"
+          ],
+          "day_relations": [
+            "受克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 2,
+          "yin_yang": "阳",
+          "stem": "戊",
+          "branch": "辰",
+          "element": "土",
+          "relative": "官鬼",
+          "value": 1,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "勾陈",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 3,
+          "yin_yang": "阴",
+          "stem": "戊",
+          "branch": "午",
+          "element": "火",
+          "relative": "妻财",
+          "value": 0,
+          "moving": true,
+          "shi": true,
+          "ying": false,
+          "spirit": "螣蛇",
+          "void": false,
+          "month_relations": [
+            "克"
+          ],
+          "day_relations": [
+            "合",
+            "受生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": {
+            "position": 3,
+            "yin_yang": "阳",
+            "stem": "辛",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "shi": false,
+            "ying": false,
+            "spirit": "螣蛇",
+            "void": false,
+            "month_relations": [
+              "受生"
+            ],
+            "day_relations": [
+              "生"
+            ],
+            "month_break": false,
+            "day_clash": false,
+            "moving": null,
+            "to_original_relations": [
+              "受克"
+            ],
+            "advance": false,
+            "retreat": false
+          }
+        },
+        {
+          "position": 4,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "丑",
+          "element": "土",
+          "relative": "官鬼",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "白虎",
+          "void": false,
+          "month_relations": [
+            "受克"
+          ],
+          "day_relations": [
+            "冲",
+            "同五行"
+          ],
+          "month_break": false,
+          "day_clash": true,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 5,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "亥",
+          "element": "水",
+          "relative": "兄弟",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": false,
+          "spirit": "玄武",
+          "void": false,
+          "month_relations": [
+            "同五行"
+          ],
+          "day_relations": [
+            "克"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        },
+        {
+          "position": 6,
+          "yin_yang": "阴",
+          "stem": "癸",
+          "branch": "酉",
+          "element": "金",
+          "relative": "父母",
+          "value": 2,
+          "moving": false,
+          "shi": false,
+          "ying": true,
+          "spirit": "青龙",
+          "void": false,
+          "month_relations": [
+            "受生"
+          ],
+          "day_relations": [
+            "生"
+          ],
+          "month_break": false,
+          "day_clash": false,
+          "hidden": null,
+          "transformation": null
+        }
+      ],
+      "chart_calls": [
+        {
+          "batch": "predictor-astra-01-charts",
+          "call_index": 6
+        },
+        {
+          "batch": "predictor-astra-05-application",
+          "call_index": 11
+        },
+        {
+          "batch": "predictor-astra-07-source-audit",
+          "call_index": 23
+        }
+      ],
+      "reported_hexagrams_match": true,
+      "interpretation_boundary": "关系字段按返回原样保留，解释时核对五行方向。日冲、旬空和结构候选不是程序已判断的暗动、无用或事件。非动爻在整张变卦中的改排，不作本爻发动之变。"
+    },
+    "yongshen": [
+      {
+        "position": 6,
+        "scope": "primary",
+        "relative": "父母",
+        "branch": "酉",
+        "role": "学校、学习及成绩表现的主用神",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2136.rule",
+          "zengshan_buyi.manual.L01994.rule",
+          "liuyao_zixiu_dxj.full.l2212.rule"
+        ],
+        "selection_basis": "问特定学校对学习是否有帮助，取学校、师长、文书学习的父母，恰居应位；映射成绩是本次解释，不声称条文直接给分数。"
+      },
+      {
+        "position": 3,
+        "scope": "changed",
+        "relative": "父母",
+        "branch": "酉",
+        "role": "世爻所化的学习结果候选",
+        "basis_ids": [
+          "zengshan_buyi.manual.L06254C0000.rule",
+          "liuyao_zixiu_dxj.full.l6236.rule"
+        ],
+        "selection_basis": "三爻明动所化才是实际变爻，同上爻父酉不等于学校已经移动爻位。"
+      },
+      {
+        "position": 3,
+        "scope": "primary",
+        "relative": "妻财",
+        "branch": "午",
+        "role": "求测者及克父之忌神",
+        "basis_ids": [
+          "liuyao_zixiu_dxj.full.l2212.rule",
+          "liuyao_zixiu_dxj.full.l2156.rule"
+        ],
+        "selection_basis": "火克金，须结合日月、动变及元神救应。"
+      }
+    ],
+    "lifa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l3188.rule",
+          "liuyao_zixiu_dxj.full.l3072.rule",
+          "liuyao_lifa_jinjie.manual.p0143_day_combine_moving"
+        ],
+        "applicable_conditions": "父母主用须与忌神同看；日合不直接等同生扶。",
+        "application_and_inference": "父酉得未日生，亥月虽泄气而非得令，仍有根。忌世午受亥月克又合未日，不是旺而无制的忌神，不只因财持世就断无益。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l4308.rule",
+          "zengshan_pingshi_dxj-l5786-hidden-strength",
+          "liuyao_zixiu_dxj.full.l2708.rule",
+          "zengshan_pingshi_dxj-l2902-ineffective-jishen"
+        ],
+        "applicable_conditions": "丑日冲须查动生条件；暗动有强弱，元忌共同作用须用神有根。",
+        "application_and_inference": "丑官静逢未冲，得午火明动生助，倾向较弱暗动，可承火生父酉，构成火土金连续相生的救应。午同时日合，实际力度仍不确定，不写作必然。"
+      },
+      {
+        "evidence_ids": [
+          "zengshan_buyi.manual.L06254C0000.rule",
+          "liuyao_zixiu_dxj.full.l6236.rule",
+          "zengshan_buyi.manual.L02382C0000.rule"
+        ],
+        "applicable_conditions": "忌神持世化用有例外，应期条文本身不证成败；变爻只回作用本位。",
+        "application_and_inference": "世财午实际化父酉，有从忌转成所问对象的方向，可辅助学习事项落实。财化父见父不能径等同分数必升；综合主父生扶与元神救应，取有一定帮助。"
+      },
+      {
+        "evidence_ids": [
+          "liuyao_zixiu_dxj.full.l4076.rule",
+          "zengshan_pingshi_dxj-l6730-life-states",
+          "zengshan_buyi.manual.L05262C0000.rule"
+        ],
+        "applicable_conditions": "死地规则要分测病、旺衰及作者范围；独发不能替代主用。",
+        "application_and_inference": "午化酉被软件标作化死，实际不是父母主用神化死，本问也非疾病。各书十二状态取舍不同，不用单个化死或独发标签断学业失败。"
+      }
+    ],
+    "xiangfa_reasoning": [
+      {
+        "evidence_ids": [
+          "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+        ],
+        "applicable_conditions": "父财互化价格条文限财运交易，婚恋分支另有对象条件，必读导语强调随事项取象。",
+        "application_and_inference": "世财化父结构虽有，问的是成绩帮助，不能套价格条文断学费高，更不能套婚史。没有足够专项象法断学校层次、教师性格或进步幅度。"
+      }
+    ],
+    "main_prediction": {
+      "type": "prediction",
+      "direction": "偏吉，有帮助",
+      "result": "倾向去这所学校对学习和成绩有一定帮助，但不能保证立即或大幅提高。",
+      "confidence": "中低"
+    },
+    "abstain": false,
+    "abstain_scope": null,
+    "timing_prediction": null,
+    "detail_predictions": [],
+    "uncertainties": [
+      "成绩映射来自学校、师长、文书文章通则，未检出直接针对分数提升的规则。",
+      "升学名次可取官鬼，但本问不是录取，不为改变题意另换主用。",
+      "丑暗动与午被合的力度有争议，是主要不确定处。",
+      "没有原成绩、考试日期和入学计划，不给分数、名次、比例或应期。"
+    ],
+    "evidence_ids": [
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "zengshan_buyi.manual.L01994.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "zengshan_buyi.manual.L06254C0000.rule",
+      "liuyao_zixiu_dxj.full.l6236.rule",
+      "liuyao_zixiu_dxj.full.l2156.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "zengshan_pingshi_dxj-l5786-hidden-strength",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "liuyao_zixiu_dxj.full.l4076.rule",
+      "zengshan_pingshi_dxj-l6730-life-states",
+      "zengshan_buyi.manual.L05262C0000.rule",
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+    ],
+    "tool_batches": [
+      "predictor-astra-01-charts",
+      "predictor-astra-02-rules",
+      "predictor-astra-03-targeted",
+      "predictor-astra-04-conditions",
+      "predictor-astra-05-application",
+      "predictor-astra-06-final-gaps",
+      "predictor-astra-07-source-audit"
+    ],
+    "evidence_records": {
+      "liuyao_zixiu_dxj.full.l2136.rule": {
+        "title": "父母爻的取用对象与类象含义",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 12,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "326c324fbd25e523d9a3a60a1be49afb86b48280ef33dc7356287d1a0081cb56",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L01994.rule": {
+        "title": "用神章第八：父母爻代表人物及庇护身躯之物",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2212.rule": {
+        "title": "世爻与应爻的角色及世爻一般忌宜",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "a563d64ac744dc9d06715ad98e406318887af5a203b8db9b2af4763c84e25b25",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L06254C0000.rule": {
+        "title": "忌神持世多阻及化出财父的例外",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l6236.rule": {
+        "title": "忌神持世动化用神六亲的应期",
+        "records": [
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2156.rule": {
+        "title": "六亲相生与相克的完整关系",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l3188.rule": {
+        "title": "日辰的作用、日月权重及旺衰冲合",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "1a67336ab29ac3819738a7b5734b9e7a8caa4873c4f36d23a735a25a4ab8136e",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l3072.rule": {
+        "title": "日月动爻决定衰旺及月建作用",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "bd51e22e46d13ce4b71bf1e03b23ad59e35f7a5e0da6ee2b06f4b2f2b58a3e83",
+        "required_contexts_omitted": []
+      },
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving": {
+        "title": "日合动爻与日合静爻的合绊含义",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 6,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l4308.rule": {
+        "title": "暗动与日破的旺衰条件",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "92dcd8ef572dc54ea15ba2d01710f7fc11a2c91346fc520f440e0d7385f34f4f",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l5786-hidden-strength": {
+        "title": "新评释：暗动力量依月扶、合生克及日冲带克不同，可只冲半力",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 9,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 3,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_zixiu_dxj.full.l2708.rule": {
+        "title": "元神定义及可生用神的六种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 7,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "5e2e3ef5053fbb5926ac340c3efc7f761a62e7ea7698c9b3b11c1e88d46d8b90",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen": {
+        "title": "忌神不能克用神的七种条件",
+        "records": [
+          {
+            "batch": "predictor-astra-06-final-gaps",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-06-final-gaps.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 19,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "8603754ff2f105c69004419fd8629037118d92eb82cbd17df0b0fe6230497aef",
+        "required_contexts_omitted": []
+      },
+      "zengshan_buyi.manual.L02382C0000.rule": {
+        "title": "变爻只作用本位动爻及日月权力的教学例",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 8,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 4,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 17,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "93a42cdbe6fd7660a0b5299a53eee7b7dda6786fd3d8a9bf9701d7c9b4709d37",
+        "required_contexts_omitted": []
+      },
+      "liuyao_zixiu_dxj.full.l4076.rule": {
+        "title": "死地含义、支位及测病旺衰限制",
+        "records": [
+          {
+            "batch": "predictor-astra-02-rules",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-02-rules.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-07-source-audit",
+            "call_index": 11,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-07-source-audit.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [],
+        "text_sha256": "ea86761aa9696841a8902a231b74a047208af5bade5f9c1ab3c2a0ab3c1d0a3b",
+        "required_contexts_omitted": []
+      },
+      "zengshan_pingshi_dxj-l6730-life-states": {
+        "title": "十二生死状态及野鹤只用生旺墓绝的主张",
+        "records": [
+          {
+            "batch": "predictor-astra-05-application",
+            "call_index": 5,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-05-application.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "zengshan_buyi.manual.L05262C0000.rule": {
+        "title": "独发独静不能取代用神定成败",
+        "records": [
+          {
+            "batch": "predictor-astra-04-conditions",
+            "call_index": 2,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-04-conditions.jsonl",
+            "tool": "search_knowledge"
+          }
+        ],
+        "required_contexts": []
+      },
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform": {
+        "title": "父财互化价难定，姻缘需防女有婚：财运与感情分情境",
+        "records": [
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 1,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "search_knowledge"
+          },
+          {
+            "batch": "predictor-astra-03-targeted",
+            "call_index": 11,
+            "record_file": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/records/predictor-astra-03-targeted.jsonl",
+            "tool": "get_source"
+          }
+        ],
+        "required_contexts": [
+          {
+            "canonical_spans": [
+              {
+                "end_column": 226,
+                "end_line": 2,
+                "page": 186,
+                "start_column": 0,
+                "start_line": 2
+              }
+            ],
+            "end_column": 226,
+            "end_line": 2,
+            "exact_text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。",
+            "page": 186,
+            "quote_sha256": "733a2ba9d467b27947cf3b5a8f3e840b6c43836d361e23992f824cd346cb8fcd",
+            "source_spans": [
+              {
+                "end_column": 226,
+                "end_line": 8045,
+                "start_column": 0,
+                "start_line": 8045
+              }
+            ],
+            "start_column": 0,
+            "start_line": 2,
+            "text": "在预测中，取象并不像我们上一章所讲那样，仅仅从单一的六神入手，往往需要结合六神，六亲，爻位，卦象，地支，五行，十二长生和具体所测的事情进行综合分析，得出完整的卦象。在写本书前，很多学员都要求将六亲六神爻位等组合之象进行详细论述，然而，这种组合在占验不同的事情时，其所表现出来的寓意各不相同，想要完整的进行归纳整理并不现实，只能选择一些有代表性的组合，尽量归纳其大致规律，再根据所测具体事情加以推理运用。本章大致罗列部分应验度较高的组合之象，供读者参考。"
+          }
+        ],
+        "text_sha256": "14201cbad69de7011f8ca5aade8182902f261486c018f926e4c4c021ed9e3654",
+        "required_contexts_omitted": []
+      }
+    }
+  }
+]

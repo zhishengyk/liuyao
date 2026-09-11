@@ -1,0 +1,17 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_xia",
+  "pdf_page": 20,
+  "pdf_sha256": "6979e3ea34b439208535e96fc8e247cb1172c4ed2a7bd54362d14b3348cfacfa",
+  "original_sha256": "5a0a28f33d7fc68530715f351e2aa5fdf052b211ea49c2e359f6a7e7e0baec66",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "reviewer": "Codex /root/rebuild_pingshi_batch1",
+  "review_date": "2026-09-11",
+  "normalization": "逐页对原图逐字校订；同页段内折行合并，跨页断句保留；全半角标点及排版空格归一化，实线━━━━━、断线━━ ━━转写，圈叉保留；印刷页码不入正文。",
+  "printed_page": 17,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_xia/0020.png",
+  "image_sha256": "f74467b09810903bde3d4ffb753cb2d2fb5c88117c487fba59caee572bcd278b",
+  "unclear": [],
+  "notes": [],
+  "text": "反馈：银行找了个借口，就是不给查。\n求测人：男，手工指定（起卦方式）\n占问事宜：昨天省考我进面试没\n公历：2019年1月20日14时10分，星期日。\n农历：戊戌年 十二月 十五日 未时。\n神煞：驿马-亥 桃花-午 干禄-午 贵人-亥、酉\n干支：戊戌年 乙丑月 丁巳日 丁未时\n主变卦 水天需（坤宫-游魂） 水火既济（坎宫）[空亡：子、丑]\n青龙 ━━ ━━ 妻财子水 ━━ ━━ 妻财子水 应\n玄武 ━━━━━ 兄弟戌土 ━━━━━ 兄弟戌土\n白虎 ━━ ━━ 子孙申金 世 ━━ ━━ 子孙申金\n腾蛇 ━━━━━ 兄弟辰土 ━━━━━ 妻财亥水 世\n勾陈 父巳 ━━━━━○ 官鬼寅木 ━━ ━━ 兄弟丑土\n朱雀 ━━━━━ 妻财子水 应 ━━━━━ 官鬼卯木\n以发动的官鬼寅木为用神。官鬼寅木发动冲世爻不吉，应爻旬空，也不吉，看来难以进面试。官鬼寅木，世爻申金加上日辰巳火构成三刑，三刑为难受，世爻临白虎，白虎为烦躁，看来因为省考没有进面试，对卦主心情有影响。\n反馈：没有通过。\n求测人：女，手工指定（起卦方式）\n占问事宜：出行是否顺利\n公历：2018年12月6日14时10分，星期四。\n农历：戊戌年 十月 廿九日 未时。\n神煞：驿马-寅 桃花-酉 干禄-亥 贵人-卯、巳"
+}

@@ -1,0 +1,18 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "pdf_page": 2,
+  "pdf_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "original_sha256": "88d9de017b1c197f1e308b370b97e066e43c9b0d19f7566f6068fc8fd8795ba7",
+  "text": "目录\n序言 1\n学员感悟 5\n第一章 六神之象 9\n第一节 青龙 9\n1，高兴，喜庆 9\n2，吃喝，娱乐 16\n3，漂亮，帅气 19\n4，精美，体面 21\n5，清高，正直 30\n6，新的，正式 33\n7，官方，权势 35\n8，好色，花心 41\n第二节 朱雀 47\n1，口才，说话 47\n2，吵架，争执 53\n3，文书，信息 61\n4，发热，炎症 64\n第三节 勾陈 66\n1，房屋，土地 66\n2，稳重，可靠 69\n3，陈旧，熟悉 76\n4，牵连，约束 79\n5，肿胀，堵塞 82\n第四节 螣蛇 86\n1，艺术，技术 86\n2，创意，古怪 88\n3，混乱，焦虑 90\n4，弯曲，捆绑 100\n第五节 白虎 103\n1，魄力，果断 103",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "review_date": "2026-09-11",
+  "normalization": "逐页原图核读；段落内折行合并，段落与目录条目换行保留；排版空格和目录点线归一，印刷页码另列printed_page。跨页续句不补字。图形箭头以同义字形表示，非正文图画不重绘。",
+  "unclear": [],
+  "notes": [
+    "目录引导点线归一为空格，条目、层级顺序和标示页码照原图转写。"
+  ],
+  "printed_page": null,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_shang/0002.png",
+  "image_sha256": "dbe9a94d2f632e4c8f08379bab959c293c761d519be28dd24b25ca2a6f4b5561"
+}

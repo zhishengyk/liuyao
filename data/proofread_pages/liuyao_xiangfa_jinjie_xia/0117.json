@@ -1,0 +1,19 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_xia",
+  "pdf_page": 117,
+  "pdf_sha256": "6979e3ea34b439208535e96fc8e247cb1172c4ed2a7bd54362d14b3348cfacfa",
+  "original_sha256": "315bd4b0b47701d8c4fdda33eee1751def91d35b0b7875eb65e62e37a5a6baf6",
+  "text": "友追回来。于是经过卦主反复折腾，总算把对方两人弄散\n了，成功和前女友复合。复合后不久，卦主又交往了一位女\n友（就是未土，这个未土产生了一爻两象），现在前女友和\n新女友为了争夺卦主吵的不可开交（丑未互冲，虎雀对立，\n互不相让），卦主也没办法，无法抉择，痛苦不已。\n除此以外，还有一种小概率现象，当卦中两个动爻发动\n互冲时，无需卦变反吟，也会出现事情反复的迹象，留与各\n位易友研究参考。",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "reviewer": "codex_agent_rebuild_buyi_batch1_xia_ch7_10",
+  "review_date": "2026-09-11",
+  "normalization": "对原PDF页图逐字校订，正文保留物理折行；人工按图重排六爻为一爻一行，线型用━和空隔，动爻用○或×；印刷页码另列printed_page，排版空格及全半角归一化。",
+  "unclear": [],
+  "notes": [
+    "复合例末段括号内未土一爻两象及丑未互冲均为作者事后解释，应与原始复合反馈分开。第六行起为动爻互冲的通则，章七于本页结束。"
+  ],
+  "printed_page": 114,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_xia/0117.png",
+  "image_sha256": "e63463c32cfa0c4b2958e4670cf3952ae753fb03423bdf64ff781d9e973c1d41"
+}

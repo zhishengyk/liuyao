@@ -1,0 +1,3568 @@
+{
+  "schema_version": "manual-slices-1",
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "source_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "batch": {
+    "requested_pdf_pages": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "fully_covered_pdf_pages": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "start_cursor": {
+      "page": 41,
+      "line": 16,
+      "column": 0
+    },
+    "end_cursor": {
+      "page": 52,
+      "line": 11,
+      "column": 67
+    },
+    "next_cursor": {
+      "page": 52,
+      "line": 12,
+      "column": 0
+    },
+    "included_boundary_context": [
+      {
+        "page": 52,
+        "start_line": 1,
+        "end_line": 11,
+        "reason": "最后一例青龙案例及本节结尾跨52页。"
+      }
+    ],
+    "read_only_neighbor_context": [
+      {
+        "page": 52,
+        "start_line": 12,
+        "end_line": 14,
+        "reason": "第二节朱雀的头部，已整页校订，留待下一连续批。"
+      }
+    ],
+    "reviewed_pdf_image_pages": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52
+    ],
+    "status": "complete_qinglong_remainder",
+    "scope_note": "完成第一节青龙余下12案与两条规则；不把下一节朱雀截断通则收入本批。",
+    "coverage_check": {
+      "checked_cases": 12,
+      "quote_spans_checked": 307,
+      "nonwhitespace_characters": 6708,
+      "uncovered_nonwhitespace_chars": 0,
+      "multiply_assigned_nonwhitespace_chars": 0,
+      "outside_batch_chars": 0,
+      "cross_shard_duplicate_chars": 0
+    }
+  },
+  "units": [
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0041_safety",
+      "kind": "case",
+      "title": "测人身安全",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 41,
+          "start_line": 16,
+          "end_line": 20,
+          "start_column": 0,
+          "end_column": 24,
+          "quote_sha256": "9b8be5d9ce575e0a3cba2c0bb05abd7e6918784e89af111081c890df4c454e06"
+        },
+        {
+          "page": 42,
+          "start_line": 1,
+          "end_line": 10,
+          "start_column": 0,
+          "end_column": 144,
+          "quote_sha256": "d3c4b1b29ab4f43249a6badf8163fe4524668cd4b1c0dba03775e5558b6dbaaa"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。用世爻的原文未在取用句明确六亲，不反推兄弟为结构化用神。被抢女友、混班子朋友、担心牵连均为迟知背景。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "原问人身安全；在预测后才披露准备纠集朋友打架，后经作者劝解决定取消。只证明被劝阻与放弃计划，没有实际打架后的人身结果，不能把干预后的取消当作原风险已获事后验证。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 41,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 10,
+            "quote_sha256": "58b4e8a6ed6eac93b4daca5eacd93cd1a434cab6dbb5c0ed6327e225a4f7bcda"
+          }
+        ],
+        "background": [
+          {
+            "page": 41,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          },
+          {
+            "page": 42,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 100,
+            "quote_sha256": "876064958876d249a181498d8465897dd804d468adf21408d1ab7954c4cf6e4f",
+            "eligible_for_initial_blind_input": false,
+            "disclosure": "author_question_after_initial_reading"
+          }
+        ],
+        "chart": [
+          {
+            "page": 41,
+            "start_line": 18,
+            "end_line": 20,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "5491ca66e2d793d24f27e8e4db3d2a401ba57cc47b9ea49d04691c5451fbd6a3"
+          },
+          {
+            "page": 42,
+            "start_line": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 30,
+            "quote_sha256": "085ea1b6000d1603af462417e5ef9b7e8d220d4735116bf538cc99470c38243a"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 42,
+            "start_line": 9,
+            "end_line": 9,
+            "start_column": 0,
+            "end_column": 215,
+            "quote_sha256": "667dd0b933a2ba9c3d39e2f04b57ca9c0331a36f3869a4f0a06e0f1a360664d5",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 42,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 100,
+            "end_column": 144,
+            "quote_sha256": "f64dd2698b2671c4eec34f89f6e818acc7f28e5562450ce1e7cf446a86c639c7"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          3,
+          2,
+          3,
+          3,
+          1,
+          0
+        ],
+        "year_ganzhi": "丁酉",
+        "month_branch": "丑",
+        "day_ganzhi": "己酉",
+        "hour_ganzhi": "庚午",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 42,
+              "start_line": 3,
+              "end_line": 3,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "6978a547f501c2d8a71dce6ee2094f753ee5d7a7d4a03f39f386e477a703e252"
+            },
+            {
+              "page": 42,
+              "start_line": 4,
+              "end_line": 4,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "f1b0b51858507b805aff9dfc6cee2a3de13eea89c6b6ae01e22a3c9e4b707f66"
+            },
+            {
+              "page": 42,
+              "start_line": 5,
+              "end_line": 5,
+              "start_column": 0,
+              "end_column": 30,
+              "quote_sha256": "0a919cdcc3f341110beab1fdab3ae339b6eaf2b2101bfbac780021e25706d2d7"
+            },
+            {
+              "page": 42,
+              "start_line": 6,
+              "end_line": 6,
+              "start_column": 0,
+              "end_column": 29,
+              "quote_sha256": "a837a64a6e68e1018e6cbb12038a4c09469ab894fe1833f06e89cb65da59798d"
+            },
+            {
+              "page": 42,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "158547097e48449102c5a97cfd2ff95d164a713329617ddb39a4f8cb036746cd"
+            },
+            {
+              "page": 42,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 0,
+              "end_column": 30,
+              "quote_sha256": "3fc939d08685c1531466539a085f457f2309737b35ee0ba8c7bca680a3ebc7e0"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "05bd41fb146496c2f5addf375eeef5b71cd1a0d3ba568c77d57bcfcaf522f89c"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 42,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "27865638dfd9bb1a68105e873174343a2c29f4876192ed25a3a83aedffbd7a4b"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "85680a0f257047766a17d9803c4e807b72adb60b6aedc81c91ef64b6f34167ad"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "032eb83a763b95d45842166f03ad47f872d7d4bef1e10a60b23ba278d11fd96a"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 42,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "6978a547f501c2d8a71dce6ee2094f753ee5d7a7d4a03f39f386e477a703e252"
+          },
+          {
+            "page": 42,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "f1b0b51858507b805aff9dfc6cee2a3de13eea89c6b6ae01e22a3c9e4b707f66"
+          },
+          {
+            "page": 42,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 30,
+            "quote_sha256": "0a919cdcc3f341110beab1fdab3ae339b6eaf2b2101bfbac780021e25706d2d7"
+          },
+          {
+            "page": 42,
+            "start_line": 6,
+            "end_line": 6,
+            "start_column": 0,
+            "end_column": 29,
+            "quote_sha256": "a837a64a6e68e1018e6cbb12038a4c09469ab894fe1833f06e89cb65da59798d"
+          },
+          {
+            "page": 42,
+            "start_line": 7,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "158547097e48449102c5a97cfd2ff95d164a713329617ddb39a4f8cb036746cd"
+          },
+          {
+            "page": 42,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 30,
+            "quote_sha256": "3fc939d08685c1531466539a085f457f2309737b35ee0ba8c7bca680a3ebc7e0"
+          }
+        ]
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0042_acceptance_bill",
+      "kind": "case",
+      "title": "承兑丢了",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 42,
+          "start_line": 11,
+          "end_line": 16,
+          "start_column": 0,
+          "end_column": 18,
+          "quote_sha256": "9efe32602f8c77ff1d5fb0b2de6c810918a5b7b0dde86bf50fdd4b6fce2f6878"
+        },
+        {
+          "page": 43,
+          "start_line": 1,
+          "end_line": 8,
+          "start_column": 0,
+          "end_column": 203,
+          "quote_sha256": "b3f39d3d171b2bb25a069904c5059e23df50e4af4b16d4d14ba665975e7b9b76"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问遗失承兑；实际反馈承兑未丢在老板处，直接核其去向。罚款600元是明确实际事实，老板故意设局仅属作者猜测；当天找到未有明确反馈日期佐证。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 42,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 9,
+            "quote_sha256": "063c98f0b93ce9a7131c86a8931c0b952b36f9b4903bb5ad71b9a55b15771eaa"
+          }
+        ],
+        "background": [
+          {
+            "page": 42,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 42,
+            "start_line": 13,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 18,
+            "quote_sha256": "b74e88c96e0181d5cc65b33c78caa1c04efd70e59f0dfe3e672017d0bc901412"
+          },
+          {
+            "page": 43,
+            "start_line": 1,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "61a9b21a3bf2bff2dd80a6f0561c7a5adac8dcf1fd9e37f220c8f88d79ec0a3c"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 43,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 87,
+            "quote_sha256": "4a36736647581343fffb6c4b6d52b70fe25e7a5a4153ea4f4bfebc828b04517c",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 43,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 87,
+            "end_column": 116,
+            "quote_sha256": "16c5d06cf18f9111e8b13086f240011e366b442a9a27da5c648b64dc68c58bbc"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 43,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 116,
+            "end_column": 203,
+            "quote_sha256": "a2abe4820c8f2ee6fd3098638aa45d6fc7fb35e97f79d33c7916c2a071a1b4b9",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ]
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          2,
+          2,
+          1,
+          3,
+          1
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "巳",
+        "day_ganzhi": "戊申",
+        "hour_ganzhi": "戊午",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 43,
+              "start_line": 2,
+              "end_line": 2,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "c25ead8abf37bafc6269f38b7d890bd5be8ce6404c3856b95bd3572b9c048ad4"
+            },
+            {
+              "page": 43,
+              "start_line": 3,
+              "end_line": 3,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "f35622e12a988da18056908e484706a9622963822be3125d759e696259b9dece"
+            },
+            {
+              "page": 43,
+              "start_line": 4,
+              "end_line": 4,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "edb8698f56517cd18e4149524f754f877fd876ed64757479df8fb8468a6d1b07"
+            },
+            {
+              "page": 43,
+              "start_line": 5,
+              "end_line": 5,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "b86d373026bd3eb65662e5e3378768658869e70fd52089e7e30a6f12272b20d8"
+            },
+            {
+              "page": 43,
+              "start_line": 6,
+              "end_line": 6,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "d6f94867bb30677dcefa9726d9011d463a5e498e95648ab2c67624bce1687e4b"
+            },
+            {
+              "page": 43,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "e561cfc21c5e2ff7872015e6a86b8301baee123a5cc66c297eb815e5dc05f145"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 42,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "ec99878f70bbd5bf07d7fe8ab831732ce182a51361fcc7ca5c87a14b3aa36e38"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "26dd10dc2c5d2747f1d749005799a46da0b68d5876d42145d8a76e4c9049122e"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 42,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "7cd1fad1fa5c4269d49d89cce92f99ac7acc529e945077a4f08a185dcf6963ac"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 43,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "c25ead8abf37bafc6269f38b7d890bd5be8ce6404c3856b95bd3572b9c048ad4"
+          },
+          {
+            "page": 43,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "f35622e12a988da18056908e484706a9622963822be3125d759e696259b9dece"
+          },
+          {
+            "page": 43,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "edb8698f56517cd18e4149524f754f877fd876ed64757479df8fb8468a6d1b07"
+          },
+          {
+            "page": 43,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "b86d373026bd3eb65662e5e3378768658869e70fd52089e7e30a6f12272b20d8"
+          },
+          {
+            "page": 43,
+            "start_line": 6,
+            "end_line": 6,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "d6f94867bb30677dcefa9726d9011d463a5e498e95648ab2c67624bce1687e4b"
+          },
+          {
+            "page": 43,
+            "start_line": 7,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "e561cfc21c5e2ff7872015e6a86b8301baee123a5cc66c297eb815e5dc05f145"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "父母",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 43,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 0,
+              "end_column": 12,
+              "quote_sha256": "ab3df0a3ac86ebbc293bd90cd8ee88be9dada3d8aa415a08f0d8252490f97037",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0043_economic_lawsuit",
+      "kind": "case",
+      "title": "弟弟的经济官司",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 43,
+          "start_line": 9,
+          "end_line": 22,
+          "start_column": 0,
+          "end_column": 23,
+          "quote_sha256": "83c479510caec674b1a687afca1146b644987f0a3c0d0cd80735ee9b349cc8aa"
+        },
+        {
+          "page": 44,
+          "start_line": 1,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 66,
+          "quote_sha256": "c782df051e889eb75d6bdd9e7407ef46bf0eea49b1e22316cf3b40d5ef14b73f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。“测月外之事”的使用条件连同全文保留；世应取用不反推六亲。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问经济官司；明确反馈打赢官司并拿回全款，直接验证案件主结果。另花四分之一请客是支出，不能把全款执行说成只追回部分；也不把作者所说官方意图当作已证事实。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 43,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "838a3f1672c1c2b875fe3ad8b92e6817c7a603e5fe2ca43f8df08b07f7d6fde3"
+          }
+        ],
+        "background": [
+          {
+            "page": 43,
+            "start_line": 9,
+            "end_line": 9,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 43,
+            "start_line": 11,
+            "end_line": 21,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "1fef9745c7c4b6457a13ef7124f5af89610a0e7434ad9b3361e11506c0aab4c4"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 43,
+            "start_line": 22,
+            "end_line": 22,
+            "start_column": 0,
+            "end_column": 23,
+            "quote_sha256": "7ec17f5c308fcc29628f69a235eb09ef5aa1a05bec975ebc21680ad7661889c9",
+            "author": "青岚",
+            "cast_index": 0
+          },
+          {
+            "page": 44,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 356,
+            "quote_sha256": "a1cfa72f5e6214640be84171fb3840c1c69e0a4042f07a531c5e5f5bb477c202",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 44,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 66,
+            "quote_sha256": "c0de252ce7e5cac6c8219c3009fef699958486be35590ae561b4472660c677eb"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "寅",
+        "day_ganzhi": "癸未",
+        "hour_ganzhi": "戊午",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 43,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "8ab640718602b70ee6a8b8eeb71927ebf3afad78eed3ac43808a355274d6bf0c"
+            },
+            {
+              "page": 43,
+              "start_line": 17,
+              "end_line": 17,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "3f954d1bd2ec2b6bf6a14d63f9e3b21267c7836532a9db7e5a6eefe2af3f0948"
+            },
+            {
+              "page": 43,
+              "start_line": 18,
+              "end_line": 18,
+              "start_column": 0,
+              "end_column": 15,
+              "quote_sha256": "a028eae71fc5f80fcf2bc51263fd2dcad8eb583f0ac68f612c2bf858e733d9e8"
+            },
+            {
+              "page": 43,
+              "start_line": 19,
+              "end_line": 19,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "73344c840253d2cc12d258758feaa71f224fb50536bb5428c9269bbee840863b"
+            },
+            {
+              "page": 43,
+              "start_line": 20,
+              "end_line": 20,
+              "start_column": 0,
+              "end_column": 16,
+              "quote_sha256": "830e64c32b2abd68e492aac88a2d377c1b6674c0f62ae276e7dc4524a4afb51e"
+            },
+            {
+              "page": 43,
+              "start_line": 21,
+              "end_line": 21,
+              "start_column": 0,
+              "end_column": 15,
+              "quote_sha256": "12e89b4ae74896228d8310873f3ab78ba3d5c60e2640ed6b3a6117252a03bf8f"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 43,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 43,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "e68882cd42b21ee5b69a5ce8fd8ef11360d646f07b75f001d82ecdec88451eb9"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 43,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "302ca440b299cf58cd540392e31b0a1ed384d20095f7dad70c4c7f07e1a5ff55"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 43,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "7cd1fad1fa5c4269d49d89cce92f99ac7acc529e945077a4f08a185dcf6963ac"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 43,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "8ab640718602b70ee6a8b8eeb71927ebf3afad78eed3ac43808a355274d6bf0c"
+          },
+          {
+            "page": 43,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "3f954d1bd2ec2b6bf6a14d63f9e3b21267c7836532a9db7e5a6eefe2af3f0948"
+          },
+          {
+            "page": 43,
+            "start_line": 18,
+            "end_line": 18,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "a028eae71fc5f80fcf2bc51263fd2dcad8eb583f0ac68f612c2bf858e733d9e8"
+          },
+          {
+            "page": 43,
+            "start_line": 19,
+            "end_line": 19,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "73344c840253d2cc12d258758feaa71f224fb50536bb5428c9269bbee840863b"
+          },
+          {
+            "page": 43,
+            "start_line": 20,
+            "end_line": 20,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "830e64c32b2abd68e492aac88a2d377c1b6674c0f62ae276e7dc4524a4afb51e"
+          },
+          {
+            "page": 43,
+            "start_line": 21,
+            "end_line": 21,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "12e89b4ae74896228d8310873f3ab78ba3d5c60e2640ed6b3a6117252a03bf8f"
+          }
+        ]
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0044_office_rental",
+      "kind": "case",
+      "title": "租这个写字楼开卦馆如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 44,
+          "start_line": 3,
+          "end_line": 15,
+          "start_column": 0,
+          "end_column": 28,
+          "quote_sha256": "e52d1e5dba2559fe4e16a88adb8a8e2d9fb9849de62b353c2693a933abb4453e"
+        },
+        {
+          "page": 45,
+          "start_line": 1,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 216,
+          "quote_sha256": "3156f797e82adc4d60a983758610e2495d0b95a5f6fefd454c90af6f0cad2e77"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。作者本人经营案；“重点看财”不足独立确认六亲用神，不填author_yongshen。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问租楼开馆；反馈实际经营两年且财运不错，直接验证经营后的收益状况，并具体报告招牌受到城管要求备案、拆除的经过。最终招牌未拆不能改写成已被拆；中途再断拆除时机另列事后分析。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 44,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 17,
+            "quote_sha256": "92ad76fb2d1d6d5e4bd81c95ac19ef22f94e936bd353118b5aed86e1a7fbd988"
+          }
+        ],
+        "background": [
+          {
+            "page": 44,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 44,
+            "start_line": 5,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "c5c1067d67a5d8e50dbd77b03d05197b8cb32da19ba0f096971a078311cec5f5"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 45,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 196,
+            "quote_sha256": "436f9b0a1aea49bca7d4c84e5cbbeb39a08a0440856dc2c9f9659f5eb0a76422",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 45,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 107,
+            "quote_sha256": "9c81b426c37edffbb53bddbba23cf0d1940a21063a9a7ca403e8da701b5a76f2"
+          },
+          {
+            "page": 45,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 123,
+            "end_column": 216,
+            "quote_sha256": "7565f5b21335144003a7fe2387d7f5510aa9ec2b83a3c1a1244acab332808f83"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 45,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 107,
+            "end_column": 123,
+            "quote_sha256": "c043a58073a5b867e9690fa96781d4ac28345d7db18562fa14219d9e8dc3a240",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ]
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          0,
+          2,
+          0,
+          2,
+          2,
+          2
+        ],
+        "year_ganzhi": "丁酉",
+        "month_branch": "申",
+        "day_ganzhi": "辛未",
+        "hour_ganzhi": "甲午",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 44,
+              "start_line": 10,
+              "end_line": 10,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "597f58dc1ad37341df48f9e26d3b7f374a664fa84be951beb14e1dad3e7019f5"
+            },
+            {
+              "page": 44,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "114aecaafeb500147085a038a2b99f9b2075e2d5c2096e59af5652619a618070"
+            },
+            {
+              "page": 44,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "59a0650e0ccc66b68f1e89934862dfe16129b1be1e9d76c71cfca3b2cbaaf845"
+            },
+            {
+              "page": 44,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "e269c203fc017697fee042666cac3e6688432b80a0d0517f45ecff650b9be319"
+            },
+            {
+              "page": 44,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "a5321e924892692d9ed2348768e6253738950c4b2692c5d37e957fd45e7208af"
+            },
+            {
+              "page": 44,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "28c21d8a6dd47f82b8b586a558c92d98f587ce99dcdad47206b63e35693e4cd9"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 44,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "05bd41fb146496c2f5addf375eeef5b71cd1a0d3ba568c77d57bcfcaf522f89c"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 44,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "b7fc76aa33884aa2aa1af75d7df7c25b8fa3ff1fdee5755df6492b861f8ed989"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 44,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "cb25619a23502dff1495ff5ca8840474e14b2c3f1400922bd29ef60c982fcc51"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 44,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "8c79f1f5b88cc921828011ae945ac0522227e3a17e9369724569439fbc4f9955"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 44,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "597f58dc1ad37341df48f9e26d3b7f374a664fa84be951beb14e1dad3e7019f5"
+          },
+          {
+            "page": 44,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "114aecaafeb500147085a038a2b99f9b2075e2d5c2096e59af5652619a618070"
+          },
+          {
+            "page": 44,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "59a0650e0ccc66b68f1e89934862dfe16129b1be1e9d76c71cfca3b2cbaaf845"
+          },
+          {
+            "page": 44,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "e269c203fc017697fee042666cac3e6688432b80a0d0517f45ecff650b9be319"
+          },
+          {
+            "page": 44,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "a5321e924892692d9ed2348768e6253738950c4b2692c5d37e957fd45e7208af"
+          },
+          {
+            "page": 44,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "28c21d8a6dd47f82b8b586a558c92d98f587ce99dcdad47206b63e35693e4cd9"
+          }
+        ]
+      }
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0045_husband_missing",
+      "kind": "case",
+      "title": "老公出走吉凶",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 45,
+          "start_line": 3,
+          "end_line": 15,
+          "start_column": 0,
+          "end_column": 26,
+          "quote_sha256": "2c368896bcf37f7275fb38f0273f08fde86216cbb948f6c644bc0f363f427d10"
+        },
+        {
+          "page": 46,
+          "start_line": 1,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 22,
+          "quote_sha256": "0171c0469994ff1e0971f49560dc69cee1d7650e17452d2b409f9c3af689e67b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问老公出走吉凶；明确反馈当天被朋友发现带回，直接验证回家及该次安危。抑郁症在反馈中披露，不回填初始，作者所推自杀迹象并无实际行为验证。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 45,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 12,
+            "quote_sha256": "ed17683846715d652fef223b4e8a3ce1fd4c09d83680b1abe3a620191640be2f"
+          }
+        ],
+        "background": [
+          {
+            "page": 45,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 19,
+            "quote_sha256": "e8e63bf9f11a0551f907408c6fbf77424b101262f0a49dd3779c430b082586e1"
+          }
+        ],
+        "chart": [
+          {
+            "page": 45,
+            "start_line": 5,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "89f6413130762b5817fd264a4965f90919fb65914fedb4721fcd263c52f3eaeb"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 46,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 187,
+            "quote_sha256": "6f9cbbfd75a681fee96551563d2ffe6bdc441d64adbd722ae700e3d627c882dd",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 46,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 22,
+            "quote_sha256": "db057a835b2b501993fcef261afdaa356da06b0f594d2aab2b2916509d22308c"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          1,
+          3,
+          1,
+          2,
+          2
+        ],
+        "year_ganzhi": "丁酉",
+        "month_branch": "未",
+        "day_ganzhi": "戊申",
+        "hour_ganzhi": "丁巳",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 45,
+              "start_line": 10,
+              "end_line": 10,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "7e1529a89caf35b83132e5a9c39706b155186911cf90e7e9cbc74f249199af81"
+            },
+            {
+              "page": 45,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "47e97dda9493069dc2d91fc14e1182e0fcbbc46b945ba52d2b6fb5318462bd43"
+            },
+            {
+              "page": 45,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "1ddcfa0567246a38d4e6f76389d6de93e7c7862d3520044de0fb6b2e583fa771"
+            },
+            {
+              "page": 45,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "73d028876b3ffd293b2dda9f9c8d5937fd3719ef81b40525e6bd1729e2420d6e"
+            },
+            {
+              "page": 45,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "4a031bc1693466d3400697ae0f0fe36607582f6dd8e4c5a1a4d723774fbe2f5c"
+            },
+            {
+              "page": 45,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "d3ab740d69fb95fa167c18c1349e1ffec6829e4548358e0aeb94ac64cdea79c9"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 45,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "05bd41fb146496c2f5addf375eeef5b71cd1a0d3ba568c77d57bcfcaf522f89c"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 45,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "8b4aaa1f6f290042e8511464ad8119af26f2cd51449444ddd5df6e6863f666f9"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 45,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "26dd10dc2c5d2747f1d749005799a46da0b68d5876d42145d8a76e4c9049122e"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 45,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "27fa448161fd34aa6b76ebd9ea80357b035748cf5ca3e3cd365df93dd1c0b899"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 45,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "7e1529a89caf35b83132e5a9c39706b155186911cf90e7e9cbc74f249199af81"
+          },
+          {
+            "page": 45,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "47e97dda9493069dc2d91fc14e1182e0fcbbc46b945ba52d2b6fb5318462bd43"
+          },
+          {
+            "page": 45,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "1ddcfa0567246a38d4e6f76389d6de93e7c7862d3520044de0fb6b2e583fa771"
+          },
+          {
+            "page": 45,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "73d028876b3ffd293b2dda9f9c8d5937fd3719ef81b40525e6bd1729e2420d6e"
+          },
+          {
+            "page": 45,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "4a031bc1693466d3400697ae0f0fe36607582f6dd8e4c5a1a4d723774fbe2f5c"
+          },
+          {
+            "page": 45,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "d3ab740d69fb95fa167c18c1349e1ffec6829e4548358e0aeb94ac64cdea79c9"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 46,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "end_column": 9,
+              "quote_sha256": "4ac8bf9ee92cfcdb01934f7ffd5624e3e2e0ed6379b4a1f573eaaa41ad735c6f",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0046_qinglong_romance",
+      "kind": "rule",
+      "title": "青龙在不吉卦中可取花心混乱，须服从卦象",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 46,
+          "start_line": 3,
+          "end_line": 3,
+          "start_column": 0,
+          "end_column": 77,
+          "quote_sha256": "9e7460d68ed299a010673fb843624295a2a92e3a69813c50c93ffee365194ed5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "按原图逐段划定完整通则；批准仅表示原文转写与边界复核，不裁定理论正确。末句从外貌归纳花心是作者个人概括，保留原文不当作现实人物判断的独立事实。"
+      },
+      "context_spans": [
+        {
+          "page": 14,
+          "start_line": 2,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 193,
+          "quote_sha256": "86784f3448e5a33869709e4e943b9e8ac674542641055a2f0fcbd2101cbdf0b6"
+        },
+        {
+          "page": 14,
+          "start_line": 5,
+          "end_line": 5,
+          "start_column": 0,
+          "end_column": 104,
+          "quote_sha256": "7515488c14d92197e389e1bac4e1bddf2f19fead8c21ceea115f3de9befd386f"
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0046_rejected_relationship",
+      "kind": "case",
+      "title": "与某男缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 46,
+          "start_line": 4,
+          "end_line": 17,
+          "start_column": 0,
+          "end_column": 76,
+          "quote_sha256": "3a5dfcd668766cf048d07ed2606b4c3c3e8235a2c0ab2e43f5bed0af87904f61"
+        },
+        {
+          "page": 47,
+          "start_line": 1,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 114,
+          "quote_sha256": "56dfef021e71db1f0e19800f35abcf079acb7670a3c382babc280461d934d86c"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问与特定男人缘分；反馈末尾明确男方已向卦主说二人没缘分，直接提供拒绝关系的事实。其帅气、异性多等旁事不替代这一主结果，未声称同时交往人数得独立证实。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 46,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 12,
+            "quote_sha256": "afc20226dc7e8fa786d3a9a15dca641c24cecfa45350c72190eef90f0c907912"
+          }
+        ],
+        "background": [
+          {
+            "page": 46,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 46,
+            "start_line": 6,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "a13caf6b4032f67769eef5771b56170bf9b71fae0d8035d91a177ec0ae8415be"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 46,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 76,
+            "quote_sha256": "2259b42138d1ebdf2390e5c0b168d2f127e5cbe9f7078cc3a4a84b69a09b90d3",
+            "author": "青岚",
+            "cast_index": 0
+          },
+          {
+            "page": 47,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 109,
+            "quote_sha256": "62eeff1464e648e0c3b81480d24180926bc0ab5a981232bd13298ff1205cad71",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 47,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 114,
+            "quote_sha256": "b0035ceaa64888b7e1b9a804541bb92c5b42db5c4442a59d38e0bcf455bb694b"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          3
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "未",
+        "day_ganzhi": "辛丑",
+        "hour_ganzhi": "戊戌",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 46,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "ed14d61b44af87218d0982cc17f2e9b1bf4a2d76a1dc9e5082580728b3b34a44"
+            },
+            {
+              "page": 46,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "80860225e76aded288c2929e2d753c7cc5624c7f3ec3e23f794d160bd7a94636"
+            },
+            {
+              "page": 46,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "2be9cfd3a17635c5385b6eb502f5d9b5c7f351db2ba0e207b3949911434e38b9"
+            },
+            {
+              "page": 46,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 27,
+              "quote_sha256": "0fbc9fb7f4b890a84bb3fa4b05a257d8dc0bee7a4cb6615fdebbdb769ba35b97"
+            },
+            {
+              "page": 46,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "adef3dfe4c57982cd5f9ff42f072f6d3f5f0e7ddbb45aa10960e3c202ee6691a"
+            },
+            {
+              "page": 46,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "f55960520bcda939cb40a4cb7bbd51ad6059f00a3aecba432b985d7d889edf1c"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 46,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 46,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "f87985dd625d2361f49214b49ec88b3e84bb6dc710cb6631f1054553af62e2aa"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 46,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "e1171d34db94c37005256611f1e747da5736d6de85cc7473632399ae53eb9f51"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 46,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "d828623c66c0f930d9ff6efcecc4161243992521ef060f4d2be899f7548dff5d"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 46,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "ed14d61b44af87218d0982cc17f2e9b1bf4a2d76a1dc9e5082580728b3b34a44"
+          },
+          {
+            "page": 46,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "80860225e76aded288c2929e2d753c7cc5624c7f3ec3e23f794d160bd7a94636"
+          },
+          {
+            "page": 46,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "2be9cfd3a17635c5385b6eb502f5d9b5c7f351db2ba0e207b3949911434e38b9"
+          },
+          {
+            "page": 46,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 27,
+            "quote_sha256": "0fbc9fb7f4b890a84bb3fa4b05a257d8dc0bee7a4cb6615fdebbdb769ba35b97"
+          },
+          {
+            "page": 46,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "adef3dfe4c57982cd5f9ff42f072f6d3f5f0e7ddbb45aa10960e3c202ee6691a"
+          },
+          {
+            "page": 46,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "f55960520bcda939cb40a4cb7bbd51ad6059f00a3aecba432b985d7d889edf1c"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 46,
+              "start_line": 17,
+              "end_line": 17,
+              "start_column": 0,
+              "end_column": 7,
+              "quote_sha256": "0c9cb1442a7f1aaee23e24bd5052e491033a4ec71d2439e9b4e48580c048a708",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0047_relationship_development",
+      "kind": "case",
+      "title": "两人会如何发展",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 47,
+          "start_line": 3,
+          "end_line": 16,
+          "start_column": 0,
+          "end_column": 179,
+          "quote_sha256": "5c5615a80015b24b3d66449445b9833159d20f5ab59eb6348d6ad72a1eb857ab"
+        },
+        {
+          "page": 48,
+          "start_line": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "end_column": 108,
+          "quote_sha256": "3cdf8942494c495162b8323b74a93a86259509dbe4e5b3c47d455685094b32a1"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。前男友、分开一年、再联系发生关系及其承诺都是作者断后卦主反驳才披露，全部迟知。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "关键原断“已经结婚”与反馈中的民政查询未婚相冲突，婚照真伪仅怀疑；不得借婚照推为已婚gold。虽反馈主动断联，但是在断后查证恐惧后所作决定，无法把整段核心婚姻推理视为原问的发展获得明确验证。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 47,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "28a266073cd8114ab5f083d3a3226888eb645c758019ef61b721fdaab3b814f6"
+          }
+        ],
+        "background": [
+          {
+            "page": 47,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          },
+          {
+            "page": 48,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 100,
+            "quote_sha256": "6bebeba1e397c85772d1315c42ea0f4dd45272a9c11c70de747767b96d556e1c",
+            "eligible_for_initial_blind_input": false,
+            "disclosure": "querent_disagreement_after_initial_reading"
+          }
+        ],
+        "chart": [
+          {
+            "page": 47,
+            "start_line": 5,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "2067e6badaaf99669c0f351da5f97f216b60ea2d5545df7e9099b1ff6dfde915"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 47,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 179,
+            "quote_sha256": "4cc27a67e666d5af56c12f64b50cb7781c648ad2a3fc63ecde440fe74ceabaf0",
+            "author": "青岚",
+            "cast_index": 0
+          },
+          {
+            "page": 48,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 4,
+            "quote_sha256": "ebe10a7f1f2ab3f83774dca3b12bdf17755cd161648bfc030efc4c7a5b00ed30",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 48,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 108,
+            "quote_sha256": "5f7c2f55ada6688f269bb96f0dc5c195127169612263ff7064b249da9cc4cbdf"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "卯",
+        "day_ganzhi": "壬子",
+        "hour_ganzhi": "乙巳",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 47,
+              "start_line": 10,
+              "end_line": 10,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "c8d1ddacbf6fd99b3dd56ed0fcf5310f60184f60610d5baa9c246ccd1c4168e0"
+            },
+            {
+              "page": 47,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "78019a2d020d44011a1abc19aa1953787f02885feb97a9cca209d2c2d6709036"
+            },
+            {
+              "page": 47,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 15,
+              "quote_sha256": "fff1f44edab75e9f43d2d3a14695301dce69d72ed0d14f67ef84863ed80229e2"
+            },
+            {
+              "page": 47,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "bce5592b1b0df2b45d838e4cad39ea16723eda32dad77a8553ce820803804386"
+            },
+            {
+              "page": 47,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 16,
+              "quote_sha256": "d76b29ecc87b6cce7d19f540764272f2d530956d4e77500c018801fc3cb0af37"
+            },
+            {
+              "page": 47,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 15,
+              "quote_sha256": "8050b35b94923ead8c4166b52e465c1e8cb9e5715748242aa3e1195dffc13dee"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 47,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 47,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "0dc49cccac88350ff0c4aa7705bab6d32daca2c64b204da4908501fe76c143f1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 47,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "3d23712a30a98fd3c079ddbc24bf425c910816bf668beaeee892f3771bc04f56"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 47,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "9c588840d3b37720e9d1abf9e73b293e0c942bfaa27b36414803140c75d16286"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 47,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "c8d1ddacbf6fd99b3dd56ed0fcf5310f60184f60610d5baa9c246ccd1c4168e0"
+          },
+          {
+            "page": 47,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "78019a2d020d44011a1abc19aa1953787f02885feb97a9cca209d2c2d6709036"
+          },
+          {
+            "page": 47,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "fff1f44edab75e9f43d2d3a14695301dce69d72ed0d14f67ef84863ed80229e2"
+          },
+          {
+            "page": 47,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "bce5592b1b0df2b45d838e4cad39ea16723eda32dad77a8553ce820803804386"
+          },
+          {
+            "page": 47,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "d76b29ecc87b6cce7d19f540764272f2d530956d4e77500c018801fc3cb0af37"
+          },
+          {
+            "page": 47,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 15,
+            "quote_sha256": "8050b35b94923ead8c4166b52e465c1e8cb9e5715748242aa3e1195dffc13dee"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 47,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 0,
+              "end_column": 7,
+              "quote_sha256": "0c9cb1442a7f1aaee23e24bd5052e491033a4ec71d2439e9b4e48580c048a708",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0048_unfinished_romance",
+      "kind": "case",
+      "title": "与某男缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 48,
+          "start_line": 4,
+          "end_line": 17,
+          "start_column": 0,
+          "end_column": 179,
+          "quote_sha256": "eb73bc061546f569dfff7dc3ae4c7151d41ce21621eb7412083a192b374e13c1"
+        },
+        {
+          "page": 49,
+          "start_line": 1,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 90,
+          "quote_sha256": "8778e5cbe05c0e6228f866b4bdd0c991554f457ba3f0a6abc215862a90907179"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。原图三爻主卦妻财亥水有墨污，放大原像可辨亥字，照录；未用变卦或计算来补字。文中提及另测一卦无盘，不造additional_casts。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "原问和该男缘分；一周后确认男方尚有感情未结束，但“和卦主也没什么可能”仍是判断，没有明确拒绝、分手或继续关系的事件结果。不能把旁人旧感情和笼统结论当作原问已验证。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 48,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "5f784648e35a8e909ee7048980ae41c5490f88e67d07e088dff370ff10249631"
+          }
+        ],
+        "background": [
+          {
+            "page": 48,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 48,
+            "start_line": 6,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "1d18e35119dc3a79c91118e9136dd1db01e1931635adccd4b4d98b730e3d613c"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 48,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 179,
+            "quote_sha256": "d1c82197d2df66f718a3262801c2a1acf8f9212a25d3382628ce92660d7c0cae",
+            "author": "青岚",
+            "cast_index": 0
+          },
+          {
+            "page": 49,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 5,
+            "quote_sha256": "9d547e3c492c9d6f9d971f42cdbe4763f0b101794588d2bc6f4fe34b904b3092",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 49,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 90,
+            "quote_sha256": "8045a08e66a1b01ad5741054d4aca73258ed81e3414b83b10ca50a32de0346d6"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          2,
+          1,
+          2,
+          2,
+          3
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "卯",
+        "day_ganzhi": "丁巳",
+        "hour_ganzhi": "辛亥",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 48,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "2963441129eb442f1bf4e8ff454c309fbb930db5424e1d14623bba12c26e944c"
+            },
+            {
+              "page": 48,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "7fa7d81054ccd714e4b9279bf2ce874cfeff71603b2ec8f5524670a936089cae"
+            },
+            {
+              "page": 48,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "2b57082d33795bf9e4de27fec6cd206185aa3921d428eaaae83fc0bee1ae157b"
+            },
+            {
+              "page": 48,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 27,
+              "quote_sha256": "130182b7cf81a9728b31951f3094075e9e0e08df13b9d96d451004207b129714"
+            },
+            {
+              "page": 48,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 27,
+              "quote_sha256": "5f1f159a8a77bf4e9b24c06e8f4cc3973b4a457e56f63f829c47199e819b844e"
+            },
+            {
+              "page": 48,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "c6ce209528de8e1302770459e709dde29e763164809e24a0af844e19e05c3675"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 48,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 48,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "0dc49cccac88350ff0c4aa7705bab6d32daca2c64b204da4908501fe76c143f1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 48,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "94981abe48cda4ceb219a2a1a97deefd70fc6ed31d4f612ab657591f2dfcf939"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 48,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "a1c6b15bd9b61076b2f6c55baf503567c9797d083f771af0edad735cbebf9e73"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 48,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "2963441129eb442f1bf4e8ff454c309fbb930db5424e1d14623bba12c26e944c"
+          },
+          {
+            "page": 48,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "7fa7d81054ccd714e4b9279bf2ce874cfeff71603b2ec8f5524670a936089cae"
+          },
+          {
+            "page": 48,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "2b57082d33795bf9e4de27fec6cd206185aa3921d428eaaae83fc0bee1ae157b"
+          },
+          {
+            "page": 48,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 27,
+            "quote_sha256": "130182b7cf81a9728b31951f3094075e9e0e08df13b9d96d451004207b129714"
+          },
+          {
+            "page": 48,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 27,
+            "quote_sha256": "5f1f159a8a77bf4e9b24c06e8f4cc3973b4a457e56f63f829c47199e819b844e"
+          },
+          {
+            "page": 48,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "c6ce209528de8e1302770459e709dde29e763164809e24a0af844e19e05c3675"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 48,
+              "start_line": 17,
+              "end_line": 17,
+              "start_column": 0,
+              "end_column": 11,
+              "quote_sha256": "16984ec3b20122575cd256b67b1dbaae3d8326758aa79b5d14317f097f3227eb",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0049_boyfriend_duration",
+      "kind": "case",
+      "title": "与男友缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 49,
+          "start_line": 3,
+          "end_line": 17,
+          "start_column": 0,
+          "end_column": 75,
+          "quote_sha256": "63dc641132ba14baa46ed724c1c68afe8afcce5dd29b6ce56661a6cb8184bda3"
+        },
+        {
+          "page": 50,
+          "start_line": 1,
+          "end_line": 1,
+          "start_column": 0,
+          "end_column": 9,
+          "quote_sha256": "1ac4bc4b32c5813468c37bda58a66524f6c1f4694ed87805e1a6dc70dc619e62"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "原问与男友缘分且原断不能长久；只反馈插足者退出、目前关系不好，并明确“不知道能谈多久”。未见二人之后分手或关系持续的主结果，不能用第三者退出替代。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 49,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "2ca4443e793726af9440b34af3b7e11f617c575fdf6b32d7eda575ea7a333557"
+          }
+        ],
+        "background": [
+          {
+            "page": 49,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 49,
+            "start_line": 5,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "8f598d753b8de00f088ac1036774220fce5869e40e0469d249d035b2897da655"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 49,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 229,
+            "quote_sha256": "ea853da5ec1dbcdd20b766765aaad97b29e2af3da1f08361081c4751c29b5456",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 49,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 75,
+            "quote_sha256": "3ff8d1d56620d741bb3c904331457d29d73d9fd4a9b771c5bfe09f5d19db1802"
+          },
+          {
+            "page": 50,
+            "start_line": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "end_column": 9,
+            "quote_sha256": "1ac4bc4b32c5813468c37bda58a66524f6c1f4694ed87805e1a6dc70dc619e62"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "卯",
+        "day_ganzhi": "丙辰",
+        "hour_ganzhi": "乙未",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 49,
+              "start_line": 10,
+              "end_line": 10,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "d44b102e1541b03a0aeaa8ee618eddab4e4ba160d80db3d8d4b85070c441183d"
+            },
+            {
+              "page": 49,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 29,
+              "quote_sha256": "fffd91add4341007f063c5a9a5deb2e0a106c9433d8aa6fb92132e50861c2426"
+            },
+            {
+              "page": 49,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "cfa1f56825dc18f82c7cda0a1a91a7e778e69f6be4c0015e974b623dad84d640"
+            },
+            {
+              "page": 49,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "dddefd657ab26a05be26f6f569c3403ee1bd61c97cc7d8318abea77a27f359fc"
+            },
+            {
+              "page": 49,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "5b1a714b44e686bf21dc53ad9fe55e50b1b4fc08ee4cf2b263bddaf82ed1d807"
+            },
+            {
+              "page": 49,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "4617a1e4dd06acb6fdcf2392a624758090e2ee331e186890e6abfb2a8c03764f"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 49,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 49,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "0dc49cccac88350ff0c4aa7705bab6d32daca2c64b204da4908501fe76c143f1"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 49,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "8832914c70a6668a300f6c71af52a6e50f31e3d9812384989e828ae17fc02ba0"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 49,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "78e985165ad980e730bd542c406e1c81b8877e574e807f87871462980eec68ad"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 49,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "d44b102e1541b03a0aeaa8ee618eddab4e4ba160d80db3d8d4b85070c441183d"
+          },
+          {
+            "page": 49,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 29,
+            "quote_sha256": "fffd91add4341007f063c5a9a5deb2e0a106c9433d8aa6fb92132e50861c2426"
+          },
+          {
+            "page": 49,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "cfa1f56825dc18f82c7cda0a1a91a7e778e69f6be4c0015e974b623dad84d640"
+          },
+          {
+            "page": 49,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "dddefd657ab26a05be26f6f569c3403ee1bd61c97cc7d8318abea77a27f359fc"
+          },
+          {
+            "page": 49,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "5b1a714b44e686bf21dc53ad9fe55e50b1b4fc08ee4cf2b263bddaf82ed1d807"
+          },
+          {
+            "page": 49,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "4617a1e4dd06acb6fdcf2392a624758090e2ee331e186890e6abfb2a8c03764f"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 49,
+              "start_line": 16,
+              "end_line": 16,
+              "start_column": 0,
+              "end_column": 7,
+              "quote_sha256": "0c9cb1442a7f1aaee23e24bd5052e491033a4ec71d2439e9b4e48580c048a708",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0050_breakup",
+      "kind": "case",
+      "title": "与男友缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 50,
+          "start_line": 2,
+          "end_line": 16,
+          "start_column": 0,
+          "end_column": 28,
+          "quote_sha256": "57cad6560e4236b4390490d581bfa0252dd22b03b279a26981e7dee9ebae8f40"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。"
+      },
+      "quality": {
+        "status": "eligible",
+        "reason": "原问与男友缘分；明确反馈年底丑月实际分手，男方随后与别的女性在一起，直接验证关系主结果。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 50,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "2ca4443e793726af9440b34af3b7e11f617c575fdf6b32d7eda575ea7a333557"
+          }
+        ],
+        "background": [
+          {
+            "page": 50,
+            "start_line": 2,
+            "end_line": 2,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 50,
+            "start_line": 4,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "87f94cd4d6198c617a72d0b6f666a07494d9516a8dc59f29bcf5d8ec38e14852"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 50,
+            "start_line": 15,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 192,
+            "quote_sha256": "82f36ee9c3c5f90cfc6c565f8da548bd3be55155218ddf1dcd6eeeab71e278ac",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 50,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "109024ec24483b28a3e564a6528ffcf9738be96b436a355e22cea2dcd87b9660"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          3,
+          1,
+          2,
+          1,
+          1,
+          0
+        ],
+        "year_ganzhi": "丁酉",
+        "month_branch": "亥",
+        "day_ganzhi": "甲寅",
+        "hour_ganzhi": "辛未",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 50,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "7fdf4b34c0f253d829e919cbfd9182031143c9790f6cc0e80e0d95c1b8d9a0d5"
+            },
+            {
+              "page": 50,
+              "start_line": 10,
+              "end_line": 10,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "26bd2a7b200eab43fe9c1396ed3fafff4e86d9840f34dc6f73552ed7b83b69a6"
+            },
+            {
+              "page": 50,
+              "start_line": 11,
+              "end_line": 11,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "2577bc51aff96b33bc76440805a130c0d11fdeff8cb9780f0dbfc4fa8c87eb8b"
+            },
+            {
+              "page": 50,
+              "start_line": 12,
+              "end_line": 12,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "ea43516e0f7ec8db8b86ca4ba6c4904142176ff6b35a4cb07a8ee2bf41af310e"
+            },
+            {
+              "page": 50,
+              "start_line": 13,
+              "end_line": 13,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "e26aa0978b81eba1c669e74b7c2327c676a4b511d9ed14d5aff8d30bbd4a1079"
+            },
+            {
+              "page": 50,
+              "start_line": 14,
+              "end_line": 14,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "eb3ca944c870b4ec3ea63d20099615037c900362fdcd42aea058416a19a31b0f"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 50,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "05bd41fb146496c2f5addf375eeef5b71cd1a0d3ba568c77d57bcfcaf522f89c"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 50,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "a14b5467d0a24dae974959c1eb2489d1eb7d67d3a80bd4451872aef0659ea8e9"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 50,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "e17116e600b5d5f6217e9f7ff392e7076d891b63410125d0109ce075f075f3dd"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 50,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "f4a83e550713a2c29de9dc26f7970799c8d475db2a5567d10a9e0316cb3563a7"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 50,
+            "start_line": 9,
+            "end_line": 9,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "7fdf4b34c0f253d829e919cbfd9182031143c9790f6cc0e80e0d95c1b8d9a0d5"
+          },
+          {
+            "page": 50,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "26bd2a7b200eab43fe9c1396ed3fafff4e86d9840f34dc6f73552ed7b83b69a6"
+          },
+          {
+            "page": 50,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "2577bc51aff96b33bc76440805a130c0d11fdeff8cb9780f0dbfc4fa8c87eb8b"
+          },
+          {
+            "page": 50,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "ea43516e0f7ec8db8b86ca4ba6c4904142176ff6b35a4cb07a8ee2bf41af310e"
+          },
+          {
+            "page": 50,
+            "start_line": 13,
+            "end_line": 13,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "e26aa0978b81eba1c669e74b7c2327c676a4b511d9ed14d5aff8d30bbd4a1079"
+          },
+          {
+            "page": 50,
+            "start_line": 14,
+            "end_line": 14,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "eb3ca944c870b4ec3ea63d20099615037c900362fdcd42aea058416a19a31b0f"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 50,
+              "start_line": 15,
+              "end_line": 15,
+              "start_column": 0,
+              "end_column": 9,
+              "quote_sha256": "bebfae733799eae67e1ab24aef5e0c80b5119b2312acc808fed29e7d69f7361f",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0050_later_boyfriend",
+      "kind": "case",
+      "title": "与某男缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 50,
+          "start_line": 17,
+          "end_line": 21,
+          "start_column": 0,
+          "end_column": 24,
+          "quote_sha256": "ed550535445e6ecccbdd5ef40e8fe91466e00760a62a70c8382f2d9baba9b682"
+        },
+        {
+          "page": 51,
+          "start_line": 1,
+          "end_line": 10,
+          "start_column": 0,
+          "end_column": 110,
+          "quote_sha256": "01e73d511fa28708e7377405ec46bffac11a55cf7672fc5446e76836adfcd50e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。“应该是伤的很深”是作者推测，已从反馈拆入事后解释。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "原问和当时特定男人缘分；一年后仅泛称“你是对的”并拒谈细节，后来遇新男友是另一段关系。未明确当时关系的具体结束或对方婚外情事实，不借原断或另人新关系补原问结果。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 50,
+            "start_line": 18,
+            "end_line": 18,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "5f784648e35a8e909ee7048980ae41c5490f88e67d07e088dff370ff10249631"
+          }
+        ],
+        "background": [
+          {
+            "page": 50,
+            "start_line": 17,
+            "end_line": 17,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          },
+          {
+            "page": 51,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 55,
+            "quote_sha256": "04973a3dfc76cbd46c6b82e6a5b5083e57bb16ecad9709ab56237f578ba36bd8",
+            "eligible_for_initial_blind_input": false,
+            "disclosure": "after_original_prediction"
+          }
+        ],
+        "chart": [
+          {
+            "page": 50,
+            "start_line": 19,
+            "end_line": 21,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "7de45cb7c5bac4d7db6113b094521f74c132fc01fad2fc9000108c36fc89173b"
+          },
+          {
+            "page": 51,
+            "start_line": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "ebb5be2f05cf89d25f8d8f53d274eb998e22f83ed21292d22a365599ae9606cb"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 51,
+            "start_line": 9,
+            "end_line": 9,
+            "start_column": 0,
+            "end_column": 193,
+            "quote_sha256": "068130016a8a04afb2ed76786fc781b94c26cad60b7617bbed4f19747e55e170",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 51,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 55,
+            "end_column": 80,
+            "quote_sha256": "7b37f3e6d98cbcb361fc34688d4406aac204d6fb8a6b343287ed4714340e4927"
+          },
+          {
+            "page": 51,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 88,
+            "end_column": 110,
+            "quote_sha256": "0bc2b9b0cc6b971489a38b03ee6ae7a5102eab5f58dcb574fc9a4d307f559804"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": 51,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 80,
+            "end_column": 88,
+            "quote_sha256": "71ed2911ccccff88e9f774be95444818826d37a21ff0847c90f6970ee455b6f4",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ]
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          2,
+          1,
+          3,
+          0,
+          2
+        ],
+        "year_ganzhi": "丁酉",
+        "month_branch": "丑",
+        "day_ganzhi": "癸丑",
+        "hour_ganzhi": "庚申",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 51,
+              "start_line": 3,
+              "end_line": 3,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "0c28d2411c1084a402b62a4978d492abe9c7a5bc9b1908daa978b1a4f914063d"
+            },
+            {
+              "page": 51,
+              "start_line": 4,
+              "end_line": 4,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "a952b5f74ba82378e02fc9f912819cae6a70d278de3737c60b1c219502da37f1"
+            },
+            {
+              "page": 51,
+              "start_line": 5,
+              "end_line": 5,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "55cf5d37c1272eaa7f00891489a9d75f5437027b6568a45907cd00b933a84b20"
+            },
+            {
+              "page": 51,
+              "start_line": 6,
+              "end_line": 6,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "5897ccc1023b8a7dbade288ac9742471adcc01ec5cd00f10b7aab6d8c18af413"
+            },
+            {
+              "page": 51,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "8b7df412d2559c407e3ee2d4202b7a0bf489966a55e3929e919b646f6ec3acc1"
+            },
+            {
+              "page": 51,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "c6579ef179f8f64da9e12ebaafa8fb8e2b870073da7787288ae740d5df6405a8"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 51,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "05bd41fb146496c2f5addf375eeef5b71cd1a0d3ba568c77d57bcfcaf522f89c"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 51,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "27865638dfd9bb1a68105e873174343a2c29f4876192ed25a3a83aedffbd7a4b"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 51,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "4a890a3d8029e1f91b53b78a330f05575b8a4b610501cf036412d7827a7c6c23"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 51,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "9a7361f02413534d524b572dfecc0bde898bfa715aa5c8f201c530641e446bd2"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 51,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "0c28d2411c1084a402b62a4978d492abe9c7a5bc9b1908daa978b1a4f914063d"
+          },
+          {
+            "page": 51,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "a952b5f74ba82378e02fc9f912819cae6a70d278de3737c60b1c219502da37f1"
+          },
+          {
+            "page": 51,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "55cf5d37c1272eaa7f00891489a9d75f5437027b6568a45907cd00b933a84b20"
+          },
+          {
+            "page": 51,
+            "start_line": 6,
+            "end_line": 6,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "5897ccc1023b8a7dbade288ac9742471adcc01ec5cd00f10b7aab6d8c18af413"
+          },
+          {
+            "page": 51,
+            "start_line": 7,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "8b7df412d2559c407e3ee2d4202b7a0bf489966a55e3929e919b646f6ec3acc1"
+          },
+          {
+            "page": 51,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "c6579ef179f8f64da9e12ebaafa8fb8e2b870073da7787288ae740d5df6405a8"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 51,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 0,
+              "end_column": 13,
+              "quote_sha256": "bc5dffe10bf911e9ad36af224c116d37e8219533425a8212ebdc612fd346778d",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0051_british_boyfriend",
+      "kind": "case",
+      "title": "与某男缘分如何",
+      "method": "mixed",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 51,
+          "start_line": 11,
+          "end_line": 15,
+          "start_column": 0,
+          "end_column": 24,
+          "quote_sha256": "d78b954d76779106b472896b6bb5aa5ebcc64ef4f02c57d54a1d628bf249d779"
+        },
+        {
+          "page": 52,
+          "start_line": 1,
+          "end_line": 10,
+          "start_column": 0,
+          "end_column": 69,
+          "quote_sha256": "38f180eb7bd013c4f0d3605837ae186d27044a256e5b71abac4198b914e2919b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "原问、求测资料、作者分析、实际反馈及事后解释逐段分离；盘面为原图手抄，尚待独立核盘。source_fidelity：原图变二爻官鬼寅木印阳线、变初爻妻财子水印阴线，主二爻阳动○而初爻无动号；逐画照录，line_values只据主卦动静手抄。未调换变卦初二爻以迁就卦名。"
+      },
+      "quality": {
+        "status": "noise",
+        "reason": "反馈确有交往一周即分手的主结果，但原图变卦初二爻阴阳与主卦动号及震卦名发生关键冲突，按关键源文冲突标准暂列noise，保留盘图与反馈供复核，不将推定修盘当成原稿。",
+        "reviewer": "codex-agent:/root/rebuild_manual_native"
+      },
+      "parts": {
+        "question": [
+          {
+            "page": 51,
+            "start_line": 12,
+            "end_line": 12,
+            "start_column": 0,
+            "end_column": 13,
+            "quote_sha256": "5f784648e35a8e909ee7048980ae41c5490f88e67d07e088dff370ff10249631"
+          }
+        ],
+        "background": [
+          {
+            "page": 51,
+            "start_line": 11,
+            "end_line": 11,
+            "start_column": 0,
+            "end_column": 16,
+            "quote_sha256": "83620487703fbb3350db844d0061646e911a77d82bec8f689e2c4aac489f06ed"
+          }
+        ],
+        "chart": [
+          {
+            "page": 51,
+            "start_line": 13,
+            "end_line": 15,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "0cf96619115562f6fcba52105e062e270d26fc1f8349102b6f1c5d33a3eb6c89"
+          },
+          {
+            "page": 52,
+            "start_line": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "637e3087f8fc8c0fa7d2586f982046209534ebcc718b7d51fcd68fecfae974f7"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 52,
+            "start_line": 9,
+            "end_line": 9,
+            "start_column": 0,
+            "end_column": 178,
+            "quote_sha256": "5fec2c0ad5d49648d330b7f8ebb47e35c2faeb5ef4b9b6ce7f42f31b2eeb4a15",
+            "author": "青岚",
+            "cast_index": 0
+          }
+        ],
+        "feedback": [
+          {
+            "page": 52,
+            "start_line": 10,
+            "end_line": 10,
+            "start_column": 0,
+            "end_column": 69,
+            "quote_sha256": "21d7dd133e7a7bccf73ef0eb1a8dddff27981c279c7d7b08418e59feed9d08bc"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "cast_index": 0,
+        "line_values": [
+          1,
+          3,
+          2,
+          1,
+          3,
+          3
+        ],
+        "year_ganzhi": "戊戌",
+        "month_branch": "亥",
+        "day_ganzhi": "癸亥",
+        "hour_ganzhi": "丁巳",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 52,
+              "start_line": 3,
+              "end_line": 3,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "56059b0b78a41dda13d26d208276be9fab9adb8914249001f0390a32172fc5f4"
+            },
+            {
+              "page": 52,
+              "start_line": 4,
+              "end_line": 4,
+              "start_column": 0,
+              "end_column": 31,
+              "quote_sha256": "b05986841251ac879a732fc27294fa9f4fc1720c368f89af17ce6af6cc49ac53"
+            },
+            {
+              "page": 52,
+              "start_line": 5,
+              "end_line": 5,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "acc54760f241ec07eb1be3c012676b759666ee1e6496250bf322de167573f9b4"
+            },
+            {
+              "page": 52,
+              "start_line": 6,
+              "end_line": 6,
+              "start_column": 0,
+              "end_column": 26,
+              "quote_sha256": "166669dae6db7e3433c77ba3e0c06d200e12924bc83a972bdcc9691c36be7089"
+            },
+            {
+              "page": 52,
+              "start_line": 7,
+              "end_line": 7,
+              "start_column": 0,
+              "end_column": 28,
+              "quote_sha256": "ec3914335cc57ee69c864e96bd924ecad0fdbd99ea7f1a7b4645ce23c4abe568"
+            },
+            {
+              "page": 52,
+              "start_line": 8,
+              "end_line": 8,
+              "start_column": 0,
+              "end_column": 24,
+              "quote_sha256": "b4bb4120eec91c5a81dcfbfcb7bd44405099d671388bc35288a584a26aedc155"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 52,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 3,
+              "end_column": 6,
+              "quote_sha256": "b39cf94c0f6d9dcd4a12407285d7d104f9344257429fb195d2bf820b6d49d7c3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 52,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 7,
+              "end_column": 10,
+              "quote_sha256": "33470f99d3e4e92b22d05222993ec47fe273acfbf250bfa2687d0ec82c5ea682"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 52,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 11,
+              "end_column": 14,
+              "quote_sha256": "b2f3309a770f9252c1c99c0de12c7e4901d85574f60377f5ace93a5e17035a6d"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 52,
+              "start_line": 1,
+              "end_line": 1,
+              "start_column": 15,
+              "end_column": 18,
+              "quote_sha256": "27fa448161fd34aa6b76ebd9ea80357b035748cf5ca3e3cd365df93dd1c0b899"
+            }
+          ]
+        },
+        "diagram_spans": [
+          {
+            "page": 52,
+            "start_line": 3,
+            "end_line": 3,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "56059b0b78a41dda13d26d208276be9fab9adb8914249001f0390a32172fc5f4"
+          },
+          {
+            "page": 52,
+            "start_line": 4,
+            "end_line": 4,
+            "start_column": 0,
+            "end_column": 31,
+            "quote_sha256": "b05986841251ac879a732fc27294fa9f4fc1720c368f89af17ce6af6cc49ac53"
+          },
+          {
+            "page": 52,
+            "start_line": 5,
+            "end_line": 5,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "acc54760f241ec07eb1be3c012676b759666ee1e6496250bf322de167573f9b4"
+          },
+          {
+            "page": 52,
+            "start_line": 6,
+            "end_line": 6,
+            "start_column": 0,
+            "end_column": 26,
+            "quote_sha256": "166669dae6db7e3433c77ba3e0c06d200e12924bc83a972bdcc9691c36be7089"
+          },
+          {
+            "page": 52,
+            "start_line": 7,
+            "end_line": 7,
+            "start_column": 0,
+            "end_column": 28,
+            "quote_sha256": "ec3914335cc57ee69c864e96bd924ecad0fdbd99ea7f1a7b4645ce23c4abe568"
+          },
+          {
+            "page": 52,
+            "start_line": 8,
+            "end_line": 8,
+            "start_column": 0,
+            "end_column": 24,
+            "quote_sha256": "b4bb4120eec91c5a81dcfbfcb7bd44405099d671388bc35288a584a26aedc155"
+          }
+        ]
+      },
+      "author_yongshen": [
+        {
+          "relative": "官鬼",
+          "cast_index": 0,
+          "spans": [
+            {
+              "page": 52,
+              "start_line": 9,
+              "end_line": 9,
+              "start_column": 0,
+              "end_column": 11,
+              "quote_sha256": "f157d51d9a62e9004b3c2b4d09496d13d20262d1e61fd290fbc164ecbbc104cd",
+              "author": "青岚",
+              "cast_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0052_qinglong_other",
+      "kind": "rule",
+      "title": "青龙其他物象须随实测卦象灵活转换",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 52,
+          "start_line": 11,
+          "end_line": 11,
+          "start_column": 0,
+          "end_column": 67,
+          "quote_sha256": "07985bf871da026c89d40eabd8a28959565dc44fb28f29b8ef5faccbc22638d5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex-agent:/root/rebuild_manual_native",
+        "notes": "按原图逐段划定完整通则；批准仅表示原文转写与边界复核，不裁定理论正确。"
+      },
+      "context_spans": [
+        {
+          "page": 14,
+          "start_line": 2,
+          "end_line": 2,
+          "start_column": 0,
+          "end_column": 193,
+          "quote_sha256": "86784f3448e5a33869709e4e943b9e8ac674542641055a2f0fcbd2101cbdf0b6"
+        },
+        {
+          "page": 14,
+          "start_line": 5,
+          "end_line": 5,
+          "start_column": 0,
+          "end_column": 104,
+          "quote_sha256": "7515488c14d92197e389e1bac4e1bddf2f19fead8c21ceea115f3de9befd386f"
+        }
+      ]
+    }
+  ],
+  "exclusions": [],
+  "audit_points": [
+    "原图52页变卦初二爻线画冲突已标source_fidelity并将该案quality置noise；未补画或更改任何原字。",
+    "经济官司明确打赢拿全款，另花四分之一属于支出，不能将原断只回一部分改说成精确命中。",
+    "所有盘仅人工抄录主卦值与原文年月日时，未加verification。",
+    "通过亲笔明确主结果与后验事实判质量，采纳劝告、过去旁事和一般认可不能充当直接验证。"
+  ],
+  "canonical_page_snapshots": [
+    {
+      "page": 41,
+      "effective_text_sha256": "746652e1017b8790f033912cbd0929a75252520aaa1a870a0053d9e06cb53aa1",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0041.json",
+      "proofread_record_sha256": "b685779ef551fe04c2b63fe2c1513aca0842736050ba541288069e67b6608941",
+      "source_unclear": []
+    },
+    {
+      "page": 42,
+      "effective_text_sha256": "7083d107f2e898c3632156b3a4321ccf850a21a00fadfee44910be3ea144b9a0",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0042.json",
+      "proofread_record_sha256": "4fcab20d38d54eca1fb787ae6c62b462967efa8e8fd7437cc8131340c18d192d",
+      "source_unclear": []
+    },
+    {
+      "page": 43,
+      "effective_text_sha256": "59b6ad83878517b45656a8f8e0f6a5997ec5988524fa94641aa6c945800df95b",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0043.json",
+      "proofread_record_sha256": "50fd26bcf4eaf5137eb3a4fff24eee77747687cae64c1beec5092dcc06bff338",
+      "source_unclear": []
+    },
+    {
+      "page": 44,
+      "effective_text_sha256": "2b3e7f28972983b2b7671ff2deac67006ff905bfe0b5134b7e58ebab82bfa53a",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0044.json",
+      "proofread_record_sha256": "2c4b3361cefe7b3f023d5af9a211078f36a957461f5af778c1cf20ee70a2c500",
+      "source_unclear": []
+    },
+    {
+      "page": 45,
+      "effective_text_sha256": "fee356432c797ff66ea7ede87e537b92218405cc029dbfc6403abaa737dfe4d3",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0045.json",
+      "proofread_record_sha256": "2f8a460bd943a376a7d663a587cd18bc02f0236784bd4a89a918c7ba4e4614e3",
+      "source_unclear": []
+    },
+    {
+      "page": 46,
+      "effective_text_sha256": "a8cd9bedb0676db52ac7c8e18f52b61994e80892c52383dbba0ca42a9b4732bf",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0046.json",
+      "proofread_record_sha256": "1da0ed33e053e66f7483ec72be3a4a5eaf6e24c7961d8e68f8329b1f3e2f7b6a",
+      "source_unclear": []
+    },
+    {
+      "page": 47,
+      "effective_text_sha256": "cfc3c7738d42eca139aee2a5e5e45e6a309cbcf60fc96b6a87d822e4d2316a33",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0047.json",
+      "proofread_record_sha256": "bd7587fadc7879e961b71e81893daf69fafc6966a032cf0f92b4bf1bdbb0135c",
+      "source_unclear": []
+    },
+    {
+      "page": 48,
+      "effective_text_sha256": "c757355400dbc2a961614b4bf33ddaeb40354aaf09b4187dae4a39d4d53a2680",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0048.json",
+      "proofread_record_sha256": "7a23153a394fa9352925f5260637c19ec41683977f4b750e7361955f003bcc51",
+      "source_unclear": []
+    },
+    {
+      "page": 49,
+      "effective_text_sha256": "8da2252196780b94ca56b8aea72ef6101b5079d87b07025c5c29fb3a056a5886",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0049.json",
+      "proofread_record_sha256": "2155903d75591bf3d8440d4429007d22df5010c4977085bc0a2a1d95e5c3ccda",
+      "source_unclear": []
+    },
+    {
+      "page": 50,
+      "effective_text_sha256": "861494d73c52fbf93ebb3926160bfcdbf82f730dfca5f76c8e14122d7cd642c8",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0050.json",
+      "proofread_record_sha256": "ef40c325f48cd5c24a1c06b48d492ceb88b9b5f8eade7f93704b831d18855f24",
+      "source_unclear": []
+    },
+    {
+      "page": 51,
+      "effective_text_sha256": "cc3f7566f52e7c0d46791cf9e13729df248fe220c3c154c1d527ae260da88b07",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0051.json",
+      "proofread_record_sha256": "0bf0d026372a7a2e2c9f3e797fa993501677eb6430c6281282f19f3408813021",
+      "source_unclear": []
+    },
+    {
+      "page": 52,
+      "effective_text_sha256": "aa49a91ed4342c490ce4da88ac0292b45e1c761f71bddc451e60663582f11783",
+      "proofread_record_path": "data/proofread_pages/liuyao_xiangfa_jinjie_shang/0052.json",
+      "proofread_record_sha256": "6223a3b502fb519618569274347d9f534800730b4548bc64c141013e746e2096",
+      "source_unclear": []
+    }
+  ]
+}

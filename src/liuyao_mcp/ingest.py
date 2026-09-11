@@ -15,7 +15,7 @@ from .taxonomy import SCHEMA as TAXONOMY_SCHEMA, classify, classify_rule, nodes 
 from .proofreading import SCHEMA as PROOFREADING_SCHEMA, apply as apply_corrections, correction_text, store as store_corrections
 
 PARSER_VERSION = "source-parser-0.7"
-SEARCH_INDEX_VERSION = 'focused-3'
+SEARCH_INDEX_VERSION = 'manual-quality-1'
 PAGE = re.compile(r"=+ PDF 第 (\d+) 页 / 共 (\d+) 页 =+")
 DATE = re.compile(rf"([{BRANCHES}])月.{{0,10}}?([{STEMS}][{BRANCHES}])日")
 ROW = re.compile(rf"(父母|兄弟|子孙|妻财|官鬼)[{STEMS}]?([{BRANCHES}])[木火土金水]?")
@@ -108,7 +108,18 @@ def spans_of(indices):
 
 
 def read_spans(lines, spans):
-    return "\n".join("\n".join(lines[s["start_line"]-1:s["end_line"]]) for s in spans)
+    parts = []
+    for span in spans:
+        selected = lines[span['start_line']-1:span['end_line']]
+        if selected:
+            start, end = span.get('start_column', 0), span.get('end_column')
+            if len(selected) == 1:
+                selected[0] = selected[0][start:end]
+            else:
+                selected[0] = selected[0][start:]
+                selected[-1] = selected[-1][:end]
+        parts.append('\n'.join(selected))
+    return '\n'.join(parts)
 
 
 def symbol_value(text):
@@ -737,7 +748,8 @@ def store_search_metadata(connection, kind, record, source):
     eid = record['case_id'] if case else record['id']
     classification = record['classification']
     spans = record['source']['spans'] if case else [record]
-    searchable = bool(case_search_text(record).strip()) if case else (
+    quality_eligible = not case or record.get('quality', {}).get('status') == 'eligible'
+    searchable = quality_eligible and bool(case_search_text(record).strip()) if case else (
         record.get('content_role') not in ('background', 'chart_only', 'heading_only') and not (
             record.get('content_role') == 'case_excerpt' and record.get('has_case_analysis') is False))
     connection.execute('INSERT INTO evidence_metadata VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', (
@@ -750,6 +762,9 @@ def store_search_metadata(connection, kind, record, source):
         return
     connection.executemany('INSERT INTO case_spans VALUES(?,?,?,?)', (
         (eid,source['source_id'],s['start_line'],s['end_line']) for s in spans))
+    if not quality_eligible:
+        connection.execute("DELETE FROM search_index WHERE evidence_id=? AND kind='case'", (eid,))
+        return
     features = dict(record['features'])
     features['yongshen_relative'] = features.get('yongshen_reported')
     special = ('yongshen_void','yongshen_moving','yongshen_month_break','yongshen_scope')
@@ -769,7 +784,7 @@ def store_search_metadata(connection, kind, record, source):
     connection.executemany('INSERT INTO case_features VALUES(?,?,?,?)', values)
 
 
-def ingest(root=None, output=None):
+def ingest_legacy(root=None, output=None):
     root = Path(root or project_root()).resolve()
     out = Path(output or root / "data/knowledge.sqlite").resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -835,12 +850,19 @@ def ingest(root=None, output=None):
     return report
 
 
+def ingest(root=None, output=None, *, allow_partial=False):
+    """Build exclusively from canonical documents and approved manual slices."""
+    from .manual_ingest import build_database
+    return build_database(root, output, allow_partial=allow_partial)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=project_root())
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--allow-partial", action="store_true", help="Build an explicitly incomplete development corpus")
     args = parser.parse_args()
-    report = ingest(args.root, args.output)
+    report = ingest(args.root, args.output, allow_partial=args.allow_partial)
     print(dumps({k: v for k, v in report.items() if k != "sources"}))
 
 

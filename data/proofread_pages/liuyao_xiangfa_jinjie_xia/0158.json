@@ -1,0 +1,19 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_xia",
+  "pdf_page": 158,
+  "pdf_sha256": "6979e3ea34b439208535e96fc8e247cb1172c4ed2a7bd54362d14b3348cfacfa",
+  "original_sha256": "315bd4b0b47701d8c4fdda33eee1751def91d35b0b7875eb65e62e37a5a6baf6",
+  "text": "繁琐，不被看好，状态不佳等，具体吉凶还要以用神为主。\n本节内容留到《六爻格局浅谈》一书中论述，在这里仅举一\n例供读者参考。\n求测人：男，手工指定(起卦方式)\n占问事宜：测财运\n公历：2017年9月6日18时30分，星期三。\n农历：丁酉年七月十六日酉时。\n神煞：驿马-寅桃花-酉干禄-巳 贵人-亥、酉\n干支：丁酉年戊申月丙申日丁酉时\n主变卦 坤为地(坤宫) 之 天山遁(乾宫) [空亡:辰、巳]\n青龙      ━━　━━ × 子孙酉金 世 ━━━━━ 兄弟戌土\n玄武      ━━　━━ × 妻财亥水    ━━━━━ 子孙申金 应\n白虎      ━━　━━ × 兄弟丑土    ━━━━━ 父母午火\n螣蛇      ━━　━━ × 官鬼卯木 应 ━━━━━ 子孙申金\n勾陈      ━━　━━ 父母巳火       ━━　━━ 父母午火 世\n朱雀      ━━　━━ 兄弟未土       ━━　━━ 兄弟辰土\n本卦中，上卦三个爻全部发动，全部与变爻相害，这种\n格局就叫全化害。既然测财运，取妻财为用神。妻财亥水在\n五爻，日月同时相生，又发动化回头生，世爻再发动相生属\n于过旺，过旺则衰，说明卦主不仅没钱，反而代表卦主的整\n个生活处境都是一种不太满意的的状态，但是又无力改变。\n反馈：确实如此，上班族一枚，过日子都难，想努力又\n没有方向。",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "reviewer": "codex_agent_rebuild_buyi_batch1_xia_ch7_10",
+  "review_date": "2026-09-11",
+  "normalization": "对原PDF页图逐字校订，正文保留物理折行；人工按图重排六爻为一爻一行，线型用━和空隔，动爻用○或×；印刷页码另列printed_page，排版空格及全半角归一化。",
+  "unclear": [],
+  "notes": [
+    "财运例仅确认当前生活困难无方向，不扩成任何未来投资/经营结果。第十章在本页结束，第十一章从159页首开始。"
+  ],
+  "printed_page": 155,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_xia/0158.png",
+  "image_sha256": "954f3702c4b6b7fbcefdacac570ce89784159bc2a16e644aa0e72adfd1217f1b"
+}

@@ -1,0 +1,996 @@
+{
+  "schema_version": "manual-slices-1",
+  "source_id": "zengshan_buyi",
+  "source_sha256": "4e63dba65cc7c3bd2b124968f0494bd9d625554f0823163b360bd6ecc2a0679b",
+  "units": [
+    {
+      "unit_id": "zengshan_buyi.manual.L00630.rule",
+      "kind": "rule",
+      "title": "八卦章第一：八卦与父母男女对应",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 630,
+          "end_line": 638,
+          "quote_sha256": "bee4b921f39875cfe7146c7a69fc5a16eccff7ff7ccd73321e4c17355e11de13"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "八卦取象的基础对应；没有具体占问事件。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00642.rule",
+      "kind": "rule",
+      "title": "卦象图第二：八卦阴阳爻形",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 642,
+          "end_line": 674,
+          "quote_sha256": "4ca1e1fce224d94e8f39cb2336d6a41e09013f291133ac60ec04621f05a302ff"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "原文文本化卦形有排版失真，按原文保存，不修补符号。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00678.rule",
+      "kind": "rule",
+      "title": "占卦法：三枚铜钱、老少阴阳与六次爻序",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 678,
+          "end_line": 702,
+          "quote_sha256": "278b17715c45de39dac9132132856c29d19869a574cf33887895146dc6e2bfcb"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "摇卦和记录的通用程序；初爻至上爻顺序原文明示。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00706.rule",
+      "kind": "rule",
+      "title": "占卦法示例：由六次钱象组成水火既济",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 706,
+          "end_line": 750,
+          "quote_sha256": "4efb1a2dd925b8127fef4ce9388b5d9fae29b8d443c9e9117bfc43bfca2d43ee"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "纯教学示例，无具体占问、日期或事实反馈。第710行第六次称两背，但第714行六爻画单，原文有矛盾；只保存，不把图补成案例输入。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00754.rule",
+      "kind": "rule",
+      "title": "占卦法示例：火水未济的内外卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 754,
+          "end_line": 786,
+          "quote_sha256": "e8e622be171d762fea5c58051cfbbd0485e459249fd30dac7258776776e28f90"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "纯教学示例，无具体事件。原文三了、爻等字形照录，不据其生成真实案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00790.rule",
+      "kind": "rule",
+      "title": "八宫六十四卦卦名与宫五行",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 790,
+          "end_line": 854,
+          "quote_sha256": "08cc7e623bcfe27857a25eed1d8a504c1ebc770d82ddb12a3d8df21579f893a5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "八宫卦名索引属于装卦知识。第854行出现泽地咸，与后文第986行泽山咸不一致，保留原文。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00858.rule",
+      "kind": "rule",
+      "title": "八宫图第三：乾宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 858,
+          "end_line": 950,
+          "quote_sha256": "4666a5e42842b86d58f7d7d07f85de28ec4cbfd01d690878253ed1f54546dc97"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表，非八个真实案例。第878行中金、第886行辰士等字形原样保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L00954.rule",
+      "kind": "rule",
+      "title": "八宫图第三：兑宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 954,
+          "end_line": 1038,
+          "quote_sha256": "b1ae741991f46c705e09d74d362869ef2c0e2a8dc016505f19e970308b7c7612"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表。第962行来土、第970行分号等文字或爻形异常原样保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01042.rule",
+      "kind": "rule",
+      "title": "八宫图第三：离宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1042,
+          "end_line": 1126,
+          "quote_sha256": "aee391580f12378378ed9bddaf535055688268a5078cfac12aef3aab9d036b22"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表；原文戌士等字形保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01130.rule",
+      "kind": "rule",
+      "title": "八宫图第三：震宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1130,
+          "end_line": 1214,
+          "quote_sha256": "2a57237f9f762b5168a746927676c8c319e21e05b50a6b639d75b3aa6dd63c69"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表。第1146行首列缺爻形，第1174行妻则丑土等异常不据理论修补。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01218.rule",
+      "kind": "rule",
+      "title": "八宫图第三：巽宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1218,
+          "end_line": 1302,
+          "quote_sha256": "07b78084da00f8128a303506e57c988785e5fd55058fc8eefcb973cc9bffa746"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表。第1278行山雷顾与前文山雷颐字形不一致，保留原文。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01306.rule",
+      "kind": "rule",
+      "title": "八宫图第三：坎宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1306,
+          "end_line": 1390,
+          "quote_sha256": "9fa7ad782e2cc6e5559a873733d09fe25a64b45dca7803428c48b86cdb1495bb"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表。第1378行官鬼五上、第1386行官鬼丑上等异常保留原样。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01394.rule",
+      "kind": "rule",
+      "title": "八宫图第三：艮宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1394,
+          "end_line": 1478,
+          "quote_sha256": "0c6e6287a60b8f7ec6cdcae917b59196477c12579173b6897354ce81290a9a7e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表，无具体占问事件。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01482.rule",
+      "kind": "rule",
+      "title": "八宫图第三：坤宫八卦装六亲与世应全图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1482,
+          "end_line": 1566,
+          "quote_sha256": "a346eaafa70b3e6706ce6d7f9c375497b0ea99128f551cdfb03be75d0dd702ac"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "装卦参照表。第1526行第三列妻财亥水未见爻形，不补写。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01570.rule",
+      "kind": "rule",
+      "title": "初学不知五行者以持世和六冲断四宗事的简法及适用限制",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1570,
+          "end_line": 1590,
+          "quote_sha256": "6003adc3eb05430102cbd4a2e8fa49970934d24c3746c11bc36c59ea22e81908"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "包含作者与朋友的教学问答，不是一次占验案例；将简法与第1590行不适用于稍知五行者的限定保留在同一规则。兼举忧患、功名、求财和疾病，属通用教学，topic_ids置空。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01594.rule",
+      "kind": "rule",
+      "title": "初学简法：一事再占、停止条件与众人同占",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1594,
+          "end_line": 1602,
+          "quote_sha256": "593261b2dc616f137ebfd09b2cb5f2147bbd35a25a531b275d2b4ba04570b5b4"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "为假设问答及通用再占规范；舟行、火患、疾病均是假设举例，没有实际事件结果。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01606.rule",
+      "kind": "rule",
+      "title": "初学进阶次序与占卦年月日辰六神记录",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1606,
+          "end_line": 1610,
+          "quote_sha256": "a3589488e92e3654acca26b557829d8a7c926fc139d92f2669727bbc9aac61a9"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "包含对初学简法适用对象的再次限定，以及学习顺序、记录日期的明确操作要求。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01614.rule",
+      "kind": "rule",
+      "title": "乾卦教学：世爻为用与月建生克冲合世爻戌土",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1614,
+          "end_line": 1650,
+          "quote_sha256": "7862cc83529ca62c41c4691cb4f2a4deac1f042ba76b264756c772559c5fcbfe"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "完整乾卦静爻图配合条件式月令说明；无具体占问月日，不作为实际案例。后续日辰和动爻规则沿用此教学卦。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01654.rule",
+      "kind": "rule",
+      "title": "乾卦教学：日辰生克冲合世爻戌土",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1654,
+          "end_line": 1658,
+          "quote_sha256": "4b4bf1c6b85f55c739675f7a4bcf06f9baf2153386bbca2733d7030353bfdb6d"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "延续第1614行乾卦，以各日支作条件式演示；不是明确占日。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01662.rule",
+      "kind": "rule",
+      "title": "乾卦教学：卦内动爻生克冲合世爻戌土",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1662,
+          "end_line": 1666,
+          "quote_sha256": "880d28bed93009aae5b355aa4e262c361198b1b60e130e75d2b2ff8d48efe42c"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "原文明示倘卦中，属于假设动爻教学；不产生新占例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01670.rule",
+      "kind": "rule",
+      "title": "乾卦教学：变爻回头生克与四处生克的综合取舍",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1670,
+          "end_line": 1686,
+          "quote_sha256": "604ee0e4de7c6d7dd860ad9b7c4574aa6ea532861839a8de14d56213e399b778"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "保留第1682至1686行对乾卦不能实际变出所述寅卯巳午的质疑及借例说明，防止将假设当真实变卦。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01698.rule",
+      "kind": "rule",
+      "title": "月日六亲沿用所占卦的六亲五行属性",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1698,
+          "end_line": 1702,
+          "quote_sha256": "b9c9c8fd01d562fa8f5892093e09da866f087cba595bf493de68423ba269b036"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "首段回答月日六亲如何归类；同段后部章节查阅提示随原文保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01706.rule",
+      "kind": "rule",
+      "title": "乾卦教学：父母爻两现取用及应爻代表他人",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1706,
+          "end_line": 1706,
+          "quote_sha256": "ed4e284250126dfd2c5ee255dbff9094bab5d33ee926b425f433ff51f9aebe85"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "父母、房舍舟车文书及他人等跨门类取用原则，作为通用规则，不从关系名称推断具体健康主题。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01710.rule",
+      "kind": "rule",
+      "title": "乾卦教学：兄弟爻取用与劫财克妻作用",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1710,
+          "end_line": 1710,
+          "quote_sha256": "682310233d0e79b71e522805ebd463a84c6029a57d2bd86d119a1cdcb58c1090"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "说明同一兄弟爻在不同占类中喜忌相反；属于通用六亲规则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01714.rule",
+      "kind": "rule",
+      "title": "乾卦教学：妻财取用及生克空破喜忌",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1714,
+          "end_line": 1714,
+          "quote_sha256": "4a5d159a15b03f526ccba23e0e79a6cbf191ba1262ba0c90ffb4e61d5e6059c3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "跨妻妾、仆役及财物取用的通则，不存在一个实际求财案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01718.rule",
+      "kind": "rule",
+      "title": "乾卦教学：子孙取用及生克空破喜忌",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1718,
+          "end_line": 1718,
+          "quote_sha256": "5a25b427f0f6314309f02b9fb9de549e548b2d78e30f4b45ccb6a7bce55b9c96"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "对子孙用神生克的通用说明；自空一词保留原文，不改为旬空。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01722.rule",
+      "kind": "rule",
+      "title": "乾卦教学：官鬼用于功名及鬼祟盗贼",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1722,
+          "end_line": 1722,
+          "quote_sha256": "cd17df79a9d4656c3f758bc683a3369d9b91baf6e567574ca3b6ed68c40cb52b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "说明官鬼跨门类取用和生克空破规则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01730.rule",
+      "kind": "rule",
+      "title": "动变教学：泽天夬变天风姤及变卦六亲依正卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1730,
+          "end_line": 1762,
+          "quote_sha256": "ab84bad90dd63b2b1e8565c7ddddaf070f9f693754b0656d50b794e6ebf44874"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "纯教学动变示例，无日期、实际占问或事后反馈。第1762行将子水称子孙与表中妻财不同，照存并标记，不据理论改写。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01766.rule",
+      "kind": "rule",
+      "title": "浑天甲子章第四：八卦内外纳支五行",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1766,
+          "end_line": 1798,
+          "quote_sha256": "738ae8c1635c438a5699aae624486c87210694d3a357a7c22d4208944ce7797b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "原文第1778行辰在内、第1782行于水、第1790行高在内等疑似错字均按源文本保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01802.rule",
+      "kind": "rule",
+      "title": "浑天甲子教学：天风姤由下而上装纳支",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1802,
+          "end_line": 1830,
+          "quote_sha256": "51e162f030496b081dfd134c5c91098641f320560f7c597983db0cacc490f993"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "纳支教学例，没有实际占问。第1826行丑土后未见阴爻符号，不补录爻值。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01834.rule",
+      "kind": "rule",
+      "title": "六亲歌章第五：按宫五行定六亲",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1834,
+          "end_line": 1854,
+          "quote_sha256": "2e4848ed88a2583935cdd0e27918741be2d9af0518ace747b5687bfc0d7f17db"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "各宫金木水火土与六亲对应的通用口诀。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01858.rule",
+      "kind": "rule",
+      "title": "六亲歌教学：乾宫金卦安装六亲示例",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1858,
+          "end_line": 1886,
+          "quote_sha256": "434ebaee30b3f2812ebfd277d8f9ca2de58a66cda9407f27720b9a33ff302afe"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "纯六亲装卦示例，非真实占验。第1882行子孙一子水按原文保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01890.rule",
+      "kind": "rule",
+      "title": "世应章第六：八宫世爻顺序与应爻间隔",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1890,
+          "end_line": 1898,
+          "quote_sha256": "486da75e4c256ba3ef7cd92e6a1d40b26d5658e427323a1ae3a07d16e47e0fbd"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "第1894行天地观与前文风地观不一致，照原文保留；不把示范卦名纠正进引文。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01902.rule",
+      "kind": "rule",
+      "title": "动变章第七：阴阳动变及三爻卦示例",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1902,
+          "end_line": 1958,
+          "quote_sha256": "b665ed5626405633fdfbdfbb060e0673edb0caa2a2e96c7484e414b77b1bc308"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "三爻乾坤互变的条件式教学；第1958行仅见说明未见后续图，保留缺失。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01962.rule",
+      "kind": "rule",
+      "title": "动变教学：水天需变天水讼及变爻纳支六亲",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1962,
+          "end_line": 1990,
+          "quote_sha256": "09a36e0f7973a2259a9834c5258482e84830dd486bbfa36d0baed70e516e3db2"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "完整六爻动变教学图，无实际问事或月日，归规则。第1990行申爻不动与图中四爻申金动的字面存在疑点，保留原文，不用于事实验证。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L01994.rule",
+      "kind": "rule",
+      "title": "用神章第八：父母爻代表人物及庇护身躯之物",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1994,
+          "end_line": 1998,
+          "quote_sha256": "287c80b76e915a3be87fb649bbe9e6e17a72ed2080919629df625150247dd084"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "父母、师长、主人、屋宇舟车衣物文书等跨门类六亲取用通则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L02002.rule",
+      "kind": "rule",
+      "title": "用神章第八：官鬼爻代表拘束我身者",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2002,
+          "end_line": 2002,
+          "quote_sha256": "f40f0f56db129411a47ca74e09a59c12fac471163a80ccd0c3ee22a327c547a3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "功名官府、鬼神、丈夫、乱臣贼盗等通用取类原则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L02006.rule",
+      "kind": "rule",
+      "title": "用神章第八：兄弟爻取用、劫财阻事及姊丈妹夫例外",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2006,
+          "end_line": 2006,
+          "quote_sha256": "94cb5923df3e46f9023d05c64bfae200cd9a99eecaed62c14fe26663670fb8ff"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "包含作者屡得验的概括性经验，没有具体一卦或实际反馈可单列案例；保留兄弟与世爻取用的并列表述。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L02010.rule",
+      "kind": "rule",
+      "title": "用神章第八：妻财爻代表驱使之人与使用之财物",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2010,
+          "end_line": 2010,
+          "quote_sha256": "dd6cf7c91a060c6d863df4ab4046443f12bce9656000d31497a6e8374858b9b3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "跨亲属、仆役和财物的取用通则；要财一词按源文本保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L02014.rule",
+      "kind": "rule",
+      "title": "用神章第八：子孙爻取用与制鬼解忧剥官",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2014,
+          "end_line": 2014,
+          "quote_sha256": "d50196b7ad6d485b9fd1299797a2d311a2f9093af0f925dce379462eb97b9c5f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "跨子女后辈、医药兵卒、禽兽的取用及作用通则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_buyi.manual.L02018.rule",
+      "kind": "rule",
+      "title": "用神元神忌神仇神章第九：四神定义",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2018,
+          "end_line": 2025,
+          "quote_sha256": "2dcace354677bdb62c372a5a060f201d4d8198e6dec261be0ceb22736b27cd7d"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "截至第2025行空白，下一行2026才开始辰月戊申日占父近病真实案例。本单元仅含定义。"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1,
+          "end_line": 44,
+          "quote_sha256": "4e51deae2d06fc635085fbdfc54daa6d8e471c31f5f9e7fabd1c137eb29e82ba"
+        }
+      ],
+      "reason": "文件转换说明、书名版本署名及录入者前言；不含具体六爻推断规则或占验事实。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "已直接阅读原文，作为非知识元数据或纯阅读导航排除。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 46,
+          "end_line": 610,
+          "quote_sha256": "a505151ce8fc6d0dea9cb1dc903835f3ea747bab226cdf518154bed3adf873f8"
+        }
+      ],
+      "reason": "全书目录和页码导航，正文规则在对应章节另行收录，不作为独立知识重复索引。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "已直接阅读原文，作为非知识元数据或纯阅读导航排除。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 614,
+          "end_line": 626,
+          "quote_sha256": "b918415f3fad3fe5a9150897df0a906a8eb29657825494fee7e94ed05819a6dd"
+        }
+      ],
+      "reason": "卷名及作者、鉴定、增删、校录署名等出版元数据。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "已直接阅读原文，作为非知识元数据或纯阅读导航排除。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1690,
+          "end_line": 1694,
+          "quote_sha256": "1da040b4c6cdcb60c7235a7891543cf58e78d603bda18c6b6a58cc818abb176a"
+        }
+      ],
+      "reason": "卯戌兼克合的问句仅指往五行相合章，未在本段给出规则解答；属于内部章节导航。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "已直接阅读原文，作为非知识元数据或纯阅读导航排除。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1726,
+          "end_line": 1726,
+          "quote_sha256": "e790b8b504f568ab8ffd60b1de9019784c08654cbaae54a56fe806de1d77f7af"
+        }
+      ],
+      "reason": "作者关于纲领和由浅入深阅读的过渡语，没有新增推断规则。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "codex_agent_rebuild_buyi_batch1",
+        "notes": "已直接阅读原文，作为非知识元数据或纯阅读导航排除。"
+      }
+    }
+  ]
+}

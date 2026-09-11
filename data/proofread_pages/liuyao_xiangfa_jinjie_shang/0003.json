@@ -1,0 +1,18 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "pdf_page": 3,
+  "pdf_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "original_sha256": "5d742268f441e2ec07ef069fd4abc9dee780a7db28b99ad8b629777b441b78a4",
+  "text": "2，快速，急躁 106\n3，马虎，叛逆 116\n4，流血，冲突 119\n5，生病，毛病 129\n第六节 玄武 136\n1，智慧，性感 136\n2，私心，狡猾 139\n3，内向，抑郁 147\n4，偏门，诈骗 153\n5，私下，暧昧 158\n6，水坑，肮脏 170\n第七节 综合提取六神信息 176\n第二章 组合之象 181\n1，虎父伤身防车祸 181\n2，父母临日定婚期 183\n3，父财互化价难定 姻缘需防女有婚 186\n4，青龙子孙多清高 190\n5，虎子逢破胎难保 193\n6，螣蛇子孙多技艺 195\n7，青龙官星为正职 197\n8，玄鬼持世必藏私 200\n9，玄武兄动有破耗 203\n10，勾陈临宅少奔波 206\n11，五爻君位必掌权 210\n12，虎雀对立起争执 213\n13，世应比合感情淡 216\n14，虎马游魂逃学儿 219\n15，官伏财破无正职 220\n16，财子皆伏无来源 222\n17，世应同宫多有旧 224",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "review_date": "2026-09-11",
+  "normalization": "逐页原图核读；段落内折行合并，段落与目录条目换行保留；排版空格和目录点线归一，印刷页码另列printed_page。跨页续句不补字。图形箭头以同义字形表示，非正文图画不重绘。",
+  "unclear": [],
+  "notes": [
+    "目录引导点线归一为空格，条目、层级顺序和标示页码照原图转写。"
+  ],
+  "printed_page": null,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_shang/0003.png",
+  "image_sha256": "9743613b64e12c5f877ec679a850622d12a1ccaeaf6d3b2a22bb01868d8de99b"
+}

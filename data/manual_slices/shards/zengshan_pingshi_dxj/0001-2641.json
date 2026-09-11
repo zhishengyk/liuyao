@@ -1,0 +1,2930 @@
+{
+  "schema_version": "manual-slices-1",
+  "source_id": "zengshan_pingshi_dxj",
+  "source_sha256": "c1360a86105d9348e8d4f7dbcc7a2ea4d20e171b89ade5bbfa84f823ad1328a1",
+  "units": [
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0666-eight-trigrams-family",
+      "kind": "rule",
+      "title": "八卦的家庭人物与阴阳归属",
+      "method": "xiangfa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 666,
+          "end_line": 674,
+          "author": null,
+          "quote_sha256": "3216bfb4067410ddd86732ac2b3bc5d4f4e692750f4c562ec683309f20b40583"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0678-trigram-strokes",
+      "kind": "rule",
+      "title": "八卦卦象的单拆点画与三爻结构",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 678,
+          "end_line": 710,
+          "author": null,
+          "quote_sha256": "681fe611f91fa681b88b09093311045eb7461cefba171f8b81292efd9f2fd28e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0714-coins-casting",
+      "kind": "rule",
+      "title": "以钱代蓍：祝告、钱币正反、动静与内外卦次序",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 714,
+          "end_line": 758,
+          "author": null,
+          "quote_sha256": "7749f6c0af2b5db2df4a124429e15bd700f95f4ddd9bd9240276a83d7c320837"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "按原著完整操作步骤保留；这是取卦程序，非实测案例。后文新评释另立单元，避免混同两位作者意见。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0762-jiji-demo",
+      "kind": "rule",
+      "title": "既济卦点画演示：动爻还原、内外卦与卦名",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 762,
+          "end_line": 830,
+          "author": null,
+          "quote_sha256": "b6a985d00d908930a630b52241eb0d9f5c725185c2bca0f1ba218942e5db08c1"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文明确为点卦示范，没有求测事件或反馈；按教学规则保留卦画。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0834-weiji-demo",
+      "kind": "rule",
+      "title": "未济卦点画演示：交重还原后辨上下卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 834,
+          "end_line": 866,
+          "author": null,
+          "quote_sha256": "7e884c07abcb37a2dab9b7308c8177e09500fe66585abbc027ebbeb5b54d281b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文明确为再排一卦为式，属于假设教学演示，非实际卦例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0870-casting-commentary",
+      "kind": "rule",
+      "title": "新评释：取卦无须祈祷鬼神，求测者或预测师均可摇卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 870,
+          "end_line": 874,
+          "author": "王虎应",
+          "quote_sha256": "3af78da4f51eb8bcd51f7611e5c84ca0a66d7e03bbb85a6073fa1398210dd186"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0878-palace-names",
+      "kind": "rule",
+      "title": "八宫六十四卦名称及各宫五行",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 878,
+          "end_line": 942,
+          "author": null,
+          "quote_sha256": "128f90484eeb1877a3d43cb88dd2dc7464465f67fee5dffbadece417b2b903db"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "按八宫名称总表为一个知识单元；原文疑似错字（如泽地咸）保留，不在切片中校改。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0946-palace-table-guide",
+      "kind": "rule",
+      "title": "八宫装卦全图的查用方法",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 946,
+          "end_line": 950,
+          "author": null,
+          "quote_sha256": "b15658d71550d7f8e1f31afe9f531e8df9dcd156f42372dcf9ca9a25fe5d7b19"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l0954-qian-palace-table",
+      "kind": "rule",
+      "title": "乾宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 954,
+          "end_line": 1038,
+          "author": null,
+          "quote_sha256": "1635765dcfd4559cad5c0bac0e40f561acf7305efb5d525f6a80faa37f71c467"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "亲读后保留整宫并列表格；天地否在原文表内重复，照录，不当成两次实际占卜。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1042-dui-palace-table",
+      "kind": "rule",
+      "title": "兑宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1042,
+          "end_line": 1126,
+          "author": null,
+          "quote_sha256": "23ebf39392bfd1d8e366992714cce71b684f98d8816bf016efce014683e8fe59"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1130-li-palace-table",
+      "kind": "rule",
+      "title": "离宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1130,
+          "end_line": 1214,
+          "author": null,
+          "quote_sha256": "a9d31c9b6342bd62d8e71e5350ccfcaa7fae0f30581f60b954668a7a4997c4fe"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1218-zhen-palace-table",
+      "kind": "rule",
+      "title": "震宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1218,
+          "end_line": 1302,
+          "author": null,
+          "quote_sha256": "aa36be06e7e7113d47b2798ca71a86374ad8740f00ae6c3c69bad512e5dc98aa"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1306-xun-palace-table",
+      "kind": "rule",
+      "title": "巽宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1306,
+          "end_line": 1390,
+          "author": null,
+          "quote_sha256": "2f3eb70b223267ab63864acf6cb51104b589400c64f6cb2345c606717335a443"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；山雷顾等原文字样不自动订正。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1394-kan-palace-table",
+      "kind": "rule",
+      "title": "坎宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1394,
+          "end_line": 1478,
+          "author": null,
+          "quote_sha256": "ed3df511f6c67770a4ef6cdd7d57d7456bf9c45549f2fa6adf8c3386feae32a5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1482-gen-palace-table",
+      "kind": "rule",
+      "title": "艮宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1482,
+          "end_line": 1566,
+          "author": null,
+          "quote_sha256": "03039c982a320b5b1a82231d173d78362c9ef7929cd5e2f5e2f146c298d56d1c"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1570-kun-palace-table",
+      "kind": "rule",
+      "title": "坤宫八卦世应、六亲、纳支装卦图",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1570,
+          "end_line": 1654,
+          "author": null,
+          "quote_sha256": "8a487ac3f8358ef4a0b0e56a3f62b5847b021a25e179f812b46adc7c05875fba"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整宫并列装卦表，非真实卦例；保留原文疑似错字及版式。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1658-simple-shiyao-intro",
+      "kind": "rule",
+      "title": "野鹤秘法：不知五行者查全图只看世爻的主张",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1658,
+          "end_line": 1662,
+          "author": "野鹤老人",
+          "quote_sha256": "fa1aa92a89822db89ebfb418e9a99e7862e0ddb29563a1c09fae78739e165dc6"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "叙述授友简法的来由及方法，没有一件已发生占例；后文反对该法的新评释独立保留。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1666-risk-shiyao",
+      "kind": "rule",
+      "title": "野鹤秘法：防患占以子孙与官鬼持世分忧安",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1666,
+          "end_line": 1666,
+          "author": "野鹤老人",
+          "quote_sha256": "47dedb75607b34bdb5f9f8e941836c469aaf12b39fc591be78f14de952313dab"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1670-office-shiyao",
+      "kind": "rule",
+      "title": "野鹤秘法：功名占以官鬼与子孙持世分成败",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1670,
+          "end_line": 1670,
+          "author": "野鹤老人",
+          "quote_sha256": "8cf230c2da3431d5cc974a966ec5dc3bbea52e77b060f7e04a0f4b5f6a65a78a"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1674-wealth-shiyao",
+      "kind": "rule",
+      "title": "野鹤秘法：求财占以妻财与兄弟持世分得失",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1674,
+          "end_line": 1674,
+          "author": "野鹤老人",
+          "quote_sha256": "39f894187ea1f06891ecbab0ee4d428ba9804224f45f8faf9ea9d6877462508f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1678-illness-liuchong",
+      "kind": "rule",
+      "title": "野鹤秘法：近病与久病得六冲的不同判断",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1678,
+          "end_line": 1678,
+          "author": "野鹤老人",
+          "quote_sha256": "efdec5312bb50eea8ea1c3c742b0511768e4717cfbe94649ca1d06999bdd77e3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1682-shiyao-definition",
+      "kind": "rule",
+      "title": "子孙持世、官鬼持世等术语的定义",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1682,
+          "end_line": 1686,
+          "author": "野鹤老人",
+          "quote_sha256": "4662a3b672dfcca744eb4759b402481f78300458a42611891aba8cae195de01f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1690-liuchong-list",
+      "kind": "rule",
+      "title": "八纯卦、无妄、大壮合为十个六冲卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1690,
+          "end_line": 1690,
+          "author": "野鹤老人",
+          "quote_sha256": "e2fbbc324e0a0b17b2e56e6dcf55d72921bdeca8375277f8b770f0a9715c1313"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1694-simple-method-limits",
+      "kind": "rule",
+      "title": "野鹤说明持世简法适用对象及须详察五行的界限",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1694,
+          "end_line": 1698,
+          "author": "野鹤老人",
+          "quote_sha256": "0f9f1e424f404cd6b516ac040d422dd353b7766d9db6821804bcc2fa9385f00e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "保留问答与适用条件为完整论证；不能将只看持世的结论当成无条件通则。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1702-simple-method-critique",
+      "kind": "rule",
+      "title": "新评释：反对仅凭喜忌持世判断吉凶",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1702,
+          "end_line": 1706,
+          "author": "王虎应",
+          "quote_sha256": "0f7c60b63c1f1affae6c303f16a8ed28e71032d6ee3aa6d0f18548dba26ad7cf"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1710-recast-missing-shiyao",
+      "kind": "rule",
+      "title": "赛锦囊秘法：所求持世类型不现时再占",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1710,
+          "end_line": 1718,
+          "author": "野鹤老人",
+          "quote_sha256": "11d5524d613a5bbbe46c0ee54805a287cdb1515942b9a5e68981f85830e00dfe"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1722-recast-critique",
+      "kind": "rule",
+      "title": "新评释：可用复占辅助，子孙休囚空破持世也有灾",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1722,
+          "end_line": 1722,
+          "author": "王虎应",
+          "quote_sha256": "9f951fdcd6c9d5818831ada5892030a2cb60bf3c24dcde78919c744c58daa4f9"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1726-recast-one-matter",
+      "kind": "rule",
+      "title": "野鹤的多占方法与一事专心之要求",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1726,
+          "end_line": 1726,
+          "author": "野鹤老人",
+          "quote_sha256": "99abe15fe9be095b6c50a293e5c72be6d63cfbf2abf4c8e21d703bcbae414067"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1730-skilled-reader",
+      "kind": "rule",
+      "title": "新评释：应验取决于断者水平，不能按卦师意见多数定吉凶",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1730,
+          "end_line": 1730,
+          "author": "王虎应",
+          "start_column": 0,
+          "end_column": 78,
+          "quote_sha256": "9fbdf69dfb9ac8908628781d16614e9438d18e83c7f9359560909744bf694bec"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1730-gui-mei-child-year",
+      "kind": "case",
+      "title": "2001年杨先生由流年卦问女儿吉凶：归妹变乾",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1730,
+          "end_line": 1762,
+          "author": "王虎应",
+          "start_column": 78,
+          "quote_sha256": "b253566b253b4701a9d9c96f6b5831ec2bb85d059e9cba4e4c03e4ac9c572569"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": null,
+            "start_line": 1730,
+            "end_line": 1730,
+            "author": "王虎应",
+            "start_column": 95,
+            "end_column": 108,
+            "quote_sha256": "f2cc4fa6a608552e316ceb1b333d7e215f24c6940098e42c0d1bf675fecce986"
+          }
+        ],
+        "background": [
+          {
+            "page": null,
+            "start_line": 1730,
+            "end_line": 1730,
+            "author": "王虎应",
+            "start_column": 78,
+            "end_column": 95,
+            "quote_sha256": "f29d727efe7c77960daeea5ac3107705e036fa371301b5fd44aac688e4ac40ae"
+          },
+          {
+            "page": null,
+            "start_line": 1758,
+            "end_line": 1758,
+            "author": "王虎应",
+            "start_column": 33,
+            "end_column": 60,
+            "quote_sha256": "9a856e2c9371cb05a3d5c078b87fa84fdc02650e0dc218635438dc6c095200e5"
+          }
+        ],
+        "chart": [
+          {
+            "page": null,
+            "start_line": 1730,
+            "end_line": 1730,
+            "author": "王虎应",
+            "start_column": 109,
+            "end_column": 128,
+            "quote_sha256": "33db9849eff85c27da5eaf196c0375eaab53fef5ac5d0949bf527944094cdebc"
+          },
+          {
+            "page": null,
+            "start_line": 1734,
+            "end_line": 1754,
+            "author": "王虎应",
+            "quote_sha256": "0fb9a4fab3d46ebd20de8ccc173eb47a836d03ceb623baa3321a991d9a18a7b7"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": null,
+            "start_line": 1758,
+            "end_line": 1758,
+            "author": "王虎应",
+            "start_column": 0,
+            "end_column": 33,
+            "quote_sha256": "148aab3e5c5d0a98e78f97961f9683473901be03dbeee4a49f74ac229d21c415"
+          },
+          {
+            "page": null,
+            "start_line": 1758,
+            "end_line": 1758,
+            "author": null,
+            "start_column": 60,
+            "end_column": 74,
+            "quote_sha256": "05035b3d5ae32bd7686ff0ed90f60db7b9c4dfe6c6c5d6ca1915d658b10754b8"
+          }
+        ],
+        "feedback": [
+          {
+            "page": null,
+            "start_line": 1758,
+            "end_line": 1758,
+            "author": "王虎应",
+            "start_column": 74,
+            "quote_sha256": "513034a5814323bd20bfc363b04aee3e71d4aeb5cd961d7b9d8f12f130f2b73a"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": null,
+            "start_line": 1762,
+            "end_line": 1762,
+            "author": "王虎应",
+            "quote_sha256": "3f1a9af6a292e3bf0ce10eb1e68c8be492bbe781e11d33c04bf85e7357954434"
+          }
+        ]
+      },
+      "cast": {
+        "line_values": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "month_branch": "寅",
+        "day_ganzhi": "丙午",
+        "year_ganzhi": null,
+        "hour_ganzhi": null,
+        "field_spans": {
+          "line_values": [
+            {
+              "page": null,
+              "start_line": 1754,
+              "end_line": 1754,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "f2b14c641490f85e4b5d80b7d8be2d2d43ed2aab2c40b82e1831597c8174a46a"
+            },
+            {
+              "page": null,
+              "start_line": 1750,
+              "end_line": 1750,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "f2b14c641490f85e4b5d80b7d8be2d2d43ed2aab2c40b82e1831597c8174a46a"
+            },
+            {
+              "page": null,
+              "start_line": 1746,
+              "end_line": 1746,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": null,
+              "start_line": 1742,
+              "end_line": 1742,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "f2b14c641490f85e4b5d80b7d8be2d2d43ed2aab2c40b82e1831597c8174a46a"
+            },
+            {
+              "page": null,
+              "start_line": 1738,
+              "end_line": 1738,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            },
+            {
+              "page": null,
+              "start_line": 1734,
+              "end_line": 1734,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 7,
+              "quote_sha256": "8db71ed28b0f2f1432561e8d8a0dc3878f2da540c53a2ab82335b6f716da2ef3"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": null,
+              "start_line": 1730,
+              "end_line": 1730,
+              "author": "王虎应",
+              "start_column": 110,
+              "end_column": 111,
+              "quote_sha256": "e6fff25ec9c01f9db5f321bdfd61861b3c4378aca90b41fdbaf5deee8d092048"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": null,
+              "start_line": 1730,
+              "end_line": 1730,
+              "author": "王虎应",
+              "start_column": 112,
+              "end_column": 114,
+              "quote_sha256": "7570bf664e6af719065c5facbe16f954b8ebf61904b5dff84175ab87ba73e9bf"
+            }
+          ],
+          "year_ganzhi": [],
+          "hour_ganzhi": []
+        }
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "亲读后以“曾在2001年”划案例起点，与同段一般论述用列边界分开。作者断肺部及平安为预测；询问八十多名卦师的事实记背景；他人断死另记分析且author=null，避免把他人预测混进问事背景；“唯一预测对的人”为作者自述反馈，未擅补具体病程或独立验证。后段合旺、连续相生解释单列为反馈后分析。公历2001年不推算干支年。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1766-multiple-matters",
+      "kind": "rule",
+      "title": "新评释：一卦可断多人多事，一事一占的信息更集中",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1766,
+          "end_line": 1766,
+          "author": "王虎应",
+          "quote_sha256": "e32c2c68fa3f51c560578e95982f2fab77f3e1e0d65e2aa28b83faba28f273fc"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1770-stop-recasting",
+      "kind": "rule",
+      "title": "赛锦囊秘法：得所问成败指示即止，不应复占求吉",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1770,
+          "end_line": 1774,
+          "author": "野鹤老人",
+          "quote_sha256": "28a849531b0ed2ab463fff237fcd374ba8b2d47a15787443a186813ba0689470"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1778-shared-danger",
+      "kind": "rule",
+      "title": "赛锦囊秘法：同祸福众人各占及子孙持世的判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1778,
+          "end_line": 1778,
+          "author": "野鹤老人",
+          "quote_sha256": "751bcc82238908154b8c60bf97b58555deb3b042071fa0c650a485abc26616a3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1782-family-illness-recast",
+      "kind": "rule",
+      "title": "赛锦囊秘法：家人代占疾病求六冲的主张",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1782,
+          "end_line": 1782,
+          "author": "野鹤老人",
+          "quote_sha256": "398ef7b242cbd3c734ecc7e7e5c3df6d65fc936390bdee704b22db5ee2bbabc3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1786-private-divination",
+      "kind": "rule",
+      "title": "赛锦囊秘法：一己祸福暗卜、不先问识者的主张",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1786,
+          "end_line": 1786,
+          "author": "野鹤老人",
+          "quote_sha256": "19075fe24d894dcb8074972a4d0568d3df557fdaeea6c49d507e876308187558"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1790-private-divination-critique",
+      "kind": "rule",
+      "title": "新评释：初学遇凶卦不可等事后才向精通者请教",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1790,
+          "end_line": 1790,
+          "author": "王虎应",
+          "quote_sha256": "9483c7feb8c0dcbc61d38b5d1bf71ff4295930a93cf7b0763174d7d36ba3ee2c"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1798-risk-scenes",
+      "kind": "rule",
+      "title": "占防灾虑秘法：适用情景、持世判断及谏诤例外",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1798,
+          "end_line": 1826,
+          "author": "野鹤老人",
+          "quote_sha256": "757601c0f5a2260f40bb1dfd21dc399b95151d37ddba63edba68cacbc4151972"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "所列均以“或”引出的通用防患情景，非有时间与反馈的实际案例；保留末段谏诤例外。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1830-travel-recast",
+      "kind": "rule",
+      "title": "占防灾虑秘法：开舟等急事可按日复占择时",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1830,
+          "end_line": 1830,
+          "author": "野鹤老人",
+          "quote_sha256": "0d94490484341f1c0a2438689f3a038c43a1fc6a4eff9a27e50bd076a3ec48c2"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1834-office-scenes",
+      "kind": "rule",
+      "title": "占功名秘法：文武升选考试等事的持世判断",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1834,
+          "end_line": 1838,
+          "author": "野鹤老人",
+          "quote_sha256": "b4db39cd63c14063d38d0e68178e130762ef329bf268660624514bda88766e3b"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1842-office-risk-intent",
+      "kind": "rule",
+      "title": "功名与防患并存时须辨心念，野鹤主张自占不代占",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1842,
+          "end_line": 1846,
+          "author": "野鹤老人",
+          "quote_sha256": "8a95803088c2c9004064232faf6482293cc4aa37e58f24fa3f6a896e7a2c4379"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1850-local-disasters",
+      "kind": "rule",
+      "title": "在任者占地方警变灾荒：限本岁、诸事分占",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1850,
+          "end_line": 1850,
+          "author": "野鹤老人",
+          "quote_sha256": "b38ed9abcb0174859ad647996f04ae3dfd8585838aeebea9062894c038ee45b1"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1854-office-liability",
+      "kind": "rule",
+      "title": "在任遇警变恐挂误：按功名有失取持世",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1854,
+          "end_line": 1854,
+          "author": "野鹤老人",
+          "quote_sha256": "b9fb6b63ec0e0675d8f091e331935cd4d0873b322b8f1724820d55231548d21e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1858-office-promotion",
+      "kind": "rule",
+      "title": "在任无事占将来升迁的持世判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1858,
+          "end_line": 1858,
+          "author": "野鹤老人",
+          "quote_sha256": "58fc39660fc13f4117650e69712d70c54ba3c098dd77204602c5a9eda8425ace"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1862-lifetime-office",
+      "kind": "rule",
+      "title": "未达士人与已有批文者占终能成名出仕",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1862,
+          "end_line": 1862,
+          "author": "野鹤老人",
+          "quote_sha256": "6faadd273fd6a8f6804f1e50ffe1ba15f97e4c64183fdf8c608910a7b8f2905a"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1866-exam-recast",
+      "kind": "rule",
+      "title": "士子逐科再问终身的占功名次序",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1866,
+          "end_line": 1866,
+          "author": "野鹤老人",
+          "quote_sha256": "d23b96c089a772ba8eab8d3c491cf872c55d09a4942e7f9e663735ca7ee0598a"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1870-near-before-far",
+      "kind": "rule",
+      "title": "占事宜节节问去：远问可能先报近事",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1870,
+          "end_line": 1870,
+          "author": "野鹤老人",
+          "quote_sha256": "d0b40a1842309becaa353ac99b7669b8c1dfae2f09eb232b69d4ba6c3a2d5885"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1874-taxes-grain",
+      "kind": "rule",
+      "title": "占财秘法：钱粮征收与领取足额的持世判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1874,
+          "end_line": 1878,
+          "author": "野鹤老人",
+          "quote_sha256": "ecf35f583966be13bb08db6bc8eda2f5aeff19b83f7891aacf52f3dd2b23f8a7"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1882-start-business",
+      "kind": "rule",
+      "title": "占财秘法：经商开张及见贵求财的持世判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1882,
+          "end_line": 1882,
+          "author": "野鹤老人",
+          "quote_sha256": "d6aaa7ed7ac729c9bbc78667791e5906298f4db178b769ba10b3bbc459daf098"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1886-existing-business",
+      "kind": "rule",
+      "title": "占财秘法：已经营店面的将来兴废",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1886,
+          "end_line": 1886,
+          "author": "野鹤老人",
+          "quote_sha256": "7326e36b840c70967fe58f0ba20ef708898f1b119f0888072879ea23130f681f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1890-stock-goods",
+      "kind": "rule",
+      "title": "占财秘法：囤货买进的持世判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1890,
+          "end_line": 1890,
+          "author": "野鹤老人",
+          "quote_sha256": "fa3beaa8f79322b06ce0b998d30cb2cad027984954eb739d5a7833fba4d9f334"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1894-lending",
+      "kind": "rule",
+      "title": "占财秘法：放债的持世判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1894,
+          "end_line": 1894,
+          "author": "野鹤老人",
+          "quote_sha256": "61824f038b560f0fdb140b7e9235bdde281c0d2159c4d5999a4253df550fe3be"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1898-debt-collection",
+      "kind": "rule",
+      "title": "占财秘法：取债、复占与经官判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1898,
+          "end_line": 1898,
+          "author": "野鹤老人",
+          "quote_sha256": "ecb538e8d48d088c225d3047289526e596a7f0e4212b91ae82adb1b425354c46"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1902-natural-resources",
+      "kind": "rule",
+      "title": "占财秘法：山林矿窑盐池鱼沼等取利判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1902,
+          "end_line": 1902,
+          "author": "野鹤老人",
+          "quote_sha256": "0b78f9f125ca4242c66fc9637e44af65adbe33db95a2ee3f65a59e2b7f481011"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1906-alchemy-prohibition",
+      "kind": "rule",
+      "title": "野鹤论炼汞烧丹不必占，即见财也可能应别处",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1906,
+          "end_line": 1906,
+          "author": "野鹤老人",
+          "start_column": 0,
+          "end_column": 38,
+          "quote_sha256": "23214888fa9020aa241e41465381b573ff179ae4409ed992c0c9bbfb470c2724"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1906-alchemy-family",
+      "kind": "case",
+      "title": "占烧丹而应妻妾子女远来团聚：戌土财持世、午火子孙动",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1906,
+          "end_line": 1906,
+          "author": "野鹤老人",
+          "start_column": 38,
+          "end_column": 121,
+          "quote_sha256": "675d390c7710db2f984d8784622cf65656689efeafd0976bc2b5c70faefb3c54"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": "野鹤老人",
+            "start_column": 41,
+            "end_column": 44,
+            "quote_sha256": "ce59c30eaa9f0a3eee332a5059acb3a764fe17ce5bcab5a379835799f186d544"
+          }
+        ],
+        "background": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": "野鹤老人",
+            "start_column": 38,
+            "end_column": 41,
+            "quote_sha256": "227cc9bc472ba496d5327fd4a5e7f05d4a514ba2d9b349397c064fc64bc63b74"
+          }
+        ],
+        "chart": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": "野鹤老人",
+            "start_column": 45,
+            "end_column": 63,
+            "quote_sha256": "b7192d2cac1e4bcd779d6a777f9964c5e873cf6322ffe82bf38bda3c8535e144"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": null,
+            "start_column": 63,
+            "end_column": 72,
+            "quote_sha256": "c38f86f83d1d4736f02331dd560564d2cba4b532436d2e6ea942ab6f92f9b620"
+          }
+        ],
+        "feedback": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": "野鹤老人",
+            "start_column": 72,
+            "end_column": 92,
+            "quote_sha256": "41449736870a4b1a85d39db4cf8d18f0875d059a9d96b3ebbc70820904c0aa37"
+          }
+        ],
+        "post_feedback_analysis": [
+          {
+            "page": null,
+            "start_line": 1906,
+            "end_line": 1906,
+            "author": "野鹤老人",
+            "start_column": 92,
+            "end_column": 121,
+            "quote_sha256": "38537885322e61d7b85bee12e4f8d9a5e395d9e696d04454dac31addb81e3f41"
+          }
+        ]
+      },
+      "cast": {
+        "line_values": null,
+        "month_branch": null,
+        "day_ganzhi": null,
+        "year_ganzhi": null,
+        "hour_ganzhi": null,
+        "field_spans": {
+          "line_values": [],
+          "month_branch": [],
+          "day_ganzhi": [],
+          "year_ganzhi": [],
+          "hour_ganzhi": []
+        }
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "真实回顾案例嵌在同一段通则中，以字符列精确切出；只谓成丹是预测，九月妻妾子女来聚是实际叙述，随后妻财/子孙取象为反馈后解释。原文未明言“只谓”的具体说话人，故该分析span.author=null。无完整卦盘及起卦时间，cast不从戌月预测或九月反馈反推。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1906-unreasonable-demand",
+      "kind": "rule",
+      "title": "野鹤论非理之求可能占此应彼",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1906,
+          "end_line": 1906,
+          "author": "野鹤老人",
+          "start_column": 121,
+          "quote_sha256": "7b11d10673b51255378a16eecbce86211a8054baa7043290a811f56be4fcb1a4"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1910-underground-treasure",
+      "kind": "rule",
+      "title": "占财秘法：地下异物疑财时财、兄、官持世的判断",
+      "method": "lifa",
+      "scope": "scene",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1910,
+          "end_line": 1910,
+          "author": "野鹤老人",
+          "quote_sha256": "a9fe1f32fc87a3ee88418dc2e5566c82686c6ee26b6e4e2f7424d2400fa24ff0"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1922-simple-method-reminder",
+      "kind": "rule",
+      "title": "野鹤重申简法只为不知五行者而设，识五行须详断",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1922,
+          "end_line": 1922,
+          "author": "野鹤老人",
+          "quote_sha256": "c261838c2ec211b23a7d5dddfb9cca2a36357c22318906403fff0ee000e018f2"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique",
+      "kind": "rule",
+      "title": "新评释：财持世也会破财，兄持世而财旺入库或合财也可得财",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1926,
+          "end_line": 1930,
+          "author": "王虎应",
+          "quote_sha256": "03b93f564af3a28cee992ff28840340320c89384f5d085e7df7a990ce1be9c11"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1934-wealth-tai-lin",
+      "kind": "case",
+      "title": "丁丑年女士测财运：地天泰变地泽临，兄动持世得财及南方投资失利",
+      "method": "mixed",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1934,
+          "end_line": 1970,
+          "author": "王虎应",
+          "quote_sha256": "1917ee4db99b4f34909b12c3a0a07a24ca3705bf6ac8bd9355603e8e474bea3c"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": null,
+            "start_line": 1934,
+            "end_line": 1934,
+            "author": "王虎应",
+            "start_column": 16,
+            "end_column": 22,
+            "quote_sha256": "6816b13f069cc7bc2461200a00521e7ab589fd2e2cc7c9744455f46962e95c72"
+          }
+        ],
+        "background": [
+          {
+            "page": null,
+            "start_line": 1970,
+            "end_line": 1970,
+            "author": "王虎应",
+            "start_column": 136,
+            "end_column": 152,
+            "quote_sha256": "141516a5ef61fec6e43a0461c4b1be6cdf4e842cbd5c471f4650e07ce2fd25ef"
+          },
+          {
+            "page": null,
+            "start_line": 1970,
+            "end_line": 1970,
+            "author": "王虎应",
+            "start_column": 161,
+            "end_column": 177,
+            "quote_sha256": "c8d4c166fa0491d802c6235d294772e4750bf4c61c3077b98de50a1d4a213f27"
+          }
+        ],
+        "chart": [
+          {
+            "page": null,
+            "start_line": 1934,
+            "end_line": 1934,
+            "author": "王虎应",
+            "start_column": 6,
+            "end_column": 15,
+            "quote_sha256": "7bfa14b679e073486c247916199f1e59dce3b1640156ab391997bde33594f6e9"
+          },
+          {
+            "page": null,
+            "start_line": 1934,
+            "end_line": 1934,
+            "author": "王虎应",
+            "start_column": 22,
+            "end_column": 31,
+            "quote_sha256": "a2407206cc749ea1a4c295ae90f4babae52c296361bfce1f1ec73ca932711f40"
+          },
+          {
+            "page": null,
+            "start_line": 1938,
+            "end_line": 1958,
+            "author": "王虎应",
+            "quote_sha256": "e05d2384eb299b623eb787a4099190439afe93e761ea1a559d6717b6bb8325d5"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": null,
+            "start_line": 1962,
+            "end_line": 1966,
+            "author": "王虎应",
+            "quote_sha256": "3355fc4032056be319b7f97ee15321c94e966f67c60df9e472e6e5fbbf85608c"
+          },
+          {
+            "page": null,
+            "start_line": 1970,
+            "end_line": 1970,
+            "author": "王虎应",
+            "start_column": 152,
+            "end_column": 161,
+            "quote_sha256": "8a47393ae54f8b60ba33bc3b28d3ea3fe6ec9ee30839faee5e308b08ec6ffa80"
+          }
+        ],
+        "feedback": [
+          {
+            "page": null,
+            "start_line": 1970,
+            "end_line": 1970,
+            "author": "王虎应",
+            "start_column": 0,
+            "end_column": 136,
+            "quote_sha256": "ce2a0191ef092dc6ab82907efec95596189758f28c6b48de2758bb877a4c31b5"
+          },
+          {
+            "page": null,
+            "start_line": 1970,
+            "end_line": 1970,
+            "author": "王虎应",
+            "start_column": 177,
+            "quote_sha256": "22980c044601e2f2e7593005ccdbc89ce457e0bc9bec5fcd8af8da9dcec69af5"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          2
+        ],
+        "month_branch": "巳",
+        "month_ganzhi": "乙巳",
+        "day_ganzhi": "丁卯",
+        "year_ganzhi": "丁丑",
+        "hour_ganzhi": null,
+        "field_spans": {
+          "line_values": [
+            {
+              "page": null,
+              "start_line": 1958,
+              "end_line": 1958,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "f2b14c641490f85e4b5d80b7d8be2d2d43ed2aab2c40b82e1831597c8174a46a"
+            },
+            {
+              "page": null,
+              "start_line": 1954,
+              "end_line": 1954,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "f2b14c641490f85e4b5d80b7d8be2d2d43ed2aab2c40b82e1831597c8174a46a"
+            },
+            {
+              "page": null,
+              "start_line": 1950,
+              "end_line": 1950,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "bc8e60eb386e610be3bb194ec8ed8e9c19ef872506af012bf845e8767cfaf109"
+            },
+            {
+              "page": null,
+              "start_line": 1946,
+              "end_line": 1946,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "5d6a929ad38a9d282d6660f8022d169be829953e9ca26f02a407ddd8ee2ad45f"
+            },
+            {
+              "page": null,
+              "start_line": 1942,
+              "end_line": 1942,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "5d6a929ad38a9d282d6660f8022d169be829953e9ca26f02a407ddd8ee2ad45f"
+            },
+            {
+              "page": null,
+              "start_line": 1938,
+              "end_line": 1938,
+              "author": "王虎应",
+              "start_column": 4,
+              "end_column": 5,
+              "quote_sha256": "5d6a929ad38a9d282d6660f8022d169be829953e9ca26f02a407ddd8ee2ad45f"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": null,
+              "start_line": 1934,
+              "end_line": 1934,
+              "author": "王虎应",
+              "start_column": 10,
+              "end_column": 11,
+              "quote_sha256": "0a15957bf9abe2fe93705ac2959ef6e87b3f43cebaf9a24b947fa356ad3c5b55"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": null,
+              "start_line": 1934,
+              "end_line": 1934,
+              "author": "王虎应",
+              "start_column": 9,
+              "end_column": 11,
+              "quote_sha256": "94d7c63e8f2408524f41d808f300f1c3e2617653bb118cfa704860c65a11ed02"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": null,
+              "start_line": 1934,
+              "end_line": 1934,
+              "author": "王虎应",
+              "start_column": 12,
+              "end_column": 14,
+              "quote_sha256": "31b6cb25acf4d127468ad39657f81185cdc990766f4ba0a367f29e0d57dac912"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": null,
+              "start_line": 1934,
+              "end_line": 1934,
+              "author": "王虎应",
+              "start_column": 6,
+              "end_column": 8,
+              "quote_sha256": "8e75caf8c7325f67b879516ee1d8dd78c1bc3b6173b54a49134bad218c3d6d87"
+            }
+          ],
+          "hour_ganzhi": []
+        }
+      },
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "实际案例；财库、暗动、流年生克属理法，一明一暗合伙及南方火地含取象。1970同段拆成既往财运反馈、湖南拟投资背景、作者劝止预测、未听劝背景、投资失败反馈。没有把劝告当反馈。line_values由原文六爻符号逐个读出，初爻至上爻。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1986-study-and-record",
+      "kind": "rule",
+      "title": "学习装卦、动变与生克的顺序，并先记录年月日辰六神",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1986,
+          "end_line": 1994,
+          "author": "野鹤老人",
+          "quote_sha256": "8da7f47225fba8534d7f1578908fd667ca79a15c05b610d84b1de948a116adba"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l1998-self-yongshen",
+      "kind": "rule",
+      "title": "乾为天教学卦：自占以世爻为用神及戌土的生克喜忌",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1998,
+          "end_line": 2026,
+          "author": "野鹤老人",
+          "quote_sha256": "6722f896d0e1927755f48b9929405b6aa9701f58f69fe7ef7216bbafd4bca423"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文为“即如占得”引出的教学演示，无实际提问人、占日及结果，按规则保留图与说明。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2030-month-effects",
+      "kind": "rule",
+      "title": "以乾卦世爻戌土说明月建生克冲合、旺相休囚及用神名称",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2030,
+          "end_line": 2062,
+          "author": "野鹤老人",
+          "quote_sha256": "30d5f90ff699d3ebcba6ffe81e0525ff67d11bc7b52954c0d0676d9ddad2a240"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2066-day-effects",
+      "kind": "rule",
+      "title": "以乾卦世爻戌土说明日辰生克冲合、暗动与临日建",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2066,
+          "end_line": 2094,
+          "author": "野鹤老人",
+          "quote_sha256": "42275cd5c647723819635e1d31306275d5fe3da7617e44030d5f7f73a3e25113"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2098-moving-line-effects",
+      "kind": "rule",
+      "title": "以乾卦说明动爻可生克冲合世爻用神",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2098,
+          "end_line": 2102,
+          "author": "野鹤老人",
+          "quote_sha256": "133fac3e007211efb1e3f46e8554e9d3054cc80d076b0f4d2434e1927071a2ac"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2106-return-effects",
+      "kind": "rule",
+      "title": "世爻发动所变爻可回头生克冲合的教学主张",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2106,
+          "end_line": 2110,
+          "author": "野鹤老人",
+          "quote_sha256": "14edb6883fe4a09bfb2a0ea10dad6651fbab8ac0de68c7e36cbeffd03cb4603a"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文此处借乾卦说变化，后文新评释指出列举变化不可能；按原文分别存放，不改造成正确示例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2114-return-example-correction",
+      "kind": "rule",
+      "title": "新评释：乾卦世爻不能化出所举巳午寅卯辰爻，逐项辨正",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2114,
+          "end_line": 2114,
+          "author": "王虎应",
+          "quote_sha256": "ada71debd24ea2a9f258d8589dcf57191ff6af8919b208b579ffc3327e7a9ee4"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2118-four-supports",
+      "kind": "rule",
+      "title": "野鹤论四处全来生合用神则全吉",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2118,
+          "end_line": 2118,
+          "author": "野鹤老人",
+          "quote_sha256": "58b6234c5fffff5b56baaf438387f7763fe1961f9ae0ffe8d054d593aa2e9824"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2122-excessive-support",
+      "kind": "rule",
+      "title": "新评释：四处生世未必吉，旺极为过可成凶",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2122,
+          "end_line": 2122,
+          "author": "王虎应",
+          "quote_sha256": "b29502dd38d43099c98c8d1359edfed9b0744e13daef626dff931e65e28a373a"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2126-support-control-balance",
+      "kind": "rule",
+      "title": "四处生克兼见时比较生克数量与旺衰，判断克处逢生",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2126,
+          "end_line": 2134,
+          "author": "野鹤老人",
+          "quote_sha256": "69066335ba2c3717886a130dd7b482b51b28d7e632bb384ea85c361a205633c5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2138-return-example-clarification",
+      "kind": "rule",
+      "title": "野鹤答乾卦不具所举回头生克变化：借他爻为法",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2138,
+          "end_line": 2142,
+          "author": "野鹤老人",
+          "quote_sha256": "39de153393e0a2f82ce8ad6ebbd57c360858eb95b1f510a45f9ed5ab3ce313f1"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2154-date-relatives",
+      "kind": "rule",
+      "title": "日月地支的六亲名称随所占卦的五行六亲归属而定",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2154,
+          "end_line": 2158,
+          "author": "野鹤老人",
+          "quote_sha256": "12acdee3b9fbda03235a96a1ca5c932f403e2d575e2549780f748ec675277892"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2198-parents-selection",
+      "kind": "rule",
+      "title": "占父母以父母爻为用神：两现择旺或择动，论生克空破",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2198,
+          "end_line": 2198,
+          "author": "野鹤老人",
+          "quote_sha256": "bcb61c907010d1dd03fa98c4a64a71e6f425b3b673842b9eeeb5f07a29926694"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2202-parent-objects",
+      "kind": "rule",
+      "title": "室舍、车舟、文章章奏等取父母爻为用神",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2202,
+          "end_line": 2202,
+          "author": "野鹤老人",
+          "quote_sha256": "a2a500d9091bb9c184c2b747f3c6353b95038c1868415890d829ff5e50124d2f"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2206-other-person",
+      "kind": "rule",
+      "title": "占他人以应爻为用神，欲其吉衰而别生克",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2206,
+          "end_line": 2206,
+          "author": "野鹤老人",
+          "quote_sha256": "cd9cb0f10c234fae955958f7431a1781a0e8c187b638bd9a40af81651d87fc95"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2210-siblings-vs-wealth",
+      "kind": "rule",
+      "title": "兄弟爻为手足用神与劫财忌神时生克空破喜忌相反",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2210,
+          "end_line": 2214,
+          "author": "野鹤老人",
+          "quote_sha256": "0d37cc88601d21dcbe82a26b5bafa92289dc0d95654c677412cc0fb9c606e7bd"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2218-wife-wealth-yongshen",
+      "kind": "rule",
+      "title": "妻妾婢仆与财物金银买卖取妻财爻及其生克喜忌",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2218,
+          "end_line": 2222,
+          "author": "野鹤老人",
+          "quote_sha256": "e85ac57bbcadc7fa40e448b4ba3929d7de70990f75f2e688790ad122a80e8732"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2226-descendants-yongshen",
+      "kind": "rule",
+      "title": "占子孙以子孙爻为用神，论空破与生克喜忌",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2226,
+          "end_line": 2230,
+          "author": "野鹤老人",
+          "quote_sha256": "bae48f607cd101a9325edc3b2b181e405912358cd5b119b8f138980308d96823"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2234-office-ghost-yongshen",
+      "kind": "rule",
+      "title": "功名、鬼崇、贼盗等以官鬼爻为用神及其生克喜忌",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2234,
+          "end_line": 2238,
+          "author": "野鹤老人",
+          "quote_sha256": "2803eb2bee3ab28657929c5bc12a9a7e5422b4c505e33ca325d6b83635f2076e"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2246-guai-gou-changing",
+      "kind": "rule",
+      "title": "夬变姤教学卦：阳动变阴、阴动变阳，变爻六亲按正卦",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2246,
+          "end_line": 2298,
+          "author": "野鹤老人",
+          "quote_sha256": "7991f0d1f1f7670fef4196e56bd735f6660ff9b20c1d12cfd5a27d998e73b5b4"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "整段为排变卦示范，包含卦画与纳支定六亲说明；无实际事件及反馈，不能当真实案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2302-nazhi-table",
+      "kind": "rule",
+      "title": "浑天甲子：八卦内外卦六爻纳支五行表",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2302,
+          "end_line": 2334,
+          "author": null,
+          "quote_sha256": "e9b33bacf37a224146c89195f12ea2265ad90e284baecbab3970bee0a0cdfca5"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "按整张八卦纳支表保留；原文“辰在外卦”“于水”等疑似错字不自动改正。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2338-gou-nazhi-demo",
+      "kind": "rule",
+      "title": "天风姤教学例：内巽外乾，自下而上装五行",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2338,
+          "end_line": 2374,
+          "author": null,
+          "quote_sha256": "446f564af1ecf5ae520f0c488a126f0975bba5ad4f5cccf50b287871ac3683fd"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2378-six-relatives-song",
+      "kind": "rule",
+      "title": "六亲歌：按卦宫五行配置兄父财鬼子",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2378,
+          "end_line": 2398,
+          "author": null,
+          "quote_sha256": "b7943df76fa753d16a702930b5a5a3101bb5ab611a93a7d8f7539dbe76181896"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2402-qian-relatives-demo",
+      "kind": "rule",
+      "title": "乾为天教学例：按金宫确定六亲",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2402,
+          "end_line": 2430,
+          "author": null,
+          "quote_sha256": "b878afad64060ffdef0ae8272a63dac09859e62978bb1b444bb72c0c5c0db486"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2434-shi-ying",
+      "kind": "rule",
+      "title": "乾宫八卦世爻位置与隔两位定应爻",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2434,
+          "end_line": 2442,
+          "author": null,
+          "quote_sha256": "b165611936753618858e986ea4b61d5570f3dc877e631a2f2e69cf30c62206c6"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2446-moving-definition",
+      "kind": "rule",
+      "title": "动变定义：动爻阳变阴、阴变阳",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2446,
+          "end_line": 2450,
+          "author": null,
+          "quote_sha256": "7e8b1a3bac6d817dc6f225ce98c1130d3cf43160d402c676f74e14d1e32e86d8"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2454-trigram-change-demos",
+      "kind": "rule",
+      "title": "乾坤三爻卦的初爻、上下爻、中爻及全爻动变演示",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2454,
+          "end_line": 2514,
+          "author": null,
+          "quote_sha256": "40505011cd52211bebf65a9bdf01e2d3c00218bcac4b7c489187fe16b554f7cc"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "四组原文均由“假令”引出，合为三爻卦动变教学单元，不是实测案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2518-xu-song-demo",
+      "kind": "rule",
+      "title": "需变讼教学例：正变卦、外卦纳支与变爻六亲",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2518,
+          "end_line": 2550,
+          "author": null,
+          "quote_sha256": "776beba87b86cc9ec584098ccc731f3a3bc535ee5b09dcd7d61c50ab466addab"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文为动变章教学演示，无问题与占日、反馈；保留原始爻字，不补写未列变爻。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2554-parents-yongshen-scope",
+      "kind": "rule",
+      "title": "父母用神：尊长、庇身建筑衣物及文书文章",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2554,
+          "end_line": 2562,
+          "author": null,
+          "quote_sha256": "8cdd56bafe8bb4678ed7262f5d49e6ff2a5540f2aabf3260803f23ecd23b7376"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2566-official-yongshen-scope",
+      "kind": "rule",
+      "title": "官鬼用神：功名官府夫君、鬼神贼盗与拘束我身者",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2566,
+          "end_line": 2570,
+          "author": null,
+          "quote_sha256": "4876afbad869b67d8bff2ac7cd14f144bb35c2c8bf283d8e9cc20d3ddb276c68"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2574-sibling-yongshen-scope",
+      "kind": "rule",
+      "title": "兄弟用神及劫财阻事之义，姊妹夫和表兄弟的异取法",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2574,
+          "end_line": 2582,
+          "author": null,
+          "quote_sha256": "2476c2aef55a5c3e7768771cea90e96a3abef1879355bef64e480a704681a4fe"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "原文前后关于姊妹夫的用神表述并不完全一致，原样保留；“屡得验”是经验性主张，没有完整独立案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2586-kinship-closeness",
+      "kind": "rule",
+      "title": "新评释：旁系亲属按关系疏密取应爻或兄弟",
+      "method": "lifa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2586,
+          "end_line": 2586,
+          "author": "王虎应",
+          "quote_sha256": "3e05904d556751a04364b208d7b15fd40eef61df3d2e9e682119490e172121a4"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2590-wealth-yongshen-scope",
+      "kind": "rule",
+      "title": "妻财用神：妻妾、受驱使之人与财货器物",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2590,
+          "end_line": 2594,
+          "author": null,
+          "quote_sha256": "6527e9445afb05cf363338fba09d26f4823c8cdcd8a28e175455688809f21822"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2598-descendant-yongshen-scope",
+      "kind": "rule",
+      "title": "子孙用神：晚辈、医药忠良僧道禽兽，福神与剥官之义",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2598,
+          "end_line": 2606,
+          "author": null,
+          "quote_sha256": "141ab986efe07b984b5af377eec1f94687d1f4fd4e4d61659235c64e79a236a1"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2610-wealth-body-images",
+      "kind": "rule",
+      "title": "新评释：断病中妻财可取呼吸、血液、排泄、生殖物与毛髓等象",
+      "method": "xiangfa",
+      "scope": "topic",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2610,
+          "end_line": 2610,
+          "author": "王虎应",
+          "quote_sha256": "e8c8956c2847298747ab5881b2e930af03c0648a0947ae52a612a95fa82659c3"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "明确为六亲身体取象的扩展论述；作者仅称实践验证，未给可独立切出的具体案例。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2614-yuan-ji-chou-definitions",
+      "kind": "rule",
+      "title": "用神、元神、忌神、仇神的定义及金用神示范",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2614,
+          "end_line": 2634,
+          "author": null,
+          "quote_sha256": "e40c1112c64f31544f06b61ab2d9c66a402634473bbf8e03871b4b0c74313251"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    },
+    {
+      "unit_id": "zengshan_pingshi_dxj-l2638-yongshen-strength",
+      "kind": "rule",
+      "title": "占事先定用神，再看旺相及元神生扶、忌神克害",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2638,
+          "end_line": 2638,
+          "author": null,
+          "start_column": 0,
+          "end_column": 48,
+          "quote_sha256": "d12ef74b130fcdc4fdd39e158bdbc773a7d6f9d6be7eab4be0ace6d0d6c3a2dd"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "逐段亲读此处原文后按完整教学命题划界；保留原文措辞，不作自动纠错。"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1,
+          "end_line": 22,
+          "author": null,
+          "quote_sha256": "b65956a9dd758c8c3ee6f8176632ef6e449ccfddba40be2fd849197c8c4b317a"
+        }
+      ],
+      "reason": "文件标题、原文件路径与转换说明、封面题名及作者署名。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 26,
+          "end_line": 102,
+          "author": null,
+          "quote_sha256": "5305bae07b57779610ed78b6d6128452b68ebe9c5ef2c377f72b4829de2ae273"
+        }
+      ],
+      "reason": "今序、序、自序及署名日期：书籍推荐、编纂与学习经历、出版背景，不作独立断卦规则。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 106,
+          "end_line": 642,
+          "author": null,
+          "quote_sha256": "ffd9d5aa6b6f64b358aba683af95bc383d255b912f94ca283dd65ecd9f963fce"
+        }
+      ],
+      "reason": "完整目录与页码链接，正文另行切片。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 646,
+          "end_line": 662,
+          "author": null,
+          "quote_sha256": "4334a8edd19c65ce2dcf7d9d2d01850a3149d0b2e58853f585bd427b66cde74d"
+        }
+      ],
+      "reason": "卷名及著者、鉴定者、增删者、校对者署名。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1794,
+          "end_line": 1794,
+          "author": null,
+          "quote_sha256": "46b757335f1d942f0ecab68f56a150ec0a101f7e8d63d560edbf58587a0b0556"
+        }
+      ],
+      "reason": "从简法总说转向逐类说明的章节导语，无独立断法。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1914,
+          "end_line": 1918,
+          "author": null,
+          "quote_sha256": "2ce627534cc642bb52b56ee48542c00b7a87a412296fe6978499a04d94f38aae"
+        }
+      ],
+      "reason": "劝友试学、传授简法与称卜感应的说明，无新增可独立执行的断法。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 1978,
+          "end_line": 1982,
+          "author": null,
+          "quote_sha256": "47d7ea31eae14328bbb24adb93a27c12b6f278d55fa38e212b8c3d5016ca18cd"
+        }
+      ],
+      "reason": "教学段标题及赞易能知诸事的引言，后续具体学习与断法另行切片。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2146,
+          "end_line": 2150,
+          "author": null,
+          "quote_sha256": "6db617ab30e8eb6d3081d58d9f8e1be21813b6e76f15ca774e9d530412b32b52"
+        }
+      ],
+      "reason": "只提出卯木克戌而又相合的问题并指向五行相合章，当前段未提供判断规则。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2162,
+          "end_line": 2194,
+          "author": null,
+          "quote_sha256": "9065acd133547dabe35a6110968382ad332fa839ba17f3ebbef22cd89e08b45f"
+        }
+      ],
+      "reason": "旺相、空破、冲合等九项查阅章节索引；对应正文规则另行提取。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2242,
+          "end_line": 2242,
+          "author": null,
+          "quote_sha256": "46b5c47b1246335ed6fd0ad0992fd3ac89311e691a70921724ebd87efbb1f88d"
+        }
+      ],
+      "reason": "提示以上为入门纲领并引导阅读后卷，未新增独立断法。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    },
+    {
+      "spans": [
+        {
+          "page": null,
+          "start_line": 2638,
+          "end_line": 2638,
+          "author": null,
+          "start_column": 48,
+          "quote_sha256": "b27f740b14fe3f5b2b622ce486a5e756d80850ff47c34a0dc365016b4737cd9a"
+        }
+      ],
+      "reason": "引出下一批2642行案例的单字过渡“如”。",
+      "review": {
+        "status": "approved",
+        "basis": "direct_source_read",
+        "reviewer": "Codex /root/rebuild_pingshi_batch1",
+        "notes": "已直接阅读该范围；因所述内容性质明确排除，不作为断卦规则或实际卦例。"
+      }
+    }
+  ]
+}

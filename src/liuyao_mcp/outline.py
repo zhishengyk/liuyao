@@ -1,5 +1,6 @@
 """PDF-verified book navigation layered over immutable OCR source spans."""
 import json
+from collections import Counter
 from pathlib import Path
 import re
 
@@ -107,10 +108,15 @@ def store_outline(db, nodes, chunks, cases):
 
 
 def related_cases(db, node_id, limit=10, exclude_ids=()):
-    rows = db.execute('''SELECT c.id FROM evidence_outline e JOIN cases c ON c.id=e.evidence_id
+    rows = db.execute('''SELECT c.id,COALESCE(json_extract(c.payload,'$.quality.status'),'pending')
+                         FROM evidence_outline e JOIN cases c ON c.id=e.evidence_id
                          WHERE e.node_id=? ORDER BY c.id''', (node_id,)).fetchall()
     rows = [r for r in rows if r[0] not in exclude_ids]
     return {'case_ids': [r[0] for r in rows[:limit]], 'total_cases': len(rows),
+            'quality_counts': dict(Counter(r[1] for r in rows)),
+            'case_quality': [{'case_id': r[0], 'status': r[1]} for r in rows[:limit]],
+            'eligible_case_ids': [r[0] for r in rows if r[1] == 'eligible'][:limit],
+            'note': '目录保留全部案例档案；只有quality=eligible可作可验证案例，不能把文字校订或盘面重算当成反馈验证。',
             'has_more': len(rows) > limit}
 
 

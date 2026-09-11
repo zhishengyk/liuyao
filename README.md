@@ -1,18 +1,30 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
+本分支为 **0.7.0-alpha.1 手动切片重建预发布**。六书覆盖尚未完成，只编译审核完成的切片批次；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。本轮独立 Astra xhigh 测试与已知缺口见[核心规则首轮评估](docs/核心规则首轮盲测评估.md)，没有据此宣称预测准确率提高。
+
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
 - **预建数据库**：六份资料，保留原文、校订记录、盘面核对状态与出处；实际数量以随包发行清单为准。
 - **使用RAG查询卦理**：AI结合问题、盘面和已有证据，从多个角度按需检索、补查与去重。
 - **本地排盘与检索**：下载完成后离线运行，无需额外模型或API Key；接入端AI按其原有方式运行。
 - **可直接展示的排盘**：本变卦并排，包含六神、伏神、纳甲六亲、动爻、世应、干支与农历。
-- **象法目录与场景检索**：按原书PDF核对目录，支持跨章节查场景、按目录范围查用法与案例，并回查章首条件。
+- **手动规则与场景检索**：原文绑定页、行、列及哈希；共享条件随规则返回，书籍和人工单元可以导航回查。
 
-**建议使用GPT-6 Astra Max 使用本插件**
+本轮独立测试使用 GPT-6 Astra、xhigh 推理设置。
 
 默认提供中文BM25＋六爻结构匹配。配置本地语义模型后可启用真实SQLite混合检索；CPU神经重排是显式可选模式，默认安装不会下载BGE模型。配置及性能边界见[检索与资料验收流程](docs/检索与资料验收流程.md)和[CPU检索性能与扩容](docs/CPU检索性能与扩容.md)。
 
-## 安装到 Codex
+## 试用预发布
+
+固定预发布 wheel 包含程序与部分手切数据库，首次下载后可以离线运行：
+
+```powershell
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao_mcp-0.7.0a1-py3-none-any.whl liuyao-mcp --self-check
+```
+
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不附跟随main的安装脚本；下面的Git目录安装流程使用稳定版。
+
+## 稳定版安装到 Codex
 
 需要可用的 **Codex CLI** 和 **uv**。先按[uv官方说明](https://docs.astral.sh/uv/getting-started/installation/)安装uv，在新终端确认 `codex --version`、`uvx --version` 能运行。
 
@@ -110,10 +122,11 @@ codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/l
 ```mermaid
 flowchart TD
     subgraph Build["离线建库：资料更新时执行"]
-        Books["已确定的6份资料"] --> Parse["自动解析、去重、保留出处"]
+        Books["已确定的6份资料"] --> Extract["原图提取、逐页校对与版本绑定"]
+        Extract --> Parse["手动切片：完整条件、角色和原文坐标"]
         Parse --> Rules["理法与象法知识块"]
         Parse --> Cases["结构化卦例 JSON"]
-        PDF["象法PDF目录核对"] --> OutlineDB["目录节点、用法与案例关联"]
+        Parse --> OutlineDB["书籍与人工单元导航、案例关联"]
         OutlineDB --> DB
         Rules --> DB[("SQLite知识库与检索索引")]
         Cases --> DB
@@ -126,7 +139,7 @@ flowchart TD
         Chart --> Facts["盘面事实与检索条件"]
         Facts --> RuleSearch["理法与象法检索"]
         Facts --> CaseSearch["相似卦例检索"]
-        AI --> Outline["MCP get_outline：浏览象法目录"]
+        AI --> Outline["MCP get_outline：浏览可用人工单元"]
         Outline --> RuleSearch
         Outline --> CaseSearch
         RuleSearch --> Merge["MCP排序、去重、返回证据"]
@@ -149,7 +162,7 @@ flowchart TD
 
 检索数量由AI每次主动选择：简单问题少量起查，复杂问题或证据有分歧时扩查，并排除已读条目。论述和卦例没有固定配额；关键判断有适用原文支持、重要分歧已核对后停止，资料不足则明确说明。
 
-象法采用原书目录与场景检索：`get_outline`浏览册、章、节和用法，`search_knowledge(method="xiangfa")`按场景查询，`outline_ids`可限定某个目录及其后代。象法模式不按事项大类过滤；`get_source`补充目录上下文和关联案例。详见[PDF核对目录](docs/六爻象法进阶目录.md)与[接口说明](docs/象法目录与场景索引方案.md)。
+手切库的 `get_outline` 浏览当前已有的书籍与人工单元；标签不冒充原书章题。`search_knowledge(method="xiangfa")`按场景查询，`outline_ids`限定已返回的节点；`get_source`回查完整原文及 `required_contexts`。旧版PDF目录文档仍可参考，但其旧ID和行号不能替代新库坐标。
 
 ## 更新
 
@@ -164,16 +177,17 @@ flowchart TD
 ## 开发与验证
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/install.ps1
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[test]" build uv
+.\.venv\Scripts\python.exe -m liuyao_mcp.ingest --allow-partial
 .\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe -m liuyao_mcp.evaluate
-.\.venv\Scripts\python.exe scripts/build_release.py
+.\.venv\Scripts\python.exe scripts/build_release.py --prerelease
 ```
 
-默认源码安装不下载推理模型。`-InstallPlugin`安装本机开发版；`-RegisterMcp`注册开发MCP。向量相关代码与依赖单独保留，实验边界见[实施验收](docs/实施验收.md)。
+默认安装不下载推理模型。仓库中的手切清单已绑定对应审计，可以直接入库；修改切片后先运行 `scripts/assemble_manual_slices.py`，再按审计文件用 `scripts/attach_chart_audits.py` 重新绑定盘面证明。未绑定记录保持not_run。稳定构建默认要求全书覆盖，预发布必须显式使用 `--prerelease`。旧全套测试仍有依赖旧解析器、旧ID及旧目录的待迁移项；预发布CI要求新的手切合同和隔离安装检查通过，并保留完整测试报告。稳定发布还要求完整测试套件通过。
 
 ## 资料与边界
 
-首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件，清单及哈希见[data/sources.jsonl](data/sources.jsonl)。候选卦例可能存在OCR错误、字段缺失和原书排盘冲突，工具会保留问题，不把候选数量当作已核验数量。历史反馈是原作者的记载，不等于独立验证或未来预测保证。
+首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。新来源清单见[data/canonical/sources.jsonl](data/canonical/sources.jsonl)，手切边界与审核证据见[data/manual_slices](data/manual_slices)。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
 
 原始资料归档包含1,862个Markdown文件，保留原目录结构：[资料目录](Markdown归档/README.md)。原始文档、图片、音频和转换附件未上传；旧文档中的本地图片链接可能无法在GitHub显示。

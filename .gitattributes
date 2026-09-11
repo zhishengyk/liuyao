@@ -2,3 +2,11 @@
 **/六爻理法进阶_OCR纯文本.txt.md text eol=crlf
 **/六爻象法进阶上_OCR纯文本.txt.md text eol=crlf
 **/六爻象法进阶下_OCR纯文本.txt.md text eol=crlf
+
+# Canonical and reviewed artifacts are addressed by their exact byte hashes.
+data/canonical/** -text whitespace=cr-at-eol
+data/manual_slices/** -text whitespace=cr-at-eol
+data/proofread_pages/** -text whitespace=cr-at-eol
+"Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/001 六爻预测自修宝典（DXJ整理版）.doc.md" -text
+"Markdown归档/003周易命理资料/005王虎应/003王虎应增删卜易评释（dxj整理）.doc.md" -text
+"Markdown归档/003周易命理资料/专著/增删卜易.doc.md" -text

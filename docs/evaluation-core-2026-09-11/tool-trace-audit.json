@@ -1,0 +1,809 @@
+{
+  "status": "passed",
+  "prediction_json_sha256": "925e28b7f0efcd27fbd68658a3a116e86f5773fc8e9d652d9b760904bd1372e7",
+  "freeze_config_sha256": "b5858a163dd36c8524117af267b0e2ea9e3167f16d23caf89bce62b5bff0e83c",
+  "database_sha256": "0b2196def79556ca99aed9ff3c373416a89990b948604d49f94de69afe6ba2c2",
+  "actual_call_counts": {
+    "build_chart": 15,
+    "search_knowledge": 37,
+    "get_source": 23
+  },
+  "actual_call_total": 75,
+  "tool_errors": 0,
+  "batches": 7,
+  "snapshot_and_runtime_hashes_match_all_batches": true,
+  "request_response_pairs_match": true,
+  "retrieval_mode": "bm25",
+  "rule_only_search_calls": 37,
+  "distinct_returned_or_read_evidence_ids": 149,
+  "cited_unique_ids": 44,
+  "unseen_cited_ids": {
+    "C01": [],
+    "C02": [],
+    "C03": [],
+    "C04": [],
+    "C05": [],
+    "C06": []
+  },
+  "latency_ms": {
+    "build_chart": {
+      "mean": 14.095,
+      "median": 11.93,
+      "p95_nearest_rank": 47.97,
+      "min": 10.042,
+      "max": 47.97
+    },
+    "search_knowledge": {
+      "mean": 61.3,
+      "median": 9.956,
+      "p95_nearest_rank": 348.078,
+      "min": 4.302,
+      "max": 353.751
+    },
+    "get_source": {
+      "mean": 7.055,
+      "median": 6.303,
+      "p95_nearest_rank": 10.867,
+      "min": 4.958,
+      "max": 11.021
+    }
+  },
+  "case_citations": {
+    "C01": [
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage",
+      "liuyao_zixiu_dxj.full.l2140.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "liuyao_zixiu_dxj.full.l2700.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l3536.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L02842C0000.rule",
+      "zengshan_buyi.manual.L02922C0000.rule"
+    ],
+    "C02": [
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+      "liuyao_zixiu_dxj.full.l2200.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2248.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "zengshan_buyi.manual.L02102C0000.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L05806C0000.rule",
+      "zengshan_pingshi_dxj-l4206-day-moving-dispersal"
+    ],
+    "C03": [
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l4520.rule",
+      "liuyao_zixiu_dxj.full.l5320.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L03722C0000.rule",
+      "zengshan_pingshi_dxj-l2198-parents-selection"
+    ],
+    "C04": [
+      "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident",
+      "liuyao_zixiu_dxj.full.l2152.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "zengshan_buyi.manual.L02014.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L05862C0000.rule",
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen",
+      "zengshan_pingshi_dxj-l5786-hidden-strength"
+    ],
+    "C05": [
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "liuyao_zixiu_dxj.full.l2152.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2260.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l3536.rule",
+      "zengshan_buyi.manual.L02430C0000.rule",
+      "zengshan_buyi.manual.L02842C0000.rule",
+      "zengshan_buyi.manual.L04014C0000.rule",
+      "zengshan_buyi.manual.L05466C0000.rule",
+      "zengshan_buyi.manual.L05790C0000.rule",
+      "zengshan_buyi.manual.L05862C0000.rule",
+      "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique",
+      "zengshan_pingshi_dxj-l3586-moving-over-static"
+    ],
+    "C06": [
+      "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "liuyao_zixiu_dxj.full.l2156.rule",
+      "liuyao_zixiu_dxj.full.l2212.rule",
+      "liuyao_zixiu_dxj.full.l2708.rule",
+      "liuyao_zixiu_dxj.full.l3072.rule",
+      "liuyao_zixiu_dxj.full.l3188.rule",
+      "liuyao_zixiu_dxj.full.l4076.rule",
+      "liuyao_zixiu_dxj.full.l4308.rule",
+      "liuyao_zixiu_dxj.full.l6236.rule",
+      "zengshan_buyi.manual.L01994.rule",
+      "zengshan_buyi.manual.L02382C0000.rule",
+      "zengshan_buyi.manual.L05262C0000.rule",
+      "zengshan_buyi.manual.L06254C0000.rule",
+      "zengshan_pingshi_dxj-l2902-ineffective-jishen",
+      "zengshan_pingshi_dxj-l5786-hidden-strength",
+      "zengshan_pingshi_dxj-l6730-life-states"
+    ]
+  },
+  "queries": [
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "女测婚恋 男友 官鬼 用神",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 348.078,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l4076.rule",
+        "zengshan_pingshi_dxj-l0870-casting-commentary",
+        "zengshan_buyi.manual.L02014.rule",
+        "liuyao_zixiu_dxj.full.l2248.rule",
+        "zengshan_pingshi_dxj-l2598-descendant-yongshen-scope",
+        "liuyao_zixiu_dxj.full.l2128.rule",
+        "liuyao_zixiu_dxj.full.l2700.rule",
+        "zengshan_pingshi_dxj-l2586-kinship-closeness"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "官司 诉讼 胜负 世应 用神",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 40.182,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l2248.rule",
+        "liuyao_zixiu_dxj.full.l2140.rule",
+        "zengshan_pingshi_dxj-l5094-wealth-travel-combination",
+        "liuyao_zixiu_dxj.full.l1924.rule",
+        "zengshan_buyi.manual.L05770C0000.rule",
+        "zengshan_buyi.manual.L05754C0000.rule",
+        "zengshan_buyi.manual.L01890.rule",
+        "liuyao_zixiu_dxj.full.l2000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "卖房 房屋 出售 父母 妻财 应期",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.746,
+      "ids": [
+        "zengshan_buyi.manual.L05466C0000.rule",
+        "liuyao_zixiu_dxj.full.l1560.rule",
+        "liuyao_zixiu_dxj.full.l1500.rule",
+        "zengshan_pingshi_dxj-l1218-zhen-palace-table",
+        "zengshan_buyi.manual.L01218.rule",
+        "zengshan_pingshi_dxj-l1306-xun-palace-table",
+        "zengshan_buyi.manual.L01130.rule",
+        "liuyao_zixiu_dxj.full.l1320.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "侄子 疾病 用神 子孙",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.862,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l3532.rule",
+        "zengshan_pingshi_dxj-l1782-family-illness-recast",
+        "liuyao_zixiu_dxj.full.l4072.rule",
+        "liuyao_zixiu_dxj.full.l2260.rule",
+        "liuyao_zixiu_dxj.full.l4408.rule",
+        "zengshan_pingshi_dxj-l5878-li-dispersal-books",
+        "liuyao_zixiu_dxj.full.l2140.rule",
+        "zengshan_pingshi_dxj-l1922-simple-method-reminder"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "租店铺 生意 求财 用神",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.434,
+      "ids": [
+        "zengshan_pingshi_dxj-l1882-start-business",
+        "zengshan_pingshi_dxj-l1886-existing-business",
+        "zengshan_pingshi_dxj-l1674-wealth-shiyao",
+        "zengshan_buyi.manual.L04014C0000.rule",
+        "zengshan_pingshi_dxj-l1922-simple-method-reminder",
+        "zengshan_pingshi_dxj-l1694-simple-method-limits",
+        "zengshan_pingshi_dxj-l1770-stop-recasting",
+        "zengshan_buyi.manual.L06254C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "学校 上学 成绩 父母 用神",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.924,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l2136.rule",
+        "zengshan_buyi.manual.L01994.rule",
+        "zengshan_pingshi_dxj-l2554-parents-yongshen-scope",
+        "zengshan_pingshi_dxj-l2198-parents-selection",
+        "zengshan_pingshi_dxj-l2202-parent-objects",
+        "zengshan_buyi.manual.L01706.rule",
+        "zengshan_pingshi_dxj-l6966-main-line",
+        "liuyao_zixiu_dxj.full.l2260.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "月建 日辰 旺衰 生克 合旺",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.813,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l3188.rule",
+        "liuyao_zixiu_dxj.full.l3072.rule",
+        "zengshan_buyi.manual.L02430C0000.rule",
+        "zengshan_buyi.manual.L05662C0000.rule",
+        "zengshan_buyi.manual.L02506C0000.rule",
+        "zengshan_buyi.manual.L01654.rule",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "zengshan_pingshi_dxj-l2066-day-effects"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "动爻 变爻 回头生克 贪生忘克",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.494,
+      "ids": [
+        "zengshan_buyi.manual.L05862C0000.rule",
+        "liuyao_zixiu_dxj.full.l4228.rule",
+        "zengshan_pingshi_dxj-l2106-return-effects",
+        "zengshan_buyi.manual.L01670.rule",
+        "zengshan_buyi.manual.L02382C0000.rule",
+        "zengshan_pingshi_dxj-l2138-return-example-clarification",
+        "zengshan_pingshi_dxj-l3674-changed-line-scope",
+        "liuyao_zixiu_dxj.full.l4424.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-02-rules",
+      "query": "旬空 月破 暗动 日冲",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.767,
+      "ids": [
+        "zengshan_pingshi_dxj-l5330-line-clashes",
+        "zengshan_pingshi_dxj-l4182-day-hidden-move-break",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "zengshan_pingshi_dxj-l5786-hidden-strength",
+        "zengshan_buyi.manual.L01698.rule",
+        "zengshan_pingshi_dxj-l2066-day-effects",
+        "liuyao_zixiu_dxj.full.l4308.rule",
+        "zengshan_buyi.manual.L03006C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "女测婚",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 322.487,
+      "ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform",
+        "liuyao_zixiu_dxj.full.l4076.rule",
+        "zengshan_pingshi_dxj-l0870-casting-commentary",
+        "liuyao_zixiu_dxj.full.l1062.rule",
+        "zengshan_buyi.manual.L00630.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "官司",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 3,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 6.504,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l2140.rule",
+        "liuyao_zixiu_dxj.full.l2200.rule",
+        "liuyao_zixiu_dxj.full.l4620.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "卖房",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 0,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 4.955,
+      "ids": []
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "租赁 店铺",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 3,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 5.597,
+      "ids": [
+        "zengshan_pingshi_dxj-l1886-existing-business",
+        "zengshan_pingshi_dxj-l1882-start-business",
+        "liuyao_zixiu_dxj.full.l5164.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "考试 成绩",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 2,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 5.454,
+      "ids": [
+        "zengshan_pingshi_dxj-l1834-office-scenes",
+        "liuyao_zixiu_dxj.full.l2220.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "日合 合旺 合绊",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.956,
+      "ids": [
+        "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+        "liuyao_lifa_jinjie.manual.p0146_day_combine_changed",
+        "zengshan_pingshi_dxj-l4706-combination-mechanisms",
+        "zengshan_buyi.manual.L02842C0000.rule",
+        "zengshan_buyi.manual.L05806C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "贪生忘克 连续相生",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.76,
+      "ids": [
+        "zengshan_buyi.manual.L05862C0000.rule",
+        "liuyao_zixiu_dxj.full.l2156.rule",
+        "liuyao_zixiu_dxj.full.l2708.rule",
+        "zengshan_pingshi_dxj-l2126-support-control-balance",
+        "zengshan_buyi.manual.L01670.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-03-targeted",
+      "query": "旬空 动空 化空",
+      "method": "all",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.954,
+      "ids": [
+        "zengshan_pingshi_dxj-l2786-moving-empty",
+        "zengshan_buyi.manual.L05790C0000.rule",
+        "zengshan_buyi.manual.L04486C0000.rule",
+        "zengshan_pingshi_dxj-l6410-empty-strength",
+        "zengshan_buyi.manual.L04450C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "日合静爻",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 311.048,
+      "ids": [
+        "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+        "zengshan_pingshi_dxj-l4182-day-hidden-move-break",
+        "zengshan_pingshi_dxj-l6978-static-date",
+        "zengshan_pingshi_dxj-l3714-date-over-lines",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "zengshan_pingshi_dxj-l3586-moving-over-static"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "旺相 动克静",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.534,
+      "ids": [
+        "zengshan_pingshi_dxj-l3586-moving-over-static",
+        "liuyao_zixiu_dxj.full.l3536.rule",
+        "liuyao_zixiu_dxj.full.l4232.rule",
+        "zengshan_pingshi_dxj-l4706-combination-mechanisms",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "zengshan_buyi.manual.L05262C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "土爻 日冲 暗动",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.816,
+      "ids": [
+        "zengshan_pingshi_dxj-l2066-day-effects",
+        "zengshan_pingshi_dxj-l4182-day-hidden-move-break",
+        "zengshan_pingshi_dxj-l5330-line-clashes",
+        "zengshan_pingshi_dxj-l5786-hidden-strength",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "liuyao_zixiu_dxj.full.l4308.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "贪生忘克",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.689,
+      "ids": [
+        "zengshan_buyi.manual.L05862C0000.rule",
+        "zengshan_pingshi_dxj-l3586-moving-over-static",
+        "zengshan_buyi.manual.L02270C0000.rule",
+        "zengshan_pingshi_dxj-l4090-month-day-help-control",
+        "zengshan_buyi.manual.L02622C0000.rule",
+        "zengshan_pingshi_dxj-l4950-combine-control"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "婚姻 官鬼",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.885,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l2220.rule",
+        "zengshan_pingshi_dxj-l5018-three-combinations-topics",
+        "liuyao_zixiu_dxj.full.l5320.rule",
+        "zengshan_buyi.manual.L02922C0000.rule",
+        "liuyao_zixiu_dxj.full.l2148.rule",
+        "liuyao_zixiu_dxj.full.l2212.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "成绩 学业",
+      "method": "all",
+      "limit": 6,
+      "returned_count": 0,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 4.358,
+      "ids": []
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "官司 世爻",
+      "method": "xiangfa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 7.147,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l2140.rule",
+        "liuyao_zixiu_dxj.full.l2200.rule",
+        "liuyao_zixiu_dxj.full.l2212.rule",
+        "liuyao_zixiu_dxj.full.l4620.rule",
+        "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident",
+        "liuyao_zixiu_dxj.full.l2220.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-04-conditions",
+      "query": "租店 子孙",
+      "method": "xiangfa",
+      "limit": 6,
+      "returned_count": 5,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 6.163,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l5164.rule",
+        "liuyao_zixiu_dxj.full.l2152.rule",
+        "zengshan_pingshi_dxj-l5018-three-combinations-topics",
+        "liuyao_zixiu_dxj.full.l4096.rule",
+        "liuyao_zixiu_dxj.full.l2220.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-05-application",
+      "query": "合绊",
+      "method": "lifa",
+      "limit": 12,
+      "returned_count": 5,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 309.334,
+      "ids": [
+        "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+        "zengshan_buyi.manual.L05806C0000.rule",
+        "zengshan_pingshi_dxj-l4706-combination-mechanisms",
+        "liuyao_lifa_jinjie.manual.p0146_day_combine_changed",
+        "zengshan_buyi.manual.L02842C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-05-application",
+      "query": "生克权",
+      "method": "lifa",
+      "limit": 10,
+      "returned_count": 10,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 11.094,
+      "ids": [
+        "zengshan_buyi.manual.L01654.rule",
+        "zengshan_pingshi_dxj-l2066-day-effects",
+        "zengshan_pingshi_dxj-l3786-month-authority",
+        "zengshan_pingshi_dxj-l4166-day-authority",
+        "zengshan_buyi.manual.L02430C0000.rule",
+        "liuyao_zixiu_dxj.full.l3072.rule",
+        "zengshan_pingshi_dxj-l4214-day-presence-strong",
+        "zengshan_buyi.manual.L05618C0000.rule",
+        "zengshan_buyi.manual.L05634C0000.rule",
+        "zengshan_pingshi_dxj-l3502-static-strength"
+      ]
+    },
+    {
+      "batch": "predictor-astra-05-application",
+      "query": "通关",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 0,
+      "has_more": false,
+      "budget_skipped": 0,
+      "elapsed_ms": 4.302,
+      "ids": []
+    },
+    {
+      "batch": "predictor-astra-05-application",
+      "query": "日冲土",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.27,
+      "ids": [
+        "zengshan_pingshi_dxj-l2066-day-effects",
+        "zengshan_buyi.manual.L01654.rule",
+        "zengshan_buyi.manual.L02658C0000.rule",
+        "zengshan_buyi.manual.L03722C0000.rule",
+        "zengshan_buyi.manual.L01662.rule",
+        "zengshan_buyi.manual.L02382C0000.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-05-application",
+      "query": "生旺墓绝 回头克",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.035,
+      "ids": [
+        "zengshan_pingshi_dxj-l6730-life-states",
+        "zengshan_buyi.manual.L03614C0000.rule",
+        "zengshan_pingshi_dxj-l4198-day-support-control",
+        "zengshan_buyi.manual.L05662C0000.rule",
+        "zengshan_pingshi_dxj-l5882-hexagram-transform-types",
+        "zengshan_pingshi_dxj-l6818-juezi-life-states"
+      ]
+    },
+    {
+      "batch": "predictor-astra-06-final-gaps",
+      "query": "平合",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 353.751,
+      "ids": [
+        "liuyao_lifa_jinjie.manual.p0146_day_combine_changed",
+        "zengshan_buyi.manual.L03610C0000.rule",
+        "zengshan_pingshi_dxj-l6722-li-empty-recast",
+        "zengshan_pingshi_dxj-l5878-li-dispersal-books",
+        "zengshan_pingshi_dxj-l6138-li-yimao-critique",
+        "zengshan_pingshi_dxj-l5878-li-progress-example",
+        "zengshan_buyi.manual.L03454C0000.rule",
+        "zengshan_pingshi_dxj-l4298-li-day-critique"
+      ]
+    },
+    {
+      "batch": "predictor-astra-06-final-gaps",
+      "query": "土爻",
+      "method": "lifa",
+      "limit": 8,
+      "returned_count": 8,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 11.891,
+      "ids": [
+        "zengshan_buyi.manual.L01662.rule",
+        "zengshan_buyi.manual.L03638C0000.rule",
+        "zengshan_pingshi_dxj-l2098-moving-line-effects",
+        "zengshan_buyi.manual.L01962.rule",
+        "zengshan_pingshi_dxj-l2518-xu-song-demo",
+        "zengshan_pingshi_dxj-l6882-earth-life-origin",
+        "zengshan_pingshi_dxj-l2246-guai-gou-changing",
+        "zengshan_buyi.manual.L01730.rule"
+      ]
+    },
+    {
+      "batch": "predictor-astra-06-final-gaps",
+      "query": "日合旺衰",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 10.866,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l3072.rule",
+        "zengshan_pingshi_dxj-l4182-day-hidden-move-break",
+        "zengshan_buyi.manual.L05862C0000.rule",
+        "zengshan_buyi.manual.L03722C0000.rule",
+        "zengshan_pingshi_dxj-l4206-day-moving-dispersal",
+        "zengshan_pingshi_dxj-l5370-moving-not-nothing"
+      ]
+    },
+    {
+      "batch": "predictor-astra-06-final-gaps",
+      "query": "忌神 两动",
+      "method": "lifa",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 9.968,
+      "ids": [
+        "zengshan_pingshi_dxj-l4990-three-combinations",
+        "zengshan_pingshi_dxj-l2198-parents-selection",
+        "liuyao_zixiu_dxj.full.l5768.rule",
+        "zengshan_pingshi_dxj-l5042-incomplete-combination",
+        "zengshan_pingshi_dxj-l2902-ineffective-jishen"
+      ]
+    },
+    {
+      "batch": "predictor-astra-06-final-gaps",
+      "query": "求财 财生世",
+      "method": "lifa",
+      "limit": 5,
+      "returned_count": 5,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 7.423,
+      "ids": [
+        "zengshan_buyi.manual.L03606C0000.rule",
+        "zengshan_pingshi_dxj-l6574-recast-benefit",
+        "zengshan_pingshi_dxj-l1882-start-business",
+        "zengshan_pingshi_dxj-l1674-wealth-shiyao",
+        "zengshan_pingshi_dxj-l5050-office-combination-target"
+      ]
+    },
+    {
+      "batch": "predictor-astra-07-source-audit",
+      "query": "忌神持世",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 315.501,
+      "ids": [
+        "liuyao_zixiu_dxj.full.l6236.rule",
+        "zengshan_buyi.manual.L06254C0000.rule",
+        "zengshan_pingshi_dxj-l1926-wealth-shiyao-critique",
+        "zengshan_pingshi_dxj-l1702-simple-method-critique",
+        "zengshan_pingshi_dxj-l1682-shiyao-definition",
+        "zengshan_pingshi_dxj-l1694-simple-method-limits"
+      ]
+    },
+    {
+      "batch": "predictor-astra-07-source-audit",
+      "query": "元神旺静",
+      "method": "lifa",
+      "limit": 6,
+      "returned_count": 6,
+      "has_more": true,
+      "budget_skipped": 0,
+      "elapsed_ms": 11.042,
+      "ids": [
+        "zengshan_pingshi_dxj-l3586-moving-over-static",
+        "zengshan_pingshi_dxj-l3542-static-reading",
+        "liuyao_zixiu_dxj.full.l4232.rule",
+        "zengshan_buyi.manual.L02102C0000.rule",
+        "zengshan_pingshi_dxj-l4182-day-hidden-move-break",
+        "zengshan_pingshi_dxj-l3466-equal-strength"
+      ]
+    }
+  ],
+  "limitations": [
+    "Named-rule retrieval coverage is not a relevance precision or recall estimate.",
+    "This pilot excluded case retrieval by design.",
+    "Tool call durations exclude model reading and reasoning time.",
+    "Source citations being present does not prove correct application."
+  ]
+}

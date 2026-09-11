@@ -1,0 +1,1558 @@
+{
+  "schema_version": "manual-slices-1",
+  "source_id": "liuyao_lifa_jinjie",
+  "source_sha256": "1bdc301863a359b1186060fdcaae5e0bc9ebaa58c330c92f8955db08eeb53636",
+  "batch": {
+    "requested_pdf_pages": [
+      143,
+      144,
+      145,
+      146
+    ],
+    "fully_covered_pdf_pages": [
+      143,
+      144,
+      145,
+      146
+    ],
+    "included_boundary_context": [
+      {
+        "page": 142,
+        "start_line": 4,
+        "end_line": 18,
+        "reason": "143页首段反馈对应的完整租店铺案例开头、盘和分析"
+      },
+      {
+        "page": 147,
+        "start_line": 1,
+        "end_line": 12,
+        "reason": "146页末尾投资风险案例的干支、盘、分析和反馈"
+      }
+    ],
+    "read_only_neighbor_context": [
+      {
+        "page": 142,
+        "start_line": 1,
+        "end_line": 2,
+        "reason": "前一换工作案例的末尾，只读确认租店铺开头，不在本批完整页范围"
+      },
+      {
+        "page": 147,
+        "start_line": 14,
+        "end_line": 18,
+        "reason": "下一要补偿案例的开头，只读确认投资例结束，不在本批完整页范围"
+      }
+    ],
+    "reviewed_pdf_image_pages": [
+      142,
+      143,
+      144,
+      145,
+      146,
+      147
+    ],
+    "status": "manual_sample_complete_for_requested_pages_only",
+    "scope_note": "仅143–146页方法与数据贯通样本；向前后延伸仅为取得完整案例边界。不是全书已切片或全书已完成。",
+    "coverage_check": {
+      "143": {
+        "nonwhitespace_chars": 589,
+        "covered_nonwhitespace_chars": 589,
+        "uncovered_nonwhitespace_chars": 0,
+        "multiply_assigned_nonwhitespace_chars": 0
+      },
+      "144": {
+        "nonwhitespace_chars": 572,
+        "covered_nonwhitespace_chars": 572,
+        "uncovered_nonwhitespace_chars": 0,
+        "multiply_assigned_nonwhitespace_chars": 0
+      },
+      "145": {
+        "nonwhitespace_chars": 567,
+        "covered_nonwhitespace_chars": 567,
+        "uncovered_nonwhitespace_chars": 0,
+        "multiply_assigned_nonwhitespace_chars": 0
+      },
+      "146": {
+        "nonwhitespace_chars": 540,
+        "covered_nonwhitespace_chars": 540,
+        "uncovered_nonwhitespace_chars": 0,
+        "multiply_assigned_nonwhitespace_chars": 0
+      }
+    }
+  },
+  "canonical_page_snapshots": [
+    {
+      "page": 142,
+      "effective_text_sha256": "f5259669fc09c41b9b06c88c4fd836ea25363301b3a74b9e3eab064c4ce9814f",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0142.json",
+      "proofread_record_sha256": "bb2171d753655d721a80e5ca2b82ac0edb2a644e3ec89d808da161377164c8b8",
+      "source_unclear": []
+    },
+    {
+      "page": 143,
+      "effective_text_sha256": "e8e33745db07699e79608faff1ec1a80360cc9439ddbd9d8597c50d8dc32c19b",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0143.json",
+      "proofread_record_sha256": "6321f9115b85aeea90c9a084484525ebd1ecedbca57b83f1c62eda16f7659ccb",
+      "source_unclear": []
+    },
+    {
+      "page": 144,
+      "effective_text_sha256": "093cb3e5ed66dfc4fd668484df461b766d4fa2d02d1faca19e66b654b5697fc9",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0144.json",
+      "proofread_record_sha256": "d9e37048e2a0d2d585d84f0391b65383d72c0acff9cdde8e40a7902cfaa99f38",
+      "source_unclear": []
+    },
+    {
+      "page": 145,
+      "effective_text_sha256": "b1014bb87389e6f1f0f7da07c7e5f62de152e0b314b0fb43725fb64a35c3b5b6",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0145.json",
+      "proofread_record_sha256": "288eed6ec41fc284ae3b47e9847d1354f6323c6c78cc6fb90e73bae822a883df",
+      "source_unclear": []
+    },
+    {
+      "page": 146,
+      "effective_text_sha256": "29b4b599d4917208979f03d717502e25eb276bde7f717c13a28a389862b90992",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0146.json",
+      "proofread_record_sha256": "5ddb7f00bb51067f410269aa6e5f7f9675a0c52ed7991e99614126bb7cb11cba",
+      "source_unclear": []
+    },
+    {
+      "page": 147,
+      "effective_text_sha256": "4513a951fce57cdb0325df56cea2f4a5a0f9bbba799726a7532d3bd227892837",
+      "proofread_record_path": "data/proofread_pages/liuyao_lifa_jinjie/0147.json",
+      "proofread_record_sha256": "ee49e1dfb5eaa7f45022d60bf4c8547b6e5f8355466f3861ceb1ad0ada33b0b4",
+      "source_unclear": []
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0142_rent_shop",
+      "kind": "case",
+      "title": "租这个店铺好吗",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "property/rental"
+      ],
+      "spans": [
+        {
+          "page": 142,
+          "start_line": 4,
+          "end_line": 18,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：租这个店铺好吗\n公历：2018年1月22日20时42分，星期一。\n农历：丁酉年 十二月 初六日 戌时。\n神煞：驿马-申 桃花-卯 干禄-寅 贵人-丑、未\n干支：丁酉年 癸丑月 甲寅日 甲戌时\n主变卦 火风鼎(离宫) 之 火天大有(乾宫) [空亡:子、丑]\n玄武      ━━━━━ 兄弟巳火      ━━━━━ 兄弟巳火 应\n白虎      ━━　━━ 子孙未土 应   ━━　━━ 子孙未土\n螣蛇      ━━━━━ 妻财酉金      ━━━━━ 妻财酉金\n勾陈      ━━━━━ 妻财酉金      ━━━━━ 子孙辰土 世\n朱雀      ━━━━━ 官鬼亥水 世   ━━━━━ 父母寅木\n青龙 父卯 ━━　━━ × 子孙丑土    ━━━━━ 官鬼子水\n\n指定租店铺好坏，以父母为店铺，兼看应爻。本卦中世临鬼爻朱雀不吉，父母卯木伏藏不现，应爻子孙未土月破日克，十分衰败，子孙为财源，说明挣不到什么钱。好在日辰寅木与世爻平合，寅木为父母，代表另外的店铺，说明卦主已经看好了另一家店铺。",
+          "quote_sha256": "92adb9e7029b972b24cdfd27c94c157a3bebb0df1b4b3535a0aae2a4c5a3814a"
+        },
+        {
+          "page": 143,
+          "start_line": 1,
+          "end_line": 1,
+          "exact_text": "卦主反馈：觉得这家店铺不太好，另租了一家，已经开业了，做的是食品档口生意。",
+          "quote_sha256": "03d4fa319b52a7b476ae706cd742d7c69c48c3a99ef8c5dea0795b2561a4a88b"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 142,
+            "start_line": 5,
+            "end_line": 5,
+            "exact_text": "占问事宜：租这个店铺好吗",
+            "quote_sha256": "7c1d91658d79b1593a1fbe20adb423c8a71dbf674f6095d21d52f90317a8b6a9"
+          }
+        ],
+        "background": [
+          {
+            "page": 142,
+            "start_line": 4,
+            "end_line": 4,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 142,
+            "start_line": 6,
+            "end_line": 16,
+            "exact_text": "公历：2018年1月22日20时42分，星期一。\n农历：丁酉年 十二月 初六日 戌时。\n神煞：驿马-申 桃花-卯 干禄-寅 贵人-丑、未\n干支：丁酉年 癸丑月 甲寅日 甲戌时\n主变卦 火风鼎(离宫) 之 火天大有(乾宫) [空亡:子、丑]\n玄武      ━━━━━ 兄弟巳火      ━━━━━ 兄弟巳火 应\n白虎      ━━　━━ 子孙未土 应   ━━　━━ 子孙未土\n螣蛇      ━━━━━ 妻财酉金      ━━━━━ 妻财酉金\n勾陈      ━━━━━ 妻财酉金      ━━━━━ 子孙辰土 世\n朱雀      ━━━━━ 官鬼亥水 世   ━━━━━ 父母寅木\n青龙 父卯 ━━　━━ × 子孙丑土    ━━━━━ 官鬼子水",
+            "quote_sha256": "09eced9a967afea7e4ba409c3efd0b112e10511c197f735c8b0f567084fc478b"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 142,
+            "start_line": 18,
+            "end_line": 18,
+            "exact_text": "指定租店铺好坏，以父母为店铺，兼看应爻。本卦中世临鬼爻朱雀不吉，父母卯木伏藏不现，应爻子孙未土月破日克，十分衰败，子孙为财源，说明挣不到什么钱。好在日辰寅木与世爻平合，寅木为父母，代表另外的店铺，说明卦主已经看好了另一家店铺。",
+            "quote_sha256": "75c2bf7850c638848b5c78b8fbcaf268cbde08ae55ceda22bf90e9a85faa23d0"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 143,
+            "start_line": 1,
+            "end_line": 1,
+            "exact_text": "卦主反馈：觉得这家店铺不太好，另租了一家，已经开业了，做的是食品档口生意。",
+            "quote_sha256": "03d4fa319b52a7b476ae706cd742d7c69c48c3a99ef8c5dea0795b2561a4a88b"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          0,
+          1,
+          1,
+          1,
+          2,
+          1
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "丑",
+        "month_ganzhi": "癸丑",
+        "day_ganzhi": "甲寅",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "甲戌",
+        "date": "2018-01-22",
+        "time": "20:42",
+        "solar_calendar_raw": "公历：2018年1月22日20时42分，星期一。",
+        "lunar_calendar_raw": "农历：丁酉年 十二月 初六日 戌时。",
+        "ganzhi_raw": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+        "reported_primary": "火风鼎",
+        "reported_changed": "火天大有",
+        "relationship": "男测租店铺",
+        "diagram_spans": [
+          {
+            "page": 142,
+            "start_line": 10,
+            "end_line": 16,
+            "exact_text": "主变卦 火风鼎(离宫) 之 火天大有(乾宫) [空亡:子、丑]\n玄武      ━━━━━ 兄弟巳火      ━━━━━ 兄弟巳火 应\n白虎      ━━　━━ 子孙未土 应   ━━　━━ 子孙未土\n螣蛇      ━━━━━ 妻财酉金      ━━━━━ 妻财酉金\n勾陈      ━━━━━ 妻财酉金      ━━━━━ 子孙辰土 世\n朱雀      ━━━━━ 官鬼亥水 世   ━━━━━ 父母寅木\n青龙 父卯 ━━　━━ × 子孙丑土    ━━━━━ 官鬼子水",
+            "quote_sha256": "f88eee0fb445e010b74e43e0d94cf607879e4ac5af5da3b40a7c83f2dee4ed62"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 142,
+              "start_line": 11,
+              "end_line": 16,
+              "exact_text": "玄武      ━━━━━ 兄弟巳火      ━━━━━ 兄弟巳火 应\n白虎      ━━　━━ 子孙未土 应   ━━　━━ 子孙未土\n螣蛇      ━━━━━ 妻财酉金      ━━━━━ 妻财酉金\n勾陈      ━━━━━ 妻财酉金      ━━━━━ 子孙辰土 世\n朱雀      ━━━━━ 官鬼亥水 世   ━━━━━ 父母寅木\n青龙 父卯 ━━　━━ × 子孙丑土    ━━━━━ 官鬼子水",
+              "quote_sha256": "8ae5a4e0de3f11a6d58cde022aba9d02c394f7ea0d65cfb62ec84c1053e77fa4"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 142,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+              "quote_sha256": "cf700f68195e592a595c47a4cf39201076401e41b6a6ab0144577fe8cc6d5037"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 142,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+              "quote_sha256": "cf700f68195e592a595c47a4cf39201076401e41b6a6ab0144577fe8cc6d5037"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 142,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+              "quote_sha256": "cf700f68195e592a595c47a4cf39201076401e41b6a6ab0144577fe8cc6d5037"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 142,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+              "quote_sha256": "cf700f68195e592a595c47a4cf39201076401e41b6a6ab0144577fe8cc6d5037"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 142,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+              "quote_sha256": "cf700f68195e592a595c47a4cf39201076401e41b6a6ab0144577fe8cc6d5037"
+            }
+          ],
+          "date": [
+            {
+              "page": 142,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2018年1月22日20时42分，星期一。\n农历：丁酉年 十二月 初六日 戌时。",
+              "quote_sha256": "3035b45bcb764ec5bd69a51bac90b78ffac506f56c1a579979a145ac12402dbf"
+            }
+          ],
+          "time": [
+            {
+              "page": 142,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2018年1月22日20时42分，星期一。\n农历：丁酉年 十二月 初六日 戌时。",
+              "quote_sha256": "3035b45bcb764ec5bd69a51bac90b78ffac506f56c1a579979a145ac12402dbf"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0142.png",
+          "image_sha256": "6c54e0b0f029e6ee9e2ed2b5bbb0db09e1a12783298dc562166d69ffe30e299d",
+          "notes": "原图勾陈行确实印“妻财酉金”，与上一行相同；按原书保留，未据重算改为别的爻支。",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0142_rent_shop",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "案例起于142页求测人/问题，143页首段是其唯一显式反馈。旺衰生克结合六亲取象，故标mixed。问的是指定店铺租赁，标property/rental。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0143_day_combine_moving",
+      "kind": "rule",
+      "title": "日合动爻与日合静爻的合绊含义",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 143,
+          "start_line": 2,
+          "end_line": 2,
+          "exact_text": "（5）日合动爻与日合静爻的用法大同小异，一般也取合绊之意，不同的是，日合静爻多为事情并未开始就被绊住无法行动，而日合动爻则有事情已经开始再被绊住的意思。",
+          "quote_sha256": "087868c33ad8ab773ad7d53357d33dd6eda76b11ab50eff19ef4a4c90dbffaf0"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "（5）完整讲述日合动静爻的相同点及事情开始前后的差异；为一般适用规则，scope为common。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0143_lawsuit",
+      "kind": "case",
+      "title": "官司能赢吗",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "lawsuit/litigation"
+      ],
+      "spans": [
+        {
+          "page": 143,
+          "start_line": 4,
+          "end_line": 19,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：官司能赢吗\n公历：2017年11月16日10时11分，星期四。\n农历：丁酉年 九月 廿八日 巳时。\n神煞：驿马-巳 桃花-子 干禄-午 贵人-亥、酉\n干支：丁酉年 辛亥月 丁未日 乙巳时\n主变卦 地水师(坎宫-归魂) 之 泽风大过(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 官鬼未土\n玄武 ━━　━━ × 兄弟亥水    ━━━━━ 父母酉金\n白虎 ━━　━━ × 官鬼丑土    ━━━━━ 兄弟亥水 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应\n\n测打官司，以世爻为自己，应爻为对方。世爻妻财午火发动克应，说明卦主是因为钱的事情主动告对方，而且已经告了。卦为地水师卦，兴师动众之意。然而，日辰合绊世爻，又生应爻，日辰为官鬼爻，官鬼为官方，法院，说明法院会从中说合，劝卦主撤诉，维护对方。两间爻发动为阻隔，案件也非常艰难，不如撤诉，讲和为上策。\n反馈：确实是因为钱的事情告对方，后来卦主说觉得打官司太麻烦了，不想打官司，撤诉了。",
+          "quote_sha256": "1390ca204897a698991b611e2f94dada6218cd65cee5171c08d701ca5ab99623"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 143,
+            "start_line": 5,
+            "end_line": 5,
+            "exact_text": "占问事宜：官司能赢吗",
+            "quote_sha256": "041daa4bf8a76c385b84d9550443087612ab0e15b4af95328f5f89646535f801"
+          }
+        ],
+        "background": [
+          {
+            "page": 143,
+            "start_line": 4,
+            "end_line": 4,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 143,
+            "start_line": 6,
+            "end_line": 16,
+            "exact_text": "公历：2017年11月16日10时11分，星期四。\n农历：丁酉年 九月 廿八日 巳时。\n神煞：驿马-巳 桃花-子 干禄-午 贵人-亥、酉\n干支：丁酉年 辛亥月 丁未日 乙巳时\n主变卦 地水师(坎宫-归魂) 之 泽风大过(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 官鬼未土\n玄武 ━━　━━ × 兄弟亥水    ━━━━━ 父母酉金\n白虎 ━━　━━ × 官鬼丑土    ━━━━━ 兄弟亥水 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+            "quote_sha256": "18b63edcb3209daf2e7317462be872229685e164e3db6e56d9466f188f54e67a"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 143,
+            "start_line": 18,
+            "end_line": 18,
+            "exact_text": "测打官司，以世爻为自己，应爻为对方。世爻妻财午火发动克应，说明卦主是因为钱的事情主动告对方，而且已经告了。卦为地水师卦，兴师动众之意。然而，日辰合绊世爻，又生应爻，日辰为官鬼爻，官鬼为官方，法院，说明法院会从中说合，劝卦主撤诉，维护对方。两间爻发动为阻隔，案件也非常艰难，不如撤诉，讲和为上策。",
+            "quote_sha256": "faab033b72797fedb80da19852538ff80526aa93afb4f9600062cb95b5d2789e"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 143,
+            "start_line": 19,
+            "end_line": 19,
+            "exact_text": "反馈：确实是因为钱的事情告对方，后来卦主说觉得打官司太麻烦了，不想打官司，撤诉了。",
+            "quote_sha256": "c4d1ff7d00d3a48024acf6dacdc822f085cbe6f96ad6da1fb8ea4061097d29fa"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "辛亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "乙巳",
+        "date": "2017-11-16",
+        "time": "10:11",
+        "solar_calendar_raw": "公历：2017年11月16日10时11分，星期四。",
+        "lunar_calendar_raw": "农历：丁酉年 九月 廿八日 巳时。",
+        "ganzhi_raw": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+        "reported_primary": "地水师",
+        "reported_changed": "泽风大过",
+        "relationship": "男测打官司",
+        "diagram_spans": [
+          {
+            "page": 143,
+            "start_line": 10,
+            "end_line": 16,
+            "exact_text": "主变卦 地水师(坎宫-归魂) 之 泽风大过(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 官鬼未土\n玄武 ━━　━━ × 兄弟亥水    ━━━━━ 父母酉金\n白虎 ━━　━━ × 官鬼丑土    ━━━━━ 兄弟亥水 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+            "quote_sha256": "42ebaae4e9b258a5a859c57ef3d5167786a01462aa4a8f22feae0131ae78ab2f"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 143,
+              "start_line": 11,
+              "end_line": 16,
+              "exact_text": "青龙 ━━　━━ 父母酉金 应   ━━　━━ 官鬼未土\n玄武 ━━　━━ × 兄弟亥水    ━━━━━ 父母酉金\n白虎 ━━　━━ × 官鬼丑土    ━━━━━ 兄弟亥水 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+              "quote_sha256": "b723a3aa960b04ce167a439b2e8578f0b039d0aa3d21eeb324743c2eafe187d8"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 143,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+              "quote_sha256": "1c0a09a6eaf21f9f245a6db4a65ea0ef09ea791057df73b5bf06a94f62468713"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 143,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+              "quote_sha256": "1c0a09a6eaf21f9f245a6db4a65ea0ef09ea791057df73b5bf06a94f62468713"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 143,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+              "quote_sha256": "1c0a09a6eaf21f9f245a6db4a65ea0ef09ea791057df73b5bf06a94f62468713"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 143,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+              "quote_sha256": "1c0a09a6eaf21f9f245a6db4a65ea0ef09ea791057df73b5bf06a94f62468713"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 143,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+              "quote_sha256": "1c0a09a6eaf21f9f245a6db4a65ea0ef09ea791057df73b5bf06a94f62468713"
+            }
+          ],
+          "date": [
+            {
+              "page": 143,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2017年11月16日10时11分，星期四。\n农历：丁酉年 九月 廿八日 巳时。",
+              "quote_sha256": "adbeaed0a6564992e674ef1f48eccb1988d0a2150c4df93017724d302b561863"
+            }
+          ],
+          "time": [
+            {
+              "page": 143,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2017年11月16日10时11分，星期四。\n农历：丁酉年 九月 廿八日 巳时。",
+              "quote_sha256": "adbeaed0a6564992e674ef1f48eccb1988d0a2150c4df93017724d302b561863"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0143.png",
+          "image_sha256": "e4cbc12db66584cda4f6dd00a5abf90026eff7058191f80695d2093ace61242d",
+          "notes": "",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0143_lawsuit",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "分析与反馈分别是143:18和143:19；反馈只保留原书确实为钱告对方并撤诉。分析含日合绊、生克和“兴师动众”“两间爻阻隔”取象，标mixed。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0143_school",
+      "kind": "case",
+      "title": "去这所学校上学对自己成绩有帮助吗",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "study/school_choice",
+        "study/progress"
+      ],
+      "spans": [
+        {
+          "page": 143,
+          "start_line": 21,
+          "end_line": 22,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：去这所学校上学对自己成绩有帮助吗",
+          "quote_sha256": "d5d1b59c8c9fbf843fe3fa0257cd30dca67e76655f63c7740d52a1f352fd43f0"
+        },
+        {
+          "page": 144,
+          "start_line": 1,
+          "end_line": 14,
+          "exact_text": "公历：2018年11月11日16时3分，星期日。\n农历：戊戌年 十月 初四日 申时。\n神煞：驿马-巳 桃花-子 干禄-午 贵人-亥、酉\n干支：戊戌年 癸亥月 丁未日 戊申时\n主变卦 地水师(坎宫-归魂) 之 地风升(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 父母酉金\n玄武 ━━　━━ 兄弟亥水      ━━　━━ 兄弟亥水\n白虎 ━━　━━ 官鬼丑土      ━━　━━ 官鬼丑土 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应\n\n以应爻为这所学校。应爻父母酉金日生为旺，又临青龙生世爻，这所学校名气不错，对自己学习有利。然而，世爻发动克应爻，说明卦主不太看好这所学校，并且世爻被日辰合拌，最终也不会去。\n反馈：学校确实不错，后来去试听了一节课，最终也没去成。",
+          "quote_sha256": "c52df7ea5fac84332bf9bfe7ba81d33a664b374eaa9c889a276412b6641d7c4f"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 143,
+            "start_line": 22,
+            "end_line": 22,
+            "exact_text": "占问事宜：去这所学校上学对自己成绩有帮助吗",
+            "quote_sha256": "c68aa845c4c7aab4adf222e5867cd1d18dff038f5f5f4f89b2041688a81baa29"
+          }
+        ],
+        "background": [
+          {
+            "page": 143,
+            "start_line": 21,
+            "end_line": 21,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 144,
+            "start_line": 1,
+            "end_line": 11,
+            "exact_text": "公历：2018年11月11日16时3分，星期日。\n农历：戊戌年 十月 初四日 申时。\n神煞：驿马-巳 桃花-子 干禄-午 贵人-亥、酉\n干支：戊戌年 癸亥月 丁未日 戊申时\n主变卦 地水师(坎宫-归魂) 之 地风升(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 父母酉金\n玄武 ━━　━━ 兄弟亥水      ━━　━━ 兄弟亥水\n白虎 ━━　━━ 官鬼丑土      ━━　━━ 官鬼丑土 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+            "quote_sha256": "9576f5cc949703a16cc0d5055d328809c603d9a0c0baabccbdd3ae375a5848b9"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 144,
+            "start_line": 13,
+            "end_line": 13,
+            "exact_text": "以应爻为这所学校。应爻父母酉金日生为旺，又临青龙生世爻，这所学校名气不错，对自己学习有利。然而，世爻发动克应爻，说明卦主不太看好这所学校，并且世爻被日辰合拌，最终也不会去。",
+            "quote_sha256": "27c2e14e8a9f710e9ae0cd8cd65e8aaec9d21a7024901b17c0c03057885513a9"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 144,
+            "start_line": 14,
+            "end_line": 14,
+            "exact_text": "反馈：学校确实不错，后来去试听了一节课，最终也没去成。",
+            "quote_sha256": "1271855885635a0d24f268157a226d3d7011f3479b4e00ce7fe15b87c787854d"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          1,
+          0,
+          2,
+          2,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "癸亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "戊戌",
+        "hour_ganzhi": "戊申",
+        "date": "2018-11-11",
+        "time": "16:03",
+        "solar_calendar_raw": "公历：2018年11月11日16时3分，星期日。",
+        "lunar_calendar_raw": "农历：戊戌年 十月 初四日 申时。",
+        "ganzhi_raw": "干支：戊戌年 癸亥月 丁未日 戊申时",
+        "reported_primary": "地水师",
+        "reported_changed": "地风升",
+        "relationship": "男测择校及对成绩的帮助",
+        "diagram_spans": [
+          {
+            "page": 144,
+            "start_line": 5,
+            "end_line": 11,
+            "exact_text": "主变卦 地水师(坎宫-归魂) 之 地风升(震宫) [空亡:寅、卯]\n青龙 ━━　━━ 父母酉金 应   ━━　━━ 父母酉金\n玄武 ━━　━━ 兄弟亥水      ━━　━━ 兄弟亥水\n白虎 ━━　━━ 官鬼丑土      ━━　━━ 官鬼丑土 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+            "quote_sha256": "42d96ad7a7d5eaf41e4eda5582006673653f843fdeca3da74d74ad1001804549"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 144,
+              "start_line": 6,
+              "end_line": 11,
+              "exact_text": "青龙 ━━　━━ 父母酉金 应   ━━　━━ 父母酉金\n玄武 ━━　━━ 兄弟亥水      ━━　━━ 兄弟亥水\n白虎 ━━　━━ 官鬼丑土      ━━　━━ 官鬼丑土 世\n螣蛇 ━━　━━ × 妻财午火 世 ━━━━━ 父母酉金\n勾陈 ━━━━━ 官鬼辰土      ━━━━━ 兄弟亥水\n朱雀 ━━　━━ 子孙寅木      ━━　━━ 官鬼丑土 应",
+              "quote_sha256": "eca213c13513fc23d97355808bbd588f2c886163bbebd1c2c51144caf62f1181"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 4,
+              "end_line": 4,
+              "exact_text": "干支：戊戌年 癸亥月 丁未日 戊申时",
+              "quote_sha256": "203c805c8f031ddd3238b27a92527151586681ba168f8a83494e27749f09a7ec"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 144,
+              "start_line": 4,
+              "end_line": 4,
+              "exact_text": "干支：戊戌年 癸亥月 丁未日 戊申时",
+              "quote_sha256": "203c805c8f031ddd3238b27a92527151586681ba168f8a83494e27749f09a7ec"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 4,
+              "end_line": 4,
+              "exact_text": "干支：戊戌年 癸亥月 丁未日 戊申时",
+              "quote_sha256": "203c805c8f031ddd3238b27a92527151586681ba168f8a83494e27749f09a7ec"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 4,
+              "end_line": 4,
+              "exact_text": "干支：戊戌年 癸亥月 丁未日 戊申时",
+              "quote_sha256": "203c805c8f031ddd3238b27a92527151586681ba168f8a83494e27749f09a7ec"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 4,
+              "end_line": 4,
+              "exact_text": "干支：戊戌年 癸亥月 丁未日 戊申时",
+              "quote_sha256": "203c805c8f031ddd3238b27a92527151586681ba168f8a83494e27749f09a7ec"
+            }
+          ],
+          "date": [
+            {
+              "page": 144,
+              "start_line": 1,
+              "end_line": 2,
+              "exact_text": "公历：2018年11月11日16时3分，星期日。\n农历：戊戌年 十月 初四日 申时。",
+              "quote_sha256": "386725b714b454eb38cc5c70b76f7778bf3af2c528c9def294e13ee31ffcd596"
+            }
+          ],
+          "time": [
+            {
+              "page": 144,
+              "start_line": 1,
+              "end_line": 2,
+              "exact_text": "公历：2018年11月11日16时3分，星期日。\n农历：戊戌年 十月 初四日 申时。",
+              "quote_sha256": "386725b714b454eb38cc5c70b76f7778bf3af2c528c9def294e13ee31ffcd596"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0144.png",
+          "image_sha256": "116cb3257e14b1fc558bd3070dd425db0717b7912ddeaf59188bb91e101de688",
+          "notes": "143页的问题与144页的完整日期、卦盘、分析、反馈为同一案例。144:13“合拌”为原书用字，保持不改。",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0143_school",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "完整案例跨143–144页，下一案例起于144:16。兼用旺相、日合绊与青龙名气取象，标mixed。问题明确择校及成绩，故标study/school_choice与study/progress。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。 作者表述待核：144页13行称应爻父母酉金“生世爻”，但盘中世爻为午火；按盘面五行是午火克酉金，该句与生克方向不一致。保留原文，不作为已核算盘面事实或成绩提高的反馈。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0144_interview",
+      "kind": "case",
+      "title": "本次面试能否成功",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "job/job_search"
+      ],
+      "spans": [
+        {
+          "page": 144,
+          "start_line": 16,
+          "end_line": 27,
+          "exact_text": "求测人：男，占问事宜：本次面试能否成功\n公历：2017年11月11日15时24分，星期六。\n农历：丁酉年 九月 廿三日 申时。\n神煞：驿马-申 桃花-卯 干禄-亥 贵人-卯、巳\n干支：丁酉年 辛亥月 壬寅日 戊申时\n主变卦 兑为泽(兑宫) 之 水泽节(坎宫) [空亡:辰、巳]\n白虎 ━━　━━ 父母未土 世   ━━　━━ 子孙子水\n螣蛇 ━━━━━ 兄弟酉金      ━━━━━ 父母戌土\n勾陈 ━━━━━ ○ 子孙亥水    ━━　━━ 兄弟申金 应\n朱雀 ━━　━━ 父母丑土 应   ━━　━━ 父母丑土\n青龙 ━━━━━ 妻财卯木      ━━━━━ 妻财卯木\n玄武 ━━━━━ 官鬼巳火      ━━━━━ 官鬼巳火 世",
+          "quote_sha256": "fdfcb1d66143f31e0391aad5b8bcd2aa166dad8cbb48d98e7dd37524f02856e2"
+        },
+        {
+          "page": 145,
+          "start_line": 1,
+          "end_line": 2,
+          "exact_text": "面试本来以父母为用神，本卦中父母未土持世衰败，然而，重点却不在未土，而在子孙亥水发动，想要冲起初爻旬空的官鬼巳火来生旺用神。可惜啊，亥水被日辰合绊，又发动化日破，是无力去冲起巳火的，单测本次面试看来是不能通过了。另外，间爻子孙亥水独发也可以直接当成阻隔之象，也预示着不能成功。\n反馈：没有成功。",
+          "quote_sha256": "0acda062acceddcc3431e03e94e9acf94f455d8b3b80baaa3160458e6a073989"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 144,
+            "start_line": 16,
+            "end_line": 16,
+            "start_column": 6,
+            "exact_text": "占问事宜：本次面试能否成功",
+            "quote_sha256": "ded2e2102f873487a83653da01e4b59f087a05f696a5ab909eb8c041a2c5d84b"
+          }
+        ],
+        "background": [
+          {
+            "page": 144,
+            "start_line": 16,
+            "end_line": 16,
+            "end_column": 6,
+            "exact_text": "求测人：男，",
+            "quote_sha256": "b9c4b596509577fd5c1405bbe0e8006ee13035e00a5690d699da1e5194f85d8f"
+          }
+        ],
+        "chart": [
+          {
+            "page": 144,
+            "start_line": 17,
+            "end_line": 27,
+            "exact_text": "公历：2017年11月11日15时24分，星期六。\n农历：丁酉年 九月 廿三日 申时。\n神煞：驿马-申 桃花-卯 干禄-亥 贵人-卯、巳\n干支：丁酉年 辛亥月 壬寅日 戊申时\n主变卦 兑为泽(兑宫) 之 水泽节(坎宫) [空亡:辰、巳]\n白虎 ━━　━━ 父母未土 世   ━━　━━ 子孙子水\n螣蛇 ━━━━━ 兄弟酉金      ━━━━━ 父母戌土\n勾陈 ━━━━━ ○ 子孙亥水    ━━　━━ 兄弟申金 应\n朱雀 ━━　━━ 父母丑土 应   ━━　━━ 父母丑土\n青龙 ━━━━━ 妻财卯木      ━━━━━ 妻财卯木\n玄武 ━━━━━ 官鬼巳火      ━━━━━ 官鬼巳火 世",
+            "quote_sha256": "30b50b1d86255f9e1c836590b236784659e6768ad8d0a3ad25d378ee5287af96"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 145,
+            "start_line": 1,
+            "end_line": 1,
+            "exact_text": "面试本来以父母为用神，本卦中父母未土持世衰败，然而，重点却不在未土，而在子孙亥水发动，想要冲起初爻旬空的官鬼巳火来生旺用神。可惜啊，亥水被日辰合绊，又发动化日破，是无力去冲起巳火的，单测本次面试看来是不能通过了。另外，间爻子孙亥水独发也可以直接当成阻隔之象，也预示着不能成功。",
+            "quote_sha256": "6b140e3212fb3543e246fca125291eb75bed7e26b53f9f6ad82cc6f184aca7a2"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 145,
+            "start_line": 2,
+            "end_line": 2,
+            "exact_text": "反馈：没有成功。",
+            "quote_sha256": "ba61fda8fae7f44bfc7c8ee29ffa8b7c8cfea841f8ae60fd1812960a76909a71"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          1,
+          1,
+          2,
+          3,
+          1,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "辛亥",
+        "day_ganzhi": "壬寅",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "戊申",
+        "date": "2017-11-11",
+        "time": "15:24",
+        "solar_calendar_raw": "公历：2017年11月11日15时24分，星期六。",
+        "lunar_calendar_raw": "农历：丁酉年 九月 廿三日 申时。",
+        "ganzhi_raw": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+        "reported_primary": "兑为泽",
+        "reported_changed": "水泽节",
+        "relationship": "男测本次面试",
+        "diagram_spans": [
+          {
+            "page": 144,
+            "start_line": 21,
+            "end_line": 27,
+            "exact_text": "主变卦 兑为泽(兑宫) 之 水泽节(坎宫) [空亡:辰、巳]\n白虎 ━━　━━ 父母未土 世   ━━　━━ 子孙子水\n螣蛇 ━━━━━ 兄弟酉金      ━━━━━ 父母戌土\n勾陈 ━━━━━ ○ 子孙亥水    ━━　━━ 兄弟申金 应\n朱雀 ━━　━━ 父母丑土 应   ━━　━━ 父母丑土\n青龙 ━━━━━ 妻财卯木      ━━━━━ 妻财卯木\n玄武 ━━━━━ 官鬼巳火      ━━━━━ 官鬼巳火 世",
+            "quote_sha256": "24425dd6dfb322d983f298e07107a8a44c3fcadbed02f112698b693232336a8e"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 144,
+              "start_line": 22,
+              "end_line": 27,
+              "exact_text": "白虎 ━━　━━ 父母未土 世   ━━　━━ 子孙子水\n螣蛇 ━━━━━ 兄弟酉金      ━━━━━ 父母戌土\n勾陈 ━━━━━ ○ 子孙亥水    ━━　━━ 兄弟申金 应\n朱雀 ━━　━━ 父母丑土 应   ━━　━━ 父母丑土\n青龙 ━━━━━ 妻财卯木      ━━━━━ 妻财卯木\n玄武 ━━━━━ 官鬼巳火      ━━━━━ 官鬼巳火 世",
+              "quote_sha256": "1a6e42473f30b4083f10713e38600686a73d12251d94ca13ce8654f303834bd6"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 20,
+              "end_line": 20,
+              "exact_text": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+              "quote_sha256": "51bfa6f150c2c2b003e5e8b4f977ccc30f70128b509a7c87abc9cc9eda3b96a2"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 144,
+              "start_line": 20,
+              "end_line": 20,
+              "exact_text": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+              "quote_sha256": "51bfa6f150c2c2b003e5e8b4f977ccc30f70128b509a7c87abc9cc9eda3b96a2"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 20,
+              "end_line": 20,
+              "exact_text": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+              "quote_sha256": "51bfa6f150c2c2b003e5e8b4f977ccc30f70128b509a7c87abc9cc9eda3b96a2"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 20,
+              "end_line": 20,
+              "exact_text": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+              "quote_sha256": "51bfa6f150c2c2b003e5e8b4f977ccc30f70128b509a7c87abc9cc9eda3b96a2"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 144,
+              "start_line": 20,
+              "end_line": 20,
+              "exact_text": "干支：丁酉年 辛亥月 壬寅日 戊申时",
+              "quote_sha256": "51bfa6f150c2c2b003e5e8b4f977ccc30f70128b509a7c87abc9cc9eda3b96a2"
+            }
+          ],
+          "date": [
+            {
+              "page": 144,
+              "start_line": 17,
+              "end_line": 18,
+              "exact_text": "公历：2017年11月11日15时24分，星期六。\n农历：丁酉年 九月 廿三日 申时。",
+              "quote_sha256": "4d10a79a6456ad9e49c1063c97dd6363e49f7bdf43659a628553dfc57fa1943e"
+            }
+          ],
+          "time": [
+            {
+              "page": 144,
+              "start_line": 17,
+              "end_line": 18,
+              "exact_text": "公历：2017年11月11日15时24分，星期六。\n农历：丁酉年 九月 廿三日 申时。",
+              "quote_sha256": "4d10a79a6456ad9e49c1063c97dd6363e49f7bdf43659a628553dfc57fa1943e"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0144.png",
+          "image_sha256": "116cb3257e14b1fc558bd3070dd425db0717b7912ddeaf59188bb91e101de688",
+          "notes": "该例源页未写“手工指定”，未补入起卦方式；第四爻子孙亥水阳动从图中圈号抄得。",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0144_interview",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "144:16用列坐标将求测人和问题分开；145:1分析、145:2“没有成功”是本例末尾，不属于随后孩子健康例。日合绊和日破之外兼有间爻阻隔之象，标mixed。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0145_child_health",
+      "kind": "case",
+      "title": "孩子是不是病了",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "health/relative"
+      ],
+      "spans": [
+        {
+          "page": 145,
+          "start_line": 4,
+          "end_line": 19,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：孩子是不是病了\n公历：2018年1月30日15时24分，星期二。\n农历：丁酉年 十二月 十四日 申时。\n神煞：驿马-申 桃花-卯 干禄-亥 贵人-卯、巳\n干支：丁酉年 癸丑月 壬戌日 戊申时\n主变卦 雷地豫(震宫) 之 雷山小过(兑宫) [空亡:子、丑]\n白虎      ━━　━━ 妻财戌土      ━━　━━ 妻财戌土\n螣蛇      ━━　━━ 官鬼申金      ━━　━━ 官鬼申金\n勾陈      ━━━━━ 子孙午火 应   ━━━━━ 子孙午火 世\n朱雀      ━━　━━ × 兄弟卯木    ━━━━━ 官鬼申金\n青龙      ━━　━━ 子孙巳火      ━━　━━ 子孙午火\n玄武 父子 ━━　━━ 妻财未土 世   ━━　━━ 妻财辰土 应\n\n以子孙为用神。子孙午火在应爻，元神卯木发动生子孙，但是卯木被日辰合绊，不能生子孙，且化回头克，元神在婴儿指睡眠，这就是睡眠不好。兄弟卯木临朱雀独发，朱雀为吵闹。子孙午火入日墓，元神又被日辰合绊，日辰为妻财，妻财主饮食，三爻又是肠胃的爻位，所以肠胃不太好。卦化小过，小毛病而已，不必惊讶。\n反馈：睡眠不好，肠胃不好，老是哭闹。后来也确实没什么大问题。",
+          "quote_sha256": "bb0400b36ff7d41e074464f75799bb7f509005a222da252d2dcb53a2701863d7"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 145,
+            "start_line": 5,
+            "end_line": 5,
+            "exact_text": "占问事宜：孩子是不是病了",
+            "quote_sha256": "2f9c1998fd1f255b5ba7e7788e9410fb718ab76c63a557a200133ddadf309aec"
+          }
+        ],
+        "background": [
+          {
+            "page": 145,
+            "start_line": 4,
+            "end_line": 4,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 145,
+            "start_line": 6,
+            "end_line": 16,
+            "exact_text": "公历：2018年1月30日15时24分，星期二。\n农历：丁酉年 十二月 十四日 申时。\n神煞：驿马-申 桃花-卯 干禄-亥 贵人-卯、巳\n干支：丁酉年 癸丑月 壬戌日 戊申时\n主变卦 雷地豫(震宫) 之 雷山小过(兑宫) [空亡:子、丑]\n白虎      ━━　━━ 妻财戌土      ━━　━━ 妻财戌土\n螣蛇      ━━　━━ 官鬼申金      ━━　━━ 官鬼申金\n勾陈      ━━━━━ 子孙午火 应   ━━━━━ 子孙午火 世\n朱雀      ━━　━━ × 兄弟卯木    ━━━━━ 官鬼申金\n青龙      ━━　━━ 子孙巳火      ━━　━━ 子孙午火\n玄武 父子 ━━　━━ 妻财未土 世   ━━　━━ 妻财辰土 应",
+            "quote_sha256": "67d8698dd1ffaf65aa8cb5b122fd78db8fd497bd1904c882e7a68cd14a4abcc0"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 145,
+            "start_line": 18,
+            "end_line": 18,
+            "exact_text": "以子孙为用神。子孙午火在应爻，元神卯木发动生子孙，但是卯木被日辰合绊，不能生子孙，且化回头克，元神在婴儿指睡眠，这就是睡眠不好。兄弟卯木临朱雀独发，朱雀为吵闹。子孙午火入日墓，元神又被日辰合绊，日辰为妻财，妻财主饮食，三爻又是肠胃的爻位，所以肠胃不太好。卦化小过，小毛病而已，不必惊讶。",
+            "quote_sha256": "2b28c5e0ad19286c49039c8a429a0f55474364b1548853620b0e7c6820818a69"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 145,
+            "start_line": 19,
+            "end_line": 19,
+            "exact_text": "反馈：睡眠不好，肠胃不好，老是哭闹。后来也确实没什么大问题。",
+            "quote_sha256": "eca562c39ae6140004eb0c1aab55a7edf3d51bbf95d205efbfd176b17e46bc43"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          2,
+          0,
+          1,
+          2,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "丑",
+        "month_ganzhi": "癸丑",
+        "day_ganzhi": "壬戌",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "戊申",
+        "date": "2018-01-30",
+        "time": "15:24",
+        "solar_calendar_raw": "公历：2018年1月30日15时24分，星期二。",
+        "lunar_calendar_raw": "农历：丁酉年 十二月 十四日 申时。",
+        "ganzhi_raw": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+        "reported_primary": "雷地豫",
+        "reported_changed": "雷山小过",
+        "relationship": "男测孩子健康，源文未另说明具体亲缘",
+        "diagram_spans": [
+          {
+            "page": 145,
+            "start_line": 10,
+            "end_line": 16,
+            "exact_text": "主变卦 雷地豫(震宫) 之 雷山小过(兑宫) [空亡:子、丑]\n白虎      ━━　━━ 妻财戌土      ━━　━━ 妻财戌土\n螣蛇      ━━　━━ 官鬼申金      ━━　━━ 官鬼申金\n勾陈      ━━━━━ 子孙午火 应   ━━━━━ 子孙午火 世\n朱雀      ━━　━━ × 兄弟卯木    ━━━━━ 官鬼申金\n青龙      ━━　━━ 子孙巳火      ━━　━━ 子孙午火\n玄武 父子 ━━　━━ 妻财未土 世   ━━　━━ 妻财辰土 应",
+            "quote_sha256": "21982b3a2ff36444a6aa77a131a78330d67adc381048611df66ec6949c291196"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 145,
+              "start_line": 11,
+              "end_line": 16,
+              "exact_text": "白虎      ━━　━━ 妻财戌土      ━━　━━ 妻财戌土\n螣蛇      ━━　━━ 官鬼申金      ━━　━━ 官鬼申金\n勾陈      ━━━━━ 子孙午火 应   ━━━━━ 子孙午火 世\n朱雀      ━━　━━ × 兄弟卯木    ━━━━━ 官鬼申金\n青龙      ━━　━━ 子孙巳火      ━━　━━ 子孙午火\n玄武 父子 ━━　━━ 妻财未土 世   ━━　━━ 妻财辰土 应",
+              "quote_sha256": "500d5827a26e8207d4bd48d055ce6491aea852c702a5955ae7db8c9adfaa3da4"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 145,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+              "quote_sha256": "d5eed5db83ca2f32ab6bd42bf03f866fa56cfc506de226d2130dd3fc04c237d2"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 145,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+              "quote_sha256": "d5eed5db83ca2f32ab6bd42bf03f866fa56cfc506de226d2130dd3fc04c237d2"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 145,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+              "quote_sha256": "d5eed5db83ca2f32ab6bd42bf03f866fa56cfc506de226d2130dd3fc04c237d2"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 145,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+              "quote_sha256": "d5eed5db83ca2f32ab6bd42bf03f866fa56cfc506de226d2130dd3fc04c237d2"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 145,
+              "start_line": 9,
+              "end_line": 9,
+              "exact_text": "干支：丁酉年 癸丑月 壬戌日 戊申时",
+              "quote_sha256": "d5eed5db83ca2f32ab6bd42bf03f866fa56cfc506de226d2130dd3fc04c237d2"
+            }
+          ],
+          "date": [
+            {
+              "page": 145,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2018年1月30日15时24分，星期二。\n农历：丁酉年 十二月 十四日 申时。",
+              "quote_sha256": "6471a7d7174e063b8ec5f7f4ba23eb9baee13cd66a77a160f650541100f934b4"
+            }
+          ],
+          "time": [
+            {
+              "page": 145,
+              "start_line": 6,
+              "end_line": 7,
+              "exact_text": "公历：2018年1月30日15时24分，星期二。\n农历：丁酉年 十二月 十四日 申时。",
+              "quote_sha256": "6471a7d7174e063b8ec5f7f4ba23eb9baee13cd66a77a160f650541100f934b4"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0145.png",
+          "image_sha256": "195a12ac804a440c90208ad52601e30828d45b43f1dc7791d34517989c8cd665",
+          "notes": "已查看145页原图：主变卦为雷地豫之雷山小过，朱雀第三爻阴动标×；图序上至初为阴、阴、阳、阴动、阴、阴。旧OCR“雷地阶”未用；问题、图、分析、反馈均从当前校订稿生成span和哈希。",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0145_child_health",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "145:4–19是完整独立案例。145:18为作者分析，145:19为显式反馈；睡眠不好、肠胃不好、老是哭闹及后来没大问题均保留。日合绊、回头克、日墓兼以元神/朱雀/三爻和卦名取象，标mixed。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0146_ex_girlfriend",
+      "kind": "case",
+      "title": "与前女友缘分",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "relationship"
+      ],
+      "spans": [
+        {
+          "page": 146,
+          "start_line": 1,
+          "end_line": 16,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：与前女友缘分\n公历：2017年12月8日15时24分，星期五。\n农历：丁酉年 十月 廿一日 申时。\n神煞：驿马-亥 桃花-午 干禄-午 贵人-子、申\n干支：丁酉年 壬子月 己巳日 壬申时\n主变卦 天山遁(乾宫) 之 雷山小过(兑宫) [空亡:戌、亥]\n勾陈      ━━━━━ ○ 父母戌土    ━━　━━ 父母戌土\n朱雀      ━━━━━ ○ 兄弟申金 应 ━━　━━ 兄弟申金\n青龙      ━━━━━ 官鬼午火      ━━━━━ 官鬼午火 世\n玄武      ━━━━━ 兄弟申金      ━━━━━ 兄弟申金\n白虎 财寅 ━━　━━ 官鬼午火 世   ━━　━━ 官鬼午火\n螣蛇 孙子 ━━　━━ 父母辰土      ━━　━━ 父母辰土 应\n\n本卦中妻财不上卦，应爻发动，所以主看应爻。应爻与日辰相合，日辰为官鬼，这里就要取和男人很亲密的意思，说明已经有了男友。元神父母戌土旬空，空为不诚心，应爻又伏吟中合日辰官鬼，这不仅仅是发动与官相合，而且是前女友沉浸于与其他人的交往中，心里早已没有卦主了。\n反馈：女方相亲认识了一个男的，他们已经开始交往了，对卦主已经非常冷淡了。",
+          "quote_sha256": "20b4ffa3f1d18b85bf1550df129c802093e9b2411ad726d9e5e2c704519c61a1"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 146,
+            "start_line": 2,
+            "end_line": 2,
+            "exact_text": "占问事宜：与前女友缘分",
+            "quote_sha256": "706bc9d8a522823aa71f08f7a1b7d989f7cb837ead84d3e64a550a185862d0c7"
+          }
+        ],
+        "background": [
+          {
+            "page": 146,
+            "start_line": 1,
+            "end_line": 1,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 146,
+            "start_line": 3,
+            "end_line": 13,
+            "exact_text": "公历：2017年12月8日15时24分，星期五。\n农历：丁酉年 十月 廿一日 申时。\n神煞：驿马-亥 桃花-午 干禄-午 贵人-子、申\n干支：丁酉年 壬子月 己巳日 壬申时\n主变卦 天山遁(乾宫) 之 雷山小过(兑宫) [空亡:戌、亥]\n勾陈      ━━━━━ ○ 父母戌土    ━━　━━ 父母戌土\n朱雀      ━━━━━ ○ 兄弟申金 应 ━━　━━ 兄弟申金\n青龙      ━━━━━ 官鬼午火      ━━━━━ 官鬼午火 世\n玄武      ━━━━━ 兄弟申金      ━━━━━ 兄弟申金\n白虎 财寅 ━━　━━ 官鬼午火 世   ━━　━━ 官鬼午火\n螣蛇 孙子 ━━　━━ 父母辰土      ━━　━━ 父母辰土 应",
+            "quote_sha256": "8cabb72dbecdbe3c6be7b68db213996a343092262bc3d891fac06c2aa684f067"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 146,
+            "start_line": 15,
+            "end_line": 15,
+            "exact_text": "本卦中妻财不上卦，应爻发动，所以主看应爻。应爻与日辰相合，日辰为官鬼，这里就要取和男人很亲密的意思，说明已经有了男友。元神父母戌土旬空，空为不诚心，应爻又伏吟中合日辰官鬼，这不仅仅是发动与官相合，而且是前女友沉浸于与其他人的交往中，心里早已没有卦主了。",
+            "quote_sha256": "e23a172d458301896880bcea82e56ce19ba1b74014c83f57716bbafcc2b1713d"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 146,
+            "start_line": 16,
+            "end_line": 16,
+            "exact_text": "反馈：女方相亲认识了一个男的，他们已经开始交往了，对卦主已经非常冷淡了。",
+            "quote_sha256": "26862834fd54e8c01a0b7d7097d914bfbfd3405f5752267f3fbbacb96cc3f5fb"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          2,
+          1,
+          1,
+          3,
+          3
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "子",
+        "month_ganzhi": "壬子",
+        "day_ganzhi": "己巳",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "壬申",
+        "date": "2017-12-08",
+        "time": "15:24",
+        "solar_calendar_raw": "公历：2017年12月8日15时24分，星期五。",
+        "lunar_calendar_raw": "农历：丁酉年 十月 廿一日 申时。",
+        "ganzhi_raw": "干支：丁酉年 壬子月 己巳日 壬申时",
+        "reported_primary": "天山遁",
+        "reported_changed": "雷山小过",
+        "relationship": "男测与前女友缘分",
+        "diagram_spans": [
+          {
+            "page": 146,
+            "start_line": 7,
+            "end_line": 13,
+            "exact_text": "主变卦 天山遁(乾宫) 之 雷山小过(兑宫) [空亡:戌、亥]\n勾陈      ━━━━━ ○ 父母戌土    ━━　━━ 父母戌土\n朱雀      ━━━━━ ○ 兄弟申金 应 ━━　━━ 兄弟申金\n青龙      ━━━━━ 官鬼午火      ━━━━━ 官鬼午火 世\n玄武      ━━━━━ 兄弟申金      ━━━━━ 兄弟申金\n白虎 财寅 ━━　━━ 官鬼午火 世   ━━　━━ 官鬼午火\n螣蛇 孙子 ━━　━━ 父母辰土      ━━　━━ 父母辰土 应",
+            "quote_sha256": "4810e5c294e46652f60706f77c1fd5f3817359132fc479516f1c51cf06512316"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 146,
+              "start_line": 8,
+              "end_line": 13,
+              "exact_text": "勾陈      ━━━━━ ○ 父母戌土    ━━　━━ 父母戌土\n朱雀      ━━━━━ ○ 兄弟申金 应 ━━　━━ 兄弟申金\n青龙      ━━━━━ 官鬼午火      ━━━━━ 官鬼午火 世\n玄武      ━━━━━ 兄弟申金      ━━━━━ 兄弟申金\n白虎 财寅 ━━　━━ 官鬼午火 世   ━━　━━ 官鬼午火\n螣蛇 孙子 ━━　━━ 父母辰土      ━━　━━ 父母辰土 应",
+              "quote_sha256": "6e9e6c3d47f3c3ca7ed810e596fbf41278c33190ec8f5d2dbdee5f4059281dcb"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 146,
+              "start_line": 6,
+              "end_line": 6,
+              "exact_text": "干支：丁酉年 壬子月 己巳日 壬申时",
+              "quote_sha256": "87c4f1b16638718a10d4bb1ccb7b6e544b878c5db3233d76d54041d22d015472"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 146,
+              "start_line": 6,
+              "end_line": 6,
+              "exact_text": "干支：丁酉年 壬子月 己巳日 壬申时",
+              "quote_sha256": "87c4f1b16638718a10d4bb1ccb7b6e544b878c5db3233d76d54041d22d015472"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 146,
+              "start_line": 6,
+              "end_line": 6,
+              "exact_text": "干支：丁酉年 壬子月 己巳日 壬申时",
+              "quote_sha256": "87c4f1b16638718a10d4bb1ccb7b6e544b878c5db3233d76d54041d22d015472"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 146,
+              "start_line": 6,
+              "end_line": 6,
+              "exact_text": "干支：丁酉年 壬子月 己巳日 壬申时",
+              "quote_sha256": "87c4f1b16638718a10d4bb1ccb7b6e544b878c5db3233d76d54041d22d015472"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 146,
+              "start_line": 6,
+              "end_line": 6,
+              "exact_text": "干支：丁酉年 壬子月 己巳日 壬申时",
+              "quote_sha256": "87c4f1b16638718a10d4bb1ccb7b6e544b878c5db3233d76d54041d22d015472"
+            }
+          ],
+          "date": [
+            {
+              "page": 146,
+              "start_line": 3,
+              "end_line": 4,
+              "exact_text": "公历：2017年12月8日15时24分，星期五。\n农历：丁酉年 十月 廿一日 申时。",
+              "quote_sha256": "3695fadfa31ba016b5922c8029a0de4245aaf6ceb4ef3053dbb49d3dd61fbd1e"
+            }
+          ],
+          "time": [
+            {
+              "page": 146,
+              "start_line": 3,
+              "end_line": 4,
+              "exact_text": "公历：2017年12月8日15时24分，星期五。\n农历：丁酉年 十月 廿一日 申时。",
+              "quote_sha256": "3695fadfa31ba016b5922c8029a0de4245aaf6ceb4ef3053dbb49d3dd61fbd1e"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0146.png",
+          "image_sha256": "6a411ca566611c7478e189d723b86ba794510688a93686ffb6e978b10e829803",
+          "notes": "",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0146_ex_girlfriend",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "146:16是明确反馈，止于后续（6）规则之前。分析结合相合、旬空、伏吟及不诚心/亲密等取象，标mixed。问题仅说前女友缘分，未强行细分为求复合。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0146_day_combine_changed",
+      "kind": "rule",
+      "title": "日合变爻的生合平合克合及应期提示",
+      "method": "lifa",
+      "scope": "common",
+      "topic_ids": [],
+      "spans": [
+        {
+          "page": 146,
+          "start_line": 17,
+          "end_line": 17,
+          "exact_text": "（6）日合变爻一般也按照生合平合克合分别取合绊、合好之意，多为细节和应期的提示。",
+          "quote_sha256": "a1872b8c28cc28bc3e38d3bbcd58b8722905482e1acae761af128158add7224d"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "（6）完整说明日合变爻取合绊、合好及细节应期的通用原则，scope为common；后续投资案例单列。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    },
+    {
+      "unit_id": "liuyao_lifa_jinjie.manual.p0146_investment_risk",
+      "kind": "case",
+      "title": "测投资风险",
+      "method": "mixed",
+      "scope": "case",
+      "topic_ids": [
+        "wealth/investment"
+      ],
+      "spans": [
+        {
+          "page": 146,
+          "start_line": 19,
+          "end_line": 23,
+          "exact_text": "求测人：男，手工指定(起卦方式)\n占问事宜：测投资风险\n公历：2017年11月14日14时37分，星期二。\n农历：丁酉年 九月 廿六日 未时。\n神煞：驿马-亥 桃花-午 干禄-卯 贵人-子、申",
+          "quote_sha256": "ca7513d7d7ae7c63a09149f6a49b2b94f6d243f641a3f47ccd7bd3e3844da6c4"
+        },
+        {
+          "page": 147,
+          "start_line": 1,
+          "end_line": 12,
+          "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时\n主变卦 巽为风(巽宫) 之 雷风恒(震宫) [空亡:寅、卯]\n玄武 ━━━━━ ○ 兄弟卯木 世 ━━　━━ 妻财戌土 应\n白虎 ━━━━━ ○ 子孙巳火    ━━　━━ 官鬼申金\n螣蛇 ━━　━━ × 妻财未土    ━━━━━ 子孙午火\n勾陈 ━━━━━ 官鬼酉金 应   ━━━━━ 官鬼酉金 世\n朱雀 ━━━━━ 父母亥水      ━━━━━ 父母亥水\n青龙 ━━　━━ 妻财丑土      ━━　━━ 妻财丑土\n\n投资求财以子孙为重，以财为利润。子孙巳火月破，临日辰，倒也不破，临白虎，白虎为快财，发动化官鬼申金合绊，官鬼为庄家，财源都被庄家合走了。日辰巳火又克合变爻申金，又有相刑之意，那么这个日辰巳火就是专门刑克鬼爻的公安机关，世爻兄弟卯木化财临玄武，玄武指不正当的投资，应爻官鬼为庄家，很显然这是一个投机行业，也难怪卦主要测投资风险了。\n卦中呈现出一种自上而下连续生应爻的格局，世爻发动生子孙巳火，子孙巳火发动生妻财未土，妻财未土发动生应爻官鬼，这就像是把钱一层一层的往对方那里送，想赚钱谈何容易。好在目前世爻旬空，钱还没有投出去，及时回头，为时不晚。\n反馈：确实是投机行业，不靠谱，不投了。",
+          "quote_sha256": "46f64334fe7485bcc2616eb555e415a546c29a9914291ed504d4760103e95f1e"
+        }
+      ],
+      "parts": {
+        "question": [
+          {
+            "page": 146,
+            "start_line": 20,
+            "end_line": 20,
+            "exact_text": "占问事宜：测投资风险",
+            "quote_sha256": "3c586b008d8485ea405826c1f877fdd35919ed5a056843fc0e7f43558cdd0ff4"
+          }
+        ],
+        "background": [
+          {
+            "page": 146,
+            "start_line": 19,
+            "end_line": 19,
+            "exact_text": "求测人：男，手工指定(起卦方式)",
+            "quote_sha256": "e3315ee21c971d3e6bed66d5f1cf94902e590a30b784c4ce29dcd734f821efa5"
+          }
+        ],
+        "chart": [
+          {
+            "page": 146,
+            "start_line": 21,
+            "end_line": 23,
+            "exact_text": "公历：2017年11月14日14时37分，星期二。\n农历：丁酉年 九月 廿六日 未时。\n神煞：驿马-亥 桃花-午 干禄-卯 贵人-子、申",
+            "quote_sha256": "ad099c5d0e3092b850cbbe38508eee1004af4ab1bed621ae9a34cfc02c3adcda"
+          },
+          {
+            "page": 147,
+            "start_line": 1,
+            "end_line": 8,
+            "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时\n主变卦 巽为风(巽宫) 之 雷风恒(震宫) [空亡:寅、卯]\n玄武 ━━━━━ ○ 兄弟卯木 世 ━━　━━ 妻财戌土 应\n白虎 ━━━━━ ○ 子孙巳火    ━━　━━ 官鬼申金\n螣蛇 ━━　━━ × 妻财未土    ━━━━━ 子孙午火\n勾陈 ━━━━━ 官鬼酉金 应   ━━━━━ 官鬼酉金 世\n朱雀 ━━━━━ 父母亥水      ━━━━━ 父母亥水\n青龙 ━━　━━ 妻财丑土      ━━　━━ 妻财丑土",
+            "quote_sha256": "0d3a38cfb1d847d78054757978d071943302d68b75f58cc7d0da266b3da6dc6f"
+          }
+        ],
+        "author_analysis": [
+          {
+            "page": 147,
+            "start_line": 10,
+            "end_line": 11,
+            "exact_text": "投资求财以子孙为重，以财为利润。子孙巳火月破，临日辰，倒也不破，临白虎，白虎为快财，发动化官鬼申金合绊，官鬼为庄家，财源都被庄家合走了。日辰巳火又克合变爻申金，又有相刑之意，那么这个日辰巳火就是专门刑克鬼爻的公安机关，世爻兄弟卯木化财临玄武，玄武指不正当的投资，应爻官鬼为庄家，很显然这是一个投机行业，也难怪卦主要测投资风险了。\n卦中呈现出一种自上而下连续生应爻的格局，世爻发动生子孙巳火，子孙巳火发动生妻财未土，妻财未土发动生应爻官鬼，这就像是把钱一层一层的往对方那里送，想赚钱谈何容易。好在目前世爻旬空，钱还没有投出去，及时回头，为时不晚。",
+            "quote_sha256": "c11d91ed398c210b0f20ec6ab5ce49a0b859eebd323b57f32616d7f1bc1e5a3f"
+          }
+        ],
+        "feedback": [
+          {
+            "page": 147,
+            "start_line": 12,
+            "end_line": 12,
+            "exact_text": "反馈：确实是投机行业，不靠谱，不投了。",
+            "quote_sha256": "f2917d0f94ac0c16e52885b7defc11eda4b6d550823480991d5f726330784862"
+          }
+        ],
+        "post_feedback_analysis": []
+      },
+      "cast": {
+        "line_values": [
+          2,
+          1,
+          1,
+          0,
+          3,
+          3
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "辛亥",
+        "day_ganzhi": "乙巳",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "癸未",
+        "date": "2017-11-14",
+        "time": "14:37",
+        "solar_calendar_raw": "公历：2017年11月14日14时37分，星期二。",
+        "lunar_calendar_raw": "农历：丁酉年 九月 廿六日 未时。",
+        "ganzhi_raw": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+        "reported_primary": "巽为风",
+        "reported_changed": "雷风恒",
+        "relationship": "男测投资风险",
+        "diagram_spans": [
+          {
+            "page": 147,
+            "start_line": 2,
+            "end_line": 8,
+            "exact_text": "主变卦 巽为风(巽宫) 之 雷风恒(震宫) [空亡:寅、卯]\n玄武 ━━━━━ ○ 兄弟卯木 世 ━━　━━ 妻财戌土 应\n白虎 ━━━━━ ○ 子孙巳火    ━━　━━ 官鬼申金\n螣蛇 ━━　━━ × 妻财未土    ━━━━━ 子孙午火\n勾陈 ━━━━━ 官鬼酉金 应   ━━━━━ 官鬼酉金 世\n朱雀 ━━━━━ 父母亥水      ━━━━━ 父母亥水\n青龙 ━━　━━ 妻财丑土      ━━　━━ 妻财丑土",
+            "quote_sha256": "3deb8f9125f5d3825dce32176758215c0ff8315a00a0dfc03dae9be81fcded9c"
+          }
+        ],
+        "diagram_lines_order": "top_to_bottom",
+        "field_spans": {
+          "line_values": [
+            {
+              "page": 147,
+              "start_line": 3,
+              "end_line": 8,
+              "exact_text": "玄武 ━━━━━ ○ 兄弟卯木 世 ━━　━━ 妻财戌土 应\n白虎 ━━━━━ ○ 子孙巳火    ━━　━━ 官鬼申金\n螣蛇 ━━　━━ × 妻财未土    ━━━━━ 子孙午火\n勾陈 ━━━━━ 官鬼酉金 应   ━━━━━ 官鬼酉金 世\n朱雀 ━━━━━ 父母亥水      ━━━━━ 父母亥水\n青龙 ━━　━━ 妻财丑土      ━━　━━ 妻财丑土",
+              "quote_sha256": "068e801da0afc15015c6e80ecc6fdfeb12baa22d7a25f1e2785d7f4bd570135a"
+            }
+          ],
+          "year_ganzhi": [
+            {
+              "page": 147,
+              "start_line": 1,
+              "end_line": 1,
+              "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+              "quote_sha256": "aae634ca0e1154fc96f89f1c7f54ce67d4af9732322f500d56d05a29100a1c0f"
+            }
+          ],
+          "month_branch": [
+            {
+              "page": 147,
+              "start_line": 1,
+              "end_line": 1,
+              "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+              "quote_sha256": "aae634ca0e1154fc96f89f1c7f54ce67d4af9732322f500d56d05a29100a1c0f"
+            }
+          ],
+          "month_ganzhi": [
+            {
+              "page": 147,
+              "start_line": 1,
+              "end_line": 1,
+              "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+              "quote_sha256": "aae634ca0e1154fc96f89f1c7f54ce67d4af9732322f500d56d05a29100a1c0f"
+            }
+          ],
+          "day_ganzhi": [
+            {
+              "page": 147,
+              "start_line": 1,
+              "end_line": 1,
+              "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+              "quote_sha256": "aae634ca0e1154fc96f89f1c7f54ce67d4af9732322f500d56d05a29100a1c0f"
+            }
+          ],
+          "hour_ganzhi": [
+            {
+              "page": 147,
+              "start_line": 1,
+              "end_line": 1,
+              "exact_text": "干支：丁酉年 辛亥月 乙巳日 癸未时",
+              "quote_sha256": "aae634ca0e1154fc96f89f1c7f54ce67d4af9732322f500d56d05a29100a1c0f"
+            }
+          ],
+          "date": [
+            {
+              "page": 146,
+              "start_line": 21,
+              "end_line": 22,
+              "exact_text": "公历：2017年11月14日14时37分，星期二。\n农历：丁酉年 九月 廿六日 未时。",
+              "quote_sha256": "2210eb8b886914e3c69c664f3b3f5c9d542890bb605fd645c00d360fb852df69"
+            }
+          ],
+          "time": [
+            {
+              "page": 146,
+              "start_line": 21,
+              "end_line": 22,
+              "exact_text": "公历：2017年11月14日14时37分，星期二。\n农历：丁酉年 九月 廿六日 未时。",
+              "quote_sha256": "2210eb8b886914e3c69c664f3b3f5c9d542890bb605fd645c00d360fb852df69"
+            }
+          ]
+        },
+        "transcription_review": {
+          "status": "visually_transcribed",
+          "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+          "basis": "逐图读取原盘上至初六条阴阳线及圈叉，再将输入值按初至上排列；年、月、日、时及公农历直接抄自源页。",
+          "image_path": ".local/canonical-extraction/liuyao_lifa_jinjie/0147.png",
+          "image_sha256": "9360cb850a8d8e1586c8d1ed86d9a0566acd30ba97e42a13e1701a40b154bca1",
+          "notes": "公历、农历及神煞在146页，完整干支和盘在147页；保留跨页日期证据。",
+          "independent_chart_calculation_verification": false
+        }
+      },
+      "event_id": "liuyao_lifa_jinjie.event.p0146_investment_risk",
+      "additional_casts": [],
+      "review": {
+        "status": "approved",
+        "basis": "manual_case_and_rule_boundaries_checked_against_current_reviewed_canonical_text_and_pdf_images",
+        "reviewer": "codex-agent:/root/rebuild_lifa_manual_sample",
+        "notes": "案例从146:19起，止于147:12显式反馈“确实是投机行业，不靠谱，不投了”。147:10–11是同一盘的连续两段作者分析，不拆成两例。生克合绊与白虎快财、官鬼庄家/公安、玄武不正当等取象并用，标mixed。 本次批准只表示手动切片及转写核对；不表示案例效果独立验证或排盘计算验证。"
+      }
+    }
+  ],
+  "exclusions": []
+}

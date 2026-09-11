@@ -1,0 +1,194 @@
+[
+  {
+    "anonymousID": "C01",
+    "question": "占问事宜：测与男友将来发展如何",
+    "known_background": [
+      "求测人：女，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          3,
+          2,
+          1,
+          1,
+          2,
+          1
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "未",
+        "month_ganzhi": "辛未",
+        "day_ganzhi": "丙寅",
+        "year_ganzhi": null,
+        "hour_ganzhi": null,
+        "date": null,
+        "time": null,
+        "solar_calendar_raw": null,
+        "lunar_calendar_raw": null,
+        "ganzhi_raw": "干支：辛未月 丙寅日",
+        "reported_primary": "离为火",
+        "reported_changed": "火山旅"
+      }
+    ]
+  },
+  {
+    "anonymousID": "C02",
+    "question": "占问事宜：官司能赢吗",
+    "known_background": [
+      "求测人：男，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          2,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "辛亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "乙巳",
+        "date": "2017-11-16",
+        "time": "10:11",
+        "solar_calendar_raw": "公历：2017年11月16日10时11分，星期四。",
+        "lunar_calendar_raw": "农历：丁酉年 九月 廿八日 巳时。",
+        "ganzhi_raw": "干支：丁酉年 辛亥月 丁未日 乙巳时",
+        "reported_primary": "地水师",
+        "reported_changed": "泽风大过"
+      }
+    ]
+  },
+  {
+    "anonymousID": "C03",
+    "question": "占问事宜：房子何时卖出去",
+    "known_background": [
+      "求测人：女，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          0,
+          3,
+          1,
+          0,
+          2,
+          0
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "寅",
+        "month_ganzhi": "丙寅",
+        "day_ganzhi": "丙申",
+        "year_ganzhi": "己亥",
+        "hour_ganzhi": "丙申",
+        "date": "2019-02-28",
+        "time": "15:49",
+        "solar_calendar_raw": "公历：2019年2月28日15时49分，星期四。",
+        "lunar_calendar_raw": "农历：己亥年 正月 廿四日 申时。",
+        "ganzhi_raw": "干支：己亥年 丙寅月 丙申日 丙申时",
+        "reported_primary": "地风升",
+        "reported_changed": "离为火"
+      }
+    ]
+  },
+  {
+    "anonymousID": "C04",
+    "question": "占问事宜：测侄子车祸昏迷吉凶",
+    "known_background": [
+      "求测人：男，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          3,
+          1,
+          2,
+          1,
+          1,
+          1
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "酉",
+        "month_ganzhi": "己酉",
+        "day_ganzhi": "丙辰",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "丙申",
+        "date": "2017-09-26",
+        "time": "16:30",
+        "solar_calendar_raw": "公历：2017年9月26日16时30分，星期二。",
+        "lunar_calendar_raw": "农历：丁酉年 八月 初七日 申时。",
+        "ganzhi_raw": "干支：丁酉年 己酉月 丙辰日 丙申时",
+        "reported_primary": "天泽履",
+        "reported_changed": "天水讼"
+      }
+    ]
+  },
+  {
+    "anonymousID": "C05",
+    "question": "占问事宜：租这个店铺好吗",
+    "known_background": [
+      "求测人：男，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          0,
+          1,
+          1,
+          1,
+          2,
+          1
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "丑",
+        "month_ganzhi": "癸丑",
+        "day_ganzhi": "甲寅",
+        "year_ganzhi": "丁酉",
+        "hour_ganzhi": "甲戌",
+        "date": "2018-01-22",
+        "time": "20:42",
+        "solar_calendar_raw": "公历：2018年1月22日20时42分，星期一。",
+        "lunar_calendar_raw": "农历：丁酉年 十二月 初六日 戌时。",
+        "ganzhi_raw": "干支：丁酉年 癸丑月 甲寅日 甲戌时",
+        "reported_primary": "火风鼎",
+        "reported_changed": "火天大有"
+      }
+    ]
+  },
+  {
+    "anonymousID": "C06",
+    "question": "占问事宜：去这所学校上学对自己成绩有帮助吗",
+    "known_background": [
+      "求测人：男，手工指定(起卦方式)"
+    ],
+    "casts": [
+      {
+        "line_values": [
+          2,
+          1,
+          0,
+          2,
+          2,
+          2
+        ],
+        "lines_order": "bottom_to_top",
+        "month_branch": "亥",
+        "month_ganzhi": "癸亥",
+        "day_ganzhi": "丁未",
+        "year_ganzhi": "戊戌",
+        "hour_ganzhi": "戊申",
+        "date": "2018-11-11",
+        "time": "16:03",
+        "solar_calendar_raw": "公历：2018年11月11日16时3分，星期日。",
+        "lunar_calendar_raw": "农历：戊戌年 十月 初四日 申时。",
+        "ganzhi_raw": "干支：戊戌年 癸亥月 丁未日 戊申时",
+        "reported_primary": "地水师",
+        "reported_changed": "地风升"
+      }
+    ]
+  }
+]

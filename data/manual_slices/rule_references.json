@@ -1,0 +1,835 @@
+{
+  "schema_version": "rule-references-1",
+  "policy": "Only explicit bindings to approved manual rule units are source evidence. Legacy IDs are aliases only; chapter/page locators are navigation, never body citations. A structural match does not establish an event conclusion.",
+  "references": {
+    "lifa.three_harmony_branches": {
+      "concept": "三合局的构成、参与爻与待时成局条件",
+      "source_id": "liuyao_zixiu_dxj",
+      "legacy_ids": [
+        "rule_liuyao_zixiu_dxj_4520"
+      ],
+      "pattern_ids": [
+        "three_harmony_candidate",
+        "half_harmony_candidate"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_zixiu_dxj.full.l4520.rule"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "chapter": "七、三合局"
+      },
+      "source_scope": "同书人工批准正文完整保留四组三合地支及所合五行、长生帝旺墓库成局、局力与合作等含义，明确日月、动爻、变爻和暗动可参与，静爻不可；二动且一为中支可借日月、半局须含中支、虚一待用、空破待填实及墓待冲都有直接文字支持。完整规则已含支组定义，故无需再把l1010支表作为同组必需目标。",
+      "algorithm_boundary": "当前仅检出结构候选：动变与日月任意组合尚未严格核定二动且一中借日月条件；暗动未计入，也未验证旬空、逢破填实、入墓待冲及成局应期。日月/动变参与、静爻排除和半局须含中支已有原文支持；不能把候选命中等同实际成局、效力或事件确定。"
+    },
+    "lifa.fanyin_fuyin": {
+      "concept": "反吟与伏吟的卦爻结构",
+      "source_id": "liuyao_zixiu_dxj",
+      "legacy_ids": [
+        "rule_liuyao_zixiu_dxj_4784"
+      ],
+      "pattern_ids": [
+        "early_trigram_change_fanyin",
+        "line_fanyin",
+        "line_fuyin",
+        "line_change_clash",
+        "line_change_same_branch"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_zixiu_dxj.full.l4784.rule",
+        "liuyao_zixiu_dxj.full.l4844.rule"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "chapter": "第十七章 反吟与伏吟"
+      },
+      "source_scope": "同书两条人工规则分别直接支持先天及后天八卦对冲方位互化为卦变反吟、动爻与变爻地支对冲为爻变反吟，以及动爻变出相同爻为伏吟。原文保留内外卦反吟的区别、反复艰难也可最终吉，以及伏吟吉凶以用神衰旺为主、只是附和用神的限制。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定或终局凶。代码的先天四组方位对及动变支冲/同支可对应定义；内外卦聚合只检查各自已动爻，是实现层汇总，仍须核实际卦爻变化范围。反吟不能必断失败，伏吟不能脱离用神旺衰判吉凶。"
+    },
+    "xiangfa.life_stages": {
+      "concept": "第三章 长生十二宫之象",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c03"
+      ],
+      "pattern_ids": [
+        "transform_长生",
+        "transform_病",
+        "transform_死",
+        "transform_墓",
+        "transform_绝"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c03",
+        "chapter": "第三章 长生十二宫之象",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 232,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "长生十二宫之象；尚无批准正文，不能将十二阶段机械表等同本章全部取象规则。",
+      "algorithm_boundary": "木亥、火寅、金巳、水土申起长生并顺布十二阶段是当前计算约定；本章支持范围待人工核定。只对动爻检出五种化象，其余状态保留数据；取用、旺衰及理象层次待判断。"
+    },
+    "xiangfa.punishment.zi_mao": {
+      "concept": "第一节 子卯刑",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c04_s01"
+      ],
+      "pattern_ids": [
+        "zi_mao_punishment"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c04_s01",
+        "chapter": "第一节 子卯刑",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 2,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "子卯刑之象及其对象、作用条件；尚无批准正文。",
+      "algorithm_boundary": "统一以动爻、日月指向主卦爻，并加入变爻指向本动爻的edges筛选是实现约定；支对出现不等于原文场景成立。"
+    },
+    "xiangfa.punishment.yin_si_shen": {
+      "concept": "第二节 寅巳申刑",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c04_s02"
+      ],
+      "pattern_ids": [
+        "three_punishments",
+        "partial_three_punishments"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c04_s02",
+        "chapter": "第二节 寅巳申刑",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 12,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "寅巳申刑之象；尚无批准正文。",
+      "algorithm_boundary": "三支组合遍历全部主卦爻与日月，未核世、用、元、动等对象限制且不含变爻；两支关系使用统一edges策略。卦内一至三支的formation仅为位置计数，不是三刑生效判断。"
+    },
+    "xiangfa.punishment.chou_wei_xu": {
+      "concept": "第三节 丑未戌刑",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c04_s03"
+      ],
+      "pattern_ids": [
+        "three_punishments",
+        "partial_three_punishments"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c04_s03",
+        "chapter": "第三节 丑未戌刑",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 27,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "丑未戌刑之象；尚无批准正文。",
+      "algorithm_boundary": "三支组合遍历全部主卦爻与日月，未核世、用、元、动等对象限制且不含变爻；两支关系使用统一edges策略。卦内一至三支的formation仅为位置计数，不是三刑生效判断。"
+    },
+    "xiangfa.punishment.double": {
+      "concept": "第四节 双刑",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c04_s04"
+      ],
+      "pattern_ids": [
+        "double_punishment"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c04_s04",
+        "chapter": "第四节 双刑",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 33,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "双刑之象及本书同五行爻关系定义；尚无批准正文。",
+      "algorithm_boundary": "只检出同五行且任一动、世应或已选主卦世用的关系；不据同支或同五行推定争执、重复等事件结论。"
+    },
+    "xiangfa.punishment.self": {
+      "concept": "第五节 自刑",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c04_s05"
+      ],
+      "pattern_ids": [
+        "self_punishment_branch"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c04_s05",
+        "chapter": "第五节 自刑",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 51,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "本书自刑单支取象体系；尚无批准正文。",
+      "algorithm_boundary": "检出主卦任一辰午酉亥支只是支出现；不能据此推断事件，也不能跨体系替换为两支自刑判法。"
+    },
+    "xiangfa.hidden_flying": {
+      "concept": "第五章 伏神之象",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c05"
+      ],
+      "pattern_ids": [
+        "hidden_flying_relation"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c05",
+        "chapter": "第五章 伏神之象",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 56,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "伏神之象与飞伏关系；尚无批准正文。",
+      "algorithm_boundary": "仅计算飞神与伏神五行关系，未核伏神能否出伏、有用无用、旬空旺衰或所指对象。"
+    },
+    "xiangfa.fanyin.upper_lower": {
+      "concept": "上下反吟",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c07_u01"
+      ],
+      "pattern_ids": [
+        "upper_lower_fanyin"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c07_u01",
+        "chapter": "上下反吟",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 104,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "上下卦方位反吟之象；尚无批准正文。",
+      "algorithm_boundary": "以乾巽、坎离、艮坤、震兑四对判断主卦及变卦上下结构，尚未人工绑定本书定义和场景限制。"
+    },
+    "xiangfa.fanyin.direction_change": {
+      "concept": "方位相冲",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c07_u02"
+      ],
+      "pattern_ids": [
+        "trigram_change_fanyin"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c07_u02",
+        "chapter": "方位相冲",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 106,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "卦变方位相冲之象；尚无批准正文。",
+      "algorithm_boundary": "分别比较上下三爻卦的前后四组方位对，未核原文应用场景；不能与先天方位对或爻支相冲混同。"
+    },
+    "xiangfa.relative_position_change": {
+      "concept": "第八章 进退位之象",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c08"
+      ],
+      "pattern_ids": [
+        "relative_position_change"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c08",
+        "chapter": "第八章 进退位之象",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 115,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "进退位之象与所比较对象；尚无批准正文。",
+      "algorithm_boundary": "实现将变爻与任意同六亲爻比较，比另一个用神的对象范围更宽；同支用爻位高低、同五行用地支顺序是具体实现，需核两爻是否可比较。"
+    },
+    "xiangfa.geshan_chain": {
+      "concept": "第九章 隔山化爻",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c09"
+      ],
+      "pattern_ids": [
+        "geshan_chain"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c09",
+        "chapter": "第九章 隔山化爻",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 125,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "隔山化爻与顺隔、逆隔之象；尚无批准正文。",
+      "algorithm_boundary": "以变支等于另一动爻本支建立链，递归多级及混合方向属于算法推广；链尾作用不能当作起始爻直接回头生克。"
+    },
+    "xiangfa.harm.generation": {
+      "concept": "生中带害",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c10_u01"
+      ],
+      "pattern_ids": [
+        "harm"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c10_u01",
+        "chapter": "生中带害",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 136,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "生中带害之象；尚无批准正文。",
+      "algorithm_boundary": "固定六害支对在统一edges中检出，按当前方向的生克关系分组；反向关系不自动等价，未核取用、动静和事件对象。"
+    },
+    "xiangfa.harm.control": {
+      "concept": "克中带害",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c10_u02"
+      ],
+      "pattern_ids": [
+        "harm"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c10_u02",
+        "chapter": "克中带害",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 145,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "克中带害之象；尚无批准正文。",
+      "algorithm_boundary": "固定六害支对在统一edges中检出，按当前方向的生克关系分组；反向关系不自动等价，未核取用、动静和事件对象。"
+    },
+    "xiangfa.harm.pure": {
+      "concept": "纯相害",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c10_u03"
+      ],
+      "pattern_ids": [
+        "harm"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c10_u03",
+        "chapter": "纯相害",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 150,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "纯相害之象；尚无批准正文。",
+      "algorithm_boundary": "固定六害支对在统一edges中检出，按当前方向的生克关系分组；反向关系不自动等价，未核取用、动静和事件对象。"
+    },
+    "xiangfa.harm.all_transform": {
+      "concept": "全化害",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "legacy_ids": [
+        "xf_xia_c10_u04"
+      ],
+      "pattern_ids": [
+        "all_transform_harm"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c10_u04",
+        "chapter": "全化害",
+        "book": "六爻象法进阶下.pdf",
+        "printed_page": 154,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "全化害之象；尚无批准正文。",
+      "algorithm_boundary": "仅检出内卦或外卦三爻全动且每爻本变支皆为害对；该结构不足以推出吉凶或事件结论。"
+    },
+    "xiangfa.combination.01": {
+      "concept": "虎父伤身防车祸",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u01"
+      ],
+      "pattern_ids": [
+        "combination_01"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0186_tiger_parent_accident"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u01",
+        "chapter": "虎父伤身防车祸",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 181,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则直接保留父母白虎发动克世、父母或世居五爻增强，以及其他六神父母克世也可能应车祸或其他不利的分情境说明。共享导语通过本规则的required_contexts携带，取证须连同导语一起读，综合具体问事、六亲六神爻位等判断。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定。当前仅检出父母白虎动克世，未核父母或世在五爻的增强条件、车或其他对象、具体问事情境。原文还列勾陈可应牢狱或摔倒、青龙可应长辈责骂或酒驾等可能；不能据此认定已发生或必发生车祸。"
+    },
+    "xiangfa.combination.02": {
+      "concept": "父母临日定婚期",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u02"
+      ],
+      "pattern_ids": [
+        "combination_02"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0188_parent_day_marriage"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u02",
+        "chapter": "父母临日定婚期",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 183,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则直接支持父母临日、合日或与日辰同五行三类结构，并完整限制为两人已谈朋友或谈婚论嫁且尚未结婚的问婚场景；尚未见面相亲不能套用，婚后是否稳固长久仍看用神。required_contexts包含共享导语及作者对个案解释保留意见的原文，必须连同读取。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定。代码只检查父母与日辰的三类关联，未核两人是否已经交往、谈婚论嫁或结婚。不得把尚未见面的相亲推成已订婚，也不能直接给出确定婚期、订婚事实或婚姻长久结论。"
+    },
+    "xiangfa.combination.03": {
+      "concept": "父财互化价难定，姻缘需防女有婚",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u03"
+      ],
+      "pattern_ids": [
+        "combination_03"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0191_parent_wealth_transform"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u03",
+        "chapter": "父财互化价难定，姻缘需防女有婚",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 186,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则按财运与姻缘分情境：财运中父财互化可指价格难合、预期难达或本金较高；姻缘中财化父与父化财方向含义不同，前者只提示相关婚姻状态的可能，后者可指介绍或信息媒介接触；官父互化另有同理说明。必须连同required_contexts中的共享导语读取，依具体问事和对象关系取象。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定。当前以无序六亲集合检出父财互化，fact本身不区分财化父与父化财；须回看chart对应爻的本爻→变爻六亲才能选择原文分支，不能把父化财也当成已有婚约。代码未检测官父互化。求测人、对象、关系、性别或婚史归属不明确时必须保留未知，不得由六亲名称、卦图标题或这一结构默认女方有婚；已婚、订婚、将婚也仅是条件下的可能。"
+    },
+    "xiangfa.combination.04": {
+      "concept": "青龙子孙多清高",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u04"
+      ],
+      "pattern_ids": [
+        "combination_04"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0195_dragon_child_pride"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u04",
+        "chapter": "青龙子孙多清高",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 190,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则明载用神或世爻为子孙临青龙；吉利时可取理想、精神追求等象，不吉时可取不切实际、理想化或高傲等象，外游、修习佛道与艺术技艺等问事又有相应范围。完整吉凶两面和问事情境均保留，须连同required_contexts中的共享导语阅读。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定或人物特质已证实。代码检查主卦世爻及调用方指定的用神候选，不是任一爻；候选可在primary、hidden或changed层，但其取用与所指对象仍待核实。检测未判断吉凶和具体问事，不能只凭青龙子孙就确定清高、高傲、艺术能力或学习修行必成。"
+    },
+    "xiangfa.combination.05": {
+      "concept": "虎子逢破胎难保",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u05"
+      ],
+      "pattern_ids": [
+        "combination_05"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0198_tiger_child_broken_pregnancy"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u05",
+        "chapter": "虎子逢破胎难保",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 193,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则限定测胎孕，子孙临白虎且逢破为其所列组合；正文同时保留胎爻、胎位临白虎逢破的其他取象，并使用多为、可以应验等表述。须连同required_contexts中的共享导语确认问事和各爻所指，不能将其当作胎孕结果的事实证据。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定。当前只遍历主卦显爻的子孙、白虎和月破，未先确认胎孕问事，也未识别胎爻、胎位、伏神变爻或其他逢破情形；月破仅是当前检出子集，未命中不能排除原文其他条件。白虎出现或该组合命中都不能确定已发生或必发生流产、胎儿损失。"
+    },
+    "xiangfa.combination.06": {
+      "concept": "螣蛇子孙多技艺",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u06"
+      ],
+      "pattern_ids": [
+        "combination_06"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0200_snake_child_skill"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u06",
+        "chapter": "螣蛇子孙多技艺",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 195,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则跨页完整保留子孙技术娱乐与螣蛇艺术的组合，同时列出技艺与偏激、空想、不知所措等不同取象，没有规定只有世爻或用神才能构成此组合。须连同required_contexts中的共享导语，依实际对象和问事选择解释；具体投资案例反馈没有并入通则。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定或人物判断已证实。代码检出任一主卦显爻子孙临螣蛇，未核该爻代表谁、问事情境和伏神变爻层；不能将任一爻直接归属卦主人格或能力，也不能只取有技艺的一面，或由该组合确定精神健康状态、欺骗行为。"
+    },
+    "xiangfa.combination.07": {
+      "concept": "青龙官星为正职",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u07"
+      ],
+      "pattern_ids": [
+        "combination_07"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0202_dragon_official_position"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u07",
+        "chapter": "青龙官星为正职",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 197,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则限定工作事业问事，以用神或世爻官鬼临青龙取正当正式职业之象，并明说不限定公务员，也可指单位、管理、官方等对象；补充段完整保留其他六亲青龙、妻财墓库以及五爻、二爻、上爻的不同职业取象。须连同required_contexts中的共享导语阅读。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定。代码只检查主卦世爻及指定用神候选是否官鬼临青龙，候选的primary、hidden或changed层与对象仍须核取用；未核工作事业语境，未检测其他六亲、墓库或爻位的补充条件。不能将命中等同公务员身份、确定职位或录用结果，未命中也不能排除其他原文正职组合。"
+    },
+    "xiangfa.combination.08": {
+      "concept": "玄鬼持世必藏私",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u08"
+      ],
+      "pattern_ids": [
+        "combination_08"
+      ],
+      "status": "mapped",
+      "target_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0205_black_tortoise_official_private_worry"
+      ],
+      "source_support": "approved_rule_conditions",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u08",
+        "chapter": "玄鬼持世必藏私",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 200,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "人工规则先提出玄武持世的内心想法之象，再以官鬼临玄武持世作为增强条件，列举困难委屈、疑虑、私事等多种情境；标题玄鬼并不把官鬼设为基础前提。须连同required_contexts中的共享导语阅读，作者措辞和并列取象保留为原书观点，不将案例事后解释提升为通则。",
+      "algorithm_boundary": "只是结构前提，不等于事件确定或内心状态已证实。代码仅检主卦世爻玄武，不核官鬼增强和具体所问事情；无需因标题补加官鬼条件。原文首先指卦主，代问时不能自动将其归于被问人。不能据此确定隐瞒了什么、欺骗、犯罪或精神疾病，也不能把困难委屈、疑虑与不当行为混为同一结论。"
+    },
+    "xiangfa.combination.09": {
+      "concept": "玄武兄动有破耗",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u09"
+      ],
+      "pattern_ids": [
+        "combination_09"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u09",
+        "chapter": "玄武兄动有破耗",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 203,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "仅检出玄武兄弟发动，未核求财场景、财爻及生克条件。"
+    },
+    "xiangfa.combination.10": {
+      "concept": "勾陈临宅少奔波",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u10"
+      ],
+      "pattern_ids": [
+        "combination_10"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u10",
+        "chapter": "勾陈临宅少奔波",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 206,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "将二爻作为宅位且须为世或已选用神，未核人物、住宅及少奔波含义的原文条件。"
+    },
+    "xiangfa.combination.11": {
+      "concept": "五爻君位必掌权",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u11"
+      ],
+      "pattern_ids": [
+        "combination_11"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u11",
+        "chapter": "五爻君位必掌权",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 210,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "将世或已选用神在五爻作为候选，未核人物身份、官职和旺衰，不能直接断掌权。"
+    },
+    "xiangfa.combination.12": {
+      "concept": "虎雀对立起争执",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u12"
+      ],
+      "pattern_ids": [
+        "combination_12"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u12",
+        "chapter": "虎雀对立起争执",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 213,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "仅检查世应六神为白虎与朱雀，未核双方关系、动静生克和争执场景。"
+    },
+    "xiangfa.combination.13": {
+      "concept": "世应比合感情淡",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u13"
+      ],
+      "pattern_ids": [
+        "combination_13"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u13",
+        "chapter": "世应比合感情淡",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 216,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "仅检查世应同五行，未核婚恋场景、双方状态及原文条件，不能直接断感情淡。"
+    },
+    "xiangfa.combination.14": {
+      "concept": "虎马游魂逃学儿",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u14"
+      ],
+      "pattern_ids": [
+        "combination_14"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u14",
+        "chapter": "虎马游魂逃学儿",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 219,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "以日支起驿马，将子孙临白虎或日马且主卦游魂作为候选；驿马取法及或条件须在批准正文中核定，且未确认逃学对象。"
+    },
+    "xiangfa.combination.15": {
+      "concept": "官伏财破无正职",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u15"
+      ],
+      "pattern_ids": [
+        "combination_15"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u15",
+        "chapter": "官伏财破无正职",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 220,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "只检出官鬼伏藏且财月破，是官伏财破的条件子集；未核取用、工作场景或其他破法。"
+    },
+    "xiangfa.combination.16": {
+      "concept": "财子皆伏无来源",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u16"
+      ],
+      "pattern_ids": [
+        "combination_16"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u16",
+        "chapter": "财子皆伏无来源",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 222,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "只检出妻财与子孙同时伏藏，是财子皆伏的结构子集；收入来源和生克条件待原文判断。"
+    },
+    "xiangfa.combination.17": {
+      "concept": "世应同宫多有旧",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u17"
+      ],
+      "pattern_ids": [
+        "combination_17"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u17",
+        "chapter": "世应同宫多有旧",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 224,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "以同支或丑寅、辰巳、未申、戌亥方位配对判断同宫，未核旧识、旧关系等具体场景；此处同宫不是八宫归属字段。"
+    },
+    "xiangfa.combination.18": {
+      "concept": "婚恋进退皆不宜",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "legacy_ids": [
+        "xf_shang_c02_u18"
+      ],
+      "pattern_ids": [
+        "combination_18"
+      ],
+      "status": "unresolved",
+      "target_ids": [],
+      "source_support": "not_yet_manually_bound",
+      "locator": {
+        "kind": "chapter_navigation_only",
+        "outline_key": "c02_u18",
+        "chapter": "婚恋进退皆不宜",
+        "book": "六爻象法进阶上.pdf",
+        "printed_page": 226,
+        "basis": "xiangfa_outline.json; chapter navigation only; no old OCR span reused"
+      },
+      "source_scope": "组合之象的具体条目；尚无人工批准正文，章名仅供定位，不作为事件断语证据。",
+      "algorithm_boundary": "仅检出已选主卦用神动化进退，未核婚恋场景、所指男女及原文进退条件。"
+    }
+  }
+}

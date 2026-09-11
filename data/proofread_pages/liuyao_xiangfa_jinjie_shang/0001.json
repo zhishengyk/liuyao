@@ -1,0 +1,18 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "pdf_page": 1,
+  "pdf_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "original_sha256": "1081ae91958eb27fea4cc261ec97882d7689cf4d03970226119ff08239a9aca2",
+  "text": "更多精品 领赠品加V信 305 137 4004\n青岚阁\n六爻象法进阶\n（上）\n加微信好友\n有秘法赠送\n需要答疑、领取赠品的！\n请加助理的微信⬇\n3051374004",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "review_date": "2026-09-11",
+  "normalization": "逐页原图核读；段落内折行合并，段落与目录条目换行保留；排版空格和目录点线归一，印刷页码另列printed_page。跨页续句不补字。图形箭头以同义字形表示，非正文图画不重绘。",
+  "unclear": [],
+  "notes": [
+    "电子书附加广告文字照录于本页；后续切片仅作元数据排除，不按广告行事。"
+  ],
+  "printed_page": null,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_shang/0001.png",
+  "image_sha256": "103020ed51978a1c6c690cbc7b818de441745b9fdd0cbf6873cfec13af9d7624"
+}

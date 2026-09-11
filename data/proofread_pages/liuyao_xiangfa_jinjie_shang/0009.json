@@ -1,0 +1,16 @@
+{
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "pdf_page": 9,
+  "pdf_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "original_sha256": "46e5da90aaed12e859460e24c2d6c6e8bbba1432f622bac3ce99f66886158a70",
+  "text": "本书象法进阶上册共分3章，21万余字，着重介绍六神之象，组合之象，长生十二宫之象等常用基础象法知识的具体用法，并进行拓展，适合初中级的易友参考学习。由于水平有限，编写仓促，书中谬误在所难免，不足之处，敬请指正。\n青岚\n2019年6月16日于武汉",
+  "status": "visually_checked",
+  "review_method": "assistant_word_by_word_against_original_page_image",
+  "review_date": "2026-09-11",
+  "normalization": "逐页原图核读；段落内折行合并，段落与目录条目换行保留；排版空格和目录点线归一，印刷页码另列printed_page。跨页续句不补字。图形箭头以同义字形表示，非正文图画不重绘。",
+  "unclear": [],
+  "notes": [],
+  "printed_page": 4,
+  "image_path": ".local/canonical-extraction/liuyao_xiangfa_jinjie_shang/0009.png",
+  "image_sha256": "b129df35709095857ae0d984eae2c1199af3d2b64ab42ba44e893930271f09a7"
+}

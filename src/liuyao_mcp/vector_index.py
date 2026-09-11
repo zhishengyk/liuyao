@@ -15,7 +15,10 @@ MAX_EMBED_TOKENS = 768
 
 
 def document_text(kind,payload):
-    return payload["chapter"]+"\n"+plain(payload["text"]) if kind=="rule" else case_search_text(payload)
+    if kind == 'rule':
+        context = '\n'.join(item['text'] for item in payload.get('required_contexts', []))
+        return payload['chapter'] + '\n' + plain(payload['text'] + ('\n' + context if context else ''))
+    return case_search_text(payload)
 
 
 def build_index(db_path=None, activate=True):

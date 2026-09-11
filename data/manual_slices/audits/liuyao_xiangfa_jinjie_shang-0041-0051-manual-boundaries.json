@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "source_id": "liuyao_xiangfa_jinjie_shang",
+  "source_sha256": "416fbadbc29af2d0ff7f5b4f36ade03605ec4a54e52f8c8475614b893d2400a1",
+  "draft_manifest_sha256": "8540a63bc73dd77e4fc715bd3164f57e98963562128dc6d312a222be7beafe49",
+  "method": "actual manual_ingest._case_records and _case_quality against source document with precisely the pending reviewed page texts applied in memory; explicit character coverage, quote hashes and cross-unit/shard source ownership; repeated actual _case_records against load_document with the published proofread pages before atomic shard publication",
+  "checked_cases": 12,
+  "emitted_case_records": 12,
+  "quote_spans_checked": 307,
+  "nonwhitespace_characters": 6708,
+  "uncovered_nonwhitespace_chars": 0,
+  "multiply_assigned_nonwhitespace_chars": 0,
+  "outside_batch_chars": 0,
+  "cross_shard_duplicate_chars": 0,
+  "quality_counts": {
+    "noise": 6,
+    "eligible": 6
+  },
+  "case_role_coverage": [
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0041_safety",
+      "characters": 609,
+      "role_covered_characters": 609,
+      "quality": "noise"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0042_acceptance_bill",
+      "characters": 449,
+      "role_covered_characters": 449,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0043_economic_lawsuit",
+      "characters": 636,
+      "role_covered_characters": 636,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0044_office_rental",
+      "characters": 662,
+      "role_covered_characters": 662,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0045_husband_missing",
+      "characters": 461,
+      "role_covered_characters": 461,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0046_rejected_relationship",
+      "characters": 551,
+      "role_covered_characters": 551,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0047_relationship_development",
+      "characters": 577,
+      "role_covered_characters": 577,
+      "quality": "noise"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0048_unfinished_romance",
+      "characters": 526,
+      "role_covered_characters": 526,
+      "quality": "noise"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0049_boyfriend_duration",
+      "characters": 566,
+      "role_covered_characters": 566,
+      "quality": "noise"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0050_breakup",
+      "characters": 472,
+      "role_covered_characters": 472,
+      "quality": "eligible"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0050_later_boyfriend",
+      "characters": 554,
+      "role_covered_characters": 554,
+      "quality": "noise"
+    },
+    {
+      "unit_id": "liuyao_xiangfa_jinjie_shang.manual.p0051_british_boyfriend",
+      "characters": 501,
+      "role_covered_characters": 501,
+      "quality": "noise"
+    }
+  ],
+  "errors": [],
+  "published_manifest": "data/manual_slices/shards/liuyao_xiangfa_jinjie_shang/0041-0051.json",
+  "published_manifest_sha256": "4ac600c69d650d53bc30205b17f14fe39a874648ce3eccc31a6281c81978cf6f",
+  "canonical_reload_case_records": 12,
+  "published_proofread_pages": 11,
+  "canonical_references_after_publication": "passed"
+}

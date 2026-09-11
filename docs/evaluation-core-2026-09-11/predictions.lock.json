@@ -1,0 +1,96 @@
+{
+  "locked_at_utc": "2026-09-11T06:04:20.343574+00:00",
+  "server_version": "0.7.0.dev0",
+  "anonymous_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06"
+  ],
+  "prediction_files": {
+    "predictions.json": {
+      "absolute_path": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/predictions.json",
+      "sha256": "925e28b7f0efcd27fbd68658a3a116e86f5773fc8e9d652d9b760904bd1372e7"
+    },
+    "predictions.md": {
+      "absolute_path": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/predictions.md",
+      "sha256": "b31c4739c91527b831baec5e768ccfdccdccc1af03cad2c6e79d45d691d039ac"
+    }
+  },
+  "input_file": {
+    "absolute_path": "/mnt/c/Users/duanshengxuan/Documents/Codex/2026-09-10/https-github-com-zhishengyk-liuyao-https/work/rebuild-core-predictor/blind-inputs.json",
+    "sha256": "3e99fc55f4f46440790ae21d8143bdd339442246874f6c466449bf5b7ce1fff2"
+  },
+  "tool_batches": [
+    "predictor-astra-01-charts",
+    "predictor-astra-02-rules",
+    "predictor-astra-03-targeted",
+    "predictor-astra-04-conditions",
+    "predictor-astra-05-application",
+    "predictor-astra-06-final-gaps",
+    "predictor-astra-07-source-audit"
+  ],
+  "tool_call_counts": {
+    "build_chart": {
+      "started": 15,
+      "successful": 15,
+      "failed": 0
+    },
+    "search_knowledge": {
+      "started": 37,
+      "successful": 37,
+      "failed": 0
+    },
+    "get_source": {
+      "started": 23,
+      "successful": 23,
+      "failed": 0
+    }
+  },
+  "total_tool_calls": 75,
+  "successful_tool_calls": 75,
+  "failed_tool_calls": 0,
+  "unmatched_call_starts": 0,
+  "mcp_initializations_separate_from_tool_calls": 7,
+  "batch_failures": 0,
+  "batch_artifact_hashes": {
+    "predictor-astra-01-charts": {
+      "request_sha256": "e628420757205e9531acb3f587594907859d3d59be2114879408d1310136140f",
+      "record_sha256": "460c5d041977537e63413d8c6e3a429fc09e8d2fb63c3c4081d9bb8053015311"
+    },
+    "predictor-astra-02-rules": {
+      "request_sha256": "06ec191241fb88c6c3b317bc67e57909905dbb7d0a72e238c6c93c0a9ec8c6f2",
+      "record_sha256": "e4699917269aa41ac2183960466ef6064f8d391302765ca098f49a9c595bae76"
+    },
+    "predictor-astra-03-targeted": {
+      "request_sha256": "5a7975a1ed134c18327d9f96e72e0efde5a545cb41cb83b2793fea62d901e26d",
+      "record_sha256": "fe482ed538cfe5f2c42223f156279b313c0b38ce51eef977362e15704e778325"
+    },
+    "predictor-astra-04-conditions": {
+      "request_sha256": "37f88ba9f1a39c7687f51e26822e9fdbdfd04350c069a025df96a9127d9034d9",
+      "record_sha256": "4843acc8e0f77eba33258c91ca44b5c431f4b21602fe842f4947b00e6bf4030d"
+    },
+    "predictor-astra-05-application": {
+      "request_sha256": "82ebd6be4bcd83fe0040fa3ebec7d754cb2395837f6f1a72216764456f7a2d99",
+      "record_sha256": "36e73ff2d4ee1c13ef5e8d9613f5c666abaa4a4c17dcdd97ccb3fdf0c4d6b991"
+    },
+    "predictor-astra-06-final-gaps": {
+      "request_sha256": "f107ec2d3bb0c5657b63de64077a171755bcf9590a83a3ae902d3ad5c7031ef6",
+      "record_sha256": "398e8ee5ec0d42ca365d50d81dc58cc8bbd8fa5f7efaaae49d61e307ce623265"
+    },
+    "predictor-astra-07-source-audit": {
+      "request_sha256": "104a7324c71aa70c7e81a295867e5ccaffaf9e1b4721c0ac1c036a1f74ebe569",
+      "record_sha256": "d252cfd2ebb6e32a2df36f035e3a924baab93541523e09bb965d4c99b1cb3a94"
+    }
+  },
+  "prediction_freeze_policy": "predictions.json and predictions.md are final and will not be modified after this lock.",
+  "abstained_cases": [
+    "C03"
+  ],
+  "abstention_scope": {
+    "C03": "specific sale timing; directional prediction of current obstacles retained"
+  },
+  "hash_method": "SHA256 of exact UTF-8 bytes written, including final newlines."
+}
