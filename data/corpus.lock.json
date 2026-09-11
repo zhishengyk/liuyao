@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "corpus_snapshot": "2026-09-12-six-books",
-  "corpus_hash": "e105bcde40c22893c4355cfa81cf5f2c55312f7d0bebeeed46a17fa6d6ee629b",
+  "corpus_snapshot": "2026-09-12-six-books-r2",
+  "corpus_hash": "24c022b5ab55e71d1547ad0a63f9b0d08cf98db89f32d381c7f34dac4cd31671",
   "build_implementation_sha256": "0fc12ab7811fb0b037fc55134424b6e1f839d0eae18894c2f42f24ff6040d9ab",
   "assets": [
     {
       "kind": "corpus",
-      "name": "liuyao-corpus-2026-09-12.zip",
-      "sha256": "982615e143b852ef9e0f0f8a1d802df0f98c98b7e603d78325c0ae94a11ee2c6",
-      "size": 11771974,
-      "file_count": 1027,
-      "uncompressed_size": 71130779,
-      "url": "https://api.github.com/repos/zhishengyk/liuyao/releases/assets/558103644"
+      "name": "liuyao-corpus-2026-09-12-r2.zip",
+      "sha256": "4dbab803240fc2dda8f8a469d371b8e29e7725646e267a9d43c46f4c378a2a1b",
+      "size": 11777513,
+      "file_count": 1028,
+      "uncompressed_size": 71158757,
+      "url": "https://api.github.com/repos/zhishengyk/liuyao/releases/assets/558177554"
     },
     {
       "kind": "reference",

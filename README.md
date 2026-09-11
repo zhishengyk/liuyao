@@ -1,6 +1,6 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-本分支为 **0.7.0-alpha.3 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第二轮复盘](docs/核心规则第二轮复盘.md)，没有据此宣称预测准确率提高。
+本分支为 **0.7.0-alpha.4 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第二轮复盘](docs/核心规则第二轮复盘.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -19,7 +19,7 @@
 固定预发布 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.3/liuyao_mcp-0.7.0a3-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.4/liuyao_mcp-0.7.0a4-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不另附安装脚本。下面的Git插件目录跟随main，当前同样指向此重建预发布。
@@ -194,6 +194,6 @@ Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_c
 
 ## 资料与边界
 
-首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/corpus-2026-09-12/liuyao-corpus-2026-09-12.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
+首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/corpus-2026-09-12/liuyao-corpus-2026-09-12-r2.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
 
 原始资料共1,862个Markdown文件；六份建库来源随语料包提供，其余保存在[资料及审计归档](https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao-reference-archive-2026-09-11.zip)。同时恢复两个压缩包即可恢复原目录结构。原始Word、图片、音频和转换附件未上传；旧文档中的本地图片链接可能无法显示。
