@@ -172,22 +172,38 @@ def test_get_source_never_falls_back_for_legacy_mechanical_aliases(tmp_path):
 
 
 def test_build_chart_exposes_reference_status_without_requiring_a_database(tmp_path, monkeypatch):
-    from liuyao_mcp.server import build_chart
+    from liuyao_mcp.server import build_chart, get_source
 
     database, _ = _readable_database(tmp_path)
-    _mapping(tmp_path, {"xiangfa.combination.01": _entry(["book.manual.a"], legacy_ids=["xf_shang_c02_u01"])})
+    _mapping(tmp_path, {
+        "xiangfa.combination.09": _entry(["book.manual.a"], legacy_ids=["xf_shang_c02_u09"]),
+        "xiangfa.combination.01": _entry(["book.manual.b"], legacy_ids=["xf_shang_c02_u01"]),
+    })
     with sqlite3.connect(database) as db:
         store_mapping(db, tmp_path)
     monkeypatch.setenv("LIUYAO_DB", str(database))
-    chart = build_chart([2] * 6, month_branch="卯", day_ganzhi="庚子")
+    arguments = {"line_values": [1, 1, 1, 1, 2, 0], "month_branch": "午", "day_ganzhi": "甲寅"}
+    chart = build_chart(**arguments)
     patterns = chart["patterns"]
-    references = set(patterns["source_rule_ids"]) | {item["source_rule_id"] for item in patterns["combination_checks"]}
+    references = set(patterns["source_rule_ids"])
     assert set(patterns["resolved_references"]) == references
-    assert patterns["resolved_references"]["xf_shang_c02_u01"]["status"] == "available"
+    assert patterns["resolved_references"]["xf_shang_c02_u09"]["status"] == "available"
     assert patterns["resolved_references"]["xf_shang_c03"]["status"] == "unavailable"
     assert all(fact["source_rule_id"] in patterns["resolved_references"] for fact in patterns["facts"])
+    checks = {item["source_rule_id"]: item["status"] for item in patterns["combination_checks"]}
+    assert len(checks) == 18 and checks["xf_shang_c02_u09"] == "structural_match"
+    assert checks["xf_shang_c02_u01"] == "not_detected"
+    assert checks["xf_shang_c02_u04"] == "needs_yongshen"
+    assert all(reference not in patterns["resolved_references"]
+               for reference, status in checks.items() if status != "structural_match")
+    # An omitted, untriggered reference remains available for explicit review.
+    explicit = get_source("xf_shang_c02_u01")
+    assert explicit["status"] == "available" and explicit["targets"] == ["book.manual.b"]
     monkeypatch.setenv("LIUYAO_DB", str(tmp_path / "absent.sqlite"))
-    offline = build_chart([2] * 6, month_branch="卯", day_ganzhi="庚子")
+    offline = build_chart(**arguments)
     assert offline["primary"] == chart["primary"] and offline["display"]["markdown"]
+    assert offline["patterns"]["facts"] == patterns["facts"]
+    assert offline["patterns"]["combination_checks"] == patterns["combination_checks"]
+    assert set(offline["patterns"]["resolved_references"]) == references
     assert all(ref["status"] == "unavailable" and ref["reason"] == "database_unavailable"
                for ref in offline["patterns"]["resolved_references"].values())
