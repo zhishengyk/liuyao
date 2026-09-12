@@ -1,6 +1,6 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-本分支为 **0.7.0-alpha.4 手动切片重建预发布**。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
+当前正式版为 **0.7.0**，由 0.7.0-alpha.4 升级发布。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -14,17 +14,17 @@
 
 默认提供中文BM25＋六爻结构匹配。配置本地语义模型后可启用真实SQLite混合检索；CPU神经重排是显式可选模式，默认安装不会下载BGE模型。配置及性能边界见[检索与资料验收流程](docs/检索与资料验收流程.md)和[CPU检索性能与扩容](docs/CPU检索性能与扩容.md)。
 
-## 试用预发布
+## 使用正式版
 
-固定预发布 wheel 包含程序与手切数据库，首次下载后可以离线运行：
+固定版本 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.4/liuyao_mcp-0.7.0a4-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0/liuyao_mcp-0.7.0-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 缓存准备完成后，完全离线启动需在 `uvx` 后显式加 `--offline`。默认启动器可能联网核验包缓存，不能保证在任意断网环境中直接启动；SQLite检索本身在本地执行。
 
-MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不另附安装脚本。下面的Git插件目录跟随main，当前同样指向此重建预发布。
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.7.0。
 
 ## 安装跟随 main 的 Codex 插件
 
@@ -51,10 +51,10 @@ codex plugin add liuyao-assistant@liuyao
 
 ### VS Code 或其他 MCP 客户端
 
-下面的直接MCP入口固定使用0.6.7，不随main切换版本。注册本地服务：
+下面的直接MCP入口固定使用0.7.0，不随main切换版本。注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0/liuyao_mcp-0.7.0-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -183,9 +183,9 @@ flowchart TD
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[test]" build uv
 .\.venv\Scripts\python.exe scripts/prepare_corpus.py
-.\.venv\Scripts\python.exe -m liuyao_mcp.ingest --allow-partial
+.\.venv\Scripts\python.exe -m liuyao_mcp.ingest
 .\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe scripts/build_release.py --prerelease
+.\.venv\Scripts\python.exe scripts/build_release.py
 ```
 
 Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_corpus.py` 从Release下载所需语料包，核对SHA-256后恢复到本地；六书重建包约11.8MB，普通插件用户不需要下载它。完整资料和历史审计归档另约45MB，需要时加 `--include-reference`。恢复脚本不会覆盖已修改的本地语料。
