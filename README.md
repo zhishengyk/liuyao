@@ -1,6 +1,6 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-当前正式版为 **0.7.0**，由 0.7.0-alpha.4 升级发布。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
+当前正式版为 **0.7.1**，完成上一版311条未核准案例的逐条源文核对和入库修订。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -10,7 +10,7 @@
 - **可直接展示的排盘**：本变卦并排，包含六神、伏神、纳甲六亲、动爻、世应、干支与农历。
 - **手动规则与场景检索**：原文绑定页、行、列及哈希；共享条件随规则返回，书籍和人工单元可以导航回查。
 
-本轮独立测试使用 GPT-6 Astra、xhigh 推理设置。
+已公开的预测与检索流程评估使用 GPT-6 Astra、xhigh 推理设置。本次[311条盘面核对](docs/311条盘面核对结果.md)是资料审核，新增197条核准盘面，另114条保留缺项或冲突。
 
 默认提供中文BM25＋六爻结构匹配。配置本地语义模型后可启用真实SQLite混合检索；CPU神经重排是显式可选模式，默认安装不会下载BGE模型。配置及性能边界见[检索与资料验收流程](docs/检索与资料验收流程.md)和[CPU检索性能与扩容](docs/CPU检索性能与扩容.md)。
 
@@ -19,12 +19,12 @@
 固定版本 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0/liuyao_mcp-0.7.0-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.1/liuyao_mcp-0.7.1-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 缓存准备完成后，完全离线启动需在 `uvx` 后显式加 `--offline`。默认启动器可能联网核验包缓存，不能保证在任意断网环境中直接启动；SQLite检索本身在本地执行。
 
-MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.7.0。
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.7.1。
 
 ## 安装跟随 main 的 Codex 插件
 
@@ -51,10 +51,10 @@ codex plugin add liuyao-assistant@liuyao
 
 ### VS Code 或其他 MCP 客户端
 
-下面的直接MCP入口固定使用0.7.0，不随main切换版本。注册本地服务：
+下面的直接MCP入口固定使用0.7.1，不随main切换版本。注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0/liuyao_mcp-0.7.0-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.1/liuyao_mcp-0.7.1-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -188,7 +188,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts/build_release.py
 ```
 
-Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_corpus.py` 从Release下载所需语料包，核对SHA-256后恢复到本地；六书重建包约11.8MB，普通插件用户不需要下载它。完整资料和历史审计归档另约45MB，需要时加 `--include-reference`。恢复脚本不会覆盖已修改的本地语料。
+Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_corpus.py` 从Release下载所需语料包，核对SHA-256后恢复到本地；六书重建包约12.3MB，普通插件用户不需要下载它。完整资料和历史审计归档另约45MB，需要时加 `--include-reference`。恢复脚本不会覆盖已修改的本地语料。
 
 默认安装不下载推理模型。恢复后的手切清单已绑定对应审计，可以直接入库；修改切片后先运行 `scripts/assemble_manual_slices.py`，再按审计文件用 `scripts/attach_chart_audits.py` 重新绑定盘面证明。未绑定记录保持not_run。稳定构建默认要求全书覆盖，预发布必须显式使用 `--prerelease`。CI要求完整测试套件和隔离安装检查通过，并保留完整测试报告；预发布也不能跳过未预期的失败。已知的无筛选求职排序缺口显式标为xfail，不计作通过。
 
@@ -196,6 +196,6 @@ Git保留代码和小型[语料版本清单](data/corpus.lock.json)。`prepare_c
 
 ## 资料与边界
 
-首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/corpus-2026-09-12/liuyao-corpus-2026-09-12-r2.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
+首批资料为《六爻预测自修宝典》《王虎应增删卜易评释》《增删卜易》《六爻理法进阶》《六爻象法进阶》上、下，共六份文件。来源、手切边界与审核证据保存在[版本化语料包](https://github.com/zhishengyk/liuyao/releases/download/corpus-2026-09-12/liuyao-corpus-2026-09-12-r3.zip)中。原Word未能取得的缺损保留未知；整页入库不等于全页已切片或每盘已核对。历史反馈是原作者记载，不等于独立验证或未来预测保证。
 
 原始资料共1,862个Markdown文件；六份建库来源随语料包提供，其余保存在[资料及审计归档](https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.1/liuyao-reference-archive-2026-09-11.zip)。同时恢复两个压缩包即可恢复原目录结构。原始Word、图片、音频和转换附件未上传；旧文档中的本地图片链接可能无法显示。

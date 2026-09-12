@@ -1,6 +1,6 @@
 {
   "name": "liuyao-assistant",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "手动切片资料库：排盘、规则检索、卦例及出处回查。",
   "author": {
     "name": "zhishengyk"
