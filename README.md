@@ -22,6 +22,8 @@
 uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.0-alpha.4/liuyao_mcp-0.7.0a4-py3-none-any.whl liuyao-mcp --self-check
 ```
 
+缓存准备完成后，完全离线启动需在 `uvx` 后显式加 `--offline`。默认启动器可能联网核验包缓存，不能保证在任意断网环境中直接启动；SQLite检索本身在本地执行。
+
 MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。预发布不另附安装脚本。下面的Git插件目录跟随main，当前同样指向此重建预发布。
 
 ## 安装跟随 main 的 Codex 插件
