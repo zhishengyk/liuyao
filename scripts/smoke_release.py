@@ -191,7 +191,7 @@ async def main(argv=None):
             assert set(tools) == {'build_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
             if report.get('installed', {}).get('prompt_files_checked'):
                 prompt = await call('get_source', evidence_id='prompt:GLOBAL.md', max_chars=1000)
-                assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 全局必读原文')
+                assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 全局断卦流程与原文')
                 if prompt['has_more']:
                     next_page = await call('get_source', evidence_id='prompt:GLOBAL.md', offset=prompt['next_offset'], max_chars=1000)
                     assert next_page['offset'] == prompt['next_offset'] and next_page['text']
