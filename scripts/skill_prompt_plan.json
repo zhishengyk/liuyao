@@ -306,5 +306,65 @@
       "liuyao_zixiu_dxj.full.l2248.rule"
     ]
   },
+  "workflow": [
+    {
+      "step": 1,
+      "title": "先定原问、来意、对象与时限",
+      "route": "先锁定本题要回答的核心事项、人物关系、动作方向和期限；不以泛泛的事项名称替代实际来意，也不先把细节象义当作主答。",
+      "evidence_ids": [
+        "liuyao_zixiu_dxj.full.l2248.rule",
+        "liuyao_xiangfa_jinjie_shang.manual.p0007_core_question"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "再核时间与盘面事实，确认动变边界",
+      "route": "核对年月日、六神、世应、六亲、动爻及本位变爻；盘面事实与后续断法分开。动爻有变时，先确认变爻只作用于本位动爻的边界。",
+      "evidence_ids": [
+        "zengshan_pingshi_dxj-l1986-study-and-record",
+        "zengshan_pingshi_dxj-l3674-changed-line-scope"
+      ]
+    },
+    {
+      "step": 3,
+      "title": "取主用神，并列世应与必要辅助角色",
+      "route": "依原问、来意和亲缘确定主用神；同时保留世、应、元神、忌神等与主用神有关的角色，取用有分歧时不得偷换成单一结论。",
+      "evidence_ids": [
+        "liuyao_zixiu_dxj.full.l2248.rule",
+        "zengshan_pingshi_dxj-l2638-yongshen-strength",
+        "liuyao_zixiu_dxj.full.l2220.rule"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "先以理法判断主线吉凶：日月、旺衰、动变、元忌对用神的实际作用",
+      "route": "先看日月对用神，再看有效旺爻、动爻及其本位变爻的有向生克；再核元神是否真能生、忌神是否真能克，以及空破、冲合、墓绝等例外。所有关系必须记录施力者→受力者。",
+      "evidence_ids": [
+        "zengshan_pingshi_dxj-l2638-yongshen-strength",
+        "zengshan_pingshi_dxj-l3542-static-reading",
+        "liuyao_zixiu_dxj.full.l4216.rule",
+        "zengshan_pingshi_dxj-l9274-single-moving-context"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "主线有方向后，再按原问补世应、领域规则与象法细节",
+      "route": "先回答本题的成败、安危或趋势主线；随后才以世应、爻位、六亲、六神、卦象、刑害等说明过程、原因和具体细节。象法不能替代理法主线，也不能把一个象义直接当吉凶。",
+      "evidence_ids": [
+        "liuyao_xiangfa_jinjie_shang.manual.p0006_directions",
+        "liuyao_xiangfa_jinjie_shang.manual.p0179_six_spirits_limit",
+        "liuyao_xiangfa_jinjie_xia-p0005-punishment-order"
+      ]
+    },
+    {
+      "step": 6,
+      "title": "最后才按已判主线取应期，并回到原问作答",
+      "route": "应期建立在已经有依据的事件方向上；按事情远近和用神、动爻、空破、冲合等已核实结构选取候选时间，再区分主答、细节、应期和仍未解决的条件。",
+      "evidence_ids": [
+        "liuyao_zixiu_dxj.full.l5320.rule",
+        "zengshan_pingshi_dxj-l9274-single-moving-context"
+      ]
+    }
+  ],
   "selection_policy": "Every topic-classified theory unit and its required context is included in its domain. Global prompts contain explicitly selected complete method passages, continuous chapters and exceptions; other common and scene theory remains available in the database for targeted retrieval. Original continuous source-line envelopes preserve intermediate text and overlapping envelopes merge without textual deletion. Topic classification is routing metadata, not proof of rule applicability."
 }

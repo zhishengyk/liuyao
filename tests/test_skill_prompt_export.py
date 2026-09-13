@@ -45,7 +45,10 @@ def fixture(tmp_path):
                                           'objects': {'title': '物品', 'questions': ['质量']}},
         'supplemental_spans': [{'bucket': 'study', 'source_id': 'book_a', 'start_line': 1, 'end_line': 2, 'reason': '完整章首'}],
         'supplemental_pages': [{'bucket': 'global', 'source_id': 'book_b', 'pages': [1]}],
-        'supplemental_ids': {'objects': ['b']}, 'selection_policy': 'verbatim'}), encoding='utf-8')
+        'supplemental_ids': {'objects': ['b']},
+        'workflow': [{'step': 1, 'title': '先定原问', 'route': '先核对对象和时限。',
+                      'evidence_ids': ['a', 'b']}],
+        'selection_policy': 'verbatim'}), encoding='utf-8')
     return database, plan
 
 
@@ -61,6 +64,14 @@ def test_preserves_intermediate_lines_context_author_scope_and_regenerates(tmp_p
     assert original in (output / 'study/book_a.md').read_text(encoding='utf-8')
     assert (output / 'study/book_a.md').read_text(encoding='utf-8').count('共同导语') == 1
     assert '另一作者不同意见\n```原文保留```\n页末' in (output / 'global/book_b.md').read_text(encoding='utf-8')
+    flow = (output / 'FLOW.md').read_text(encoding='utf-8')
+    assert '本步执行：先核对对象和时限。' in flow
+    assert '前提\n不可省略的例外\n原注结论' in flow
+    assert '### 原文 a:context:0 · book_a-L5-L5' in flow and '共同导语' in flow
+    assert '另一作者不同意见\n```原文保留```' in flow
+    assert 'FLOW.md' in result['files_sha256']
+    assert any(section['file'] == 'FLOW.md' and section['source_id'] == 'book_a'
+               for section in result['sections'])
     page = next(s for s in result['sections'] if s['file'] == 'global/book_b.md')['pages'][0]
     assert page['visual_reviewed'] is False and page['unclear'] == ['字形待核']
     assert '没有直接分类的理论条目' in (output / 'objects/PROMPT.md').read_text(encoding='utf-8')
@@ -109,6 +120,9 @@ def test_public_source_reader_paginates_verbatim_and_rejects_stale_or_unlisted_f
         assert result['next_offset'] > offset
         offset = result['next_offset']
     assert ''.join(parts) == original
+    flow = get_source('prompt:FLOW.md', offset=0, max_chars=1000, db_path=database)
+    assert flow['kind'] == 'skill_prompt' and flow['prompt_path'] == 'FLOW.md'
+    assert flow['source_sections']
     for bad in ['prompt:../secret.md', 'prompt:/GLOBAL.md', 'prompt:unknown.md']:
         with pytest.raises(ValueError):
             get_source(bad, db_path=database)

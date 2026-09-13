@@ -96,6 +96,21 @@ def build(database, output, plan_path):
     for bucket, ids in plan.get('supplemental_ids', {}).items():
         for uid in ids:
             add_unit(bucket, uid)
+    workflow = plan.get('workflow', [])
+    seen_workflow_steps = set()
+    for item in workflow:
+        step = item.get('step')
+        if not isinstance(step, int) or step < 1 or step in seen_workflow_steps:
+            raise ValueError('Workflow steps must be unique positive integers')
+        if not item.get('title') or not item.get('route') or not item.get('evidence_ids'):
+            raise ValueError(f'Workflow step {step} needs title, route and evidence_ids')
+        seen_workflow_steps.add(step)
+        for uid in item['evidence_ids']:
+            if uid not in units:
+                raise ValueError(f'Workflow references missing evidence: {uid}')
+            # Workflow passages are also routed into global source files, so the
+            # dedicated reading order never becomes a detached summary.
+            add_unit('global', uid)
 
     output.mkdir(parents=True, exist_ok=True)
     generated, sections, routes = {}, [], {}
@@ -139,6 +154,7 @@ def build(database, output, plan_path):
                 '先完成全局流程及通用原文阅读，再按本题加载以下领域原文。以下路由说明由整理者编写，断法以各书原文为准。\n\n'
                 f'本领域问意目录：{questions}。按实际对象、动作和时限选择，不由同一个领域名称推定相同取用。'
                 '复合问题分别加载相关领域并分别回答。\n\n'
+                '在FLOW第3步可读取本领域的取用规则；主线吉凶已判后，才在第5步读取本领域细节取象、过程和例外；应期规则留到第6步。'
                 '依各书原有顺序核取用、作用、主辅及例外，区分现状/吉凶/应期，再对原问作具体取象。'
                 '作者分歧先并列推导；施力者→受力者、双方现实角色/层次、判断层面、时限和前提均对齐而结论相反时，按用户指定以王虎应直接论述或明确署名评释为主。'
                 '`世生应`与`应生世`、动变发生在不同一方的案例不是同一结构。'
@@ -147,10 +163,43 @@ def build(database, output, plan_path):
                 '本汇编覆盖当前已整理理论及清单指定原章，不声称全书每页或本领域所有方法均已完成。\n\n'
                 + ('此领域目前没有直接分类的理论条目，以下为明确标出的通用取用原文；具体领域断法仍需数据库补查，不能宣称已有完整专章。\n\n' if own_count == 0 else '')
                 + '\n'.join(f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({Path(f).name})' for f in files)
-                + '\n\n先核全文及相邻限制，再用数据库补充细则、例外和相似案例。未读完、截断或来源不清须记入reading_gaps；不得把未读当作没有，也不自动截断原文或以摘要替代。\n')
+                + '\n\n先读取[全局断卦执行顺序与原文](../FLOW.md)。本领域涉及取用时在第3步读取相应原文；主线吉凶已判后再读细节取象和过程；应期留在第6步。再核全文及相邻限制，然后用数据库补充细则、例外和相似案例。未读完、截断或来源不清须记入reading_gaps；不得把未读当作没有，也不自动截断原文或以摘要替代。\n')
+
+    flow = ['# 全局断卦执行顺序与原文\n',
+            '本文件的步骤标题和“本步执行”仅是整理者根据下列原文安排的阅读与核查路由，不新增断法，也不替代任何作者原句。'
+            '每步所列正文均按当前数据库的完整来源行范围保留；同一原文在不同步骤重复出现，是因为它同时约束多个判断环节。'
+            '先按此顺序完成主线，再读GLOBAL.md列出的通用原文和本题领域PROMPT；细则、例外和案例仍由数据库按实际盘面补查。\n']
+    flow_sections = []
+    for item in sorted(workflow, key=lambda value: value['step']):
+        flow.extend([f'## 第{item["step"]}步：{item["title"]}\n',
+                     f'本步执行：{item["route"]}\n',
+                     '以下为本步骤的完整原文依据：\n'])
+        for uid in item['evidence_ids']:
+            unit = units[uid]
+            blocks = [(uid, unit['source_id'], unit['source_spans'])]
+            for index, context in enumerate(unit.get('required_contexts', [])):
+                blocks.append((f'{uid}:context:{index}', context.get('source_id', unit['source_id']),
+                               context.get('source_spans') or [context]))
+            for label, sid, spans in blocks:
+                start, end = min(span['start_line'] for span in spans), max(span['end_line'] for span in spans)
+                raw = source_text(sources[sid]['lines'], start, end)
+                marker = f'{label} · {sid}-L{start}-L{end}'
+                fence = '`' * max(3, max((len(value) for value in re.findall(r'`+', raw)), default=0) + 1)
+                flow.extend([f'### 原文 {marker}\n', f'{fence}text\n{raw}\n{fence}\n'])
+                flow_sections.append({'file': 'FLOW.md', 'marker': marker, 'source_id': sid,
+                                      'start_line': start, 'end_line': end, 'text_sha256': sha(raw.encode()),
+                                      'characters': len(raw)})
+    generated['FLOW.md'] = '\n'.join(flow)
+    for section in flow_sections:
+        start = generated['FLOW.md'].index('### 原文 ' + section['marker'] + '\n')
+        next_start = generated['FLOW.md'].find('\n### 原文 ', start + 1)
+        section['file_start_offset'] = start
+        section['file_end_offset'] = next_start if next_start >= 0 else len(generated['FLOW.md'])
+    sections.extend(flow_sections)
 
     generated['GLOBAL.md'] = ('# 全局必读原文\n\n'
-        '使用SKILL.md及condition-review.md中的工作顺序，完整读取以下通用原文文件；这些内容不依赖临时主题检索。'
+        '先完整读取[全局断卦执行顺序与原文](FLOW.md)，按其中顺序建立主线；再完整读取以下通用原文文件。'
+        'FLOW.md的步骤标题只是原文阅读与核查路由，不能替代其下完整原文。以下内容不依赖临时主题检索。'
         '按作者分册阅读，保留原文主辅、例外和不同观点，不把不同书强行合并成一套公式。'
         '跨作者真实冲突按用户指定以王虎应直接论述或明确署名评释为主；先核作者归属、施力者→受力者、双方现实角色/层次、判断层面、时限和前提。'
         '`世生应`与`应生世`不是同一结构，其他作者原文不删除。'
@@ -184,7 +233,8 @@ def build(database, output, plan_path):
                 'source_versions': {sid: {'body_sha256': sha(s['body'].encode()), 'metadata': s['metadata']}
                                     for sid, s in sources.items()},
                 'evidence_by_bucket': {k: sorted(set(v)) for k, v in evidence.items()},
-                'selection_policy': plan['selection_policy'], 'selections': selections, 'sections': sections,
+                'selection_policy': plan['selection_policy'], 'workflow': workflow,
+                'selections': selections, 'sections': sections,
                 'files_sha256': {name: sha((output / name).read_bytes()) for name in generated},
                 'limitations': ['Current stored source version; machine OCR and visual review remain distinct.',
                                 'Selection is explicit, not whole-book coverage; full original line ranges and contexts are preserved.',
