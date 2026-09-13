@@ -2,7 +2,7 @@
 import pytest
 from liuyao_mcp.chart import build_chart
 from liuyao_mcp.common import tokens, case_search_text
-from liuyao_mcp.retrieval import search_knowledge, get_source
+from liuyao_mcp.retrieval import search_knowledge, get_source, structure_match
 
 
 def test_meaningful_domain_conditions_survive_query_tokenization():
@@ -76,11 +76,52 @@ def test_unlisted_short_tokens_are_not_silently_reduced_to_another_concept():
     assert external['query_terms'] == ['外应']
 
 
+def test_use_role_query_reports_its_unmatched_literal_subject_without_rewriting_it():
+    options = dict(kind='rule', method='lifa', limit=2, max_chars=7000, retrieval_mode='bm25')
+    result = search_knowledge('自测 以世爻为用神', **options)
+    assert result['query_terms'] == ['自测', '以', '世爻', '为', '用神']
+    assert result['unmatched_query_terms'] == ['自测']
+    scope = result['unmatched_query_terms_scope']
+    assert scope['index'] == 'search_index' and scope['stage'] == 'before_candidate_limit_and_budget'
+    assert '不代表语义覆盖' in scope['note']
+    own = search_knowledge('自己 以世爻为用神', **options)
+    assert '自己' in own['query_terms'] and '自己' not in own['unmatched_query_terms']
+
+
+def test_empty_browse_does_not_scan_term_matches(monkeypatch):
+    from contextlib import contextmanager
+    from liuyao_mcp import retrieval
+
+    original = retrieval.connect
+    statements = []
+    @contextmanager
+    def traced(path=None):
+        with original(path) as db:
+            db.set_trace_callback(statements.append)
+            yield db
+    monkeypatch.setattr(retrieval, 'connect', traced)
+    result = search_knowledge('', kind='rule', topic='health', limit=1)
+    assert result['items'] and not result['query_terms']
+    assert 'unmatched_query_terms' not in result and 'term_match_ms' not in result['timings']
+    assert not any(' MATCH ' in sql for sql in statements)
+
+
 def test_structural_comparisons_only_use_verified_charts():
     for options in ({'require_valid_chart': True}, {'features': {'shi_relative': '父母'}}):
         result = search_knowledge('工作', kind='case', limit=5, max_chars=150000, **options)
         assert result['items']
         assert all(i['case']['extraction']['chart_validation'] == 'calculated' for i in result['items'])
+
+
+def test_case_structure_keeps_shi_to_ying_relation_direction():
+    reverse = structure_match({'shi_ying_relations': ['生']}, {'shi_ying_relations': ['受生']})
+    assert reverse['matched'] == []
+    assert reverse['directed_differences'] == ['shi_ying_relations=["生"]']
+    assert reverse['same_directed_structure'] is False
+    same = structure_match({'shi_ying_relations': ['受生']}, {'shi_ying_relations': ['受生']})
+    assert same['same_directed_structure'] is True and not same['directed_differences']
+    absent = structure_match({'shi_relative': '妻财'}, {'shi_relative': '妻财'})
+    assert absent['same_directed_structure'] is None
 
 
 def test_case_index_preserves_mechanical_relations_without_outcome_text():

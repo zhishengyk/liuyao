@@ -11,3 +11,4 @@ build/
 dist/
 .local/
 src/liuyao_mcp/_data/
+plugins/liuyao-assistant/skills/interpret-liuyao/references/source-prompts/

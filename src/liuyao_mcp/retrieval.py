@@ -20,7 +20,7 @@ FEATURE_LABELS = {'shi_relative':'世爻六亲', 'ying_relative':'应爻六亲',
                   'yongshen_scope':'用神候选所在层',
                   'yongshen_relative':'调用方已选用神六亲', 'yongshen_void':'用神旬空',
                   'yongshen_moving':'用神发动', 'yongshen_month_break':'用神月破',
-                  'shi_ying_relations':'世应关系', 'moving_positions':'动爻位置',
+                  'shi_ying_relations':'世→应有向关系', 'moving_positions':'动爻位置',
                   'void_positions':'旬空爻位', 'month_break_positions':'月破爻位'}
 
 
@@ -65,8 +65,14 @@ def structure_match(query, features):
             (matched if ok else different).append(label)
         else:
             (matched if actual == expected else different).append(label)
-    return {"matched": matched, "different": different, "unknown": unknown, "score": len(matched) / max(1, len(matched)+len(different)),
-            "requested_fields": sum(value is not None for value in query.values()), "score_scope": "requested_features_only", "is_overall_similarity": False}
+    directed = [label for label in different if label.startswith('shi_ying_relations=')]
+    return {"matched": matched, "different": different, "unknown": unknown,
+            "directed_differences": directed,
+            "same_directed_structure": not directed if query.get('shi_ying_relations') is not None else None,
+            "score": len(matched) / max(1, len(matched)+len(different)),
+            "requested_fields": sum(value is not None for value in query.values()), "score_scope": "requested_features_only",
+            "is_overall_similarity": False,
+            "note": "shi_ying_relations按世→应比较；生与受生方向相反，不能视作同一结构。"}
 
 
 def case_summary(case):
@@ -85,11 +91,21 @@ def case_summary(case):
             if key in item:
                 entry[key] = item[key]
         interpretations.append(entry)
-    result = {"cast": case["cast"], "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
+    omitted = [key for key in ('evidence', 'field_spans', 'diagram_spans', 'transcription_review') if key in case['cast']]
+    cast = {key: value for key, value in case['cast'].items() if key not in omitted}
+    result = {"cast": cast, "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
     result['quality'] = case.get('quality', {'status': 'pending', 'reason': 'quality_not_reviewed', 'reviewer': None})
-    for key in ('cast_index', 'cast_sequence', 'related_case_ids', 'author_yongshen'):
+    for key in ('cast_index', 'cast_sequence', 'related_case_ids', 'author_yongshen', 'duplicate_group', 'duplicate_candidates'):
         if key in case:
             result[key] = case[key]
+    if omitted:
+        result['cast_provenance'] = {'omitted_fields': omitted,
+                                     'get_source': {'evidence_id': case['case_id']}}
+        review = case['cast'].get('transcription_review')
+        if isinstance(review, dict) and 'status' in review:
+            result['cast_provenance']['transcription_review_status'] = review['status']
+    if case.get('duplicate_candidates'):
+        result['event_records_note'] = '同事件其他记录，不一定同盘或同一阶段。'
     return result
 
 
@@ -323,11 +339,26 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             for rank, row in enumerate(structural[:candidate_limit], 1):
                 ranks[row['evidence_id']] += 1/(60+rank)
         ordered = sorted(ranks, key=lambda eid: (-ranks[eid], eid))
-        seen_hashes = set()
+        excluded_rule_groups = set()
         if kind == "rule":
-            seen_hashes.update(r[0] for r in db.execute(
+            excluded_rule_groups.update(r[0] for r in db.execute(
                 "SELECT group_id FROM evidence_metadata WHERE kind='rule' AND evidence_id IN (SELECT value FROM json_each(?))",
                 (dumps(sorted(exclude_ids)),)))
+        unmatched_terms = []
+        if terms:
+            term_started = time.perf_counter()
+            term_scope = scope_sql
+            term_params = params
+            if excluded_rule_groups:
+                term_scope = f'SELECT * FROM ({scope_sql}) WHERE group_id NOT IN (SELECT value FROM json_each(:excluded_rule_groups))'
+                term_params = dict(params, excluded_rule_groups=dumps(sorted(excluded_rule_groups)))
+            exists_sql = f'''WITH eligible AS ({term_scope})
+                SELECT 1 FROM {fts_table} JOIN eligible ON {fts_table}.evidence_id=eligible.evidence_id
+                WHERE {fts_table} MATCH :match AND {fts_table}.kind=:kind LIMIT 1'''
+            unmatched_terms = [term for term in terms if db.execute(
+                exists_sql, dict(term_params, match='"'+term+'"')).fetchone() is None]
+            timings['term_match_ms'] = round((time.perf_counter()-term_started)*1000,2)
+        seen_hashes = excluded_rule_groups.copy()
         eligible = []
         for eid in ordered:
             row = record_for(eid)
@@ -402,6 +433,11 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
             used_chars += size
         timings["total_ms"] = round((time.perf_counter()-started)*1000,2)
         result = {"query": query, "query_terms": terms, "query_context": context_titles, "query_negations": [m[0] for m in NEGATED_TECHNICAL.finditer(query)], "kind": kind, "method": method, "requested_count": limit, "returned_count": len(items), "has_more": len(eligible)>len(items) or lexical_overflow or dense_overflow or rerank_overflow or outline_overflow or structural_overflow, "candidate_pool_size": len(ordered), "budget_skipped": budget_skipped, "used_chars": used_chars, "max_chars": max_chars, "corpus_hash": corpus_hash, "retrieval":mode,"structural_matching":bool(features and kind=="case"),"models":model_info,"timings":timings, 'outline_ids': outline_ids or [], 'topic_filter_applied': bool(topic), 'topic':topic,'subtopic':subtopic,'inferred_topic_hints':inferred_topics,'topic_hint_paths':hint_paths if kind == 'case' else [],'include_common':include_common, 'include_unknown':include_unknown, 'require_valid_chart':bool(require_valid_chart or features), "items": items}
+        if terms:
+            result['unmatched_query_terms'] = unmatched_terms
+            result['unmatched_query_terms_scope'] = {
+                'index':fts_table, 'stage':'before_candidate_limit_and_budget',
+                'note':'按本次过滤及排除后的可检索记录检查字面词项；不按结构相似度筛选，不代表语义覆盖或全库没有相关知识。'}
         if kind == 'case':
             result['case_text_scope'] = case_text_scope
             if case_text_scope == 'full':
@@ -437,6 +473,11 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
     if not 0 <= context_lines <= 200 or offset < 0 or not 1000 <= max_chars <= 500000:
         raise ValueError("context_lines范围0..200，offset非负，max_chars范围1000..500000")
     if text_version not in ('corrected','original'):raise ValueError('text_version=corrected/original')
+    if evidence_id.startswith('prompt:'):
+        if text_version != 'corrected' or context_lines:
+            raise ValueError('提示词原文按发行版本分页读取，不支持original或context_lines')
+        from .skill_prompts import read_prompt
+        return read_prompt(evidence_id, offset, max_chars, db_path)
     reference = resolve_rule_reference(evidence_id, db_path)
     # Reserve mechanical aliases even when an old DB has no reference table.
     mechanical_alias = re.fullmatch(

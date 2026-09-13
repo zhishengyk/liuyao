@@ -47,10 +47,24 @@ path = database_path()
 assert 'site-packages' in Path(liuyao_mcp.__file__).parts
 assert path == (Path(liuyao_mcp.__file__).parent/'_data/knowledge.sqlite').resolve()
 check = self_check()
+prompt_files_checked = 0
+prompt_manifest = path.parent/'source-prompts/manifest.json'
+if prompt_manifest.is_file():
+    from liuyao_mcp.server import get_source
+    prompt_data = json.loads(prompt_manifest.read_text(encoding='utf-8'))
+    for name, expected in prompt_data['files_sha256'].items():
+        chunks, offset = [], 0
+        while True:
+            part = get_source('prompt:'+name, offset=offset, max_chars=4000)
+            chunks.append(part['text'])
+            if not part['has_more']: break
+            offset = part['next_offset']
+        assert hashlib.sha256(''.join(chunks).encode()).hexdigest() == expected, name
+        prompt_files_checked += 1
 print(json.dumps({'version':version('liuyao-mcp'),'runtime_version':liuyao_mcp.__version__,
                   'module':liuyao_mcp.__file__,'database':str(path),
                   'database_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
-                  'offline_self_check':check},ensure_ascii=False))
+                  'offline_self_check':check,'prompt_files_checked':prompt_files_checked},ensure_ascii=False))
 """
 
 
@@ -140,7 +154,12 @@ async def main(argv=None):
         env.update(LOCALAPPDATA=str(Path(cwd)/'cache'), XDG_CACHE_HOME=str(Path(cwd)/'cache'))
         if uvx:
             prefix = args[:args.index('liuyao-mcp')]
-            probe = subprocess.run([command, *prefix, 'python', '-I', '-X', 'utf8', '-c', INSTALLED_PROBE],
+            # `uvx --from package python ...` tries to run a console script named
+            # python from the package.  Use uv run for the isolated inspection
+            # process; uvx remains the launcher tested for the MCP server below.
+            uv_command = str(Path(command).with_name('uv.exe')) if Path(command).suffix else 'uv'
+            probe = subprocess.run([uv_command, 'run', '--isolated', '--no-project', '--python', sys.executable,
+                                    '--with', package_source, 'python', '-I', '-X', 'utf8', '-c', INSTALLED_PROBE],
                                    cwd=cwd, env=env, check=True, capture_output=True, text=True,
                                    encoding='utf8', timeout=240)
             installed = report['installed'] = json.loads(probe.stdout)
@@ -170,6 +189,13 @@ async def main(argv=None):
             listed = await client.list_tools()
             tools = {tool.name: tool for tool in listed.tools}
             assert set(tools) == {'build_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
+            if report.get('installed', {}).get('prompt_files_checked'):
+                prompt = await call('get_source', evidence_id='prompt:GLOBAL.md', max_chars=1000)
+                assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 全局必读原文')
+                if prompt['has_more']:
+                    next_page = await call('get_source', evidence_id='prompt:GLOBAL.md', offset=prompt['next_offset'], max_chars=1000)
+                    assert next_page['offset'] == prompt['next_offset'] and next_page['text']
+                report['checks'].append('bundled_verbatim_prompts_pagination_and_mcp_entry')
             search_schema = tools['search_knowledge'].input_schema['properties']
             assert search_schema['include_unknown']['default'] is False
             assert {'require_valid_chart', 'features', 'topic', 'subtopic', 'outline_ids'} <= set(search_schema)

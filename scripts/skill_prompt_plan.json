@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "domains": {
+    "affairs": {
+      "title": "日常事务",
+      "questions": [
+        "证照审批",
+        "求助办事",
+        "比赛评选",
+        "整体运势",
+        "文稿出版",
+        "日常服务"
+      ]
+    },
+    "children": {
+      "title": "孕育子女",
+      "questions": [
+        "生产产期",
+        "备孕受孕",
+        "孕期胎儿"
+      ]
+    },
+    "cooperation": {
+      "title": "合作签约",
+      "questions": [
+        "签约合同",
+        "谈判协商",
+        "合作对象",
+        "合作进展"
+      ]
+    },
+    "health": {
+      "title": "身体健康",
+      "questions": [
+        "身体状况",
+        "病情变化",
+        "恢复康复",
+        "亲友健康",
+        "人身安危",
+        "就医治疗"
+      ]
+    },
+    "job": {
+      "title": "事业工作",
+      "questions": [
+        "工作变动",
+        "求职面试",
+        "录用入职",
+        "升职任用",
+        "职场关系",
+        "工作发展"
+      ]
+    },
+    "lawsuit": {
+      "title": "诉讼纠纷",
+      "questions": [
+        "纠纷争议",
+        "执行追偿",
+        "诉讼裁判",
+        "调解和解"
+      ]
+    },
+    "lost": {
+      "title": "失物寻人",
+      "questions": [
+        "失物寻找",
+        "寻人失联",
+        "失盗追寻"
+      ]
+    },
+    "objects": {
+      "title": "物品事务",
+      "questions": [
+        "寄送交付",
+        "购买选择",
+        "品质状态",
+        "维修处理"
+      ]
+    },
+    "property": {
+      "title": "房产居家",
+      "questions": [
+        "住房分配",
+        "房屋状况",
+        "搬家迁居",
+        "买卖房产",
+        "装修修造",
+        "租赁住房"
+      ]
+    },
+    "relationship": {
+      "title": "姻缘感情",
+      "questions": [
+        "恋爱发展",
+        "对方态度",
+        "结婚与婚姻发展",
+        "认识与择偶",
+        "复合挽回",
+        "分手离婚"
+      ]
+    },
+    "study": {
+      "title": "学业考试",
+      "questions": [
+        "升学录取",
+        "考试成绩",
+        "论文毕业",
+        "学业进展",
+        "择校专业"
+      ]
+    },
+    "travel": {
+      "title": "出行行人",
+      "questions": [
+        "出发出行",
+        "旅途情况",
+        "归期消息"
+      ]
+    },
+    "wealth": {
+      "title": "财运经营",
+      "questions": [
+        "经营创业",
+        "买卖交易",
+        "借贷回款",
+        "收入财运",
+        "投资收益"
+      ]
+    },
+    "weather": {
+      "title": "天气农事",
+      "questions": [
+        "养殖牲畜",
+        "种植收成",
+        "天气变化"
+      ]
+    }
+  },
+  "supplemental_spans": [
+    {
+      "bucket": "global",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 8846,
+      "end_line": 8870,
+      "reason": "完整保留病例及王氏主辅评释，不能只留结论"
+    },
+    {
+      "bucket": "global",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 2212,
+      "end_line": 2264,
+      "reason": "世应与取用总纲及角色条件"
+    },
+    {
+      "bucket": "study",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 9132,
+      "end_line": 9475,
+      "reason": "预测考试整章，保留例证与限制"
+    },
+    {
+      "bucket": "study",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 20226,
+      "end_line": 20517,
+      "reason": "学业治经延师连续三章，保留原注新评"
+    },
+    {
+      "bucket": "study",
+      "source_id": "zengshan_buyi",
+      "start_line": 10574,
+      "end_line": 10769,
+      "reason": "学业治经延师另一整理版，保留版本差异"
+    },
+    {
+      "bucket": "relationship",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 24162,
+      "end_line": 24757,
+      "reason": "婚姻及相邻子嗣父母关系、纳宠等原章"
+    },
+    {
+      "bucket": "relationship",
+      "source_id": "zengshan_buyi",
+      "start_line": 12582,
+      "end_line": 12865,
+      "reason": "婚姻相关完整原章，版本并列"
+    },
+    {
+      "bucket": "wealth",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 7220,
+      "end_line": 7959,
+      "reason": "预测财运与买卖两章完整"
+    },
+    {
+      "bucket": "job",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 9476,
+      "end_line": 9731,
+      "reason": "预测工作整章"
+    },
+    {
+      "bucket": "health",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 25950,
+      "end_line": 26813,
+      "reason": "疾病整章，原文与评释同留"
+    },
+    {
+      "bucket": "children",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 24758,
+      "end_line": 24977,
+      "reason": "胎孕产妇产期婴儿连续原章"
+    },
+    {
+      "bucket": "travel",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 7960,
+      "end_line": 8719,
+      "reason": "出行与行人两章"
+    },
+    {
+      "bucket": "lost",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 8720,
+      "end_line": 9131,
+      "reason": "失物整章"
+    },
+    {
+      "bucket": "lawsuit",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 25902,
+      "end_line": 25949,
+      "reason": "防非争竞兴讼重罪连续原章"
+    },
+    {
+      "bucket": "property",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 27466,
+      "end_line": 28185,
+      "reason": "家宅买宅建造迁居等原章，保留古代场景边界"
+    },
+    {
+      "bucket": "cooperation",
+      "source_id": "zengshan_pingshi_dxj",
+      "start_line": 23542,
+      "end_line": 23581,
+      "reason": "投行损益整章，不外推所有现代合同"
+    },
+    {
+      "bucket": "weather",
+      "source_id": "liuyao_zixiu_dxj",
+      "start_line": 6384,
+      "end_line": 6799,
+      "reason": "预测天气整章"
+    }
+  ],
+  "supplemental_pages": [
+    {
+      "bucket": "global",
+      "source_id": "liuyao_lifa_jinjie",
+      "pages": [
+        6,
+        7,
+        196,
+        197
+      ]
+    },
+    {
+      "bucket": "global",
+      "source_id": "liuyao_xiangfa_jinjie_shang",
+      "pages": [
+        6,
+        7,
+        8,
+        186,
+        237
+      ]
+    },
+    {
+      "bucket": "global",
+      "source_id": "liuyao_xiangfa_jinjie_xia",
+      "pages": [
+        4,
+        5
+      ]
+    }
+  ],
+  "supplemental_ids": {
+    "global": [
+      "liuyao_zixiu_dxj.full.l2248.rule",
+      "zengshan_pingshi_dxj-l2638-yongshen-strength",
+      "liuyao_zixiu_dxj.full.l2700.rule",
+      "liuyao_zixiu_dxj.full.l3612.rule",
+      "liuyao_zixiu_dxj.full.l4216.rule",
+      "liuyao_xiangfa_jinjie_shang.manual.p0007_core_question",
+      "liuyao_xiangfa_jinjie_shang.manual.p0186_combination_context",
+      "liuyao_xiangfa_jinjie_shang.manual.p0237_twelve_palaces_scope",
+      "liuyao_lifa_jinjie.manual.p0196_special_strength"
+    ],
+    "objects": [
+      "liuyao_zixiu_dxj.full.l2136.rule",
+      "liuyao_zixiu_dxj.full.l2148.rule",
+      "liuyao_zixiu_dxj.full.l2248.rule"
+    ]
+  },
+  "selection_policy": "Every topic-classified theory unit and its required context is included in its domain. Global prompts contain explicitly selected complete method passages, continuous chapters and exceptions; other common and scene theory remains available in the database for targeted retrieval. Original continuous source-line envelopes preserve intermediate text and overlapping envelopes merge without textual deletion. Topic classification is routing metadata, not proof of rule applicability."
+}

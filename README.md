@@ -1,6 +1,8 @@
 # 六爻助手 · Codex 插件与本地 MCP
 
-当前正式版为 **0.7.1**，完成上一版311条未核准案例的逐条源文核对和入库修订。源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
+当前正式版为 **0.8.0**。本版将完整断卦流程、领域原文、细则检索和条件审查分层；所有生克关系按施力者→受力者记录，明确二元结果题在主线已有方向时必须给出带置信度的首选，不以未决辅助条件代替结论。
+
+源码与语料现已分离，Git只保留代码、小型清单和说明。六书原文已完成手动切片覆盖和反馈资格审核；实际数量、逐页状态和盘面审核数量见发行包 `release-manifest.json`。已完成的独立 Astra xhigh 评估与已知缺口见[第三轮及检索流程复盘](docs/核心规则第三轮复盘.md)，没有据此宣称预测准确率提高。
 
 让你正在使用的 AI 按资料检索六爻理法、象法和卦例，并提供可回查的出处。程序负责排盘和查库，AI 负责理解问题、筛选资料和组织分析。
 
@@ -19,12 +21,12 @@
 固定版本 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.1/liuyao_mcp-0.7.1-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.8.0/liuyao_mcp-0.8.0-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 缓存准备完成后，完全离线启动需在 `uvx` 后显式加 `--offline`。默认启动器可能联网核验包缓存，不能保证在任意断网环境中直接启动；SQLite检索本身在本地执行。
 
-MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.7.1。
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.8.0。
 
 ## 安装跟随 main 的 Codex 插件
 
@@ -51,10 +53,10 @@ codex plugin add liuyao-assistant@liuyao
 
 ### VS Code 或其他 MCP 客户端
 
-下面的直接MCP入口固定使用0.7.1，不随main切换版本。注册本地服务：
+下面的直接MCP入口固定使用0.8.0，不随main切换版本。注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.7.1/liuyao_mcp-0.7.1-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.8.0/liuyao_mcp-0.8.0-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -178,6 +180,10 @@ flowchart TD
 [插件安装与分发](docs/Codex插件接入与分发.md) · [发布与版本管理](docs/发布与版本管理.md)
 
 ## 开发与验证
+
+断卦提示词分为全局方法、领域原文和数据库细则。技能先读取全局原文，再按问题加载婚恋、学业、财运等领域文件；各书原注、新评和例外按来源并列，不由模型压缩或改写。原文汇编包含历史例证，不能将其中反馈回填为当前问题背景。当前覆盖已整理理论与指定补充章段，不代表所有领域全书整理完成。
+
+执行 `python scripts/build_skill_prompts.py` 可从当前 SQLite 生成 `plugins/liuyao-assistant/skills/interpret-liuyao/references/source-prompts/`。Git仅保存生成程序和 `scripts/skill_prompt_plan.json` 小清单；生成的原文随插件ZIP和wheel发行包提供。Git安装未带本地文件时，现有 `get_source` 工具通过 `prompt:GLOBAL.md`、`prompt:study/PROMPT.md` 等固定入口读取同版原文，并支持 `next_offset` 分页；这不是关键词检索或摘要。数据库版本或文件校验不一致会明确报错。
 
 ```powershell
 python -m venv .venv

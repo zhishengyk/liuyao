@@ -374,7 +374,8 @@ def _case_records(root, document, unit, whole, source):
         parts = dict(unit.get("parts", {}))
         if cast.get("diagram_spans") is not None:
             parts["chart"] = cast["diagram_spans"]
-        for role, field in (("question", "question_spans"), ("background", "background_spans")):
+        for role, field in (("question", "question_spans"), ("background", "background_spans"),
+                            ("feedback", "feedback_spans")):
             if cast.get(field) is not None:
                 _inside(offsets, _resolved(document, cast[field]),
                         _resolved(document, unit["parts"][role]))
@@ -390,6 +391,8 @@ def _case_records(root, document, unit, whole, source):
                                                        and span.get("review_note")):
                             raise ValueError(f"{ids[index]}: cast override of late-disclosed {role} requires an explicit reviewed input stage")
                 parts[role] = cast[field]
+            else:
+                parts[role] = [span for span in parts[role] if span.get("cast_index") in (None, index)]
         for role in ("author_analysis", "post_feedback_analysis"):
             if role in parts:
                 parts[role] = [span for span in parts[role] if span.get("cast_index") in (None, index)]
@@ -531,9 +534,15 @@ def _parse(root, source):
             quality = _case_quality(document, unit, whole, quality_reviews)
             records = _case_records(root, document, unit, whole, source)
             for record in records:
-                if quality["status"] == "eligible" and not record["question"]["question_only"].strip():
+                cast_quality = record["cast"].get("quality")
+                selected_quality = ({**_validate_quality(cast_quality), "basis": "inline_manual_cast_quality",
+                                     "unit_text_sha256": quality["unit_text_sha256"]}
+                                    if cast_quality is not None else quality)
+                if selected_quality["status"] == "eligible" and not record["question"]["question_only"].strip():
                     raise ValueError("eligible case requires a question at the selected input stage")
-                record["quality"] = quality
+                if selected_quality["status"] == "eligible" and not record["parts"]["feedback"]["exact_text"].strip():
+                    raise ValueError("eligible case requires actual feedback for the selected cast")
+                record["quality"] = selected_quality
             cases.extend(records)
             continue
         spans = whole["source_spans"]

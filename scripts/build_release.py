@@ -56,12 +56,29 @@ def main():
     bundled = root / "src/liuyao_mcp/_data/knowledge.sqlite"
     bundled.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(output, bundled)
+    plugin = root / 'plugins/liuyao-assistant'
+    prompt_output = plugin / 'skills/interpret-liuyao/references/source-prompts'
+    subprocess.run([sys.executable, str(root / 'scripts/build_skill_prompts.py'),
+                    '--database', str(output), '--output', str(prompt_output)], check=True)
+    prompt_manifest = json.loads((prompt_output / 'manifest.json').read_text(encoding='utf-8'))
+    bundled_prompts = bundled.parent / 'source-prompts'
+    if bundled_prompts.exists():
+        shutil.rmtree(bundled_prompts)
+    shutil.copytree(prompt_output, bundled_prompts)
     subprocess.run([sys.executable, "-m", "build"], cwd=root, check=True)
     dist = root / "dist"
     archive = dist / f"liuyao_mcp-{package_version}.tar.gz"
     shutil.copy2(archive, dist / "liuyao-mcp.tar.gz")
     artifacts = [archive, dist / f"liuyao_mcp-{package_version}-py3-none-any.whl", dist / "liuyao-mcp.tar.gz"]
-    plugin = root / 'plugins/liuyao-assistant'
+    metadata['skill_source_prompts'] = {
+        'database_sha256': prompt_manifest['database_sha256'],
+        'source_content_sha256': prompt_manifest['source_content_sha256'],
+        'plan_sha256': prompt_manifest['plan_sha256'],
+        'theory_units': prompt_manifest['theory_units'],
+        'all_theory_units_accounted': prompt_manifest['all_theory_units_accounted'],
+        'database_only_theory_units': len(prompt_manifest['database_only_evidence_ids']),
+        'files_sha256': prompt_manifest['files_sha256'],
+    }
     manifest = json.loads((plugin/'.codex-plugin/plugin.json').read_text(encoding='utf8'))
     assert manifest['version'] == __version__, 'Plugin and package versions differ'
     config = json.loads((plugin/'.mcp.json').read_text(encoding='utf8'))
@@ -82,6 +99,8 @@ def main():
     wheel = dist / f"liuyao_mcp-{package_version}-py3-none-any.whl"
     with zipfile.ZipFile(wheel) as bundle:
         assert hashlib.sha256(bundle.read('liuyao_mcp/_data/knowledge.sqlite')).hexdigest() == metadata['database_sha256']
+        for name, expected in prompt_manifest['files_sha256'].items():
+            assert hashlib.sha256(bundle.read('liuyao_mcp/_data/source-prompts/' + name)).hexdigest() == expected
         assert not any('evaluation/' in name or name.endswith(('.npz', '.safetensors')) for name in bundle.namelist())
     release_manifest = dist / 'release-manifest.json'
     release_manifest.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+'\n', encoding='utf8')

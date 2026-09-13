@@ -31,6 +31,20 @@ def test_static_kun_source_example():
     assert chart["calendar"]["void"] == ["辰", "巳"]
     assert chart["features"]["month_break_positions"] == [6]
     assert [l["spirit"] for l in chart["lines"]] == ["白虎","玄武","青龙","朱雀","勾陈","螣蛇"]
+    semantics = chart['relation_semantics']
+    assert semantics['month_relations'] == '月建→本爻'
+    assert semantics['day_relations'] == '日辰→本爻'
+    assert semantics['labels']['生'] == '左侧生右侧'
+    assert semantics['labels']['受生'] == '左侧受右侧所生'
+    assert semantics['canonical_edges']['受生'] == '右侧→左侧:生'
+
+
+def test_calendar_relation_direction_is_explicit_for_water_day_and_metal_line():
+    chart = build_chart([2,3,2,2,2,2], month_branch='丑', day_ganzhi='丙子')
+    father = chart['lines'][5]
+    assert father['branch'] == '酉' and father['month_relations'] == ['生']
+    assert father['day_relations'] == ['受生']
+    assert chart['relation_semantics']['warning'].endswith('不是日辰生本爻。')
 
 
 def test_book_kuai_to_xu_and_original_palace_relatives():

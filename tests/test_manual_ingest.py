@@ -92,6 +92,32 @@ def shared_calendar_fixture(root):
     return manifest
 
 
+def test_runtime_review_fields_are_not_compiled_into_cases(tmp_path, monkeypatch):
+    from liuyao_mcp.chart import build_chart
+    import liuyao_mcp.patterns as patterns
+
+    _, manifest, _ = fixture_source(tmp_path)
+    audit_path, _ = audit_cast(tmp_path, manifest)
+    audit_before = audit_path.read_bytes()
+    expected = build_chart([1, 1, 1, 3, 1, 1], month_branch='辰', day_ganzhi='戊申')
+
+    def unexpected_runtime_review(chart):
+        pytest.fail('Corpus compilation must not call runtime review_checks')
+
+    monkeypatch.setattr(patterns, 'review_checks', unexpected_runtime_review)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    with closing(sqlite3.connect(out)) as db:
+        case = json.loads(db.execute('SELECT payload FROM cases').fetchone()[0])
+    assert case['derived'] == expected
+    assert {key: case['features'][key] for key in expected['features']} == expected['features']
+    assert 'review_checks' not in case['derived']['patterns']
+    assert 'hidden_life_stages' not in json.dumps(case['derived'], ensure_ascii=False)
+    assert case['cast']['verification'] == manifest['units'][1]['cast']['verification']
+    assert case['extraction']['source_chart_independently_verified'] is True
+    assert audit_path.read_bytes() == audit_before
+
+
 def test_shared_calendar_keeps_exact_external_provenance_without_certifying_chart(tmp_path):
     manifest = shared_calendar_fixture(tmp_path)
     write_json(tmp_path/'data/manual_slices/book.json', manifest)
@@ -928,6 +954,7 @@ def test_case_exclusion_uses_actual_rule_spans_and_required_contexts(tmp_path, s
     assert search_knowledge("用神", kind="rule", db_path=out)["items"]
     found = search_knowledge("用神", kind="rule", exclude_case_ids=["manual.case"], db_path=out)
     assert [item["evidence_id"] for item in found["items"]] == ([] if shared_context else ["manual.rule"])
+    assert found['unmatched_query_terms'] == (['用神'] if shared_context else [])
 
 
 def test_case_full_text_research_is_explicit_and_keeps_event_exclusion(tmp_path):
@@ -939,14 +966,58 @@ def test_case_full_text_research_is_explicit_and_keeps_event_exclusion(tmp_path)
     for query in ('丑日可成','另有所指'):
         initial=search_knowledge(query,kind='case',db_path=database)
         assert not initial['items'] and initial['case_text_scope']=='initial'
+        assert initial['unmatched_query_terms'] == initial['query_terms']
         full=search_knowledge(query,kind='case',case_text_scope='full',db_path=database)
         assert [i['evidence_id'] for i in full['items']]==['manual.case']
+        assert full['unmatched_query_terms'] == []
+        assert full['unmatched_query_terms_scope']['index'] == 'case_text_index'
         assert full['case_text_scope']=='full' and '反馈' in full['case_text_note']
         assert query in get_source('manual.case',db_path=database)['text']
         blocked=search_knowledge(query,kind='case',case_text_scope='full',exclude_case_ids=['manual.case'],db_path=database)
         assert not blocked['items']
+        assert blocked['unmatched_query_terms'] == blocked['query_terms']
     with pytest.raises(ValueError,match='kind=case'):
         search_knowledge('丑日可成',kind='rule',case_text_scope='full',db_path=database)
+
+
+def test_unmatched_terms_respect_method_common_scope_author_outline_and_ids(tmp_path):
+    from liuyao_mcp.retrieval import search_knowledge
+
+    fixture_source(tmp_path)
+    database = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, database)
+    options = dict(kind='rule', db_path=database, limit=1)
+    matched = search_knowledge('用神', topic='health', method='lifa', **options)
+    assert matched['unmatched_query_terms'] == []
+    for excluded in ({'method':'xiangfa'}, {'topic':'health','include_common':False},
+                     {'author':'unmatched_author'}, {'outline_ids':['manual_unit:manual.case']},
+                     {'exclude_ids':['manual.rule']}):
+        found = search_knowledge('用神', **options, **excluded)
+        assert not found['items'] and found['unmatched_query_terms'] == ['用神']
+    case = search_knowledge('用神', kind='case', db_path=database)
+    assert case['unmatched_query_terms'] == ['用神']
+    job = search_knowledge('求职', kind='case', topic='job', db_path=database)
+    assert job['unmatched_query_terms'] == []
+    health = search_knowledge('求职', kind='case', topic='health', db_path=database)
+    assert health['unmatched_query_terms'] == health['query_terms']
+    unverified = search_knowledge('求职', kind='case', require_valid_chart=True, db_path=database)
+    assert unverified['unmatched_query_terms'] == unverified['query_terms']
+
+
+def test_unmatched_terms_exclude_all_rules_in_an_excluded_duplicate_group(tmp_path):
+    from liuyao_mcp.retrieval import search_knowledge
+
+    fixture_source(tmp_path)
+    database = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, database)
+    with sqlite3.connect(database) as db:
+        db.execute("""INSERT INTO evidence_metadata SELECT 'duplicate.rule',kind,source_id,method,author,
+                      scope,root_count,searchable,chart_valid,start_line,end_line,group_id
+                      FROM evidence_metadata WHERE evidence_id='manual.rule'""")
+        db.execute("INSERT INTO search_index SELECT 'duplicate.rule',kind,focus,body FROM search_index WHERE evidence_id='manual.rule'")
+    # The duplicate is discarded before payload loading, just as in ordinary retrieval.
+    found = search_knowledge('用神', kind='rule', exclude_ids=['manual.rule'], db_path=database)
+    assert not found['items'] and found['unmatched_query_terms'] == ['用神']
 
 
 @pytest.mark.parametrize('status',['noise','pending'])
@@ -1017,7 +1088,8 @@ def test_followup_question_preserves_role_without_entering_initial_query(tmp_pat
         build_database(tmp_path, out)
 
 
-def test_each_caster_uses_its_own_source_question_without_rewriting_shared_event(tmp_path):
+@pytest.mark.parametrize('explicit_overrides', [False, True])
+def test_each_caster_uses_its_own_source_question_without_rewriting_shared_event(tmp_path, explicit_overrides):
     from liuyao_mcp.retrieval import get_source
     manifest = fixture_two_casts(tmp_path)
     source_path = tmp_path/'data/canonical/sources.jsonl'
@@ -1034,10 +1106,12 @@ def test_each_caster_uses_its_own_source_question_without_rewriting_shared_event
     whole = '\n'.join(lines[1:])
     unit['spans'][0].update(exact_text=whole, quote_sha256=digest(whole))
     mother = {'page': None, 'start_line': 2, 'end_line': 2, 'start_column': start,
-              'end_column': len(lines[1]), 'exact_text': later, 'quote_sha256': digest(later)}
+              'end_column': len(lines[1]), 'exact_text': later, 'quote_sha256': digest(later), 'cast_index': 1}
+    unit['parts']['question'][0]['cast_index'] = 0
     unit['parts']['question'].append(mother)
-    unit['cast']['question_spans'] = [unit['parts']['question'][0]]
-    unit['additional_casts'][0]['question_spans'] = [mother]
+    if explicit_overrides:
+        unit['cast']['question_spans'] = [unit['parts']['question'][0]]
+        unit['additional_casts'][0]['question_spans'] = [mother]
     write_json(tmp_path/'data/manual_slices/book.json', manifest)
     out = tmp_path/'knowledge.sqlite'
     build_database(tmp_path, out)
@@ -1046,12 +1120,124 @@ def test_each_caster_uses_its_own_source_question_without_rewriting_shared_event
     assert first['question']['question_only'] == '问求职。'
     assert second['question']['question_only'] == later
     assert later not in first['question']['raw']
+    assert first['question']['known_background'] == second['question']['known_background'] == '背景：已投简历。'
+    assert get_source('manual.case', db_path=out, max_chars=100000)['text'] == whole
+    assert get_source('manual.case.cast2', db_path=out, max_chars=100000)['text'] == whole
     assert first['event_id'] == second['event_id']
     assert first['quality']['status'] == second['quality']['status'] == 'eligible'
     unit['additional_casts'][0]['question_spans'] = unit['parts']['feedback']
     write_json(tmp_path/'data/manual_slices/book.json', manifest)
     with pytest.raises(ValueError, match='outside'):
         build_database(tmp_path, out)
+
+
+def test_recast_background_is_scoped_and_explicit_question_reuse_is_preserved(tmp_path):
+    from liuyao_mcp.retrieval import get_source
+    manifest = fixture_two_casts(tmp_path)
+    source_path = tmp_path/'data/canonical/sources.jsonl'
+    source = json.loads(source_path.read_text(encoding='utf8'))
+    lines = (tmp_path/'source.md').read_text(encoding='utf8').splitlines()
+    later = '不接受初断，收到面试通知后要求再占。'
+    lines.append(later)
+    blob = '\r\n'.join(lines).encode('utf8')
+    (tmp_path/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(source_path, source)
+    unit = manifest['units'][1]
+    whole = '\n'.join(lines[1:])
+    unit['spans'][0].update(end_line=len(lines), exact_text=whole, quote_sha256=digest(whole))
+    question = unit['parts']['question'][0]
+    question['cast_index'] = 0
+    unit['additional_casts'][0]['question_spans'] = [dict(question, review_note='本例第二盘明确沿用初次原问。')]
+    unit['parts']['background'].append({'page': None, 'start_line': len(lines), 'end_line': len(lines),
+                                       'exact_text': later, 'quote_sha256': digest(later), 'cast_index': 1})
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    first = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    second = get_source('manual.case.cast2', db_path=out, max_chars=100000)['structured_case']
+    assert first['question']['question_only'] == second['question']['question_only'] == '问求职。'
+    assert later not in first['question']['raw'] and later in second['question']['known_background']
+    assert '已投简历' in first['question']['known_background'] and '已投简历' in second['question']['known_background']
+    assert get_source('manual.case', db_path=out, max_chars=100000)['text'] == whole
+    assert get_source('manual.case.cast2', db_path=out, max_chars=100000)['text'] == whole
+    with closing(sqlite3.connect(out)) as db:
+        rows = db.execute('SELECT evidence_id FROM search_index WHERE search_index MATCH ? AND kind=?',
+                          ('通知', 'case')).fetchall()
+    assert rows == [('manual.case.cast2',)]
+
+
+def test_cast_quality_does_not_borrow_another_casts_eligible_question(tmp_path):
+    from liuyao_mcp.retrieval import get_source
+    manifest = fixture_two_casts(tmp_path)
+    unit = manifest['units'][1]
+    unit['parts']['question'][0]['cast_index'] = 0
+    unit['additional_casts'][0]['quality'] = {
+        'status': 'noise', 'reason': '第二盘原问未记载，不借首盘问题判定反馈。', 'reviewer': 'source reviewer'}
+    path = tmp_path/'data/manual_slices/book.json'
+    write_json(path, manifest)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    first = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    second = get_source('manual.case.cast2', db_path=out, max_chars=100000)['structured_case']
+    assert first['quality']['status'] == 'eligible'
+    assert second['quality']['status'] == 'noise' and second['question']['question_only'] == ''
+    assert first['event_id'] == second['event_id']
+    assert first['cast']['line_values'] == unit['cast']['line_values']
+    assert second['cast']['line_values'] == unit['additional_casts'][0]['line_values']
+    unit['additional_casts'][0]['quality']['status'] = 'eligible'
+    write_json(path, manifest)
+    with pytest.raises(ValueError, match='question at the selected input stage'):
+        build_database(tmp_path, out)
+
+
+def test_cast_quality_cannot_mark_missing_feedback_eligible(tmp_path):
+    manifest = fixture_two_casts(tmp_path)
+    unit = manifest['units'][1]
+    unit['quality'].update(status='noise', reason='原记录未提供结果。')
+    unit['parts']['feedback'] = []
+    unit['additional_casts'][0]['quality'] = {
+        'status': 'eligible', 'reason': '待核对第二盘结果。', 'reviewer': 'source reviewer'}
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    with pytest.raises(ValueError, match='actual feedback for the selected cast'):
+        build_database(tmp_path, tmp_path/'knowledge.sqlite')
+
+
+@pytest.mark.parametrize('explicit_shared_result', [False, True])
+def test_feedback_is_scoped_to_its_cast_or_explicit_shared_result(tmp_path, explicit_shared_result):
+    from liuyao_mcp.retrieval import get_source
+    manifest = fixture_two_casts(tmp_path)
+    source_path = tmp_path/'data/canonical/sources.jsonl'
+    source = json.loads(source_path.read_text(encoding='utf8'))
+    lines = (tmp_path/'source.md').read_text(encoding='utf8').splitlines()
+    later = '反馈：同前。' if explicit_shared_result else '反馈：第二次申请录用了。'
+    lines.append(later)
+    blob = '\r\n'.join(lines).encode('utf8')
+    (tmp_path/'source.md').write_bytes(blob)
+    source['sha256'] = manifest['source_sha256'] = hashlib.sha256(blob).hexdigest()
+    write_json(source_path, source)
+    unit = manifest['units'][1]
+    whole = '\n'.join(lines[1:])
+    unit['spans'][0].update(end_line=len(lines), exact_text=whole, quote_sha256=digest(whole))
+    initial = unit['parts']['feedback'][0]
+    initial['cast_index'] = 0
+    second = {'page': None, 'start_line': len(lines), 'end_line': len(lines),
+              'exact_text': later, 'quote_sha256': digest(later), 'cast_index': 1}
+    unit['parts']['feedback'].append(second)
+    if explicit_shared_result:
+        unit['additional_casts'][0]['feedback_spans'] = [
+            dict(initial, review_note='第二盘反馈明确同前，引用同一事件的实际结果。'), second]
+    write_json(tmp_path/'data/manual_slices/book.json', manifest)
+    out = tmp_path/'knowledge.sqlite'
+    build_database(tmp_path, out)
+    first = get_source('manual.case', db_path=out, max_chars=100000)['structured_case']
+    second_case = get_source('manual.case.cast2', db_path=out, max_chars=100000)['structured_case']
+    assert first['outcome']['quotes'] == [initial['exact_text']]
+    expected = initial['exact_text']+'\n'+later if explicit_shared_result else later
+    assert second_case['outcome']['quotes'] == [expected]
+    assert first['event_id'] == second_case['event_id']
+    assert get_source('manual.case', db_path=out, max_chars=100000)['text'] == whole
+    assert get_source('manual.case.cast2', db_path=out, max_chars=100000)['text'] == whole
 
 
 def test_cast_input_override_cannot_silently_drop_late_disclosure(tmp_path):

@@ -168,6 +168,16 @@ def build_chart(line_values: list[int], cast_time: str | None = None, month_bran
         "calendar": cal, "primary": {**HEXAGRAMS[bits], "palace": palace, "palace_element": base, "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[index]},
         "changed": {**HEXAGRAMS[changed_bits], "palace": changed_palace, "palace_element": PALACE_ELEMENT[changed_palace], "palace_stage": ("本宫", "一世", "二世", "三世", "四世", "五世", "游魂", "归魂")[changed_stage], "shi_position": changed_shi, "ying_position": changed_ying, "relative_basis": "original_palace_element", "lines": changed}, "shi_position": shi, "ying_position": ying, "lines": lines,
         "features": {"moving_positions": moving, "void_positions": [l["position"] for l in lines if l["void"]], "month_break_positions": [l["position"] for l in lines if l["month_break"]], "day_clash_positions": [l["position"] for l in lines if l["day_clash"]], "shi_relative": lines[shi - 1]["relative"], "ying_relative": lines[ying - 1]["relative"], "shi_ying_relations": shi_ying, "six_clash": all("冲" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3)), "six_harmony": all("合" in relation(lines[i]["branch"], lines[i + 3]["branch"]) for i in range(3))},
+        "relation_semantics": {
+            "month_relations": "月建→本爻", "day_relations": "日辰→本爻",
+            "shi_ying_relations": "世爻→应爻", "to_original_relations": "变爻→本爻",
+            "labels": {"生": "左侧生右侧", "克": "左侧克右侧",
+                       "受生": "左侧受右侧所生", "受克": "左侧受右侧所克",
+                       "同五行": "左右同五行", "冲": "左右相冲", "合": "左右相合"},
+            "canonical_edges": {"生": "左侧→右侧:生", "克": "左侧→右侧:克",
+                                "受生": "右侧→左侧:生", "受克": "右侧→左侧:克"},
+            "warning": "方向词描述左侧参照对右侧爻的关系；例如day_relations=受生表示日辰受本爻所生，不是日辰生本爻。",
+        },
         "interpretation_boundary": "用神、综合旺衰、成局及应期须检索带出处的理法；日冲不直接等于暗动或日破。",
     }
     from .patterns import detect
