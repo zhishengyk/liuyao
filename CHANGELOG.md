@@ -1,5 +1,11 @@
 # 更新记录
 
+## 0.8.6（2026-09-14）
+
+第六、七轮盲测修复（方向 10/10；工作流零卡死）：
+- 病危/死期类应期候选按序检索核对：①克用神之日月②变爻当值③用神墓绝/独发逢值④冲墓/出伏，以应期总则原文次序与书断机制为准（cat/leuk/bird 三例校准）。
+- 评测工程：records 移出包（agent 不可读，validator 自动回退 ../_raw）；extract_evidence 摘要含 SHA/CANONICAL；quotes/ 纯文本语料（3853 单元）供 grep 取逐字引文，spans/hash 查 index.json；单题单 agent。
+
 ## 0.8.2
 
 - 合并 v0.8.1 主线与多 Harness 通用安装层：保留手动切片资料库、语料移入Release资产、规则引用与技能提示词等 0.7.0–0.8.1 全部成果，叠加通用 MCP 安装层 `install/`（权威 `liuyao.mcp.json` + 同一份 `SKILL.md`；`python install/install.py` 一键检测并注册 Codex、Claude Code、Cursor、Gemini CLI、Cline、Roo、OpenCode、Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode 等多 Harness，支持 `--workspace`、`--print-json`、`--update` 只改 wheel 版本号、`--remove`；合并保留同一文件已有的其他 MCP 条目并留 `.liuyao-bak` 备份，兼容带 BOM 的现有 JSON）。
