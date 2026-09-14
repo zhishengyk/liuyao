@@ -1,5 +1,26 @@
 # 更新记录
 
+## 0.8.2
+
+- 合并 v0.8.1 主线与多 Harness 通用安装层：保留手动切片资料库、语料移入Release资产、规则引用与技能提示词等 0.7.0–0.8.1 全部成果，叠加通用 MCP 安装层 `install/`（权威 `liuyao.mcp.json` + 同一份 `SKILL.md`；`python install/install.py` 一键检测并注册 Codex、Claude Code、Cursor、Gemini CLI、Cline、Roo、OpenCode、Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode 等多 Harness，支持 `--workspace`、`--print-json`、`--update` 只改 wheel 版本号、`--remove`；合并保留同一文件已有的其他 MCP 条目并留 `.liuyao-bak` 备份，兼容带 BOM 的现有 JSON）。
+- `build_chart` 默认改为 `detail=compact`（约5–10KB）：只返回盘面、lines、features摘要、display.markdown 与 patterns.facts/source_rule_ids/yongshen_refs/review_check_ids，把 `resolved_references`、完整 `review_checks`、全量 `life_stages` 与未命中 `combination_checks` 移出默认返回；新增 `inspect_chart` 工具按需返回 facts、有界 review_checks 与相关来源解析，`detail=full` 保留完整审计视图。解决批量 agent 上下文溢出问题（单次 build_chart 完整返回可达100–470KB）。
+- 工作流与提示词增强：GLOBAL.md/SKILL.md 新增结果路径卡强制字段（dimension/current_state/result_carrier/transition_rule/trigger_edge/timing_primary/evidence_mode）、应期硬规则（无翻转规则与盘面触发不得报 timing_primary，候选日支列表不等于应期）、A/B/C/D 四组结果维度检索并逐组声明覆盖、复合题逐维 yes/no 与部分达成字段。
+- 语料按 v0.8.1 发布基线回退（effective eligible 1,325），恢复披露护栏测试；并行语料更新（含183处切片变更）未纳入本次发布，待其披露字段独立审计后另行发布。
+- 第二轮六题盲测（0.8.2 运行时）验证：A/B/C/D 四组检索、result_paths 卡、应期绑触发/合规 unknown、预算与上下文纪律全部生效；剩余失分集中在"两线并呈时的取舍"——新增枝干取舍硬规则（方向相反的直接规则不得默认取吉线，须逐条给对象层次/旺衰/原文主次/先到先应等取舍依据，被舍规则保留到 uncertainties）与事件路径落位（先把所问落到入狱放归、缉拿抓捕、讨债回款、失物寻回、行踪归期等具体事件类型再取象，代占复合题逐对象落位）。
+
+## 0.7.1
+
+- 逐条复核311条未核准盘面，197条新增核准；78条资料缺项、36条来源冲突或疑字保留具体审核结论。有效盘面案例从1,017条增至1,214条。
+- 修正或补齐38条六值/月日输入，恢复8条被空盘面字段遮掉的既有卦名文本；修复上册第234页整页校订稿将父母亥水误录为子孙亥水的问题，并同步切片哈希。
+- 新语料及逐条审计以r3压缩包分发，Git仅更新小清单；反馈资格、非盘面角色和原有核准记录保留。详见[核对结果](docs/311条盘面核对结果.md)。
+
+## 0.7.0
+
+- 将0.7.0-alpha.4升为正式版，程序、插件和安装入口统一指向0.7.0；沿用相同的检索实现、证据核对指南与r2语料。
+- 六书手动切片覆盖完成，包含1,923条规则、1,930次起卦记录和1,823个案例单元；1,328条案例记录具备书内反馈资格，602条噪音记录不进入案例检索。反馈资格不等于独立事实验证，盘面审核状态单独保留。
+- 语料与历史审计通过Release压缩包分发，Git仅保留代码、说明和小型哈希清单；正式构建要求完整覆盖，发行包包含预建SQLite和Windows安装脚本。
+- 保留已公开的书例复现、检索流程与已见单例回归结果及其限制，未新增预测准确率评估；详见[第三轮复盘](docs/核心规则第三轮复盘.md)。
+
 ## 0.6.8
 
 - 新增通用 MCP 安装层 `install/`：权威 `liuyao.mcp.json`（标准 mcpServers 结构）+ 同一份 `SKILL.md`；`python install/install.py` 一键检测并注册 Codex、Claude Code、Cursor、Gemini CLI、Cline、Roo、OpenCode、Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode 等多 Harness，支持 `--workspace` 项目级写入、`--print-json` 手工导入、`--update` 只改 wheel 版本号、`--remove` 卸载。合并保留同一文件里已有的其他 MCP 条目，首次写入前留 `.liuyao-bak` 备份，兼容带 BOM 的现有 JSON。

@@ -28,7 +28,7 @@ where = ["src"]
 version = {attr = "liuyao_mcp.__version__"}
 
 [tool.setuptools.package-data]
-liuyao_mcp = ["_data/knowledge.sqlite"]
+liuyao_mcp = ["_data/knowledge.sqlite", "_data/source-prompts/*.md", "_data/source-prompts/*.json", "_data/source-prompts/*/*.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

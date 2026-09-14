@@ -1,7 +1,7 @@
 {
   "name": "liuyao-assistant",
-  "version": "0.6.8",
-  "description": "六爻排盘、理法与象法原文检索、结构化卦例和出处回查。",
+  "version": "0.8.5",
+  "description": "手动切片资料库：排盘、规则检索、卦例及出处回查。",
   "author": {
     "name": "zhishengyk"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "六爻助手",
     "shortDescription": "排盘、查理法与象法、比对卦例，并回查原文。",
-    "longDescription": "从六份已登记资料检索原文和结构化卦例。区分排盘事实、作者判断与反馈，保留OCR冲突。",
+    "longDescription": "检索六书手动切片，保留规则、共享条件与案例角色。保留原文出处、盘面审核状态、作者解释与反馈的区别。",
     "developerName": "zhishengyk",
     "category": "Productivity",
     "capabilities": [],
