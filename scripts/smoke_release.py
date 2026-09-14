@@ -188,7 +188,7 @@ async def main(argv=None):
 
             listed = await client.list_tools()
             tools = {tool.name: tool for tool in listed.tools}
-            assert set(tools) == {'build_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
+            assert set(tools) == {'build_chart', 'inspect_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
             if report.get('installed', {}).get('prompt_files_checked'):
                 prompt = await call('get_source', evidence_id='prompt:GLOBAL.md', max_chars=1000)
                 assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 全局断卦流程与原文')
