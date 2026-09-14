@@ -7,6 +7,7 @@
 - **本地排盘与检索**：下载完成后离线运行，无需额外模型或API Key；接入端AI按其原有方式运行。
 - **可直接展示的排盘**：本变卦并排，包含六神、伏神、纳甲六亲、动爻、世应、干支与农历。
 - **象法目录与场景检索**：按原书PDF核对目录，支持跨章节查场景、按目录范围查用法与案例，并回查章首条件。
+- **支持多 Harness**：标准 MCP + 同一份 `SKILL.md`，`python install/install.py` 一键接入 Codex、Claude Code、Cursor、Gemini CLI、Cline、Roo、OpenCode、Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode，见[支持多 Harness](#支持多-harness)。
 
 **建议使用GPT-6 Astra Max 使用本插件**
 
@@ -27,7 +28,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 也可以通过以下命令安装对应发行版：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.8/liuyao_mcp-0.6.8-py3-none-any.whl liuyao-mcp --self-check
 codex plugin marketplace add zhishengyk/liuyao --ref main --sparse .agents/plugins --sparse plugins/liuyao-assistant
 codex plugin add liuyao-assistant@liuyao
 ```
@@ -38,13 +39,42 @@ codex plugin add liuyao-assistant@liuyao
 
 ### VS Code 或其他 MCP 客户端
 
-先运行上述uvx准备命令，再注册本地服务：
+手动方式仍然可用，也适用于[支持多 Harness](#支持多-harness) 列出的任何客户端：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.7/liuyao_mcp-0.6.7-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.8/liuyao_mcp-0.6.8-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
+
+## 支持多 Harness
+
+六爻助手以标准 MCP 提供排盘、理法与象法检索、相似卦例和原文回查，可直接接入以下 Harness / AI 客户端：
+
+- **Codex**：原生插件市场安装（本仓库 `.agents/plugins`），自动更新
+- **Claude Code、Cursor、Gemini CLI、Cline、Roo Code、OpenCode**：自动注册 MCP 并复制使用技能（SKILL.md）
+- **Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode**：导入同一份配置或执行注册命令
+
+安装层只有两个源文件——[install/liuyao.mcp.json](install/liuyao.mcp.json)（标准 mcpServers 配置）和同一份 `SKILL.md`；脚本自动检测并注册本机已安装的 Harness：
+
+```powershell
+python install/install.py            # 一键安装（自动检测并注册）
+python install/install.py --list     # 查看本机检测结果
+python install/install.py --remove   # 卸载
+```
+
+其他参数（`--workspace` 项目级写入、`--clients` 指定客户端、`--dry-run` 预览、`--print-json` 打印配置、`--update` 升级版本）见 `python install/install.py --help`。
+
+要点：
+
+- 需要已安装 `uvx`（[uv 官方安装](https://docs.astral.sh/uv/getting-started/installation/)）。
+- 合并只写入/更新 `liuyao` 条目，**保留该文件已有的其他 MCP 服务器**；首次写入前自动留 `.liuyao-bak` 备份。
+- 注册后重启客户端并开启新会话；首次连接自动下载发行版（预留180秒），之后离线可用。
+- 手动兜底：任何客户端粘贴同一条命令（传输选STDIO）：
+
+```powershell
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.6.8/liuyao_mcp-0.6.8-py3-none-any.whl liuyao-mcp
+```
 
 ## 怎样提问与起卦
 

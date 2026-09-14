@@ -1,5 +1,9 @@
 # 更新记录
 
+## 0.6.8
+
+- 新增通用 MCP 安装层 `install/`：权威 `liuyao.mcp.json`（标准 mcpServers 结构）+ 同一份 `SKILL.md`；`python install/install.py` 一键检测并注册 Codex、Claude Code、Cursor、Gemini CLI、Cline、Roo、OpenCode、Cherry Studio、Trae、Qoder、CodeBuddy、WorkBuddy、CodeWiz、TClaude、TCodex、OpenClaw、Hermes、ZCode 等多 Harness，支持 `--workspace` 项目级写入、`--print-json` 手工导入、`--update` 只改 wheel 版本号、`--remove` 卸载。合并保留同一文件里已有的其他 MCP 条目，首次写入前留 `.liuyao-bak` 备份，兼容带 BOM 的现有 JSON。
+
 ## 0.6.7
 
 - 《六爻理法进阶》逐字校订扩展至PDF第204页，涵盖“合”全章与“日月的特殊作用”开头；每页均对照原图及卦图逐行核查，保留作者反思、补充反馈和适用条件。
