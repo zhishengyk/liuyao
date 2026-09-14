@@ -202,7 +202,7 @@ async def main(argv=None):
             assert tools['build_chart'].input_schema['properties']['line_values']['items']['type'] == 'integer'
             topics = await call('get_topics')
             assert {'job', 'wealth', 'lost'} <= {item['id'] for item in topics['items']}
-            chart = await call('build_chart', line_values=[2]*6, month_branch='卯', day_ganzhi='庚子')
+            chart = await call('build_chart', line_values=[2]*6, month_branch='卯', day_ganzhi='庚子', detail='full')
             assert chart['primary']['name'] == '坤' and '| 上爻 |' in chart['display']['markdown']
             report['checks'].append('five_mcp_tool_schemas_topics_and_chart')
 
