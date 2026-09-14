@@ -183,7 +183,7 @@ def test_build_chart_exposes_reference_status_without_requiring_a_database(tmp_p
         store_mapping(db, tmp_path)
     monkeypatch.setenv("LIUYAO_DB", str(database))
     arguments = {"line_values": [1, 1, 1, 1, 2, 0], "month_branch": "午", "day_ganzhi": "甲寅"}
-    chart = build_chart(**arguments)
+    chart = build_chart(detail='full', **arguments)
     patterns = chart["patterns"]
     references = set(patterns["source_rule_ids"])
     assert set(patterns["resolved_references"]) == references
@@ -200,7 +200,7 @@ def test_build_chart_exposes_reference_status_without_requiring_a_database(tmp_p
     explicit = get_source("xf_shang_c02_u01")
     assert explicit["status"] == "available" and explicit["targets"] == ["book.manual.b"]
     monkeypatch.setenv("LIUYAO_DB", str(tmp_path / "absent.sqlite"))
-    offline = build_chart(**arguments)
+    offline = build_chart(detail='full', **arguments)
     assert offline["primary"] == chart["primary"] and offline["display"]["markdown"]
     assert offline["patterns"]["facts"] == patterns["facts"]
     assert offline["patterns"]["combination_checks"] == patterns["combination_checks"]

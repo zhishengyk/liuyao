@@ -211,7 +211,7 @@ def test_hidden_life_stage_source_requests_are_not_verification_without_a_databa
 
     absent = tmp_path/'absent.sqlite'
     monkeypatch.setenv('LIUYAO_DB', str(absent))
-    chart = runtime_chart([1, 1, 1, 1, 3, 2], month_branch='辰', day_ganzhi='甲辰')
+    chart = runtime_chart([1, 1, 1, 1, 3, 2], detail='full', month_branch='辰', day_ganzhi='甲辰')
     single = next(c for c in chart['patterns']['review_checks'] if c['check_id']=='single_moving:primary:5')
     assert single['trigger_facts']['hidden_life_stages'][0]['stage'] == '死'
     assert single['status'] == 'needs_source_review'
