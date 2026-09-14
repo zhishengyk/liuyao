@@ -158,6 +158,9 @@ def build(database, output, plan_path):
                 + '\n'.join(f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({Path(f).name})' for f in files)
                 + '\n\n先读取[全局断卦流程与原文](../GLOBAL.md)。本领域涉及取用时在第3步读取相应原文；主线吉凶已判后再读细节取象和过程；应期留在第6步。再核全文及相邻限制，然后用数据库补充细则、例外和相似案例。未读完、截断或来源不清须记入reading_gaps；不得把未读当作没有，也不自动截断原文或以摘要替代。\n')
 
+            if domain.get('flow'):
+                generated[f'{bucket}/PROMPT.md'] += '\n\n## \u672c\u9886\u57df\u7528\u53d6\u4e0e\u6d41\u7a0b\uff08\u5206\u7c7b\u4e13\u5c5e\uff0c\u5148\u4e8e\u5168\u5c40\u5bf9\u5e94\u6b65\u9aa4\u6267\u884c\uff09:\n\n' + domain['flow'] + '\n'
+
     global_parts = ['# 全局断卦流程与原文\n\n',
                     '先按以下顺序建立主线。步骤标题和“本步执行”只说明阅读与核查顺序，不新增断法，也不替代任何作者原句。'
                     '每步后的正文均按当前数据库的来源范围保留；同一段文字出现在不同步骤，是因为它同时约束多个判断环节。'
