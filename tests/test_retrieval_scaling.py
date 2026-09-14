@@ -49,7 +49,8 @@ def test_sql_structural_scores_preserve_unknown_lists_and_yongshen():
     with sqlite3.connect(':memory:') as db:
         db.row_factory=sqlite3.Row; db.executescript(SCHEMA)
         for index,features in enumerate(feature_sets):
-            payload=dict(case,case_id=str(index),features=features)
+            payload=dict(case,case_id=str(index),features=features,
+                         quality={'status':'eligible'})
             store_search_metadata(db,'case',payload,source)
         for query in queries:
             expected=[]
@@ -117,6 +118,8 @@ def test_candidate_index_build_preserves_active_pointer(tmp_path,monkeypatch):
         db.executescript('CREATE TABLE build_info(key TEXT,value TEXT); CREATE TABLE chunks(id TEXT,payload TEXT); CREATE TABLE cases(id TEXT,payload TEXT);')
         db.execute("INSERT INTO build_info VALUES('corpus_hash','fixture')")
         db.execute('INSERT INTO chunks VALUES(?,?)',('one',json.dumps({'chapter':'旬空','text':'用神旬空'})))
+        db.execute('CREATE TABLE evidence_metadata(evidence_id TEXT PRIMARY KEY,searchable INT)')
+        db.execute("INSERT INTO evidence_metadata VALUES('one',1)")
     folder=tmp_path/'semantic-index';folder.mkdir()
     pointer=folder/'active.json';pointer.write_text('{"generation":"existing"}')
     original=pointer.read_bytes()
@@ -133,7 +136,7 @@ def test_candidate_index_build_preserves_active_pointer(tmp_path,monkeypatch):
     ('女儿离家几天，联系不上，什么时候能回家？','lost/person'),
     ('申请调动到另一个单位，什么时候能批下来？','job/change'),
 ])
-def test_natural_case_questions_prefer_the_specific_event(query,subtopic,monkeypatch):
+def test_inferred_topic_hints_preserve_fused_ranking(query,subtopic,monkeypatch):
     from liuyao_mcp import retrieval,vector_index
     distractor_topic={'lost/person':'lost/belongings','job/change':'job/job_search'}[subtopic]
     with sqlite3.connect(database_path()) as db:
@@ -141,14 +144,14 @@ def test_natural_case_questions_prefer_the_specific_event(query,subtopic,monkeyp
             ON t.evidence_id=e.evidence_id WHERE e.kind='case' AND e.searchable=1
             AND t.topic_id=? ORDER BY e.evidence_id LIMIT 1""",(topic,)).fetchone()[0]
             for topic in (subtopic,distractor_topic)]
-    # Isolate ranking from lexical luck: a high-scoring parent-topic distractor
-    # must not displace an available case about the actual requested event.
+    # Isolate fusion from lexical luck. An inferred label describes the query;
+    # it must not override the supplied retrieval scores or discard candidates.
     monkeypatch.setattr(retrieval,'tokens',lambda text:['no_lexical_fixture_hit'])
     monkeypatch.setattr(vector_index,'dense_search',lambda *args,**kwargs:(
         [{'evidence_id':ids[1],'score':.99},{'evidence_id':ids[0],'score':.7}],
         {'elapsed_ms':0,'model':{'name':'fixture'},'index_generation':'fixture','has_more':False}))
     result=search_knowledge(query,kind='case',retrieval_mode='hybrid',limit=3,max_chars=150000)
-    assert result['subtopic']==subtopic
-    assert result['items'][0]['evidence_id']==ids[0]
-    tiers=[0 if item['category_match']=='same_subtopic' else 1 for item in result['items']]
-    assert tiers==sorted(tiers)
+    assert result['subtopic'] is None and not result['topic_filter_applied']
+    assert subtopic in result['topic_hint_paths']
+    assert [item['evidence_id'] for item in result['items']]==[ids[1],ids[0]]
+    assert all('topic_hint_rank' not in item['ranking'] for item in result['items'])

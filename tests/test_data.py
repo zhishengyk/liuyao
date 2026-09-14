@@ -1,9 +1,7 @@
 import json
 import sqlite3
-from pathlib import Path
-
-from liuyao_mcp.common import database_path, project_root
-from liuyao_mcp.ingest import import_source, native_row, read_spans
+from liuyao_mcp.common import database_path
+from liuyao_mcp.ingest import native_row, read_spans
 from liuyao_mcp.retrieval import get_source, search_knowledge, structure_match
 
 
@@ -14,17 +12,21 @@ def test_native_main_line_not_changed_or_hidden():
     assert match[1] == "妻财" and value == 2
 
 
-def test_ocr_same_page_two_diagrams_and_cross_page_case():
-    manifest = [json.loads(l) for l in (project_root()/"data/sources.jsonl").read_text(encoding="utf8").splitlines()]
-    source = next(s for s in manifest if s["source_id"] == "liuyao_xiangfa_jinjie_shang")
-    _,text,_,cases,_ = import_source(source,project_root())
-    first = next(c for c in cases if c["case_id"].endswith("_352"))
-    second = next(c for c in cases if c["case_id"].endswith("_369"))
+def test_reviewed_same_page_two_diagrams_and_cross_page_case():
+    with sqlite3.connect(database_path()) as db:
+        def case(eid):
+            return json.loads(db.execute('SELECT payload FROM cases WHERE id=?', (eid,)).fetchone()[0])
+        first = case('liuyao_xiangfa_jinjie_shang.manual.p0014_job')
+        second = case('liuyao_xiangfa_jinjie_shang.manual.p0015_marriage')
+        text = db.execute('SELECT body FROM sources WHERE id=?', (first['source']['source_id'],)).fetchone()[0]
     assert first["cast"]["line_values"] == [2,2,2,2,1,2]
     assert second["cast"]["line_values"] == [1,1,2,2,1,2]
     assert "测与女友能否结婚" not in first["source"]["original_text"]
     assert "世财即是怀孕了" in second["source"]["original_text"]
-    assert read_spans(text.splitlines(),first["source"]["spans"]) == first["source"]["original_text"]
+    assert first['source']['pdf_pages'] == [14, 15]
+    assert second['source']['pdf_pages'] == [15, 16]
+    assert read_spans(text.split('\n'),first["source"]["spans"]) == first["source"]["original_text"]
+    assert read_spans(text.split('\n'),second["source"]["spans"]) == second["source"]["original_text"]
 
 
 def test_defaults_expansion_followup_and_citations():
@@ -45,7 +47,7 @@ def test_defaults_expansion_followup_and_citations():
 
 def test_filter_unknown_and_exclusion():
     result = search_knowledge("六神 青龙",method="xiangfa")
-    assert result["items"] and all(x["method"]=="xiangfa" for x in result["items"])
+    assert result["items"] and all(x["method"] in ('xiangfa', 'mixed') for x in result["items"])
     assert structure_match({"yongshen_void":True},{})["unknown"]
     assert structure_match({"moving_positions":[]},{"moving_positions":[2]})["different"]
     assert structure_match({"moving_positions":[]},{"moving_positions":[]})["matched"]
@@ -54,10 +56,18 @@ def test_filter_unknown_and_exclusion():
     assert romance["items"] and all('relationship' in x['classification']['roots'] or not x['classification']['roots'] for x in romance['items'])
     case = search_knowledge("求职",kind="case")["items"][0]
     rules = search_knowledge("工作",exclude_case_ids=[case["evidence_id"]])
+    with sqlite3.connect(database_path()) as db:
+        lines = db.execute('SELECT body FROM sources WHERE id=?', (case['source_id'],)).fetchone()[0].split('\n')
     for item in rules["items"]:
         if item["source_id"] == case["source_id"]:
             for a in item["source_spans"]:
-                assert not any(a["start_line"]<=b["end_line"] and a["end_line"]>=b["start_line"] for b in case["source_spans"])
+                for b in case['source_spans']:
+                    start = max((a['start_line'], a['start_column']), (b['start_line'], b['start_column']))
+                    end = min((a['end_line'], a['end_column']), (b['end_line'], b['end_column']))
+                    if start < end:
+                        overlap = {'start_line':start[0], 'start_column':start[1],
+                                   'end_line':end[0], 'end_column':end[1]}
+                        assert not read_spans(lines, [overlap]).strip()
 
 
 def test_source_budget_pagination_and_no_query_writes():
@@ -76,22 +86,25 @@ def test_source_budget_pagination_and_no_query_writes():
 
 
 def test_pdf_evidence_pages_are_not_book_page_count():
-    result = get_source("case_liuyao_lifa_jinjie_475")
+    result = get_source("liuyao_lifa_jinjie.manual.p0018_relationship_persist")
     assert result["pdf_pages"] == [18,19]
     assert result["source"]["total_pdf_pages"] == 257
     assert "pdf_pages" not in result["source"]
 
 
-def test_cross_book_ocr_variant_is_excluded_as_possible_duplicate():
+def test_confirmed_cross_book_event_is_excluded_from_both_sources():
+    first = 'liuyao_lifa_jinjie.manual.p0049_skip_work'
+    second = 'liuyao_xiangfa_jinjie_shang.manual.p0067_skipping_work'
     with sqlite3.connect(database_path()) as db:
-        a = db.execute("SELECT duplicate_group FROM cases WHERE id=?",("case_liuyao_lifa_jinjie_1868",)).fetchone()[0]
-        b = db.execute("SELECT duplicate_group FROM cases WHERE id=?",("case_liuyao_xiangfa_jinjie_shang_2775",)).fetchone()[0]
+        a = db.execute("SELECT duplicate_group FROM cases WHERE id=?",(first,)).fetchone()[0]
+        b = db.execute("SELECT duplicate_group FROM cases WHERE id=?",(second,)).fetchone()[0]
         assert a == b
-    result = search_knowledge("下午不去上班会不会有什么事",kind="case",exclude_case_ids=["case_liuyao_lifa_jinjie_1868"])
-    assert "case_liuyao_xiangfa_jinjie_shang_2775" not in {i["evidence_id"] for i in result["items"]}
+    result = search_knowledge("下午不去上班会不会有什么事",kind="case",exclude_case_ids=[first])
+    assert not {first, second} & {i["evidence_id"] for i in result["items"]}
 
 
 def test_explicit_no_feedback_is_not_an_outcome():
     with sqlite3.connect(database_path()) as db:
-        c = json.loads(db.execute("SELECT payload FROM cases WHERE id=?",("case_liuyao_xiangfa_jinjie_shang_9590",)).fetchone()[0])
+        c = json.loads(db.execute("SELECT payload FROM cases WHERE id=?",('liuyao_xiangfa_jinjie_shang.manual.p0213_marry_boyfriend',)).fetchone()[0])
     assert c["outcome"]["status"] == "none"
+    assert c['outcome']['quotes'] == [] and c['quality']['status'] == 'noise'

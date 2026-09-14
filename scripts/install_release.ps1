@@ -29,7 +29,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Offline self-check failed' }
     & codex plugin add liuyao-assistant@liuyao --json
     if ($LASTEXITCODE -ne 0) { throw 'Plugin installation failed' }
-    Write-Output 'Liuyao installed. Start a new Codex session. Daily retrieval runs offline.'
+    Write-Output 'Liuyao installed. Start a new Codex session. Retrieval uses local data; the launcher may check its package cache online.'
 } finally {
     Pop-Location
 }

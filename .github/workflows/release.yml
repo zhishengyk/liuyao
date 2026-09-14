@@ -17,16 +17,39 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[test]' build uv
+      - name: Restore pinned corpus assets
+        run: python scripts/prepare_corpus.py
       - name: Check tag matches package version
         if: startsWith(github.ref, 'refs/tags/')
         run: python -c "import os; from liuyao_mcp import __version__; assert os.environ['GITHUB_REF_NAME'] == 'v' + __version__"
-      - run: python -m liuyao_mcp.ingest
-      - run: python -m pytest -q
-      - run: python scripts/build_release.py
+      - name: Select stable or preview gates
+        id: channel
+        run: |
+          python - <<'PY'
+          import os
+          from packaging.version import Version
+          from liuyao_mcp import __version__
+          preview = Version(__version__).is_prerelease
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'preview={str(preview).lower()}\n')
+              output.write(f'ingest_flags={"--allow-partial" if preview else ""}\n')
+              output.write(f'build_flags={"--prerelease" if preview else ""}\n')
+              output.write(f'publish_flags={"--prerelease" if preview else ""}\n')
+          PY
+      - run: python -m liuyao_mcp.ingest ${{ steps.channel.outputs.ingest_flags }}
+      - name: Required full test suite
+        run: python -m pytest -q --junitxml=full-suite.xml
+      - name: Preserve full suite result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-suite-result
+          path: full-suite.xml
+      - run: python scripts/build_release.py ${{ steps.channel.outputs.build_flags }}
       - name: Test self-contained wheel with uvx
-        run: python scripts/smoke_release.py uvx --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
+        run: python scripts/smoke_release.py --wheel "$PWD"/dist/*-py3-none-any.whl
       - name: Test cached wheel without network access
-        run: python scripts/smoke_release.py uvx --offline --python 3.11 --from "$PWD"/dist/*-py3-none-any.whl liuyao-mcp
+        run: python scripts/smoke_release.py --wheel "$PWD"/dist/*-py3-none-any.whl --offline
       - uses: actions/upload-artifact@v4
         with:
           name: release
@@ -35,7 +58,12 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes --title "$GITHUB_REF_NAME"
+        run: |
+          release_notes_args=(--generate-notes)
+          if [[ -f "docs/releases/$GITHUB_REF_NAME.md" ]]; then
+            release_notes_args=(--notes-file "docs/releases/$GITHUB_REF_NAME.md")
+          fi
+          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --latest=false "${release_notes_args[@]}" --title "$GITHUB_REF_NAME" ${{ steps.channel.outputs.publish_flags }}
       - name: Test plugin downloads the published wheel
         if: startsWith(github.ref, 'refs/tags/')
         env:

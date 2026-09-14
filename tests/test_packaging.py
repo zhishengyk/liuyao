@@ -1,8 +1,10 @@
 from pathlib import Path
+import importlib.util
 import os
 import shutil
 import subprocess
 import sys
+import pytest
 
 from liuyao_mcp import common
 
@@ -36,6 +38,7 @@ for kind in ['rule', 'case']:
     assert result['items'] and result['retrieval'] == 'bm25' and not result['models'], result
     assert {'入职', '工作', '财生官', '官生世'} <= set(result['query_terms'])
     assert result['include_unknown'] is False
+    assert result['topic_filter_applied'] is False
     if kind == 'case':
         assert all(item['case']['extraction']['chart_validation'] == 'calculated' for item in result['items'])
     source = get_source(result['items'][0]['evidence_id'])
@@ -90,3 +93,31 @@ def test_packaged_model_state_is_persistent(monkeypatch,tmp_path):
     monkeypatch.setattr(common,"__file__",str(package/"common.py"))
     assert common.runtime_root()==tmp_path/"cache/liuyao-mcp"
     assert common.retrieval_data_dir()==tmp_path/"cache/liuyao-mcp/data"
+
+
+def release_smoke():
+    path = Path(__file__).resolve().parents[1] / 'scripts/smoke_release.py'
+    spec = importlib.util.spec_from_file_location('smoke_release_contract', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_release_smoke_normalizes_runtime_semver_and_installed_pep440_version():
+    smoke = release_smoke()
+    installed = {'version': '0.7.0a1', 'runtime_version': '0.7.0-alpha.1'}
+    smoke.check_installed_version(installed, 'liuyao_mcp-0.7.0a1-py3-none-any.whl', '0.7.0-alpha.1')
+    with pytest.raises(AssertionError):
+        smoke.check_installed_version(installed, 'liuyao_mcp-0.7.0a2-py3-none-any.whl')
+    parsed = smoke.arguments(['--wheel', 'dist/liuyao_mcp-0.7.0a1-py3-none-any.whl', '--offline'])
+    assert parsed.offline and parsed.wheel.name == 'liuyao_mcp-0.7.0a1-py3-none-any.whl'
+    parsed = smoke.arguments(['uvx', '--offline', '--python', '3.11', '--from', 'package.whl', 'liuyao-mcp'])
+    assert parsed.command == ['uvx', '--offline', '--python', '3.11', '--from', 'package.whl', 'liuyao-mcp']
+
+
+def test_release_smoke_compares_exact_page_local_columns():
+    smoke = release_smoke()
+    page = {'pdf_pages': [145], 'text': '首行\n甲作者，反馈乙\n末\n'}
+    spans = [{'page': 145, 'start_line': 1, 'end_line': 2, 'start_column': 1, 'end_column': 3},
+             {'page': 145, 'start_line': 2, 'end_line': 2, 'start_column': 4, 'end_column': 6}]
+    assert smoke.selected_page_text(page, spans) == '行\n甲作者\n反馈'

@@ -23,6 +23,13 @@ def test_two_level_taxonomy_and_unknown_scope():
     with pytest.raises(ValueError):resolve('study','relationship/reconciliation')
 
 
+def test_repayment_is_not_a_return_journey_and_separate_events_survive():
+    question = '借出去的钱什么时候能收回来？'
+    assert classify(question)['roots'] == ['wealth']
+    assert 'wealth/debt' in classify(question)['topic_ids']
+    assert set(classify(question + '另外问出差的丈夫何时回来')['roots']) == {'wealth', 'travel'}
+
+
 def test_explicit_events_take_precedence_over_institution_and_role_context():
     # Training-source housing questions and independent role/event contracts.
     for question in ('例四、戌月丁巳日，某女测工作单位分房可得到否',
@@ -217,8 +224,16 @@ def test_unreviewed_ocr_proposals_do_not_change_source(tmp_path):
 
 
 def test_only_visually_reviewed_pages_can_be_read_as_reviewed_text():
+    import sqlite3
+    from liuyao_mcp.common import database_path
     page=get_source('page:liuyao_lifa_jinjie:6')
     assert page['text_version']=='visually_reviewed_page'
     assert '六爻基础入门' in page['text'] and '仔细斟酌' in page['text']
-    with pytest.raises(ValueError,match='尚未逐字'):
-        get_source('page:liuyao_xiangfa_jinjie_shang:317')
+    with sqlite3.connect(database_path()) as db:
+        pages=[(sid,number,json.loads(payload)) for sid,number,payload
+               in db.execute('SELECT source_id,pdf_page,payload FROM ocr_pages')]
+    for sid,number,review in pages:
+        result=get_source(f'page:{sid}:{number}',max_chars=1000)
+        expected='visually_reviewed_page' if review.get('visual_reviewed') else 'machine_extracted_page'
+        assert result['text_version']==expected
+        assert result['text']==review['canonical_text'][:1000]

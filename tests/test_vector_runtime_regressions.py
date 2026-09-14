@@ -2,6 +2,7 @@
 import json
 import os
 import sqlite3
+from contextlib import closing
 
 import pytest
 
@@ -116,6 +117,8 @@ def test_real_sqlite_index_build_cache_resume_and_dense_search(tmp_path):
             ("unrelated", json.dumps({"chapter": "计算机", "text": "计算机网络协议。"})),
         ])
         db.execute("INSERT INTO cases VALUES(?,?)", ("missing-question", json.dumps({"question": {"raw": None}})))
+        db.execute('CREATE TABLE evidence_metadata(evidence_id TEXT PRIMARY KEY,searchable INT)')
+        db.executemany('INSERT INTO evidence_metadata VALUES(?,1)',[(eid,) for eid in ('related','unrelated','missing-question')])
     first = build_index(path)
     resumed = build_index(path)
     assert first["documents"] == first["encoded_documents"] == 2
@@ -125,3 +128,34 @@ def test_real_sqlite_index_build_cache_resume_and_dense_search(tmp_path):
     ranked, details = dense_search("用神旬空", "rule", {"related", "unrelated"}, 2, "real-model-test", path)
     assert [item["evidence_id"] for item in ranked] == ["related", "unrelated"]
     assert details["storage"] == "sqlite-vec"
+
+
+def test_vector_build_skips_unsearchable_text_but_preserves_source_archive(tmp_path, monkeypatch):
+    from liuyao_mcp import vector_index
+    database=tmp_path/'knowledge.sqlite'
+    with sqlite3.connect(database) as db:
+        db.executescript('CREATE TABLE build_info(key TEXT,value TEXT); CREATE TABLE chunks(id TEXT,payload TEXT); CREATE TABLE cases(id TEXT,payload TEXT); CREATE TABLE evidence_metadata(evidence_id TEXT PRIMARY KEY,searchable INT);')
+        db.execute("INSERT INTO build_info VALUES('corpus_hash','eligibility-fixture')")
+        db.execute('INSERT INTO chunks VALUES(?,?)',('rule',json.dumps({'chapter':'旬空','text':'用神旬空的条件。'})))
+        for eid,text in [('eligible','面试能否成功'),('noise','NOISE_MUST_NOT_BE_ENCODED'),('pending','PENDING_MUST_NOT_BE_ENCODED')]:
+            db.execute('INSERT INTO cases VALUES(?,?)',(eid,json.dumps({'question':{'raw':text}})))
+        db.executemany('INSERT INTO evidence_metadata VALUES(?,?)',[('rule',1),('eligible',1),('noise',0),('pending',0)])
+    monkeypatch.setattr(vector_index,'model_lock',lambda:{'embedding':{'name':'fixture'}})
+    monkeypatch.setattr(vector_index,'model_key',lambda *args:'fixture')
+    monkeypatch.setattr(vector_index,'ensure_worker',lambda:None)
+    encoded=[]
+    def embed(operation,payload):
+        assert operation=='embed'
+        encoded.extend(payload['texts'])
+        return {'vectors':[[1.0]+[0.0]*1023], 'spans':[[0,len(payload['texts'][0])]]}
+    monkeypatch.setattr(vector_index,'request',embed)
+    result=vector_index.build_index(database,activate=False)
+    assert len(encoded)==2 and all('MUST_NOT' not in text for text in encoded)
+    assert result['source_documents']==4 and result['excluded_unsearchable_documents']==2
+    assert result['documents']==2 and result['document_selection']=='searchable-only-1'
+    snapshot=tmp_path/'semantic-index'/result['generation']/'knowledge.sqlite'
+    with closing(sqlite3.connect(snapshot)) as db:
+        assert {r[0] for r in db.execute('SELECT evidence_id FROM semantic_vectors')}=={'rule','eligible'}
+        assert db.execute('SELECT count(*) FROM cases').fetchone()[0]==3
+    resumed=vector_index.build_index(database,activate=False)
+    assert resumed['cached_documents']==2 and resumed['encoded_documents']==0 and len(encoded)==2
