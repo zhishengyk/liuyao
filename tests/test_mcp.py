@@ -11,7 +11,7 @@ def test_real_stdio_protocol():
         params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8"})
         async with Client(params) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart","search_knowledge","get_source","get_outline","get_topics"}
+            assert {t.name for t in listed.tools} == {"build_chart","inspect_chart","search_knowledge","get_source","get_outline","get_topics"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
             search_schema = next(t.input_schema for t in listed.tools if t.name == 'search_knowledge')
             assert search_schema['properties']['case_text_scope']['enum'] == ['initial', 'full']
@@ -46,6 +46,16 @@ def test_real_stdio_protocol():
                        for item in scoped_data.get('result', scoped_data)['items'])
             chart = await client.call_tool("build_chart",{"line_values":[2]*6,"month_branch":"卯","day_ganzhi":"庚子"})
             assert not chart.is_error
+            compact_data = chart.structured_content
+            compact_data = compact_data.get('result', compact_data)
+            assert 'resolved_references' not in compact_data['patterns']
+            assert 'review_check_ids' in compact_data['patterns']
+            inspected = await client.call_tool("inspect_chart",{"line_values":[2]*6,"month_branch":"卯","day_ganzhi":"庚子"})
+            assert not inspected.is_error
+            inspected_data = inspected.structured_content
+            inspected_data = inspected_data.get('result', inspected_data)
+            assert isinstance(inspected_data['patterns']['review_checks'], list)
+            assert 'resolved_references' in inspected_data['patterns']
             hidden = await client.call_tool('build_chart',{'line_values':[2,2,1,1,1,1],
                 'month_branch':'辰','day_ganzhi':'甲子','yongshen_positions':[1],'yongshen_scope':'hidden'})
             assert not hidden.is_error

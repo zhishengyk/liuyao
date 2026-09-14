@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """六爻助手通用 MCP 安装层。
 
 只依赖 Python 标准库。唯一的权威配置是同级 `liuyao.mcp.json`
@@ -124,13 +124,15 @@ def remove_from_json(path: Path, dry_run: bool) -> str | None:
 
 
 def copy_skill(dest: Path, dry_run: bool) -> str:
+    """把 interpret-liuyao 技能整目录（SKILL.md 及 references/ 等）复制到目标技能目录。"""
     if not SKILL_SRC.exists():
-        return "! 未找到技能源文件 plugins/liuyao-assistant/skills/interpret-liuyao/SKILL.md"
+        return "! 未找到技能源目录 plugins/liuyao-assistant/skills/interpret-liuyao"
+    target_dir = dest.parent
     if dry_run:
-        return f"将复制技能 -> {dest}"
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(SKILL_SRC, dest)
-    return f"技能已复制 -> {dest}"
+        return f"将复制技能目录 -> {target_dir}"
+    target_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(SKILL_SRC.parent, target_dir, dirs_exist_ok=True)
+    return f"技能目录已复制 -> {target_dir}"
 
 
 def _run(ctx: SimpleNamespace, cmd: list[str]) -> tuple[int, str]:
