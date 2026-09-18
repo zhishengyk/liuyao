@@ -14,16 +14,27 @@ def test_real_stdio_protocol():
             assert {t.name for t in listed.tools} == {"build_chart","inspect_chart","search_knowledge","get_source","get_outline","get_topics"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
             search_schema = next(t.input_schema for t in listed.tools if t.name == 'search_knowledge')
-            assert search_schema['properties']['case_text_scope']['enum'] == ['initial', 'full']
-            full = await client.call_tool('search_knowledge', {'query': '父母', 'kind': 'case',
-                                                             'case_text_scope': 'full', 'limit': 1})
-            assert not full.is_error
-            full_data = full.structured_content
-            full_data = full_data.get('result', full_data)
-            assert full_data['case_text_scope'] == 'full' and full_data['returned_count'] == 1
-            wrong_scope = await client.call_tool('search_knowledge', {'query': '', 'kind': 'rule',
-                                                                    'case_text_scope': 'full'})
-            assert wrong_scope.is_error
+            assert 'case_text_scope' not in search_schema['properties']
+            cases = await client.call_tool('search_knowledge', {'query': '父母', 'kind': 'case', 'limit': 1})
+            assert not cases.is_error
+            case_data = cases.structured_content
+            case_data = case_data.get('result', case_data)
+            assert case_data['case_text_scope'] == 'initial' and case_data['prediction_safe']
+            assert case_data['returned_count'] == 1
+            assert 'interpretations' not in case_data['items'][0]['case']
+            assert 'outcome' not in case_data['items'][0]['case']
+            assert 'author_yongshen' not in case_data['items'][0]['case']
+            assert 'quality' not in case_data['items'][0]['case']
+            safe_source = await client.call_tool('get_source', {'evidence_id': case_data['items'][0]['evidence_id'],
+                                                                'max_chars': 500000})
+            assert not safe_source.is_error
+            safe_data = safe_source.structured_content
+            safe_data = safe_data.get('result', safe_data)
+            assert 'interpretations' not in safe_data['structured_case']
+            assert 'outcome' not in safe_data['structured_case']
+            assert 'author_yongshen' not in safe_data['structured_case']
+            assert 'quality' not in safe_data['structured_case']
+            assert '反馈' not in safe_data['text']
             outline = await client.call_tool('get_outline', {})
             assert not outline.is_error
             navigation = outline.structured_content

@@ -51,11 +51,11 @@ def read_prompt(evidence_id, offset, max_chars, db_path=None):
     full = raw.decode('utf-8')
     end = min(len(full), offset + max_chars)
     return {'evidence_id': evidence_id, 'kind': 'skill_prompt', 'prompt_path': name,
-            'source': {'title': '全局/领域原文提示词汇编', 'sha256': expected,
+            'source': {'title': '生产断卦流程与领域入口', 'sha256': expected,
                        'database_sha256': database_hash(str(database), stat.st_size, stat.st_mtime_ns),
                        'source_content_sha256': logical_hash},
             'text': full[offset:end], 'offset': offset, 'total_chars': len(full),
             'has_more': end < len(full), 'next_offset': end if end < len(full) else None,
             'source_sections': [s for s in manifest['sections'] if s['file'] == name
                                 and s['file_start_offset'] < end and s['file_end_offset'] > offset],
-            'note': '固定读取发行包原文，不是检索结果或模型摘要；相对链接按本文件目录解析后用prompt:路径读取。原例反馈不属于当前问题。'}
+            'note': '固定读取发行包中的预测流程和领域入口。历史案例、作者断语、事后反馈、评分与回归指令不在生产提示词中；规则原文按 evidence ID 定向读取。'}

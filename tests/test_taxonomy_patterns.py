@@ -69,7 +69,7 @@ def test_event_context_preserves_multiple_matters_and_role_only_fallbacks():
 
 def test_named_questions_exclude_narrative_and_activity_background():
     for question,roots in [
-        ('例十、戌月辛亥日，一日本学员跟随我学习预测，摇卦测在北京举行的马拉松比赛中，日本的选手旭化成能获胜否',{'affairs'}),
+        ('例十、戌月辛亥日，一日本学员跟随我学习预测，摇卦测在北京举行的马拉松比赛中，日本的选手旭化成能获胜否',{'competition'}),
         ('例五、戌月庚戌日，一日本人跟随我学习六爻预测，当时天正在下雨，测雨何时停',{'weather'}),
         ('辰月甲戌日，行舟占顺风',{'weather'}),
         ('例二、亥月庚午日，某男测到医院看病时把钱丢失，可找回否',{'lost'}),
@@ -86,7 +86,7 @@ def test_named_questions_exclude_narrative_and_activity_background():
 
 def test_question_focus_preserves_multiple_events_causes_and_references():
     for question,roots in [
-        ('先测学习进展，再问比赛名次',{'study','affairs'}),
+        ('先测学习进展，再问比赛名次',{'study','competition'}),
         ('某男测身体病情，另外问工作调动能否成功',{'health','job'}),
         ('既问考试成绩，也问店铺经营',{'study','wealth'}),
         ('看病时会不会耽误考试',{'health','study'}),
@@ -111,13 +111,14 @@ def test_generic_status_followups_keep_the_earlier_event():
     ]:
         assert classify(question)['topic']==topic
     # A new named event is still distinct from the prefatory activity.
-    assert classify('我正在学习预测，问比赛结果')['roots']==['affairs']
+    assert classify('我正在学习预测，问比赛结果')['roots']==['competition']
     assert classify('出差前学习预测，测雨何时停')['roots']==['weather']
     assert classify('问人身安全')['topic']=='health'
 
 
 def test_hierarchical_retrieval_and_common_rule_switch():
-    assert len(get_topics()['items'])==14
+    assert len(get_topics()['items'])==15
+    assert 'competition/match' in {x['id'] for x in get_topics('competition')['items']}
     assert 'relationship/reconciliation' in {x['id'] for x in get_topics('relationship')['items']}
     result=search_knowledge('复合 世应',kind='case',topic='relationship',subtopic='reconciliation',limit=3,max_chars=200000)
     assert result['items'] and all(x['category_match']=='same_subtopic' for x in result['items'])

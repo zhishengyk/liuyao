@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "corpus_snapshot": "2026-09-15-six-books-r9final",
-  "corpus_hash": "ff687b5ae8032bb7625868193d8fc32265c16bc14ea6ff2472dac20dcb89c4bd",
-  "build_implementation_sha256": "0fc12ab7811fb0b037fc55134424b6e1f839d0eae18894c2f42f24ff6040d9ab",
+  "corpus_hash": "883bf7fed99283f617e98224752d687eb81f1063f7ac3598b6ff14522868532a",
+  "build_implementation_sha256": "f1aa607b01878f315a9d8b7ce3edb3bf2dab1bd3ef675177ca993d67a9a332fd",
   "assets": [
     {
       "kind": "corpus",

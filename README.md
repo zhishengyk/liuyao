@@ -189,15 +189,15 @@ flowchart TD
 
 手切库的 `get_outline` 浏览当前已有的书籍与人工单元；标签不冒充原书章题。`search_knowledge(method="xiangfa")`按场景查询，`outline_ids`限定已返回的节点；`get_source`回查完整原文及 `required_contexts`。旧版PDF目录文档仍可参考，但其旧ID和行号不能替代新库坐标。
 
-相似案例默认按原问与已知盘面检索。查证具体原书论述或寻找反例时，可显式使用 `kind="case", case_text_scope="full"`，将关键词检索扩展到整段案例；向量与结构比较仍按初始资料进行。全文命中可能来自作者断语、反馈或其他复占段，须回查原文角色。两种范围都排除噪音和待审核案例；盲测查询不得加入待测结果。
+相似案例只按原问、事前背景和已知盘面检索，生产 MCP 也只返回这些事前材料及机械盘面字段。作者断语、事后反馈、结局和复盘保留在内部数据库供隔离评测使用，不通过生产接口读取。预测所需方法应优先使用 `kind="rule"` 并用 `get_source` 回查规则原文。
 
 
 
 ## 开发与验证
 
-断卦提示词分为全局方法、领域原文和数据库细则。技能先读取全局原文，再按问题加载婚恋、学业、财运等领域文件；各书原注、新评和例外按来源并列，不由模型压缩或改写。原文汇编包含历史例证，不能将其中反馈回填为当前问题背景。当前覆盖已整理理论与指定补充章段，不代表所有领域全书整理完成。
+断卦提示词只包含七步预测流程、领域入口和按需核对的规则证据 ID。技能先锁定原问和核盘，在最终判向前加载当前领域入口，再通过 `kind="rule"` 读取所需原文及例外；不会把整本领域原文或历史例证自动装入上下文。
 
-执行 `python scripts/build_skill_prompts.py` 可从当前 SQLite 生成 `plugins/liuyao-assistant/skills/interpret-liuyao/references/source-prompts/`。Git仅保存生成程序和 `scripts/skill_prompt_plan.json` 小清单；生成的原文随插件ZIP和wheel发行包提供。Git安装未带本地文件时，现有 `get_source` 工具通过 `prompt:GLOBAL.md`、`prompt:study/PROMPT.md` 等固定入口读取同版原文，并支持 `next_offset` 分页；这不是关键词检索或摘要。数据库版本或文件校验不一致会明确报错。
+执行 `python scripts/build_skill_prompts.py` 可生成 `plugins/liuyao-assistant/skills/interpret-liuyao/references/source-prompts/`。Git保存生成程序和 `scripts/skill_prompt_plan.json` 唯一真源；生成物随插件 ZIP 和 wheel 发行。`get_source` 可通过 `prompt:GLOBAL.md`、`prompt:study/PROMPT.md` 等固定入口读取同版流程。数据库版本或文件校验不一致会明确报错。
 
 ```powershell
 python -m venv .venv

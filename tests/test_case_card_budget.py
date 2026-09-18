@@ -85,6 +85,16 @@ def test_case_without_verbose_cast_fields_does_not_claim_provenance_was_omitted(
     assert card['quality']['status'] == 'pending'
 
 
+def test_prediction_safe_case_card_never_returns_author_answer_or_outcome():
+    card = case_summary(sample_case('calculated', 'verified', 'eligible'), prediction_safe=True)
+    assert 'interpretations' not in card
+    assert 'outcome' not in card
+    assert 'author_yongshen' not in card
+    assert 'quality' not in card
+    assert card['cast']['line_values'] == [1, 2, 0, 1, 2, 1]
+    assert card['features']['chart_feature_status'] == 'calculated'
+
+
 @pytest.mark.parametrize('evidence_id', [
     'liuyao_lifa_jinjie.manual.p0215_uncle_critical',
     'zengshan_pingshi_dxj.manual.l21102.cast2',

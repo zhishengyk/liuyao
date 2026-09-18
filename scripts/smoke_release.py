@@ -91,22 +91,6 @@ def check_installed_version(installed, wheel_name=None, plugin_version=None):
         assert actual == Version(plugin_version), (plugin_version, installed)
 
 
-def selected_page_text(page, spans):
-    """Read exact page-local columns to compare page and case APIs."""
-    lines = page['text'].split('\n')
-    result = []
-    for span in spans:
-        assert span['page'] == page['pdf_pages'][0]
-        selected = lines[span['start_line']-1:span['end_line']]
-        start, end = span.get('start_column', 0), span.get('end_column', len(selected[-1]))
-        if len(selected) == 1:
-            selected[0] = selected[0][start:end]
-        else:
-            selected[0], selected[-1] = selected[0][start:], selected[-1][:end]
-        result.append('\n'.join(selected))
-    return '\n'.join(result)
-
-
 async def main(argv=None):
     options = arguments(argv)
     env = {key: value for key, value in os.environ.items()
@@ -191,13 +175,14 @@ async def main(argv=None):
             assert set(tools) == {'build_chart', 'inspect_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
             if report.get('installed', {}).get('prompt_files_checked'):
                 prompt = await call('get_source', evidence_id='prompt:GLOBAL.md', max_chars=1000)
-                assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 全局断卦流程与原文')
+                assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 生产断卦流程')
                 if prompt['has_more']:
                     next_page = await call('get_source', evidence_id='prompt:GLOBAL.md', offset=prompt['next_offset'], max_chars=1000)
                     assert next_page['offset'] == prompt['next_offset'] and next_page['text']
-                report['checks'].append('bundled_verbatim_prompts_pagination_and_mcp_entry')
+                report['checks'].append('bundled_prediction_prompts_pagination_and_mcp_entry')
             search_schema = tools['search_knowledge'].input_schema['properties']
             assert search_schema['include_unknown']['default'] is False
+            assert 'case_text_scope' not in search_schema
             assert {'require_valid_chart', 'features', 'topic', 'subtopic', 'outline_ids'} <= set(search_schema)
             assert tools['build_chart'].input_schema['properties']['line_values']['items']['type'] == 'integer'
             topics = await call('get_topics')
@@ -292,11 +277,11 @@ async def main(argv=None):
             assert case['cast']['line_values']==[2,2,0,1,2,2]
             assert (case['derived']['primary']['name'], case['derived']['changed']['name'])==('豫','小过')
             assert case['extraction']['chart_validation']=='calculated' and case['extraction']['source_chart_independently_verified']
-            assert '雷地豫' in fixed['text'] and '雷山小过' in fixed['text']
-            assert selected_page_text(page, case['parts']['chart']['canonical_spans'])==case['parts']['chart']['exact_text']
+            assert '雷地豫' in page['text'] and '雷山小过' in page['text']
+            assert all(key not in case for key in ('parts', 'interpretations', 'outcome', 'post_feedback_analysis', 'author_yongshen', 'quality'))
             rejected = await client.call_tool('get_source', {'evidence_id':CORRECTED_CASE,'text_version':'original'})
             assert rejected.is_error, 'PDF canonical spans must not masquerade as an old OCR line mapping'
-            report['checks'].append('page145_canonical_yu_to_xiaoguo_and_no_old_ocr_mapping')
+            report['checks'].append('page145_canonical_yu_to_xiaoguo_prediction_safe_case_and_no_old_ocr_mapping')
 
             books = await call('get_outline')
             assert books['items']

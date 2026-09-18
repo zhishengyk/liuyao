@@ -122,7 +122,8 @@ def _case_quality(document, unit, whole, reviews):
 
 
 def _classification(unit, case=False):
-    topics = unit.get("topic_ids", [])
+    topics = ["competition" if topic == "affairs/competition" else topic
+              for topic in unit.get("topic_ids", [])]
     known = {node["id"] for node in topic_nodes()}
     if not isinstance(topics, list) or any(not isinstance(topic, str) or topic not in known for topic in topics):
         raise ValueError("manual topic_ids must be a list of known taxonomy IDs")

@@ -75,7 +75,7 @@ def structure_match(query, features):
             "note": "shi_ying_relations按世→应比较；生与受生方向相反，不能视作同一结构。"}
 
 
-def case_summary(case):
+def case_summary(case, prediction_safe=False):
     interpretations = []
     for item in case["interpretations"]:
         # Preserve complete paragraphs; the full case remains retrievable by ID.
@@ -93,9 +93,15 @@ def case_summary(case):
         interpretations.append(entry)
     omitted = [key for key in ('evidence', 'field_spans', 'diagram_spans', 'transcription_review') if key in case['cast']]
     cast = {key: value for key, value in case['cast'].items() if key not in omitted}
-    result = {"cast": cast, "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "interpretations": interpretations, "outcome": case["outcome"], "extraction": case["extraction"]}
-    result['quality'] = case.get('quality', {'status': 'pending', 'reason': 'quality_not_reviewed', 'reviewer': None})
-    for key in ('cast_index', 'cast_sequence', 'related_case_ids', 'author_yongshen', 'duplicate_group', 'duplicate_candidates'):
+    result = {"cast": cast, "reported_chart": {k: v for k, v in case["reported_chart"].items() if k != "line_text"}, "features": case["features"], "extraction": case["extraction"]}
+    if not prediction_safe:
+        result.update({"interpretations": interpretations, "outcome": case["outcome"]})
+    if not prediction_safe:
+        result['quality'] = case.get('quality', {'status': 'pending', 'reason': 'quality_not_reviewed', 'reviewer': None})
+    identity_keys = ('cast_index', 'cast_sequence', 'related_case_ids', 'duplicate_group', 'duplicate_candidates')
+    if not prediction_safe:
+        identity_keys += ('author_yongshen',)
+    for key in identity_keys:
         if key in case:
             result[key] = case[key]
     if omitted:
@@ -106,6 +112,16 @@ def case_summary(case):
             result['cast_provenance']['transcription_review_status'] = review['status']
     if case.get('duplicate_candidates'):
         result['event_records_note'] = '同事件其他记录，不一定同盘或同一阶段。'
+    return result
+
+
+def prediction_case(case):
+    """Return only information available before the historical prediction."""
+    result = case_summary(case, prediction_safe=True)
+    result["question"] = case["question"]
+    for key in ("case_id", "event_id", "derived", "classification", "title"):
+        if key in case:
+            result[key] = case[key]
     return result
 
 
@@ -185,7 +201,7 @@ def rules_overlapping_cases(db, groups):
     return blocked
 
 
-def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False, case_text_scope: str = "initial"):
+def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic: str | None = None, author: str | None = None, features: dict | None = None, limit: int | None = None, exclude_ids: list[str] | None = None, exclude_case_ids: list[str] | None = None, max_chars: int = 40000, db_path=None, retrieval_mode: str | None = None, outline_ids: list[str] | None = None, subtopic: str | None = None, include_common: bool = True, include_unknown: bool = False, require_valid_chart: bool = False, case_text_scope: str = "initial", prediction_safe: bool = False):
     started = time.perf_counter()
     config_path = retrieval_data_dir(db_path)/"retrieval-config.json"
     config = json.loads(config_path.read_text(encoding="utf8")) if config_path.is_file() else {}
@@ -413,7 +429,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 if payload.get('section'):item['section'] = payload['section']
                 item['related_case_ids'] = [c for c in payload.get('related_case_ids', []) if c not in exclude_ids]
             else:
-                item.update({"question": payload["question"], "case": case_summary(payload), "source_spans": payload["source"]["spans"], "pdf_pages": payload["source"]["pdf_pages"], "structure_match": matches.get(eid, structure_match(features, payload["features"]))})
+                item.update({"question": payload["question"], "case": case_summary(payload, prediction_safe), "source_spans": payload["source"]["spans"], "pdf_pages": payload["source"]["pdf_pages"], "structure_match": matches.get(eid, structure_match(features, payload["features"]))})
             if payload.get('canonical_spans'):
                 item['canonical_spans'] = payload['canonical_spans']
             if payload.get('outline'):
@@ -440,6 +456,7 @@ def search_knowledge(query: str, kind: str = "rule", method: str = "all", topic:
                 'note':'按本次过滤及排除后的可检索记录检查字面词项；不按结构相似度筛选，不代表语义覆盖或全库没有相关知识。'}
         if kind == 'case':
             result['case_text_scope'] = case_text_scope
+            result['prediction_safe'] = prediction_safe
             if case_text_scope == 'full':
                 result['case_text_note'] = '全文关键词命中可来自作者断语、反馈或同事件其他盘段落；须get_source核对角色，不能当成初始已知条件或通用规则。向量和结构召回仍使用原问题与已知盘面。'
         return result
@@ -469,7 +486,7 @@ def get_outline(source_id=None, parent_id=None, limit=50, offset=0, db_path=None
                 'total': len(rows), 'has_more': has_more, 'next_offset': offset+len(selected) if has_more else None}
 
 
-def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_chars: int = 40000, db_path=None, text_version='corrected'):
+def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_chars: int = 40000, db_path=None, text_version='corrected', prediction_safe=False):
     if not 0 <= context_lines <= 200 or offset < 0 or not 1000 <= max_chars <= 500000:
         raise ValueError("context_lines范围0..200，offset非负，max_chars范围1000..500000")
     if text_version not in ('corrected','original'):raise ValueError('text_version=corrected/original')
@@ -539,9 +556,16 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
             metadata['sha256']=metadata.get('source_sha256',metadata.get('original_sha256',metadata['sha256']))
             metadata['text_status']='original_transcription'
         spans = data["source"]["spans"] if case else data.get('source_spans', [{"start_line": data["start_line"], "end_line": data["end_line"]}])
+        if case and prediction_safe:
+            spans = [span for key in ("source_spans", "background_spans")
+                     for span in data["question"].get(key, [])
+                     if span.get("eligible_for_initial_blind_input") is not False]
+            spans = sorted({(span["start_line"], span.get("start_column", 0), span["end_line"], span.get("end_column")): span
+                            for span in spans}.values(),
+                           key=lambda span: (span["start_line"], span.get("start_column", 0)))
         if context_lines:
             spans = [{"start_line": max(1, spans[0]["start_line"]-context_lines), "end_line": min(len(lines), spans[-1]["end_line"]+context_lines)}]
-        full = read_spans(lines, spans)
+        full = read_spans(lines, spans) if spans else (data["question"]["raw"] if case and prediction_safe else "")
         page_number, selected_pages = None, set()
         for i, line in enumerate(lines, 1):
             marker = PAGE.search(line)
@@ -582,8 +606,9 @@ def get_source(evidence_id: str, context_lines: int = 0, offset: int = 0, max_ch
             result['corrections']=corrections[:20]
             result['total_corrections_in_range']=len(corrections)
         if case and offset == 0:
-            structured = {k: v for k, v in data.items() if k != "source"}
-            structured.setdefault('quality', {'status': 'pending', 'reason': 'quality_not_reviewed', 'reviewer': None})
+            structured = prediction_case(data) if prediction_safe else {k: v for k, v in data.items() if k != "source"}
+            if not prediction_safe:
+                structured.setdefault('quality', {'status': 'pending', 'reason': 'quality_not_reviewed', 'reviewer': None})
             if data['extraction']['chart_validation'] != 'calculated':
                 structured.pop('derived', None)
                 structured['computed_chart_omitted'] = {'reason': 'chart_not_validated',
