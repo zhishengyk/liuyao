@@ -28,7 +28,9 @@ def fixture(tmp_path):
             "classification": {"roots": ["study"]}})))
     plan = tmp_path / "plan.json"
     plan.write_text(json.dumps({
-        "domains": {"study": {"title": "学习", "questions": ["考试"], "flow": "先按考试事项取用。"}},
+        "domains": {"study": {"title": "学习", "questions": ["考试"], "flow": "先按考试事项取用。",
+                               "baseline_evidence_ids": ["rule_a"],
+                               "queries": ["考试取用", "考试动变相反规则"]}},
         "workflow": [{"step": 1, "title": "锁定问题", "route": "没有问题先询问。", "evidence_ids": ["rule_a"]}],
         "selection_policy": "prediction-only",
     }), encoding="utf-8")
@@ -44,10 +46,14 @@ def test_builds_prediction_only_prompts_and_regenerates(tmp_path):
     domain_prompt = (output / "study/PROMPT.md").read_text(encoding="utf-8")
     assert "没有问题先询问" in global_prompt and "`rule_a`" in global_prompt
     assert "先按考试事项取用" in domain_prompt
+    assert "## 必读基础规则" in domain_prompt and "`rule_a`" in domain_prompt
+    assert 'search_knowledge(query="考试取用", kind="rule", topic="study")' in domain_prompt
+    assert "主动查询可能推翻当前方向的相反规则" in domain_prompt
     leaked = ("案例判断", "反馈：没有成功", "卒于次年")
     assert all(text not in global_prompt + domain_prompt for text in leaked)
     assert set(result["files_sha256"]) == {"GLOBAL.md", "study/PROMPT.md"}
     assert result["sections"] == [] and result["evidence_by_bucket"]["global"] == ["rule_a"]
+    assert result["evidence_by_bucket"]["study"] == ["rule_a"]
     hashes = dict(result["files_sha256"])
     assert exporter().build(database, output, plan)["files_sha256"] == hashes
     assert database.read_bytes() == before
@@ -64,6 +70,16 @@ def test_missing_workflow_evidence_stops_without_changing_existing_prompt(tmp_pa
     with pytest.raises(ValueError, match="missing evidence"):
         exporter().build(database, output, plan)
     assert (output / "GLOBAL.md").read_bytes() == before
+
+
+def test_missing_domain_baseline_stops(tmp_path):
+    database, plan = fixture(tmp_path)
+    output = tmp_path / "prompts"
+    config = json.loads(plan.read_text(encoding="utf-8"))
+    config["domains"]["study"]["baseline_evidence_ids"] = ["missing"]
+    plan.write_text(json.dumps(config), encoding="utf-8")
+    with pytest.raises(ValueError, match="Domain study references missing evidence"):
+        exporter().build(database, output, plan)
 
 
 def test_public_source_reader_paginates_and_rejects_stale_files(tmp_path):

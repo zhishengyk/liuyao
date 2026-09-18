@@ -1,6 +1,10 @@
 """Run with python -m liuyao_mcp.server (stdout is MCP protocol only)."""
 import argparse
+import json
+import re
 from typing import Any, Literal
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 from pydantic import StrictInt
 
 from mcp.server import MCPServer
@@ -18,6 +22,7 @@ INSTRUCTIONS = """六爻助手提供排盘和可回查的规则原文。生产�
 固定顺序：明确对象、关系、动作和时限；缺问意先询问，独立事项原则上分占；核对时间和盘面；在判向前按事项检索领域取用与例外；静卦结合日月和旺爻，动卦先还原动爻及本位变爻再核日月效力；综合用神、元神、忌神和领域规则，不用单点救应短路成败；理法定向后再以六神、爻位等补细节；最后按实际机制取应期，无可靠触发则明确应期不可定。允许可判断、倾向但条件不足、不可判断三种结论，不强制 yes/no。"""
 mcp = MCPServer("liuyao", title="六爻助手", instructions=INSTRUCTIONS, version=__version__)
 READ_ONLY = ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=False)
+REMOTE_READ_ONLY = ToolAnnotations(readOnlyHint=True, destructiveHint=False, idempotentHint=True, openWorldHint=True)
 
 
 def checked(function, *args):
@@ -25,6 +30,45 @@ def checked(function, *args):
         return function(*args)
     except (ValueError, FileNotFoundError) as exc:
         raise ToolError(str(exc)) from exc
+
+
+def _version_key(value):
+    match = re.fullmatch(r"v?(\d+)\.(\d+)\.(\d+)(?:(?:-|_)?(alpha|a|beta|b|rc)[.-]?(\d+))?", value.lower())
+    if not match:
+        return None
+    major, minor, patch = map(int, match.group(1, 2, 3))
+    stage = {None: 3, "rc": 2, "beta": 1, "b": 1, "alpha": 0, "a": 0}[match.group(4)]
+    return major, minor, patch, stage, int(match.group(5) or 0)
+
+
+@mcp.tool(annotations=REMOTE_READ_ONLY, structured_output=True)
+def check_update(channel: Literal["auto", "stable", "preview"] = "auto") -> dict[str, Any]:
+    """从GitHub Releases只读检查更新。auto：当前为预览版时包含preview，否则只看stable；失败不影响其他离线工具。"""
+    current_key = _version_key(__version__)
+    include_preview = channel == "preview" or (channel == "auto" and current_key and current_key[3] < 3)
+    try:
+        request = Request("https://api.github.com/repos/zhishengyk/liuyao/releases?per_page=30",
+                          headers={"Accept": "application/vnd.github+json", "User-Agent": f"liuyao-mcp/{__version__}"})
+        with urlopen(request, timeout=4) as response:
+            releases = json.loads(response.read())
+        candidates = [release for release in releases if not release.get("draft")
+                      and (include_preview or not release.get("prerelease"))
+                      and _version_key(release.get("tag_name", ""))]
+        latest = max(candidates, key=lambda release: _version_key(release["tag_name"]))
+        latest_version = latest["tag_name"].removeprefix("v")
+        wheel = next((asset["browser_download_url"] for asset in latest.get("assets", [])
+                      if asset["name"].startswith("liuyao_mcp-") and asset["name"].endswith("-py3-none-any.whl")), None)
+        available = _version_key(latest_version) > current_key if current_key else False
+        return {"status": "checked", "source": "github_releases", "channel": "preview" if include_preview else "stable",
+                "current_version": __version__, "latest_version": latest_version, "update_available": available,
+                "prerelease": bool(latest.get("prerelease")), "release_url": latest["html_url"], "wheel_url": wheel,
+                "uvx_command": f"uvx --python 3.11 --from {wheel} liuyao-mcp" if wheel else None,
+                "restart_required": available,
+                "note": "更新当前MCP配置后在新任务中生效；不要在运行中的任务混用新旧版本。"}
+    except (OSError, URLError, TimeoutError, ValueError, json.JSONDecodeError) as exc:
+        return {"status": "unavailable", "source": "github_releases", "current_version": __version__,
+                "update_available": None, "error": type(exc).__name__,
+                "note": "更新检查失败不影响本地排盘、检索和原文读取。"}
 
 
 _HEX_IDENTITY = ('name', 'full_name', 'upper', 'lower', 'palace', 'palace_element', 'palace_stage')

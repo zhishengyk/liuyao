@@ -1,30 +1,155 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "domains": {
-    "affairs": {"title": "日常事务", "questions": ["证照审批", "求助办事", "整体运势", "文稿出版", "日常服务"], "flow": "明确所办之事、对方和期限，再按事项检索取用与成败规则；不把比赛、求职或诉讼规则借入本域。"},
-    "children": {"title": "孕育子女", "questions": ["生产产期", "备孕受孕", "孕期胎儿"], "flow": "围绕所问子女或胎孕取用。普通孕育问题不自动扩展为安危、生死或具体产期；用户问到相应事项后才检索对应规则。"},
-    "cooperation": {"title": "合作签约", "questions": ["签约合同", "谈判协商", "合作对象", "合作进展"], "flow": "先确定己方、对方、合同或合作目标，再检索世应、父母文书及成合散解的领域规则。"},
-    "health": {"title": "身体健康", "questions": ["身体状况", "病情变化", "恢复康复", "亲友健康", "人身安危", "就医治疗"], "flow": "先按本人或所代亲属确定用神，再区分近病、久病和所问目标。普通健康问题只回答所问状况；只有用户明确询问危重、生死或应期时才进入相应规则，不默认推死期。"},
-    "job": {"title": "事业工作", "questions": ["工作变动", "求职面试", "录用入职", "升职任用", "职场关系", "工作发展"], "flow": "先区分求职、录用、考试文书、升迁或职场关系，再按该事项选择官鬼、父母及世应角色；不包含比赛规则，不以题面结论代替预测。"},
-    "lawsuit": {"title": "诉讼纠纷", "questions": ["纠纷争议", "执行追偿", "诉讼裁判", "调解和解"], "flow": "先确认原告、被告、诉求和阶段，再检索诉讼专属的世应、官鬼、父母文书与和解规则；升迁规则不得进入本域。"},
-    "lost": {"title": "失物寻人", "questions": ["失物寻找", "寻人失联", "失盗追寻"], "flow": "先区分失物、寻人和失盗，再按所问对象取用；找回、位置、平安和归期是独立问题时提醒分占，不读取历史案例结局。"},
-    "objects": {"title": "物品事务", "questions": ["寄送交付", "购买选择", "品质状态", "维修处理"], "flow": "按物品类别和所问动作取用，只回答交付、选择、品质或维修中的当前问题。"},
-    "property": {"title": "房产居家", "questions": ["住房分配", "房屋状况", "搬家迁居", "买卖房产", "装修修造", "租赁住房"], "flow": "先区分房屋本体、买卖、租赁、搬迁或修造，再检索对应取用和领域例外。"},
-    "relationship": {"title": "姻缘感情", "questions": ["恋爱发展", "对方态度", "结婚与婚姻发展", "认识与择偶", "复合挽回", "分手离婚"], "flow": "确认双方角色和具体关系问题后取用；态度、成婚、复合与离婚不自动合并为一个问题。"},
-    "study": {"title": "学业考试", "questions": ["升学录取", "考试成绩", "论文毕业", "学业进展", "择校专业"], "flow": "先区分考试成绩、录取文书、学业进展或择校，再检索父母、官鬼及相关领域规则；任何单一旺相或救应都不得直接短路为成功。"},
-    "travel": {"title": "出行行人", "questions": ["出行计划", "途中安全", "行人归期", "在外情况", "失联寻找"], "flow": "出行能否、在外平安、人在何方和归期属于独立事项时原则上分占；只有同一事件的必要阶段才可分层说明。"},
-    "wealth": {"title": "财运经营", "questions": ["收入得财", "投资经营", "债务回款", "借贷融资", "交易买卖"], "flow": "先确认钱的方向、主体和时限，再检索妻财、财源、世应用神及经营专属规则；不得混入升迁或比赛规则。"},
-    "weather": {"title": "天气自然", "questions": ["晴雨天气", "风雪雷雾", "自然现象"], "flow": "只按天气原问检索专属取用和应期规则，不借用人物事务的成败公式。"},
-    "competition": {"title": "竞技比赛", "questions": ["比赛胜负", "竞赛排名", "选举评比"], "flow": "先确定世应分别代表哪一方，再检索比赛或评选专属规则；本域不回流到工作、诉讼或日常事务。"}
+    "affairs": {
+      "title": "日常事务",
+      "questions": ["证照审批", "求助办事", "整体运势", "文稿出版", "日常服务"],
+      "flow": "先把泛问落实为具体事项、承办方、目标和期限。自占以世为自己，应为对方或承办方；证照、文稿、手续兼核父母，求助与合作须判断应爻是否真正生合世。六亲持世、六合六冲或独发独静都只是条件，不能越过实际用神和动变直接定成败。比赛、诉讼、求职、交易应转入各自领域。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "liuyao_zixiu_dxj.full.l2260.rule", "zengshan_pingshi_dxj-l9990-opposition-cooperation", "zengshan_pingshi_dxj-l9042-single-move-static"],
+      "queries": ["具体办事对象 取用 世应 承办方", "手续文稿证照 父母爻 成事条件", "当前动爻变爻 对世用实际生克 相反规则", "事情远近 阻碍解除 成事应期"]
+    },
+    "children": {
+      "title": "孕育子女",
+      "questions": ["生产产期", "备孕受孕", "孕期胎儿"],
+      "flow": "先区分备孕、是否怀孕、胎儿状态、生产过程和产期，它们不是同一结论。子女或胎孕通常以子孙为核心，母体状态仍须核世爻或对应人物；代占时先建立现实角色。不得由单一胎、养、空破、六神或卦象推断性别和安危，必须核子孙、母体、元忌与动变的完整作用链。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l4096.rule", "liuyao_xiangfa_jinjie_shang.manual.p0314_tai_pregnancy_plans_first_try", "liuyao_zixiu_dxj.full.l2248.rule"],
+      "queries": ["备孕怀孕胎儿生产 原问取用 子孙 母体", "子孙用神 元神忌神 动变 空破墓绝 实际作用", "胎孕安危与生产过程 相反规则 适用前提", "用户明确问产期时 胎养出空值日 远近应期"]
+    },
+    "cooperation": {
+      "title": "合作签约",
+      "questions": ["签约合同", "谈判协商", "合作对象", "合作进展"],
+      "flow": "先明确己方、对方、合同、资金和合作目标。世为己、应为对方；父母可表示合同文书，财表示资金利益，但最终成败仍须看双方及所选用神的实际作用。世应相合不自动等于合作成功，应空、合绊、冲散也不能脱离旺衰动变机械解释。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "zengshan_pingshi_dxj-l9990-opposition-cooperation", "liuyao_zixiu_dxj.full.l2136.rule", "liuyao_lifa_jinjie.manual.p0253_ying_other_party_void"],
+      "queries": ["合作签约 己方对方 合同资金 取用 世应父母妻财", "世应生克冲合 空亡 动变 合作诚意实际作用", "合同能否落实 对方履约 相反规则 例外", "签约谈判进展 阻碍解除 应期"]
+    },
+    "health": {
+      "title": "身体健康",
+      "questions": ["身体状况", "病情变化", "恢复康复", "亲友健康", "人身安危", "就医治疗"],
+      "flow": "先确认本人还是代占亲属，并区分身体状况、病情走势、治疗效果、恢复时间和生死。本人以世为核心；父母、子女、兄弟等按对应六亲取用；关系疏远者可参应。官鬼通常先作病邪候选，不自动代表病人。必须先区分近病与久病，因为空、合、冲在二者中的含义可能相反。普通健康问题不自动扩展到生死和死期。",
+      "baseline_evidence_ids": ["zengshan_pingshi_dxj.manual.l25978", "zengshan_pingshi_dxj.manual.l25962", "liuyao_zixiu_dxj.full.l10032.rule", "zengshan_pingshi_dxj-l5514-six-clash-limits"],
+      "queries": ["本人亲属疾病健康 原问取用 世应六亲 官鬼病邪", "近病久病 用神元神忌神 动变 空合冲墓 实际作用", "治疗恢复安危 领域例外 相反规则", "用户明确问时间时 恢复恶化触发 近远应期"]
+    },
+    "job": {
+      "title": "事业工作",
+      "questions": ["工作变动", "求职面试", "录用入职", "升职任用", "职场关系", "工作发展"],
+      "flow": "先区分求职、面试考试、录用文书、升迁、调动和职场关系。求职与职位通常重点核官鬼，试卷成绩、证件通知与单位文书兼核父母，世为求测者，应可表示单位或对方；代占时先替换现实角色。官父旺、持世、六合或六冲都不能单点决定录用升迁，必须结合实际动变、元忌和当前事项。比赛不得在本领域判断。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l9476.rule", "liuyao_zixiu_dxj.full.l9512.rule", "liuyao_zixiu_dxj.full.l9188.rule", "liuyao_zixiu_dxj.full.l2140.rule"],
+      "queries": ["求职面试录用升迁调动 当前事项取用 官鬼父母世应", "职位文书用神 元神忌神 动爻变爻 空破冲合 实际作用", "单位是否录用或升迁 领域例外 相反规则", "用户明确问时间时 入职升迁调动触发 应期"]
+    },
+    "lawsuit": {
+      "title": "诉讼纠纷",
+      "questions": ["纠纷争议", "执行追偿", "诉讼裁判", "调解和解"],
+      "flow": "先确认原告、被告、求测者所站一方、诉求和程序阶段。世为己方、应为对方；官鬼可表示官府、诉讼压力或案件本身，父母可表示诉状证据，子孙制官可成为缓解或和解因素，但都须按角色与实际作用解释。官鬼旺在诉讼中不得套用升迁吉义；官受克也不自动等于己方胜。",
+      "baseline_evidence_ids": ["zengshan_buyi.manual.L13298C0000.rule", "zengshan_pingshi_dxj-l8994-tomb-risk-lawsuit", "liuyao_zixiu_dxj.full.l2248.rule", "zengshan_pingshi_dxj-l9990-opposition-cooperation"],
+      "queries": ["诉讼纠纷 原告被告 己方对方 官府证据 取用世应官父", "世应官父子孙 动变旺衰 空破冲合 谁受益谁受损", "胜负和解执行 领域专属例外 相反规则", "立案裁判和解执行 阻碍解除 应期"]
+    },
+    "lost": {
+      "title": "失物寻人",
+      "questions": ["失物寻找", "寻人失联", "失盗追寻"],
+      "flow": "先区分失物、失盗、寻人、在外安危和归期。失物须按物品性质在父母、妻财等六亲中取用，不能把所有失物一律取子孙；寻人按亲属六亲或关系疏远时参应。找回、位置、谁拿走、人在外是否平安和何时回来是不同问题，独立事项原则上分占。位置取象不得代替能否找回的理法判断。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l8728.rule", "liuyao_zixiu_dxj.full.l8732.rule", "liuyao_zixiu_dxj.full.l8788.rule", "liuyao_lifa_jinjie.manual.p0244_ying_selection_unrelated"],
+      "queries": ["失物寻人失盗 当前对象性质 取用 六亲应爻", "所选用神 动变空伏墓破 生克世应 找回归来作用", "找回与位置安危身份 分开查询 相反规则", "用户明确问时间时 出伏填实冲合归期找回应期"]
+    },
+    "objects": {
+      "title": "物品事务",
+      "questions": ["寄送交付", "购买选择", "品质状态", "维修处理"],
+      "flow": "先明确物品类别、所有者、接收方以及所问是购买、品质、维修还是交付。物品按性质选择父母、妻财等六亲；世为己方，应可表示卖方、维修方或接收方。品质和能否交付不是同一结论，六神、五行和卦象只能在成败主线后补充材质、外观与故障细节。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l2260.rule", "liuyao_zixiu_dxj.full.l2136.rule", "liuyao_zixiu_dxj.full.l2148.rule", "liuyao_zixiu_dxj.full.l2248.rule"],
+      "queries": ["具体物品性质 所有者接收方 购买维修交付 取用", "物品用神 世应 动变空破墓绝 实际作用", "品质故障与交付成败 分开查询 相反规则", "维修完成寄送到达 阻碍解除 应期"]
+    },
+    "property": {
+      "title": "房产居家",
+      "questions": ["住房分配", "房屋状况", "搬家迁居", "买卖房产", "装修修造", "租赁住房"],
+      "flow": "先区分房屋本体、产权文书、买卖资金、租赁对象、搬迁和装修。房屋与产权通常兼核父母，交易资金兼核妻财，世为求测者，应可表示房屋、卖方、房东或对方，必须按原问确定。房屋状况、能否买到、买后是否合适和何时成交不能用一个结论覆盖。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l2136.rule", "liuyao_zixiu_dxj.full.l2148.rule", "liuyao_zixiu_dxj.full.l2260.rule", "zengshan_pingshi_dxj-l12782-origin-importance"],
+      "queries": ["房屋产权买卖租赁搬迁装修 当前事项取用 父母妻财世应", "房屋用神与资金文书 动变旺衰 空破冲合 实际作用", "房屋状况与交易成败适合度 分开查询 相反规则", "成交入住搬迁装修 阻碍解除 应期"]
+    },
+    "relationship": {
+      "title": "姻缘感情",
+      "questions": ["恋爱发展", "对方态度", "结婚与婚姻发展", "认识与择偶", "复合挽回", "分手离婚"],
+      "flow": "先明确双方身份和所问是态度、发展、成婚、复合还是离婚。传统取用中男问配偶常取妻财，女问配偶常取官鬼，世为自己、应为对方，但具体关系与代占仍须核实。世应相合、比合、相冲或财官旺衰都不能脱离动变和现实角色单独定感情结果；态度与最终成婚必须分开。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l2148.rule", "liuyao_zixiu_dxj.full.l2140.rule", "liuyao_zixiu_dxj.full.l2212.rule", "liuyao_zixiu_dxj.full.l9784.rule"],
+      "queries": ["恋爱婚姻复合离婚 双方身份 取用 妻财官鬼世应", "财官世应 动变旺衰 空破冲合 实际作用", "态度与成婚复合结果 分开查询 领域例外相反规则", "用户明确问时间时 关系落实或解除阻碍 应期"]
+    },
+    "study": {
+      "title": "学业考试",
+      "questions": ["升学录取", "考试成绩", "论文毕业", "学业进展", "择校专业"],
+      "flow": "先区分学习状态、考试成绩、名次功名、录取通知、论文毕业和择校。父母通常表示试卷成绩、文书证件，官鬼可表示名次功名或录取机会，世为考生；两者并存时须按原问确定主次。父官旺、子孙持世、六冲六合或单一空破都不能短路为通过或失败。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l9140.rule", "liuyao_zixiu_dxj.full.l9168.rule", "liuyao_zixiu_dxj.full.l9188.rule", "zengshan_pingshi_dxj.manual.l21318"],
+      "queries": ["考试成绩录取论文学业 当前事项取用 父母官鬼世爻", "父官用神 元神忌神 动变空破冲合 实际作用", "成绩名次录取毕业 分开查询 领域例外相反规则", "发榜录取毕业 用户明确问时间时 应期触发"]
+    },
+    "travel": {
+      "title": "出行行人",
+      "questions": ["出行计划", "途中安全", "行人归期", "在外情况", "失联寻找"],
+      "flow": "先区分本人出行、他人行踪、在外安危和归期。本人出行通常以世为行者，应可表示目的地；问他人按亲属六亲取用，关系疏远者可参应。归期与在外平安原则上分占，不能用同一受克或入墓同时解释来不来和安不安全。远近决定年月或日时粒度。",
+      "baseline_evidence_ids": ["zengshan_buyi.manual.L13046C0000.rule", "liuyao_zixiu_dxj.full.l8272.rule", "zengshan_pingshi_dxj.manual.l25146", "zengshan_pingshi_dxj.manual.l25178"],
+      "queries": ["本人出行他人行人 归期安危 当前问题取用 世应六亲", "行人用神 动静空墓冲合进退 世应实际作用", "归否与安危分开查询 领域例外相反规则", "远近年月日时 出发到达归来 应期触发"]
+    },
+    "wealth": {
+      "title": "财运经营",
+      "questions": ["收入得财", "投资经营", "债务回款", "借贷融资", "交易买卖"],
+      "flow": "先明确钱的主体、流向、交易对方、目标和期限，区分收入、经营、投资、借入、借出追回与买卖。妻财通常为财，用神之源兼看子孙，世为自己，应为交易对方；财旺不等于自己得到，必须核财与世应的有向关系、元神是否有力及动变终局。回款和借款申请不得使用同一查询。",
+      "baseline_evidence_ids": ["zengshan_buyi.manual.L11910C0000.rule", "liuyao_zixiu_dxj.full.l7572.rule", "liuyao_zixiu_dxj.full.l7636.rule", "zengshan_pingshi_dxj.manual.l22946"],
+      "queries": ["收入经营投资借入回款买卖 钱的方向 取用 妻财子孙世应", "财用神财源元神忌神 动变空破墓绝 实际作用", "钱到自己还是对方 经营成败 相反规则例外", "得财回款成交 用户明确问时间时 应期触发"]
+    },
+    "weather": {
+      "title": "天气自然",
+      "questions": ["晴雨天气", "风雪雷雾", "自然现象"],
+      "flow": "先锁定地点、日期和时段。天气取用应以所采用作者的父母、子孙、妻财等规则为准，不把人物事务的世应成败公式搬入；不同书对五行、六亲和世应天气含义存在差异时须并列来源。通常先看动爻，没有动爻再看世爻或旺爻；六神只补天气细节。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l6424.rule", "zengshan_pingshi_dxj-l14422-world-response-weather", "zengshan_pingshi_dxj-l14510-weather-elements-critique", "zengshan_buyi.manual.L07626C0000.rule"],
+      "queries": ["指定地点日期时段 晴雨风雪 天气取用 父母子孙妻财", "天气动爻静卦 日月旺衰 冲合空伏 实际作用", "不同作者天气规则冲突 相反规则 适用边界", "天气转变 动爻值合冲 指定时段应期"]
+    },
+    "competition": {
+      "title": "竞技比赛",
+      "questions": ["比赛胜负", "竞赛排名", "选举评比"],
+      "flow": "先确定支持哪一方以及世应各代表谁；双边比赛通常以世为我方或支持方、应为对方，多方竞赛、排名和选举还须检索官鬼等专属取用。必须比较双方旺衰和全部动变的有向作用，不能机械地以世旺、应空、六冲或单一暗动判胜。比赛、竞选与工作录用不得串用规则。",
+      "baseline_evidence_ids": ["liuyao_zixiu_dxj.full.l6808.rule", "zengshan_buyi.manual.L12522C0000.rule", "zengshan_pingshi_dxj-l9990-opposition-cooperation", "liuyao_zixiu_dxj.full.l2248.rule"],
+      "queries": ["比赛竞赛选举排名 双方身份 支持方 取用 世应官鬼", "世应双方旺衰 全部动爻变爻暗动 生克指向", "比赛胜负与排名选举 专属例外 相反规则", "比赛结果公布或赛程 用户明确问时间时 应期"]
+    }
   },
   "workflow": [
-    {"step": 1, "title": "锁定问题", "route": "明确求测对象、双方关系、具体动作和时间范围。没有问题或问题含糊时先询问；只有用户明确要求射来意时才推测，并标明这是来意推测。独立事项原则上分占；同一事件的当前状态、后续结果和应期可以分层说明，但不扩展到用户未问的独立事项。", "evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "liuyao_xiangfa_jinjie_shang.manual.p0007_core_question", "zengshan_buyi.manual.L00790.rule", "zengshan_buyi.manual.L01890.rule", "zengshan_buyi.manual.L04354C0000.rule", "zengshan_buyi.manual.L06526C0000.rule"]},
-    {"step": 2, "title": "核对输入和盘面", "route": "核对时间、时区、初爻到上爻的六值、动爻、本卦、变卦、世应和六亲。盘面计算事实、原作者规则和本次解释分开；看不清或互相冲突的输入先澄清，不补造。", "evidence_ids": ["zengshan_pingshi_dxj-l1986-study-and-record", "zengshan_pingshi_dxj-l3674-changed-line-scope"]},
-    {"step": 3, "title": "按事项取用", "route": "在最终判向前加载对应领域入口，并通过 kind=rule 检索该事项的取用依据。确定主用神、世应现实角色及必要辅助爻；取用有分歧时保留候选和适用条件，不按想要的答案选用神。", "evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "zengshan_pingshi_dxj-l2638-yongshen-strength", "liuyao_zixiu_dxj.full.l2220.rule"]},
-    {"step": 4, "title": "判断各爻能否实际发生作用", "route": "检查用神自身、元神能否实际生、忌神能否实际克、动爻与本位变爻、飞伏及空破墓绝。静卦先结合日月和旺爻；动卦先还原动爻及本位变爻的作用链，再以日月判断作用是否有力；特殊旺衰按对应原文例外处理。不得使用“任一救应成立就必成”的全局布尔公式。", "evidence_ids": ["zengshan_pingshi_dxj-l2638-yongshen-strength", "zengshan_pingshi_dxj-l3542-static-reading", "zengshan_pingshi_dxj-l9274-single-moving-context", "liuyao_zixiu_dxj.full.l4216.rule", "liuyao_lifa_jinjie.manual.p0196_special_strength"]},
-    {"step": 5, "title": "领域规则参与后综合结果", "route": "围绕原问，把领域取用、领域特殊条件、用神与元忌的实际作用及原文例外一起综合。当前状态与同一事件的最终结果可以分开，但不能扩展到未问事项。相反规则先核对象、层次、时限和前提；没有可靠主线时允许回答“倾向但条件不足”或“不可判断，需补充问题或重新起卦”。", "evidence_ids": ["liuyao_lifa_jinjie.manual.p0196_special_strength", "zengshan_buyi.manual.L01890.rule"]},
-    {"step": 6, "title": "理法定向后再取象", "route": "六神、爻位、三刑、十二长生、卦宫和主变卦只用于补充人物、原因、位置、过程和趋势；除非所采用作者明确把某结构列为理法条件，否则不得反向推翻已经由理法与领域规则形成的主线。", "evidence_ids": ["liuyao_xiangfa_jinjie_shang.manual.p0006_directions", "liuyao_xiangfa_jinjie_shang.manual.p0179_six_spirits_limit", "liuyao_xiangfa_jinjie_xia-p0005-punishment-order"]},
-    {"step": 7, "title": "最后判断应期并输出", "route": "先有事件结果和实际作用机制，再找与该结果对应的未来触发；区分近事和远事，最多给一个主应期和一个有必要的备选。缺乏可靠触发时明确说“应期不可定”，不得为填字段而凑日期。输出只保留结论、置信度及原因、主用神与关键作用链、主要反证或不确定项、可确定时的应期和原文依据。", "evidence_ids": ["liuyao_zixiu_dxj.full.l5320.rule", "liuyao_zixiu_dxj.full.l3188.rule"]}
+    {
+      "step": 1,
+      "title": "锁定原问与占问边界",
+      "route": "先明确求测对象、双方关系、具体动作和时间范围，再决定是否能够取用。一念原则上只占一事；同一事件的当前状态、后续结果和应期可以分层，彼此独立的问题应提醒分占。没有问题或问题含糊时先询问；只有用户明确要求射来意时才推测，并标明这是来意推测。卦意恍惚、输入冲突或关键对象无法确定时允许补问或重新起卦，不为覆盖率妄断，也不得为了得到想要结果反复起卦。",
+      "evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "liuyao_xiangfa_jinjie_shang.manual.p0007_core_question", "zengshan_buyi.manual.L00790.rule", "zengshan_buyi.manual.L01890.rule", "zengshan_buyi.manual.L04354C0000.rule", "zengshan_buyi.manual.L06526C0000.rule"]
+    },
+    {
+      "step": 2,
+      "title": "核对输入、盘面事实与关系方向",
+      "route": "核对时间、时区、初爻到上爻的六值、动爻、本卦、变卦、世应和六亲。程序计算事实、原作者规则和本次解释分开；看不清或互相冲突的输入先澄清，不补造。所有生克先写成施力者→受力者的有向边；月建→本爻、日辰→本爻、变爻→本位动爻、世→应的方向不得倒置。变爻只先回头作用本位动爻，不把它当成跨位发动的普通动爻。",
+      "evidence_ids": ["zengshan_pingshi_dxj-l1986-study-and-record", "zengshan_pingshi_dxj-l3674-changed-line-scope"]
+    },
+    {
+      "step": 3,
+      "title": "先加载领域基础，再按事项取用",
+      "route": "在最终判向前读取当前领域入口，逐条用 get_source 核对其中的固定基础 evidence ID，然后再动态检索本题取用依据。用神是分析核心，但同一六亲在不同事项中吉凶含义不同；确定主用神、世应现实角色和必要辅助爻，并标明 primary、hidden、changed 层次。取用有分歧时分别保留候选和适用条件，不按希望得到的答案选择。",
+      "evidence_ids": ["liuyao_zixiu_dxj.full.l2248.rule", "zengshan_pingshi_dxj-l2638-yongshen-strength", "liuyao_zixiu_dxj.full.l2220.rule", "liuyao_zixiu_dxj.full.l2260.rule"]
+    },
+    {
+      "step": 4,
+      "title": "还原用神、元神、忌神与动变的实际作用链",
+      "route": "不得用单一旺、空、破、墓、合、冲、进退或持世短路成败。依次核用神自身是否有根，元神是否旺而且实际能够生，忌神是否有力而且实际能够克，动爻与本位变爻最终指向，以及日月是否使这些作用成立。一般动爻可以作用静爻，静爻不能反过来作用动爻；日月可以作用本爻和变爻。静卦先看日月对用神，再看旺爻对用神；动卦先还原动变有向链，再以日月判断效力。日月与动变冲突时通常重动变、辅日月，但特殊旺相必须读取相应例外，不能套普通顺序。",
+      "evidence_ids": ["zengshan_pingshi_dxj-l2638-yongshen-strength", "zengshan_pingshi_dxj-l3542-static-reading", "zengshan_pingshi_dxj-l9274-single-moving-context", "liuyao_zixiu_dxj.full.l4216.rule", "liuyao_lifa_jinjie.manual.p0196_special_strength"]
+    },
+    {
+      "step": 5,
+      "title": "领域语义和例外参与后综合结果",
+      "route": "冲、合、空、破、墓、绝、进退的事件意义必须在当前领域和原问确定后解释；同一结构在近病、久病、出行、行人、婚姻等事项中可能意义相反。围绕原问综合领域基础、用神元忌的实际作用和原文例外。相反规则先核对象、方向、层次、时限和前提，再查原文主次，不按条数或排名投票。允许可判断、倾向但条件不足、不可判断三档结论。",
+      "evidence_ids": ["liuyao_lifa_jinjie.manual.p0196_special_strength", "zengshan_buyi.manual.L01890.rule", "zengshan_pingshi_dxj-l5514-six-clash-limits", "liuyao_zixiu_dxj.full.l4408.rule"]
+    },
+    {
+      "step": 6,
+      "title": "理法定向后再以象法补充细节",
+      "route": "先解决用户真正所问的核心问题，再补人物、原因、位置、过程和趋势。六神不独立主吉凶；三刑不独立主吉凶；卦宫、十二长生和主变卦象通常不能替代理法主线。只有所采用作者明确把某结构列为理法条件时，才可进入判向；否则只作细节和建议。不得眉毛胡子一把抓，也不得用取象准确掩盖核心成败未答。",
+      "evidence_ids": ["liuyao_xiangfa_jinjie_shang.manual.p0007_core_question", "liuyao_xiangfa_jinjie_shang.manual.p0006_directions", "liuyao_xiangfa_jinjie_shang.manual.p0179_six_spirits_limit", "liuyao_xiangfa_jinjie_xia-p0005-punishment-order"]
+    },
+    {
+      "step": 7,
+      "title": "最后判断应期并按证据强度输出",
+      "route": "先确定事件方向和使它落实或翻转的实际机制，再找对应未来触发；区分过去应期与未来应期，远事按年/月、近事按日/时，并服从具体事项。最多给一个主应期和一个确有必要的备选；缺乏可靠触发时明确说应期不可定，不为填字段凑日期。最终只输出结论档位、置信度及原因、主用神与关键作用链、主要反证或未知项、能确定时的应期和实际回查原文。",
+      "evidence_ids": ["liuyao_zixiu_dxj.full.l5320.rule", "liuyao_zixiu_dxj.full.l3188.rule", "liuyao_zixiu_dxj.full.l6380.rule", "zengshan_buyi.manual.L01890.rule"]
+    }
   ],
-  "selection_policy": "Production prompts contain only prediction workflow, domain routing, and evidence IDs. Historical examples, author interpretations, outcomes, feedback, scoring, adjudication, regression instructions, and evaluation records remain outside the production prompt and are read only by separate evaluation tooling."
+  "selection_policy": "Production prompts contain reviewed cross-domain principles, domain minimum knowledge cards, pinned rule evidence IDs, and query plans. They never include historical case answers, author conclusions for a target case, feedback, scoring, adjudication, or evaluation records. Full rule text and exceptions remain in SQLite and must be read through get_source."
 }

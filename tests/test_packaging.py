@@ -121,3 +121,13 @@ def test_release_smoke_compares_exact_page_local_columns():
     spans = [{'page': 145, 'start_line': 1, 'end_line': 2, 'start_column': 1, 'end_column': 3},
              {'page': 145, 'start_line': 2, 'end_line': 2, 'start_column': 4, 'end_column': 6}]
     assert smoke.selected_page_text(page, spans) == '行\n甲作者\n反馈'
+
+
+def test_skill_has_generic_once_per_task_github_update_check_and_offline_fallback():
+    skill = (Path(__file__).resolve().parents[1] /
+             'plugins/liuyao-assistant/skills/interpret-liuyao/SKILL.md').read_text(encoding='utf8')
+    assert '每个新任务第一次触发本 Skill 时调用一次' in skill
+    assert 'check_update(channel="auto")' in skill
+    assert 'GitHub Releases' in skill and '通用 `uvx_command`' in skill
+    assert '检查失败、离线' in skill and '继续正常断卦' in skill
+    assert 'codex plugin' not in skill

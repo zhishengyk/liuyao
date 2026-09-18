@@ -91,6 +91,22 @@ def check_installed_version(installed, wheel_name=None, plugin_version=None):
         assert actual == Version(plugin_version), (plugin_version, installed)
 
 
+def selected_page_text(page, spans):
+    """Read exact page-local columns for release-contract tests."""
+    lines = page['text'].split('\n')
+    result = []
+    for span in spans:
+        assert span['page'] == page['pdf_pages'][0]
+        selected = lines[span['start_line']-1:span['end_line']]
+        start, end = span.get('start_column', 0), span.get('end_column', len(selected[-1]))
+        if len(selected) == 1:
+            selected[0] = selected[0][start:end]
+        else:
+            selected[0], selected[-1] = selected[0][start:], selected[-1][:end]
+        result.append('\n'.join(selected))
+    return '\n'.join(result)
+
+
 async def main(argv=None):
     options = arguments(argv)
     env = {key: value for key, value in os.environ.items()
@@ -172,7 +188,7 @@ async def main(argv=None):
 
             listed = await client.list_tools()
             tools = {tool.name: tool for tool in listed.tools}
-            assert set(tools) == {'build_chart', 'inspect_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics'}
+            assert set(tools) == {'build_chart', 'inspect_chart', 'search_knowledge', 'get_source', 'get_outline', 'get_topics', 'check_update'}
             if report.get('installed', {}).get('prompt_files_checked'):
                 prompt = await call('get_source', evidence_id='prompt:GLOBAL.md', max_chars=1000)
                 assert prompt['kind'] == 'skill_prompt' and prompt['text'].startswith('# 生产断卦流程')
@@ -183,13 +199,14 @@ async def main(argv=None):
             search_schema = tools['search_knowledge'].input_schema['properties']
             assert search_schema['include_unknown']['default'] is False
             assert 'case_text_scope' not in search_schema
+            assert tools['check_update'].input_schema['properties']['channel']['enum'] == ['auto', 'stable', 'preview']
             assert {'require_valid_chart', 'features', 'topic', 'subtopic', 'outline_ids'} <= set(search_schema)
             assert tools['build_chart'].input_schema['properties']['line_values']['items']['type'] == 'integer'
             topics = await call('get_topics')
             assert {'job', 'wealth', 'lost'} <= {item['id'] for item in topics['items']}
             chart = await call('build_chart', line_values=[2]*6, month_branch='卯', day_ganzhi='庚子', detail='full')
             assert chart['primary']['name'] == '坤' and '| 上爻 |' in chart['display']['markdown']
-            report['checks'].append('five_mcp_tool_schemas_topics_and_chart')
+            report['checks'].append('mcp_tool_schemas_topics_chart_and_generic_update_check')
 
             hidden = await call('build_chart', line_values=[2,2,1,1,1,1], month_branch='辰',
                                 day_ganzhi='甲子', yongshen_positions=[1], yongshen_scope='hidden')

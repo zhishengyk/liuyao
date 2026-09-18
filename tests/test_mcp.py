@@ -1,4 +1,5 @@
 import asyncio
+import json
 import os
 import sys
 
@@ -11,10 +12,12 @@ def test_real_stdio_protocol():
         params = StdioServerParameters(command=sys.executable,args=["-m","liuyao_mcp.server"],env={**os.environ,"PYTHONIOENCODING":"utf-8"})
         async with Client(params) as client:
             listed = await client.list_tools()
-            assert {t.name for t in listed.tools} == {"build_chart","inspect_chart","search_knowledge","get_source","get_outline","get_topics"}
+            assert {t.name for t in listed.tools} == {"build_chart","inspect_chart","search_knowledge","get_source","get_outline","get_topics","check_update"}
             assert all(t.annotations.read_only_hint for t in listed.tools)
             search_schema = next(t.input_schema for t in listed.tools if t.name == 'search_knowledge')
             assert 'case_text_scope' not in search_schema['properties']
+            update_schema = next(t.input_schema for t in listed.tools if t.name == 'check_update')
+            assert update_schema['properties']['channel']['enum'] == ['auto', 'stable', 'preview']
             cases = await client.call_tool('search_knowledge', {'query': '父母', 'kind': 'case', 'limit': 1})
             assert not cases.is_error
             case_data = cases.structured_content
@@ -93,3 +96,28 @@ def test_real_stdio_protocol():
             old = await client.call_tool('build_chart',{'line_values':[8]*6,'month_branch':'卯','day_ganzhi':'庚子'})
             assert old.is_error
     asyncio.run(run())
+
+
+def test_generic_github_update_check_selects_channel_and_returns_wheel(monkeypatch):
+    from liuyao_mcp import server
+
+    releases = [
+        {"tag_name": "v1.2.0-rc.2", "draft": False, "prerelease": True,
+         "html_url": "https://github.com/zhishengyk/liuyao/releases/tag/v1.2.0-rc.2",
+         "assets": [{"name": "liuyao_mcp-1.2.0rc2-py3-none-any.whl",
+                     "browser_download_url": "https://github.com/zhishengyk/liuyao/releases/download/v1.2.0-rc.2/liuyao_mcp-1.2.0rc2-py3-none-any.whl"}]},
+        {"tag_name": "v1.1.0", "draft": False, "prerelease": False,
+         "html_url": "https://github.com/zhishengyk/liuyao/releases/tag/v1.1.0", "assets": []},
+    ]
+
+    class Response:
+        def __enter__(self): return self
+        def __exit__(self, *args): pass
+        def read(self): return json.dumps(releases).encode()
+
+    monkeypatch.setattr(server, "urlopen", lambda *args, **kwargs: Response())
+    preview = server.check_update("preview")
+    assert preview["latest_version"] == "1.2.0-rc.2" and preview["update_available"]
+    assert preview["wheel_url"] in preview["uvx_command"] and preview["restart_required"]
+    stable = server.check_update("stable")
+    assert stable["latest_version"] == "1.1.0" and not stable["update_available"]
