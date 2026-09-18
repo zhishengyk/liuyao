@@ -81,20 +81,29 @@ def build(database, output, plan_path):
     generated = {"GLOBAL.md": "".join(global_parts)}
     for name, domain in plan["domains"].items():
         generated[f"{name}/PROMPT.md"] = (
-            f"# {domain['title']}领域入口\n\n"
+            f"# {domain['title']}领域断卦流程\n\n"
             f"适用问题：{'、'.join(domain['questions'])}。\n\n"
-            "## 最低领域知识\n\n"
+            "## 第1步：限定本领域原问\n\n"
+            f"先把用户原问归入以下一个或多个子问题：{'、'.join(domain['questions'])}。只回答用户实际询问的子问题；若多个子问题彼此独立，按全局规则提醒分占；同一事件的现状、结果和应期可以分层，但不能用一个结论覆盖所有维度。明确人物、物品、双方关系、动作方向、地点和时间范围后再取用。\n\n"
+            "## 第2步：建立现实角色与用神候选\n\n"
             f"{domain['flow']}\n\n"
-            "## 必读基础规则\n\n"
-            "这些规则不依赖动态排名。首次进入本领域时逐条调用 `get_source(evidence_id)`，读取正文及 `required_contexts`；同一任务已经读过且版本未变的可以复用。\n\n"
-            + "".join(f"- `{evidence_id}`（{sources[units[evidence_id]['source_id']].get('title', units[evidence_id]['source_id'])}）\n"
+            "把候选对象逐一写成“现实角色 → 六亲/世应 → primary、hidden 或 changed → 爻位”。存在两种原书取用时并列保留，先读取下列基础原文，不按希望得到的答案选用神。\n\n"
+            "## 第3步：读取本领域固定基础原文\n\n"
+            "这些规则是本领域的最低证据，不依赖动态排名。首次进入本领域时逐条调用 `get_source(evidence_id)`，读取正文、作者归属、适用前提和 `required_contexts`；同一任务已经完整读取且版本未变的可以复用。固定 evidence 只建立方法边界，不能把其中历史案例结果当成当前问题答案。\n\n"
+            + "".join(f"- `{evidence_id}`：{units[evidence_id].get('chapter', '人工规则')}（{sources[units[evidence_id]['source_id']].get('title', units[evidence_id]['source_id'])}）\n"
                       for evidence_id in domain_evidence[name])
-            + "\n## 固定检索顺序\n\n"
+            + "\n## 第4步：排盘并建立本领域作用链\n\n"
+              "调用 `build_chart(detail=\"compact\")` 核盘；涉及成败、安危、关键冲突或应期时再调用一次 `inspect_chart`。围绕本领域已选角色，把月日、动爻、本位变爻、飞伏、世应、元神和忌神统一写成有向作用链。先判断结构是否存在，再判断它在当前领域是否有效；空、破、墓、绝、冲、合、进退和六神不得脱离领域语义直接定结果。\n\n"
+              "## 第5步：按领域固定顺序检索\n\n"
+              "以下查询是起点，不是固定答案。每次必须加入当前盘面的具体六亲、爻位、动变、空破墓绝、主体、动作和时限；按实际原问删去无关词，不把期望结果写入查询。\n\n"
             + "".join(f"{index}. `search_knowledge(query=\"{query}\", kind=\"rule\", topic=\"{name}\")`\n"
                       for index, query in enumerate(domain["queries"], 1))
-            + "\n先按 [生产断卦流程](../GLOBAL.md) 锁定原问和核盘；动态查询必须加入当前盘面的具体六亲、爻位、动变、空破墓绝和时间范围。"
-              "检查 `query_terms`、`unmatched_query_terms`、`required_contexts` 和适用前提；对拟采用规则逐条 `get_source`，并主动查询可能推翻当前方向的相反规则。"
-              "只有用户明确询问时间且结果机制已成立时才执行应期查询。连续补查无新增适用证据时停止并说明缺口。\n"
+            + "\n检查每轮的 `query_terms`、`unmatched_query_terms`、`returned_count` 和 `budget_skipped`。对拟采用规则逐条 `get_source`；首轮缺少主体、动作或关键盘面词时换等价表达补查，不能自动更换所问对象。\n\n"
+              "## 第6步：核相反规则并形成领域结论\n\n"
+              "至少补查一次可能推翻当前方向的相反规则，核对其对象、施力方向、六亲层次、时间范围和必要前提。领域内规则与公共规则冲突时，先比较是否在回答同一问题，再按实际原文主次与例外裁决，不按命中数量、检索排名或案例结局投票。输出“可判断”“倾向但条件不足”或“不可判断”之一，并列出能改变结论的未知项。连续补查无新增适用证据时停止，不无限检索。\n\n"
+              "## 第7步：按领域机制取应期并输出\n\n"
+              "只有用户明确询问时间，而且结果方向与实际作用机制已经成立时，才执行本领域第4组应期查询。区分过去与未来、远事与近事，把应期绑定到出空、填实、冲合、出墓、进退或值日月等真实触发；最多给一个主应期和一个必要备选，没有可靠触发就写“应期不可定”。最终回答依次给：结论档位、置信度及原因、现实角色和主用神、关键有向作用链、主要反证/未知项、可确定时的应期、实际回查原文。\n\n"
+              "返回 [生产断卦流程](../GLOBAL.md) 完成跨领域的理法—象法边界和最终证据核对。\n"
         )
 
     output.mkdir(parents=True, exist_ok=True)

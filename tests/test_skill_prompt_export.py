@@ -46,9 +46,12 @@ def test_builds_prediction_only_prompts_and_regenerates(tmp_path):
     domain_prompt = (output / "study/PROMPT.md").read_text(encoding="utf-8")
     assert "没有问题先询问" in global_prompt and "`rule_a`" in global_prompt
     assert "先按考试事项取用" in domain_prompt
-    assert "## 必读基础规则" in domain_prompt and "`rule_a`" in domain_prompt
+    assert "## 第3步：读取本领域固定基础原文" in domain_prompt and "`rule_a`" in domain_prompt
+    assert "## 第4步：排盘并建立本领域作用链" in domain_prompt
+    assert "## 第6步：核相反规则并形成领域结论" in domain_prompt
+    assert "## 第7步：按领域机制取应期并输出" in domain_prompt
     assert 'search_knowledge(query="考试取用", kind="rule", topic="study")' in domain_prompt
-    assert "主动查询可能推翻当前方向的相反规则" in domain_prompt
+    assert "至少补查一次可能推翻当前方向的相反规则" in domain_prompt
     leaked = ("案例判断", "反馈：没有成功", "卒于次年")
     assert all(text not in global_prompt + domain_prompt for text in leaked)
     assert set(result["files_sha256"]) == {"GLOBAL.md", "study/PROMPT.md"}
