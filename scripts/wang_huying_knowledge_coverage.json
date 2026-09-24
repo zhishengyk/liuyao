@@ -12,10 +12,10 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 11,
+    "compare_only": 15,
     "tool_only": 3,
-    "pending": 36,
     "mixed_requires_attribution": 16,
+    "pending": 32,
     "reviewed_partial": 12,
     "integrated": 17,
     "source_family_alias": 4
@@ -45,8 +45,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 17235,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "卦名关键词/象义表，正文无王虎应内部署名；仅可作为低权重象义对照，不能进入主吉凶。"
     },
     {
       "title": "独门易卦秘典",
@@ -63,8 +63,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 95099,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文把卦身定义为“卦之灵魂”、参与事情吉凶，与王虎应《疑惑指迷》明确“卦身与事情吉凶没有关系”的后期口径冲突，禁止进入王虎应生产规则。"
     },
     {
       "title": "还本归宗：六爻预测指南",
@@ -81,8 +81,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 14610,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "高度公式化入墓规则，包含“入墓即藏、克不到”等，与王虎应本人答疑“入墓后仍可生克、只改变程度/取象”不一致；作者归属无直接证据，保留对照。"
     },
     {
       "title": "六爻八卦高层理论-断六亲属相",
@@ -90,8 +90,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 18842,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "使用四值同权、飞宫等体系，正文无王虎应内部署名，且与已核定王虎应时间/作用层级不同；不进入主Prompt。"
     },
     {
       "title": "六爻初级知识",
