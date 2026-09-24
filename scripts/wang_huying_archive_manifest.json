@@ -3,7 +3,7 @@
   "archive_branch": "books-archive-reorg",
   "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
   "archive_root": "书籍/六爻/王虎应",
-  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved.",
+  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved. Authority is determined from the text itself before folder/name metadata: an internal attribution to another author overrides archive classification and filename.",
   "include_all_markdown_under_root": true,
   "skip_empty_files": true,
   "basename_contains": [],
@@ -15,6 +15,18 @@
     "**/*八字*.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "**/90_他人整理/**",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*六爻预测终生运气*.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "**/*王虎应断风水*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
       "authority_tier": "mixed_requires_attribution"
