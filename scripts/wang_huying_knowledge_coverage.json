@@ -14,10 +14,10 @@
   "counts": {
     "compare_only": 11,
     "tool_only": 3,
-    "pending": 39,
+    "pending": 36,
     "mixed_requires_attribution": 16,
-    "reviewed_partial": 10,
-    "integrated": 16,
+    "reviewed_partial": 12,
+    "integrated": 17,
     "source_family_alias": 4
   },
   "entries": [
@@ -210,7 +210,7 @@
       "author_basis": "existing_archive_classification",
       "size": 45975,
       "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "note": "正文多处明确作者王虎应。已提取道路后期修订、病症不唯官鬼、多个象源交叉验证等方法；其余实战细节作为案例库继续核。"
     },
     {
       "title": "王虎应老师--六爻预测宝典",
@@ -246,8 +246,8 @@
       "document_type": "02_基础理论",
       "author_basis": "existing_archive_classification",
       "size": 471593,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "正式署名教材已系统核读基础法则及比赛、孕产、官司、信件邮件、年运、出国证等章节；独有领域条件已写入对应Prompt。"
     },
     {
       "title": "初学断卦应该如何入手？",
@@ -570,8 +570,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 296924,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "reviewed_partial",
+      "note": "正文末部明确王虎应著。已核方法与代表病种，主体为分科病象/病例库；不常驻Prompt，作为health detail corpus按病种加载。"
     },
     {
       "title": "六爻测病文章",
@@ -597,8 +597,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 426619,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "reviewed_partial",
+      "note": "正文明确王虎应著。已深读方法总论、测病法则、基础状态、近久病、求医问药与综合判断；健康Prompt已建立patient_yongshen/symptom_carrier和治疗模型。大量分科病种象义保留全文按需加载。"
     },
     {
       "title": "王虎应——浅谈六爻股票",
