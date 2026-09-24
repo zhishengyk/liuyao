@@ -54,7 +54,8 @@ def archive_git_head(path):
 
 def archive_selected(rel, config):
     name = Path(rel).name
-    if any(fnmatch.fnmatch(rel, pattern) for pattern in config.get('exclude_globs', [])):
+    if any(fnmatch.fnmatch(rel, pattern) or fnmatch.fnmatch(name, pattern)
+           for pattern in config.get('exclude_globs', [])):
         return False
     if rel in set(config.get('exact_paths', [])):
         return True
@@ -62,8 +63,9 @@ def archive_selected(rel, config):
 
 
 def archive_authority(rel, config):
+    name = Path(rel).name
     for rule in config.get('authority_overrides', []):
-        if fnmatch.fnmatch(rel, rule['glob']):
+        if fnmatch.fnmatch(rel, rule['glob']) or fnmatch.fnmatch(name, rule['glob']):
             return rule['authority_tier']
     return config.get('default_authority_tier', 'wang_case_specific')
 
@@ -161,8 +163,12 @@ def add_wang_archive(generated, sections, archive_root, archive_manifest_path):
     generated['wang-huying-corpus/INDEX.md'] = ''.join(index)
 
     domain_names = set()
+    has_all_domain_source = False
     for record in canonical_records:
         domain_names.update(record['domains'])
+        has_all_domain_source = has_all_domain_source or '*' in record['domains']
+    if has_all_domain_source:
+        domain_names.update(config.get('all_domains', []))
     for domain in sorted(domain_names):
         if domain in ('global', '*'):
             continue
