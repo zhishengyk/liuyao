@@ -285,7 +285,7 @@
     },
     {
       "glob": "07_应期/断应期 重要!.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "07_应期/断应期2.md",
@@ -365,6 +365,22 @@
     },
     {
       "glob": "90_他人整理/003王虎应增删卜易评释(dxj整理).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "11_讲义记录/王虎应讲课记录整理版之墓库作用篇.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "11_讲义记录/王虎应新加坡视频学习笔记.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应六爻化解避灾经典资料集.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "90_他人整理/王虎应-六爻的技法与运用(整理).md",
       "authority_tier": "compare_only"
     }
   ],
