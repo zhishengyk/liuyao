@@ -15,10 +15,10 @@
     "compare_only": 20,
     "tool_only": 3,
     "mixed_requires_attribution": 22,
-    "integrated": 21,
+    "integrated": 25,
     "source_family_alias": 6,
-    "reviewed_partial": 6,
-    "pending": 21
+    "pending": 21,
+    "reviewed_partial": 2
   },
   "entries": [
     {
@@ -211,8 +211,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 45975,
-      "status": "reviewed_partial",
-      "note": "正文多处明确作者王虎应。已提取道路后期修订、病症不唯官鬼、多个象源交叉验证等方法；其余实战细节作为案例库继续核。"
+      "status": "integrated",
+      "note": "已提取理象并存、病症不唯官鬼、多个象源交叉验证、道路五爻/白虎/子孙及“腾蛇主道路”后期否定等方法修订；其余实战象例保留corpus按需加载。"
     },
     {
       "title": "王虎应老师--六爻预测宝典",
@@ -419,8 +419,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 174655,
-      "status": "reviewed_partial",
-      "note": "已读方法总纲与代表案例；已写入“不问不占”、另演新卦后重新取用、方法仍在完善等高级边界；大量案例仍保留全文。"
+      "status": "integrated",
+      "note": "已提取方法定义、不问不占、另演新卦后重新取用、人物吉凶取新卦世爻、方法仍在完善等边界；案例保留全文，生产默认关闭，禁止LLM自行发明裂变算法。"
     },
     {
       "title": "爻位所代表的各种象",
@@ -573,8 +573,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 296924,
-      "status": "reviewed_partial",
-      "note": "正文末部明确王虎应著。已核方法与代表病种，主体为分科病象/病例库；不常驻Prompt，作为health detail corpus按病种加载。"
+      "status": "integrated",
+      "note": "已完成Prompt层提取；与《疾病预测学》共同用于health细节证据。分科病象、病位、症状组合保留全文按病种检索，不作为新的吉凶算法重复加权。"
     },
     {
       "title": "六爻测病文章",
@@ -600,8 +600,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 426619,
-      "status": "reviewed_partial",
-      "note": "正文明确王虎应著。已深读方法总论、测病法则、基础状态、近久病、求医问药与综合判断；健康Prompt已建立patient_yongshen/symptom_carrier和治疗模型。大量分科病种象义保留全文按需加载。"
+      "status": "integrated",
+      "note": "已完成Prompt层方法提取：病人主用、近久病、病症/病因后置、官鬼非唯一病象、治疗关系、元忌/过旺等均已进入health；其余大量分科病种、部位、症状与病例属于detail corpus按需加载，不常驻Prompt。"
     },
     {
       "title": "王虎应——浅谈六爻股票",
