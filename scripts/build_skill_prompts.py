@@ -188,7 +188,7 @@ def add_wang_archive(generated, sections, archive_root, archive_manifest_path):
     }
 
 
-def build(database, output, plan_path):
+def build(database, output, plan_path, wang_archive_root=None, wang_archive_manifest=None):
     database, output, plan_path = map(Path, (database, output, plan_path))
     plan = json.loads(plan_path.read_text(encoding='utf-8'))
     with closing(sqlite3.connect(database.resolve().as_uri() + '?mode=ro', uri=True)) as db:
@@ -380,6 +380,26 @@ def build(database, output, plan_path):
         '\n其余通用细则和未归类情境保留在数据库中，按当前对象和缺口检索；不在每次断卦时强制加载。\n'])
     generated['GLOBAL.md'] = ''.join(global_parts)
 
+    archive_metadata = None
+    if wang_archive_root:
+        manifest_path = wang_archive_manifest or Path(__file__).with_name('wang_huying_archive_manifest.json')
+        archive_metadata = add_wang_archive(generated, sections, wang_archive_root, manifest_path)
+        generated['GLOBAL.md'] += (
+            '\n\n## 王虎应六爻原文全集\n\n'
+            '发行包同时包含固定 book archive 快照提取的王虎应六爻原文全集。'
+            '不要一次性全文加载；先完成主推理并形成争议点，再读取 '
+            '[王虎应六爻原文全集索引](wang-huying-corpus/INDEX.md)，'
+            '随后按当前领域索引和具体原文核验。'
+            'mixed_requires_attribution 文件必须再次确认具体段落作者。\n')
+        for bucket in plan['domains']:
+            prompt = f'{bucket}/PROMPT.md'
+            domain_index = f'wang-huying-corpus/domains/{bucket}.md'
+            if domain_index in generated:
+                generated[prompt] += (
+                    '\n\n## 王虎应原文全集入口\n\n'
+                    f'需要进一步核验本领域时，读取 [王虎应 {bucket} 原文索引](../{domain_index})；'
+                    '只加载与当前结果路径相关的全文，不做全库灌入。\n')
+
     for name, text in generated.items():
         path = output / name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -406,6 +426,7 @@ def build(database, output, plan_path):
                                     for sid, s in sources.items()},
                 'evidence_by_bucket': {k: sorted(set(v)) for k, v in evidence.items()},
                 'selection_policy': plan['selection_policy'], 'workflow': workflow,
+                'wang_huying_archive': archive_metadata,
                 'selections': selections, 'sections': sections,
                 'files_sha256': {name: sha((output / name).read_bytes()) for name in generated},
                 'limitations': ['Current stored source version; machine OCR and visual review remain distinct.',
@@ -423,8 +444,13 @@ def main():
     parser.add_argument('--database', type=Path, default=root / 'data/knowledge.sqlite')
     parser.add_argument('--output', type=Path, default=root / 'plugins/liuyao-assistant/skills/interpret-liuyao/references/source-prompts')
     parser.add_argument('--plan', type=Path, default=Path(__file__).with_name('skill_prompt_plan.json'))
+    parser.add_argument('--wang-archive-root', type=Path)
+    parser.add_argument('--wang-archive-manifest', type=Path,
+                        default=Path(__file__).with_name('wang_huying_archive_manifest.json'))
     args = parser.parse_args()
-    manifest = build(args.database, args.output, args.plan)
+    manifest = build(args.database, args.output, args.plan,
+                     wang_archive_root=args.wang_archive_root,
+                     wang_archive_manifest=args.wang_archive_manifest)
     print(json.dumps({'theory_units': manifest['theory_units'], 'files': len(manifest['files_sha256']),
                       'source_sections': len(manifest['sections']),
                       'prompt_theory_units': len(set(uid for ids in manifest['evidence_by_bucket'].values() for uid in ids)),
