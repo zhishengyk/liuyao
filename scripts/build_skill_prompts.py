@@ -171,7 +171,7 @@ def build(database, output, plan_path):
                 '不得改变王虎应主判。案例反馈只属于原例，禁止回填当前问题或作为预测答案。\n\n'
                 f'当前王虎应直接领域理论条目：{own_count}；补充章段另计。'
                 '若本领域缺少王虎应直接原文，必须标reading_gap，并回数据库定向检索，不得用其他作者自动补位。\n\n'
-                + ('当前生成包没有王虎应直接分类条目；以下仅保留计划显式加入的王虎应通用/相邻原文。\n\n' if own_count == 0 else '')
+                + ('此领域目前没有直接分类的理论条目；在王虎应生产过滤下，以下仅保留计划显式加入的王虎应通用/相邻原文。\n\n' if own_count == 0 else '')
                 + '\n'.join(f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({Path(f).name})' for f in files)
                 + '\n\n先读取[全局断卦流程与原文](../GLOBAL.md)，再核本领域原文及相邻限制。'
                 '只有命中当前原问的领域规则才能进入结果路径；未读完、截断或作者归属不清必须记入reading_gaps。\n')
