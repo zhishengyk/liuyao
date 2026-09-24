@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 41,
+    "compare_only": 46,
     "tool_only": 3,
     "source_family_alias": 13,
     "integrated": 31,
-    "mixed_requires_attribution": 11
+    "mixed_requires_attribution": 6
   },
   "entries": [
     {
@@ -545,8 +545,8 @@
       "document_type": "07_应期",
       "author_basis": "existing_archive_classification",
       "size": 99760,
-      "status": "mixed_requires_attribution",
-      "note": "明确是多来源应期汇编，正文单列“王虎应老师《六爻预测自修宝典》第二十章应期（简化版）”，同时还收入朱辰彬《摇钱古卜讲义》、盲派和无署名表格。王虎应部分只按《自修宝典》canonical正文校验使用，其余不得因同文件共存而提权。"
+      "status": "compare_only",
+      "note": "明确为多来源应期汇编。王虎应部分只是《六爻预测自修宝典》第二十章的简化摘录，其他部分又含朱辰彬、盲派和无署名材料；canonical应期规则已从《自修宝典》提取，因此整份降为compare_only，避免同一规则与他派内容共同进入生产检索。"
     },
     {
       "title": "断应期2",
@@ -785,8 +785,8 @@
       "document_type": "11_讲义记录",
       "author_basis": "existing_archive_classification",
       "size": 98248,
-      "status": "mixed_requires_attribution",
-      "note": "已系统核读核心墓库讲课段。可确认机制包括三墓只指日墓/动墓/化墓、月墓主要取象、墓不等于死亡或失权、理象可并存、具体墓义随carrier变化；这些均已由《王虎应墓库论》《理象思维篇》等canonical来源进入GLOBAL。文件后半混入十二状态文章和学员笔记，继续按段落归属，不重复写规则。"
+      "status": "compare_only",
+      "note": "整理稿核心墓库内容已与《王虎应墓库论》《理象思维篇》等canonical来源逐条交叉，三墓、月墓取象、墓不等于死亡/失权等均已进入GLOBAL；后半又混入十二状态文章和学员笔记。无独立新增机制，降为compare_only作为课堂整理对照。"
     },
     {
       "title": "王虎应老师在周易爱好者群讲课记录之一",
@@ -803,8 +803,8 @@
       "document_type": "11_讲义记录",
       "author_basis": "existing_archive_classification",
       "size": 3875,
-      "status": "mixed_requires_attribution",
-      "note": "已全文核读。属于学员学习笔记，理象分层、日月→动爻、用神两现、八纯大象等大体与正式著作可交叉，但“死墓绝一般主凶”等表述更简化；未发现需要新增的生产规则，继续作为低权重交叉笔记。"
+      "status": "compare_only",
+      "note": "学员学习笔记而非王虎应本人原稿，全文已核；其理象、日月动爻、用神两现等有正式书可确认，个别“死墓绝一般主凶”等表述反而更粗。无独立生产价值，降为compare_only。"
     },
     {
       "title": "009六爻趋避初探 （dxj校）",
@@ -860,8 +860,8 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 392067,
-      "status": "mixed_requires_attribution",
-      "note": "已核结构。前半主体明确收录（王虎应著）的《六爻趋避初探/趋吉避凶化解》十四章，后半又追加《王虎应六爻资料集》等多篇文章，因此是多作品汇编而非单一canonical书。化解主干已由明确署名的《六爻趋吉避凶（化解）秘传》integrated版本提取；后附资料逐篇按署名与来源核验，本汇编不独立重复加权。"
+      "status": "compare_only",
+      "note": "多作品汇编。前半十四章王虎应化解主干已由明确署名的《六爻趋吉避凶（化解）秘传》canonical版本完整提取，后半又拼接《王虎应六爻资料集》等文章。为防重复命中和跨文章误归属，整份降为compare_only。"
     },
     {
       "title": "王虎应六爻十二支解灾",
@@ -909,8 +909,8 @@
       "document_type": "90_他人整理",
       "author_basis": "existing_archive_classification",
       "size": 55033,
-      "status": "mixed_requires_attribution",
-      "note": "已核目录与来源标记。扉页写“王虎应 著”，但具体章节混有“来源未知”、论坛整理和不同出处；长生十二宫、飞伏、空亡、卦由谁来摇、道路、疾病等核心章节均可对应现有更干净canonical来源。继续作为整理汇编按章节归属回查，不作为独立第二份规则来源。"
+      "status": "compare_only",
+      "note": "他人整理的专题摘编，虽扉页写“王虎应 著”，但章节来源混有“来源未知”与论坛整理；长生十二宫、飞伏、空亡、卦由谁来摇、道路、疾病等均可对应更干净canonical来源。已完成交叉核验，无独立新增机制，降为compare_only。"
     },
     {
       "title": "王虎应增删卜易评释（整理）",
