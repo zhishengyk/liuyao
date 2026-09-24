@@ -277,7 +277,7 @@
     },
     {
       "glob": "04_用神/六爻预测工作取用神.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "04_用神/*转载*.md",
@@ -289,7 +289,7 @@
     },
     {
       "glob": "07_应期/断应期2.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "07_应期/第一节应期远近定法.md",
