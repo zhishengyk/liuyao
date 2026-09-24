@@ -12,12 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 31,
+    "compare_only": 35,
     "tool_only": 3,
-    "mixed_requires_attribution": 24,
-    "integrated": 28,
-    "source_family_alias": 7,
-    "pending": 5,
+    "mixed_requires_attribution": 22,
+    "integrated": 29,
+    "source_family_alias": 9,
     "reviewed_partial": 1
   },
   "entries": [
@@ -392,8 +391,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 30242,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无王虎应内部署名，并混入卦身主事、大小运限、岁煞吉凶、死墓绝胎固定吉凶等另一套体系；与已核王虎应后期“卦身不主吉凶、神煞低权重、以日月和用神作用为主”的生产主干冲突。只作异体系对照。"
     },
     {
       "title": "王虎应 理象分析 思路 六爻中道路的看法--2",
@@ -437,8 +436,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 66490,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无王虎应内部署名，公开网络存在同题同文的通用“周易六爻类象知识”材料；内容以车辆、求财、疾病等大量固定断语为主，不能因归档目录提权为王虎应。只作类象/断语对照。"
     },
     {
       "title": "[转载]用神无根、过旺、用神极弱_静悟食_20200315_230355",
@@ -446,8 +445,8 @@
       "document_type": "04_用神",
       "author_basis": "existing_archive_classification",
       "size": 11698,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "文件标题明确标注“转载”。其中夹有“王虎应答”片段，可作为回查王虎应原答的检索线索，但转载整理本身不作为独立王虎应证据；过旺/极弱规则已经由可确认本人答疑来源系统提取。"
     },
     {
       "title": "六爻预测工作取用神",
@@ -582,8 +581,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 20702,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无王虎应内部署名，公开网络存在同文通用测病文章；其“官鬼不上卦则难诊难治”“子孙化官鬼多为必死”等固定死断，与王虎应后期疾病体系中“病症不唯官鬼、六亲转化不能直接死断”等明确修订冲突。禁止进入王虎应生产Prompt。"
     },
     {
       "title": "六爻预测终生运气",
@@ -839,8 +838,9 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 5022,
-      "status": "mixed_requires_attribution",
-      "note": "已全文核读。内容与《六爻趋避初探》既有advice主干一致：先判吉凶、围绕用神/元忌真实作用链、综合多类信息选择方案；具体化解物、子时、意识等做法不进入核心Prompt。文件名/章节不足以单独证明全部正文作者，继续保留段落级归属要求。"
+      "status": "source_family_alias",
+      "note": "已确认正文为王虎应《六爻趋吉避凶（化解）秘传》第十二章内容的独立节选；方法已由完整本提取，不作为独立证据重复加权。",
+      "source_family": "六爻趋吉避凶（化解）秘传"
     },
     {
       "title": "王虎应-六爻趋吉化解密传",
@@ -848,8 +848,9 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 273200,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "正文标题页明确署名王虎应，序言以第一人称说明其长期研究并形成六爻化解方法。已系统提炼 advice 层方法：先判吉凶再趋避、只调整真实作用链、候选方案做副作用检查、具体方案至少由两类卦内信息共同收敛、化解不万能且不能替代现代科学。具体动物、颜色、数字、方位、物件和案例反馈保留全文按需读取，不进入核心吉凶算法。",
+      "source_family": "六爻趋吉避凶（化解）秘传"
     },
     {
       "title": "王虎应六爻化解避灾经典资料集",
@@ -866,8 +867,9 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 26188,
-      "status": "mixed_requires_attribution",
-      "note": "已核读方法段和多个案例。可交叉验证的通用机制是：候选地支需同时检查对用神、元神、忌神及关键门控的多条作用，优先解决真实伤害链；这些机制已由《趋避初探》主干覆盖。具体动物、方位、器物与案例反馈留在传统化解corpus，不直接硬编码为全局吉凶规则；正文夹杂广告且作者归属需继续核验。"
+      "status": "source_family_alias",
+      "note": "已用完整《六爻趋吉避凶（化解）秘传》逐段交叉，核心十二地支化解方法和多个案例均包含于完整本；作为章节/节选变体保留，不独立加权。",
+      "source_family": "六爻趋吉避凶（化解）秘传"
     },
     {
       "title": "uni六爻趋避初探 王虎应",
