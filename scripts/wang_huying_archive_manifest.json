@@ -3,7 +3,7 @@
   "archive_branch": "books-archive-reorg",
   "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
   "archive_root": "书籍/六爻/王虎应",
-  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved. Authority is determined from the text itself before folder/name metadata: an internal attribution to another author overrides archive classification and filename.",
+  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved. Authority is determined from the text itself before folder/name metadata: an internal attribution to another author overrides archive classification and filename. Unmatched files default to compare_only; directory placement alone never grants Wang authority.",
   "include_all_markdown_under_root": true,
   "skip_empty_files": true,
   "basename_contains": [],
@@ -15,6 +15,74 @@
     "**/*八字*.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "01_核心著作/*六爻预测自修宝典*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "01_核心著作/*六爻疑惑指迷*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "01_核心著作/*象断六爻实战详解*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "02_基础理论/001初学六爻预测王虎应1.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "03_理象/王虎应-理象思维篇.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "03_理象/六爻卦象解密王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "06_生克冲合/六爻里的生克冲合 王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "09_卦例/六爻分类占验技法王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/六爻趋避初探 王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "09_卦例/007六爻卦例说真.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "09_卦例/王虎应-六爻卦例说真(整理).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/王虎应《六爻卦例说真》答疑.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/六爻用神答疑(51页)王虎应.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/增删卜易评释答疑(王虎应老师).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "05_旺衰/王虎应墓库论.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
+      "authority_tier": "wang_case_specific"
+    },
     {
       "glob": "**/90_他人整理/**",
       "authority_tier": "mixed_requires_attribution"
@@ -242,45 +310,9 @@
     {
       "glob": "11_讲义记录/*",
       "authority_tier": "wang_case_specific"
-    },
-    {
-      "glob": "01_核心著作/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "02_基础理论/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "03_理象/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "04_用神/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "05_旺衰/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "06_生克冲合/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "07_应期/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "08_分类占/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "12_趋吉避凶/*",
-      "authority_tier": "wang_direct"
     }
   ],
-  "default_authority_tier": "wang_case_specific",
+  "default_authority_tier": "compare_only",
   "domain_rules": [
     {
       "contains": [
