@@ -1,161 +1,102 @@
 {
   "schema_version": 1,
   "archive_branch": "books-archive-reorg",
-  "archive_commit_sha": "a2cc3393d910a66f10a92bf619a62d9e6183b934",
-  "archive_root": "Markdown归档/003周易命理资料/005王虎应",
-  "selection_policy": "Bundle every six-yao archive Markdown file whose basename explicitly attributes it to 王虎应/王老师, plus a small set of canonical Wang Huying works whose filenames omit the author. Exclude student software, non-six-yao material, third-party commentary, and explicit reposts. Exact duplicate contents are stored once and retained as aliases; non-identical variants are all preserved.",
-  "basename_contains": [
-    "王虎应",
-    "王老师"
-  ],
-  "exact_paths": [
-    "WHY DXJ整理版/001 六爻预测自修宝典（DXJ整理版）.doc.md",
-    "WHY DXJ整理版/009六爻趋避初探 （dxj校）.doc.md",
-    "初学断卦应该如何入手？.doc.md",
-    "王虎应六爻资料全集/初学断卦应该如何入手？.doc.md"
-  ],
+  "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
+  "archive_root": "书籍/六爻/王虎应",
+  "selection_policy": "The archive root is already scoped to 书籍/六爻/王虎应 by the reorganized book taxonomy, so bundle every non-empty Markdown file under that author/domain root. Preserve exact duplicate aliases but store identical content once. Authority is determined primarily by the reorganized subdirectory: authored theory/books are wang_direct, Wang Huying case/Q&A/lecture material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
+  "include_all_markdown_under_root": true,
+  "skip_empty_files": true,
+  "basename_contains": [],
+  "exact_paths": [],
   "exclude_globs": [
-    "**/王虎应学员六爻排盘软件/**",
-    "**/王虎应学员六爻排盘软件.rar.md",
     "**/*点评王虎应*.md",
-    "**/*命理真诀*.md",
     "**/[转载]*.md",
     "**/*四柱*.md",
     "**/*八字*.md"
   ],
   "authority_overrides": [
     {
-      "glob": "**/*增删卜易评释*.md",
+      "glob": "90_他人整理/*",
       "authority_tier": "mixed_requires_attribution"
     },
     {
-      "glob": "**/*问题答疑汇总*.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "**/*六爻资料集*.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "**/*网络卦例收集*.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "**/*教学网站*.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "**/*六爻预测自修宝典*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*初学六爻预测*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻分类占验技法*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻卦象解密*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻趋避初探*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻疾病预测学*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻测病分科详解*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻疑惑指迷*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻里的生克冲合*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻的技法与运用*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻指迷*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻趋吉化解密传*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻化解避灾经典资料集*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*六爻十二支解灾*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*浅谈六爻太极裂变*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*理象思维篇*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*象断六爻实战详解*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*墓库论*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*秘论长生十二宫*.md",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "**/*断风水*.md",
+      "glob": "09_卦例/*",
       "authority_tier": "wang_case_specific"
     },
     {
-      "glob": "**/*答疑*.md",
+      "glob": "10_答疑/*",
       "authority_tier": "wang_case_specific"
     },
     {
-      "glob": "**/*问答录*.md",
+      "glob": "11_讲义记录/*",
       "authority_tier": "wang_case_specific"
     },
     {
-      "glob": "**/*讲课记录*.md",
-      "authority_tier": "wang_case_specific"
+      "glob": "01_核心著作/*",
+      "authority_tier": "wang_direct"
     },
     {
-      "glob": "**/*六爻随笔*.md",
-      "authority_tier": "wang_case_specific"
+      "glob": "02_基础理论/*",
+      "authority_tier": "wang_direct"
     },
     {
-      "glob": "**/*卦例*.md",
-      "authority_tier": "wang_case_specific"
+      "glob": "03_理象/*",
+      "authority_tier": "wang_direct"
     },
     {
-      "glob": "**/*股票*.md",
-      "authority_tier": "wang_case_specific"
+      "glob": "04_用神/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "05_旺衰/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "06_生克冲合/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "07_应期/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "08_分类占/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/*",
+      "authority_tier": "wang_direct"
     }
   ],
   "default_authority_tier": "wang_case_specific",
   "domain_rules": [
     {
       "contains": [
+        "01_核心著作/",
+        "02_基础理论/",
+        "03_理象/",
+        "04_用神/",
+        "05_旺衰/",
+        "06_生克冲合/",
+        "07_应期/",
+        "分类占验",
+        "疑惑指迷",
+        "自修宝典",
+        "增删卜易评释",
+        "趋避初探"
+      ],
+      "domains": [
+        "*"
+      ]
+    },
+    {
+      "contains": [
         "疾病",
         "测病",
-        "病"
+        "健康",
+        "求医",
+        "医药",
+        "治疗"
       ],
       "domains": [
         "health"
@@ -165,7 +106,11 @@
       "contains": [
         "工作",
         "求职",
-        "升迁"
+        "升迁",
+        "升官",
+        "事业",
+        "官运",
+        "职"
       ],
       "domains": [
         "job"
@@ -175,7 +120,10 @@
       "contains": [
         "股票",
         "股市",
-        "财"
+        "财运",
+        "求财",
+        "生意",
+        "买卖"
       ],
       "domains": [
         "wealth"
@@ -184,7 +132,12 @@
     {
       "contains": [
         "风水",
-        "房",
+        "房屋",
+        "住房",
+        "住宅",
+        "买房",
+        "卖房",
+        "出租房",
         "宅"
       ],
       "domains": [
@@ -193,8 +146,11 @@
     },
     {
       "contains": [
-        "婚",
-        "感情"
+        "婚姻",
+        "感情",
+        "恋爱",
+        "对象",
+        "婚"
       ],
       "domains": [
         "relationship"
@@ -203,7 +159,10 @@
     {
       "contains": [
         "考试",
-        "学业"
+        "考学",
+        "学业",
+        "学习",
+        "录取"
       ],
       "domains": [
         "study"
@@ -212,32 +171,90 @@
     {
       "contains": [
         "失物",
-        "行人"
+        "丢失",
+        "遗失"
       ],
       "domains": [
-        "lost",
+        "lost"
+      ]
+    },
+    {
+      "contains": [
+        "行人",
+        "出行",
+        "旅行",
+        "归期"
+      ],
+      "domains": [
         "travel"
       ]
     },
     {
       "contains": [
-        "用神",
-        "生克",
-        "冲合",
-        "墓库",
-        "长生",
-        "理象",
-        "技法",
-        "指迷",
-        "自修宝典",
-        "初学六爻",
-        "分类占验",
-        "卦象解密",
-        "趋避初探",
-        "增删卜易评释"
+        "胎孕",
+        "怀孕",
+        "生产",
+        "生孩子",
+        "子女"
       ],
       "domains": [
-        "*"
+        "children"
+      ]
+    },
+    {
+      "contains": [
+        "官司",
+        "诉讼",
+        "争讼",
+        "官非"
+      ],
+      "domains": [
+        "lawsuit"
+      ]
+    },
+    {
+      "contains": [
+        "合作",
+        "合伙"
+      ],
+      "domains": [
+        "cooperation"
+      ]
+    },
+    {
+      "contains": [
+        "天气",
+        "阴晴",
+        "下雨",
+        "风雨"
+      ],
+      "domains": [
+        "weather"
+      ]
+    },
+    {
+      "contains": [
+        "物品",
+        "射覆",
+        "印章",
+        "电脑",
+        "器物"
+      ],
+      "domains": [
+        "objects"
+      ]
+    },
+    {
+      "contains": [
+        "比赛",
+        "投标",
+        "护照",
+        "签证",
+        "证件",
+        "获奖"
+      ],
+      "domains": [
+        "affairs"
       ]
     }
   ],
