@@ -383,7 +383,18 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
                                       'file_end_offset': file_start + len(raw)})
     sections.extend(flow_sections)
 
-    if plan.get('global_case_rules'):
+    if plan.get('global_rule_groups'):
+        global_parts.append('## 王虎应卦例提炼的全局裁决规则\n\n')
+        global_parts.append(
+            '以下知识按推理层级分组。组内规则不是同权投票项；先满足触发条件，再进入对应裁决门。'
+            '这些规则来自王虎应正式方法与具体卦例/答疑交叉提炼，不替代对应原文。\n\n')
+        for group in plan['global_rule_groups']:
+            global_parts.append(f"### {group['title']}\n\n")
+            if group.get('purpose'):
+                global_parts.append(group['purpose'].rstrip() + '\n\n')
+            global_parts.extend(f'- {rule}\n' for rule in group.get('rules', []))
+            global_parts.append('\n')
+    elif plan.get('global_case_rules'):
         global_parts.extend([
             '## 王虎应卦例提炼的全局裁决规则\n\n',
             *[f'- {rule}\n' for rule in plan['global_case_rules']],
