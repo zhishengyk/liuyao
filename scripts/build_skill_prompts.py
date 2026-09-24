@@ -70,8 +70,9 @@ def build(database, output, plan_path):
         start, end = min(s['start_line'] for s in spans), max(s['end_line'] for s in spans)
         source_text(sources[sid]['lines'], start, end)
         ranges[bucket][sid].append([start, end])
+        authors = sorted({span.get('author') for span in spans if span.get('author')})
         selections.append({'bucket': bucket, 'source_id': sid, 'start_line': start,
-                           'end_line': end, 'label': label})
+                           'end_line': end, 'label': label, 'authors': authors})
 
     def add_unit(bucket, uid):
         unit = units[uid]
@@ -151,8 +152,16 @@ def build(database, output, plan_path):
                                   'visual_reviewed': r.get('visual_reviewed'), 'unclear': r.get('unclear', [])}
                                  for (source_id, page), r in sorted(pages.items()) if source_id == sid
                                  and r['canonical_start_line'] <= end and r['canonical_end_line'] >= start]
+                range_authors = sorted({
+                    author
+                    for selection in selections
+                    if selection['bucket'] == bucket and selection['source_id'] == sid
+                    and selection['start_line'] <= end and selection['end_line'] >= start
+                    for author in selection.get('authors', [])
+                })
                 sections.append({'file': name, 'marker': marker, 'source_id': sid,
-                                 'start_line': start, 'end_line': end, 'text_sha256': sha(raw.encode()),
+                                 'start_line': start, 'end_line': end, 'authors': range_authors,
+                                 'text_sha256': sha(raw.encode()),
                                  'characters': len(raw), 'pages': related_pages,
                                  'file_start_offset': file_start,
                                  'file_end_offset': file_start + len(raw)})
@@ -169,8 +178,10 @@ def build(database, output, plan_path):
                 '先完成GLOBAL中的通用主干，再在取用、现实角色、事项特例和应期阶段加载本领域。\n\n'
                 f'本领域问意目录：{questions}。同一领域内仍须按原问、对象、动作、时间尺度与专测/兼问分别取用；'
                 '不得仅凭领域名称固定一个六亲。复合问题逐维加载、逐维回答。\n\n'
-                '生产提示词只自动汇入计划允许的王虎应主证据来源；其他作者仍保留在数据库中，仅在显式比较或冲突核查时作为compare_only检索，'
-                '不得改变王虎应主判。案例反馈只属于原例，禁止回填当前问题或作为预测答案。\n\n'
+                '生产提示词只自动汇入计划允许的王虎应主证据书系；**书系白名单不等于段落作者白名单**。'
+                '特别是《增删卜易评释》属于混合作者来源，必须继续区分古籍正文、旧注与明确【新评释】/王虎应补充，按authority_tier使用。'
+                '其他书系作者仍保留在数据库中，仅在显式比较或冲突核查时作为compare_only检索，不得改变王虎应主判。'
+                '案例反馈只属于原例，禁止回填当前问题或作为预测答案。\n\n'
                 f'当前王虎应直接领域理论条目：{own_count}；补充章段另计。'
                 '若本领域缺少王虎应直接原文，必须标reading_gap，并回数据库定向检索，不得用其他作者自动补位。\n\n'
                 + ('此领域目前没有直接分类的理论条目；在王虎应生产过滤下，以下仅保留计划显式加入的王虎应通用/相邻原文。\n\n' if own_count == 0 else '')
@@ -210,7 +221,7 @@ def build(database, output, plan_path):
     sections.extend(flow_sections)
 
     global_parts.extend(['## 全局补充原文与领域路由\n\n',
-        '以下自动汇入的通用原文只来自plan允许的王虎应主证据来源。'
+        '以下自动汇入的通用原文只来自plan允许进入生产包的王虎应主证据书系；source allowlist只控制书系，不自动提升段落作者权威。'
         '《增删卜易评释》仍须区分古籍正文、旧注与王虎应【新评释】；古籍内容只有在王虎应采用时才能作为classic_endorsed进入主判。'
         '其他作者不进入生成的生产主干，仍可从数据库显式检索作compare_only。王虎应内部同条件仍冲突时保留冲突，不按出现次数投票。\n\n',
         *[f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({f})\n' for f in routes['global']],
