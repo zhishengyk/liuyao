@@ -125,7 +125,7 @@
     },
     {
       "glob": "08_分类占/六爻测病文章.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "08_分类占/王虎应——浅谈六爻股票.md",
@@ -145,11 +145,11 @@
     },
     {
       "glob": "12_趋吉避凶/王虎应- 化解物应注意哪些.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "wang_direct"
     },
     {
       "glob": "12_趋吉避凶/王虎应六爻十二支解灾.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "wang_direct"
     },
     {
       "glob": "05_旺衰/六爻 王虎应解答过旺过弱一二.md",
@@ -213,7 +213,7 @@
     },
     {
       "glob": "03_理象/周易六爻类象知识 测病 一.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
@@ -342,6 +342,18 @@
     {
       "glob": "03_理象/八卦卦象之震宫八卦(修订).md",
       "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/六爻预测全象解析+++++ (1).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "04_用神/[转载]用神无根、过旺、用神极弱_静悟食_20200315_230355.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应-六爻趋吉化解密传.md",
+      "authority_tier": "wang_direct"
     }
   ],
   "default_authority_tier": "compare_only",
