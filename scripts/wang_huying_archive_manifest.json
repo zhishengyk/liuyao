@@ -34,6 +34,26 @@
   ],
   "authority_overrides": [
     {
+      "glob": "10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王虎应老师问答录.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王虎应问题答疑汇总最新版 - 副本.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王老师关于“用神”问题答疑.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "11_讲义记录/*",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
       "glob": "08_分类占/股市六爻预测精髓.md",
       "authority_tier": "mixed_requires_attribution"
     },
