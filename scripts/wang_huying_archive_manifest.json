@@ -3,7 +3,7 @@
   "archive_branch": "books-archive-reorg",
   "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
   "archive_root": "书籍/六爻/王虎应",
-  "selection_policy": "The archive root is already scoped to 书籍/六爻/王虎应 by the reorganized book taxonomy, so bundle every non-empty Markdown file under that author/domain root. Preserve exact duplicate aliases but store identical content once. Authority is determined primarily by the reorganized subdirectory: authored theory/books are wang_direct, Wang Huying case/Q&A/lecture material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
+  "selection_policy": "Bundle non-empty Markdown under 书籍/六爻/王虎应 only after explicit exclusion/authority review. Directory placement is a retrieval hint, not proof of authorship. Sources whose title page/byline shows another author must be excluded from the Wang Huying production corpus; mixed compilations or third-party reorganizations require attribution. Formal Wang Huying books/direct articles are wang_direct, Wang Huying case/Q&A material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
   "include_all_markdown_under_root": true,
   "skip_empty_files": true,
   "basename_contains": [],
@@ -13,7 +13,8 @@
     "**/*四柱*.md",
     "**/*八字*.md",
     "**/*转载*.md",
-    "**/*命理真诀*.md"
+    "**/*命理真诀*.md",
+    "**/还本归宗_六爻预测指南.md"
   ],
   "authority_overrides": [
     {
