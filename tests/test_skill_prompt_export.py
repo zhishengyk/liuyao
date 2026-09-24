@@ -289,3 +289,62 @@ def test_wang_archive_commit_mismatch_fails_closed(tmp_path):
         module.build(database, tmp_path / 'prompts', plan,
                      wang_archive_root=archive,
                      wang_archive_manifest=archive_manifest)
+
+
+def test_author_scoped_archive_manifest_includes_all_nonempty_markdown(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    archive = tmp_path / 'archive'
+    (archive / '01_核心著作').mkdir(parents=True)
+    (archive / '09_卦例').mkdir()
+    (archive / '90_他人整理').mkdir()
+    subprocess.run(['git', 'init'], cwd=archive, check=True, capture_output=True)
+    subprocess.run(['git', 'config', 'user.email', 'test@example.com'], cwd=archive, check=True)
+    subprocess.run(['git', 'config', 'user.name', 'Test'], cwd=archive, check=True)
+    (archive / '01_核心著作/六爻疑惑指迷.md').write_text('正式著作正文\n', encoding='utf-8')
+    (archive / '09_卦例/007六爻卦例说真.md').write_text('本人卦例正文\n', encoding='utf-8')
+    (archive / '90_他人整理/整理版.md').write_text('整理版正文\n', encoding='utf-8')
+    (archive / '09_卦例/空占位.md').write_text('', encoding='utf-8')
+    subprocess.run(['git', 'add', '.'], cwd=archive, check=True)
+    subprocess.run(['git', 'commit', '-m', 'archive'], cwd=archive, check=True, capture_output=True)
+    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=archive, text=True).strip()
+
+    archive_manifest = tmp_path / 'wang.json'
+    archive_manifest.write_text(json.dumps({
+        'schema_version': 1,
+        'archive_branch': 'test',
+        'archive_commit_sha': head,
+        'archive_root': '书籍/六爻/王虎应',
+        'selection_policy': 'author scoped',
+        'include_all_markdown_under_root': True,
+        'skip_empty_files': True,
+        'basename_contains': [],
+        'exact_paths': [],
+        'exclude_globs': [],
+        'authority_overrides': [
+            {'glob': '01_核心著作/*', 'authority_tier': 'wang_direct'},
+            {'glob': '09_卦例/*', 'authority_tier': 'wang_case_specific'},
+            {'glob': '90_他人整理/*', 'authority_tier': 'mixed_requires_attribution'},
+        ],
+        'default_authority_tier': 'wang_case_specific',
+        'domain_rules': [
+            {'contains': ['01_核心著作/'], 'domains': ['*']},
+            {'contains': ['卦例'], 'domains': ['affairs']},
+        ],
+        'all_domains': ['affairs', 'job'],
+    }, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'source-prompts'
+    result = module.build(database, output, plan,
+                          wang_archive_root=archive,
+                          wang_archive_manifest=archive_manifest)
+
+    meta = result['wang_huying_archive']
+    assert meta['matched_files'] == 3
+    assert meta['canonical_files'] == 3
+    assert not any(record['archive_path'].endswith('空占位.md') for record in meta['records'])
+    authority = {record['archive_path']: record['authority_tier'] for record in meta['records']}
+    assert authority['01_核心著作/六爻疑惑指迷.md'] == 'wang_direct'
+    assert authority['09_卦例/007六爻卦例说真.md'] == 'wang_case_specific'
+    assert authority['90_他人整理/整理版.md'] == 'mixed_requires_attribution'
+    assert (output / 'wang-huying-corpus/domains/job.md').exists()
