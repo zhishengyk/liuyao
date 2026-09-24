@@ -28,9 +28,47 @@
     "**/时刻.md",
     "**/六爻初级知识.md",
     "**/六爻预测基础.md",
-    "**/周易零基础-你也是可以学习的.md"
+    "**/周易零基础-你也是可以学习的.md",
+    "**/六爻预测终生运气.md",
+    "**/周易与股市预测.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "08_分类占/股市六爻预测精髓.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/六爻测病分科详解王虎应中.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/六爻测病文章.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应——浅谈六爻股票.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应断风水.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应老师股市预测分析精彩卦例.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "08_分类占/王老师断股票5例.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应- 化解物应注意哪些.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应六爻十二支解灾.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "05_旺衰/六爻 王虎应解答过旺过弱一二.md",
       "authority_tier": "wang_case_specific"
