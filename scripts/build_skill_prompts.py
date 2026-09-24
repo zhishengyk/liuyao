@@ -9,6 +9,8 @@ import hashlib
 import json
 from pathlib import Path
 import sqlite3
+import subprocess
+import fnmatch
 
 
 def sha(data):
