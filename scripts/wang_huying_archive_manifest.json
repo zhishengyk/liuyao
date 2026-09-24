@@ -197,7 +197,7 @@
     },
     {
       "glob": "03_理象/八卦六爻之六亲类象.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "03_理象/六爻预测全象解析*.md",
@@ -209,7 +209,7 @@
     },
     {
       "glob": "03_理象/爻位所代表的各种象.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "03_理象/周易六爻类象知识 测病 一.md",
@@ -310,6 +310,38 @@
     {
       "glob": "11_讲义记录/*",
       "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "03_理象/八卦卦象之兑宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之艮宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之坎宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之坤宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之离宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之乾宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之巽宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之震宫八卦(修订).md",
+      "authority_tier": "compare_only"
     }
   ],
   "default_authority_tier": "compare_only",
