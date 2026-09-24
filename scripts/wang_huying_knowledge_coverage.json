@@ -15,8 +15,8 @@
     "compare_only": 20,
     "tool_only": 3,
     "mixed_requires_attribution": 20,
-    "reviewed_partial": 12,
-    "integrated": 17,
+    "reviewed_partial": 10,
+    "integrated": 19,
     "source_family_alias": 6,
     "pending": 21
   },
@@ -462,8 +462,9 @@
       "document_type": "05_旺衰",
       "author_basis": "existing_archive_classification",
       "size": 164960,
-      "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "status": "integrated",
+      "note": "已系统核对旺极/弱极门槛、日月共同作用、用神两现/叠见、回头生阻断极弱、独发与太过并存、比赛相对比较、当前时间窗口等；规则已进入GLOBAL强弱特殊门和affairs对抗规则。转载/汇总版本按同一source_family去重，不按出现次数加权。",
+      "source_family": "过旺过弱答疑"
     },
     {
       "title": "王虎应秘论长生十二宫",
@@ -705,8 +706,9 @@
       "document_type": "10_答疑",
       "author_basis": "existing_archive_classification",
       "size": 119239,
-      "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "status": "integrated",
+      "note": "已系统核对旺极/弱极门槛、日月共同作用、用神两现/叠见、回头生阻断极弱、独发与太过并存、比赛相对比较、当前时间窗口等；规则已进入GLOBAL强弱特殊门和affairs对抗规则。转载/汇总版本按同一source_family去重，不按出现次数加权。",
+      "source_family": "过旺过弱答疑"
     },
     {
       "title": "王虎应老师问答录",
