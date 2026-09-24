@@ -149,7 +149,8 @@
 - 一个动爻允许同时形成多条生/克/冲/合候选关系，不能人为压成唯一“去向”；
 - 普通静爻不能作用动爻；若静爻与日月同五行/临日月，则记录 `day_month_embodied=true`，其作用本质是代表日月行权，而不是普通静爻自身突然获得动权；
 - 旺静爻对休囚静爻在动卦中也可形成信息，但王虎应答疑明确说一般不据此替代动爻主线定吉凶，优先归入取象/辅助层；
-- 若用神自身发动，另开 `self_transition` 看本位变爻所示变化方向。
+- 若用神自身发动，另开 `self_transition` 看本位变爻所示变化方向；
+- 若元神、忌神或其他关键动爻发动，也要看**各自本位变爻**是否回头生克、化进退、化破墓绝，以判断该动爻的 `force_state` 会增强、削弱还是延迟。此时变爻只是该动爻的 `local_force_modifier`，不是新的跨位力量源。
 
 ### 4. 求“相关且有效的作用”，不是只列生克
 
@@ -199,7 +200,7 @@
 
 这里必须区分两类“变爻信息”：
 
-- **interaction_semantics**：五行作用权。变爻只反馈本位动爻，不跨位生克。
+- **interaction_semantics**：五行作用权。任一实际动爻的变爻都只反馈本位动爻；若本位是用神，则进入 `self_transition`；若本位是元神/忌神/其他关键动爻，则只作为 `local_force_modifier` 调整该动爻的效力。变爻不跨位生克。
 - **transformation_semantics**：事件转化象。原爻“动化官、化财、化父、化兄”等，可以在有事项原文/案例支持时描述角色、状态或事件的变化；它不是一条跨位生克边，也不能机械理解成“变爻就是最终结果”。
 
 例如“子孙动化官”可在功名语境中形成职位变化的候选事件象；“初爻动化财”可在出行语境中结合初爻脚力取财象。是否采用仍要回到原问、用神和事项规则。
@@ -454,6 +455,7 @@ release_trigger
 blocked_edges
 delayed_active_edges
 self_transition
+local_force_modifier
 actor_scope
 transition_condition
 transformation_semantics
