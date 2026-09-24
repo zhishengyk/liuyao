@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
+  "purpose": "Track Wang Huying knowledge-extraction coverage. Only integrated rules may enter production prompts; reviewed/mixed/pending sources remain available in the full corpus without automatic promotion.",
+  "status_definitions": {
+    "integrated": "Deep-read against cases/Q&A; reusable knowledge already encoded in GLOBAL/domain prompts.",
+    "reviewed_partial": "Important sections reviewed and conflicts checked; continue extracting unique rules.",
+    "mixed_requires_attribution": "Compilation/lecture/Q&A material; paragraph-level attribution required before promotion.",
+    "compare_only": "Not Wang-direct or internally attributed elsewhere; never changes Wang main judgment.",
+    "tool_only": "Reference table/data rather than reasoning knowledge.",
+    "pending": "Still needs systematic extraction."
+  },
+  "counts": {
+    "compare_only": 10,
+    "tool_only": 3,
+    "pending": 51,
+    "reviewed_partial": 7,
+    "integrated": 13,
+    "mixed_requires_attribution": 15
+  },
+  "entries": [
+    {
+      "title": "38王虎应-命理真诀导读雷集66页",
+      "path": "书籍/六爻/王虎应/01_核心著作/38王虎应-命理真诀导读雷集66页.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 223429,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "64卦表",
+      "path": "书籍/六爻/王虎应/01_核心著作/64卦表.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 33311,
+      "status": "tool_only",
+      "note": "工具/排盘/数据，不作为术理证据"
+    },
+    {
+      "title": "64卦意",
+      "path": "书籍/六爻/王虎应/01_核心著作/64卦意.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 17235,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "独门易卦秘典",
+      "path": "书籍/六爻/王虎应/01_核心著作/独门易卦秘典.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 239983,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "卦身的应用",
+      "path": "书籍/六爻/王虎应/01_核心著作/卦身的应用.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 95099,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "还本归宗：六爻预测指南",
+      "path": "书籍/六爻/王虎应/01_核心著作/还本归宗_六爻预测指南.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 1007387,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "六爻。入墓",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻。入墓.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 14610,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻八卦高层理论-断六亲属相",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻八卦高层理论-断六亲属相.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 18842,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻初级知识",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻初级知识.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 39707,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻分类预测断语（王虎应）",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻分类预测断语(王虎应).md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 33239,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻高级技法",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻高级技法.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 140139,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻启玄经PDF浏览版",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻启玄经PDF浏览版.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 2224036,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "六爻求真 王虎应老师教学网站",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻求真 王虎应老师教学网站.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 160477,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "六爻疑惑指迷（王虎应）",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻疑惑指迷(王虎应).md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 250757,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "六爻预测的象理之分",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻预测的象理之分.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 2493,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻预测自修宝典",
+      "path": "书籍/六爻/王虎应/01_核心著作/六爻预测自修宝典.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 281516,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "时刻",
+      "path": "书籍/六爻/王虎应/01_核心著作/时刻.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 25439,
+      "status": "tool_only",
+      "note": "工具/排盘/数据，不作为术理证据"
+    },
+    {
+      "title": "王虎应：六爻预测自修宝典",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应_六爻预测自修宝典.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 248583,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应--六爻指迷",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应--六爻指迷.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 265745,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应-六爻疑惑指迷",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应-六爻疑惑指迷.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 250332,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应-象断六爻实战详解",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应-象断六爻实战详解.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 45975,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "王虎应老师--六爻预测宝典",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应老师--六爻预测宝典.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 256993,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应老师六爻随笔",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应老师六爻随笔.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 191799,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应六爻资料集",
+      "path": "书籍/六爻/王虎应/01_核心著作/王虎应六爻资料集.md",
+      "document_type": "01_核心著作",
+      "author_basis": "existing_archive_classification",
+      "size": 118504,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "001初学六爻预测王虎应1",
+      "path": "书籍/六爻/王虎应/02_基础理论/001初学六爻预测王虎应1.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 471593,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "初学断卦应该如何入手？",
+      "path": "书籍/六爻/王虎应/02_基础理论/初学断卦应该如何入手_.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 12978,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻基础概念简表",
+      "path": "书籍/六爻/王虎应/02_基础理论/六爻基础概念简表.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 5842,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻预测基础",
+      "path": "书籍/六爻/王虎应/02_基础理论/六爻预测基础.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 174542,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "周易零基础-你也是可以学习的",
+      "path": "书籍/六爻/王虎应/02_基础理论/周易零基础-你也是可以学习的.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 93312,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "周易预测之六爻预测基础知识",
+      "path": "书籍/六爻/王虎应/02_基础理论/周易预测之六爻预测基础知识.md",
+      "document_type": "02_基础理论",
+      "author_basis": "existing_archive_classification",
+      "size": 260308,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之兑宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之兑宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 11934,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之艮宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之艮宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 10836,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之坎宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之坎宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 10230,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之坤宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之坤宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 9366,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之离宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之离宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 9659,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之乾宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之乾宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 10135,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之巽宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之巽宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 9857,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦卦象之震宫八卦（修订）",
+      "path": "书籍/六爻/王虎应/03_理象/八卦卦象之震宫八卦(修订).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 10732,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "八卦六爻之六亲类象",
+      "path": "书籍/六爻/王虎应/03_理象/八卦六爻之六亲类象.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 15184,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻卦象解密王虎应",
+      "path": "书籍/六爻/王虎应/03_理象/六爻卦象解密王虎应.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 365145,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻预测全象解析+++++ (1)",
+      "path": "书籍/六爻/王虎应/03_理象/六爻预测全象解析+++++ (1).md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 30242,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应 理象分析 思路 六爻中道路的看法--2",
+      "path": "书籍/六爻/王虎应/03_理象/王虎应 理象分析 思路 六爻中道路的看法--2.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 38236,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应-理象思维篇",
+      "path": "书籍/六爻/王虎应/03_理象/王虎应-理象思维篇.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 29377,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应-浅谈六爻太极裂变",
+      "path": "书籍/六爻/王虎应/03_理象/王虎应-浅谈六爻太极裂变.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 174655,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "爻位所代表的各种象",
+      "path": "书籍/六爻/王虎应/03_理象/爻位所代表的各种象.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 7474,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "周易六爻类象知识  测病 一",
+      "path": "书籍/六爻/王虎应/03_理象/周易六爻类象知识 测病 一.md",
+      "document_type": "03_理象",
+      "author_basis": "existing_archive_classification",
+      "size": 66490,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "[转载]用神无根、过旺、用神极弱_静悟食_20200315_230355",
+      "path": "书籍/六爻/王虎应/04_用神/[转载]用神无根、过旺、用神极弱_静悟食_20200315_230355.md",
+      "document_type": "04_用神",
+      "author_basis": "existing_archive_classification",
+      "size": 11698,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻预测工作取用神",
+      "path": "书籍/六爻/王虎应/04_用神/六爻预测工作取用神.md",
+      "document_type": "04_用神",
+      "author_basis": "existing_archive_classification",
+      "size": 47039,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "六爻 王虎应解答过旺过弱一二",
+      "path": "书籍/六爻/王虎应/05_旺衰/六爻 王虎应解答过旺过弱一二.md",
+      "document_type": "05_旺衰",
+      "author_basis": "existing_archive_classification",
+      "size": 164960,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "王虎应秘论长生十二宫",
+      "path": "书籍/六爻/王虎应/05_旺衰/王虎应秘论长生十二宫.md",
+      "document_type": "05_旺衰",
+      "author_basis": "existing_archive_classification",
+      "size": 7943,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应墓库论",
+      "path": "书籍/六爻/王虎应/05_旺衰/王虎应墓库论.md",
+      "document_type": "05_旺衰",
+      "author_basis": "existing_archive_classification",
+      "size": 56821,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "地支生克冲合刑害",
+      "path": "书籍/六爻/王虎应/06_生克冲合/地支生克冲合刑害.md",
+      "document_type": "06_生克冲合",
+      "author_basis": "existing_archive_classification",
+      "size": 7744,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "对变爻的认识",
+      "path": "书籍/六爻/王虎应/06_生克冲合/对变爻的认识.md",
+      "document_type": "06_生克冲合",
+      "author_basis": "existing_archive_classification",
+      "size": 41109,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻里的生克冲合 王虎应",
+      "path": "书籍/六爻/王虎应/06_生克冲合/六爻里的生克冲合 王虎应.md",
+      "document_type": "06_生克冲合",
+      "author_basis": "existing_archive_classification",
+      "size": 9838,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "论冲合的关系",
+      "path": "书籍/六爻/王虎应/06_生克冲合/论冲合的关系.md",
+      "document_type": "06_生克冲合",
+      "author_basis": "existing_archive_classification",
+      "size": 116143,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "日、月、卦爻五行生克的顺序",
+      "path": "书籍/六爻/王虎应/06_生克冲合/日、月、卦爻五行生克的顺序.md",
+      "document_type": "06_生克冲合",
+      "author_basis": "existing_archive_classification",
+      "size": 46728,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "第一节应期远近定法",
+      "path": "书籍/六爻/王虎应/07_应期/第一节应期远近定法.md",
+      "document_type": "07_应期",
+      "author_basis": "existing_archive_classification",
+      "size": 9733,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "断应期 重要!",
+      "path": "书籍/六爻/王虎应/07_应期/断应期 重要!.md",
+      "document_type": "07_应期",
+      "author_basis": "existing_archive_classification",
+      "size": 99760,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "断应期2",
+      "path": "书籍/六爻/王虎应/07_应期/断应期2.md",
+      "document_type": "07_应期",
+      "author_basis": "existing_archive_classification",
+      "size": 37756,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "股市六爻预测精髓",
+      "path": "书籍/六爻/王虎应/08_分类占/股市六爻预测精髓.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 7166,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻测病分科详解王虎应中",
+      "path": "书籍/六爻/王虎应/08_分类占/六爻测病分科详解王虎应中.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 296924,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻测病文章",
+      "path": "书籍/六爻/王虎应/08_分类占/六爻测病文章.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 20702,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "六爻预测终生运气",
+      "path": "书籍/六爻/王虎应/08_分类占/六爻预测终生运气.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 6859,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "王虎应-六爻疾病预测学",
+      "path": "书籍/六爻/王虎应/08_分类占/王虎应-六爻疾病预测学.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 426619,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应——浅谈六爻股票",
+      "path": "书籍/六爻/王虎应/08_分类占/王虎应——浅谈六爻股票.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 5384,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应断风水",
+      "path": "书籍/六爻/王虎应/08_分类占/王虎应断风水.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 4210,
+      "status": "mixed_requires_attribution",
+      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+    },
+    {
+      "title": "王虎应老师股市预测分析精彩卦例",
+      "path": "书籍/六爻/王虎应/08_分类占/王虎应老师股市预测分析精彩卦例.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 49232,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王老师断股票5例",
+      "path": "书籍/六爻/王虎应/08_分类占/王老师断股票5例.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 5307,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "周易与股市预测",
+      "path": "书籍/六爻/王虎应/08_分类占/周易与股市预测.md",
+      "document_type": "08_分类占",
+      "author_basis": "existing_archive_classification",
+      "size": 607989,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "007六爻卦例说真",
+      "path": "书籍/六爻/王虎应/09_卦例/007六爻卦例说真.md",
+      "document_type": "09_卦例",
+      "author_basis": "external_verified",
+      "size": 393958,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "六爻分类占验技法王虎应",
+      "path": "书籍/六爻/王虎应/09_卦例/六爻分类占验技法王虎应.md",
+      "document_type": "09_卦例",
+      "author_basis": "existing_archive_classification",
+      "size": 266704,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应－六爻卦例说真（整理）",
+      "path": "书籍/六爻/王虎应/09_卦例/王虎应-六爻卦例说真(整理).md",
+      "document_type": "09_卦例",
+      "author_basis": "external_verified",
+      "size": 201045,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应网络卦例收集",
+      "path": "书籍/六爻/王虎应/09_卦例/王虎应网络卦例收集.md",
+      "document_type": "09_卦例",
+      "author_basis": "existing_archive_classification",
+      "size": 188285,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "六爻用神答疑（51页）王虎应",
+      "path": "书籍/六爻/王虎应/10_答疑/六爻用神答疑(51页)王虎应.md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 122194,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应《六爻卦例说真》答疑",
+      "path": "书籍/六爻/王虎应/10_答疑/王虎应《六爻卦例说真》答疑.md",
+      "document_type": "10_答疑",
+      "author_basis": "external_verified",
+      "size": 86786,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应关于“过旺过弱”等问题答疑汇总",
+      "path": "书籍/六爻/王虎应/10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 119239,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "王虎应老师问答录",
+      "path": "书籍/六爻/王虎应/10_答疑/王虎应老师问答录.md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 150294,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "王虎应问题答疑汇总最新版 - 副本",
+      "path": "书籍/六爻/王虎应/10_答疑/王虎应问题答疑汇总最新版 - 副本.md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 4218532,
+      "status": "mixed_requires_attribution",
+      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+    },
+    {
+      "title": "王老师关于“用神”问题答疑",
+      "path": "书籍/六爻/王虎应/10_答疑/王老师关于“用神”问题答疑.md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 75888,
+      "status": "mixed_requires_attribution",
+      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+    },
+    {
+      "title": "增删卜易评释答疑（王虎应老师）",
+      "path": "书籍/六爻/王虎应/10_答疑/增删卜易评释答疑(王虎应老师).md",
+      "document_type": "10_答疑",
+      "author_basis": "existing_archive_classification",
+      "size": 200978,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "0000重要空亡笔记",
+      "path": "书籍/六爻/王虎应/11_讲义记录/0000重要空亡笔记.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 6850,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "卦例集锦(含讲课记录)王虎应1",
+      "path": "书籍/六爻/王虎应/11_讲义记录/卦例集锦(含讲课记录)王虎应1.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 418665,
+      "status": "mixed_requires_attribution",
+      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+    },
+    {
+      "title": "王虎应 六爻中高级班讲课记录",
+      "path": "书籍/六爻/王虎应/11_讲义记录/王虎应 六爻中高级班讲课记录.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 47132,
+      "status": "reviewed_partial",
+      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+    },
+    {
+      "title": "王虎应讲课记录整理版之墓库作用篇",
+      "path": "书籍/六爻/王虎应/11_讲义记录/王虎应讲课记录整理版之墓库作用篇.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 98248,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应老师在周易爱好者群讲课记录之一",
+      "path": "书籍/六爻/王虎应/11_讲义记录/王虎应老师在周易爱好者群讲课记录之一.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 49559,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应新加坡视频学习笔记",
+      "path": "书籍/六爻/王虎应/11_讲义记录/王虎应新加坡视频学习笔记.md",
+      "document_type": "11_讲义记录",
+      "author_basis": "existing_archive_classification",
+      "size": 3875,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "009六爻趋避初探 （dxj校）",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 391757,
+      "status": "integrated",
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+    },
+    {
+      "title": "刘虹言《点评王虎应化解密传》",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/刘虹言《点评王虎应化解密传》.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 318040,
+      "status": "compare_only",
+      "note": "正文/既有归档核验显示不是王虎应直接方法，保留对照但不进主Prompt"
+    },
+    {
+      "title": "六爻趋避初探 王虎应",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/六爻趋避初探 王虎应.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 298077,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应- 化解物应注意哪些",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/王虎应- 化解物应注意哪些.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 5022,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应-六爻趋吉化解密传",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/王虎应-六爻趋吉化解密传.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 273200,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "王虎应六爻化解避灾经典资料集",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/王虎应六爻化解避灾经典资料集.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 392067,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应六爻十二支解灾",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/王虎应六爻十二支解灾.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 26188,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "uni六爻趋避初探 王虎应",
+      "path": "书籍/六爻/王虎应/12_趋吉避凶/uni六爻趋避初探 王虎应.md",
+      "document_type": "12_趋吉避凶",
+      "author_basis": "existing_archive_classification",
+      "size": 279677,
+      "status": "pending",
+      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+    },
+    {
+      "title": "001 六爻预测自修宝典（DXJ整理版）",
+      "path": "书籍/六爻/王虎应/90_他人整理/001 六爻预测自修宝典(DXJ整理版).md",
+      "document_type": "90_他人整理",
+      "author_basis": "existing_archive_classification",
+      "size": 282538,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "003王虎应增删卜易评释（dxj整理）",
+      "path": "书籍/六爻/王虎应/90_他人整理/003王虎应增删卜易评释(dxj整理).md",
+      "document_type": "90_他人整理",
+      "author_basis": "existing_archive_classification",
+      "size": 1250833,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应-六爻的技法与运用（整理）",
+      "path": "书籍/六爻/王虎应/90_他人整理/王虎应-六爻的技法与运用(整理).md",
+      "document_type": "90_他人整理",
+      "author_basis": "existing_archive_classification",
+      "size": 55033,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "王虎应增删卜易评释（整理）",
+      "path": "书籍/六爻/王虎应/90_他人整理/王虎应增删卜易评释(整理).md",
+      "document_type": "90_他人整理",
+      "author_basis": "existing_archive_classification",
+      "size": 1253012,
+      "status": "mixed_requires_attribution",
+      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+    },
+    {
+      "title": "DXJ 卦表",
+      "path": "书籍/六爻/王虎应/90_他人整理/DXJ 卦表.md",
+      "document_type": "90_他人整理",
+      "author_basis": "existing_archive_classification",
+      "size": 11991,
+      "status": "tool_only",
+      "note": "工具/排盘/数据，不作为术理证据"
+    }
+  ]
+}
