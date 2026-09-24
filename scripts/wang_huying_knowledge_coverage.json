@@ -12,13 +12,13 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 19,
+    "compare_only": 20,
     "tool_only": 3,
-    "mixed_requires_attribution": 16,
+    "mixed_requires_attribution": 20,
     "reviewed_partial": 12,
     "integrated": 17,
     "source_family_alias": 4,
-    "pending": 28
+    "pending": 23
   },
   "entries": [
     {
@@ -516,8 +516,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 116143,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "正文有大量第一人称案例与王虎应体系相符，但归档文本无直接作者署名且包含整理/问答拼接。已把能被《自修宝典/疑惑指迷》直接交叉确认的暗动/日破、月破实破、合绊、六合六冲非固定吉凶等留在Prompt；其余不独立提权。"
     },
     {
       "title": "日、月、卦爻五行生克的顺序",
@@ -525,8 +525,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 46728,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "正文未见王虎应直接署名，且含刘宪昭《周易预测答疑汇编》等来源。仅将与《自修宝典/疑惑指迷》明确一致的日月、暗动、月破、应期机制作为交叉佐证；“先生后克、先动后静”等十六字顺序不单独升格为王虎应GLOBAL规则。"
     },
     {
       "title": "第一节应期远近定法",
@@ -534,8 +534,8 @@
       "document_type": "07_应期",
       "author_basis": "existing_archive_classification",
       "size": 9733,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文为Qzone转载式应期稿，无王虎应直接署名；其中“卦宫旺衰决定应期远近”等做法未在已核王虎应正式主干中获得同等级支持。仅作对照，不进入生产Prompt。"
     },
     {
       "title": "断应期 重要!",
@@ -543,8 +543,8 @@
       "document_type": "07_应期",
       "author_basis": "existing_archive_classification",
       "size": 99760,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "明确是多来源应期汇编，正文同时含“王虎应老师《自修宝典》简化版”、朱辰彬等内容，不能整篇算王虎应。王虎应部分仅与正式《自修宝典》交叉确认后使用。"
     },
     {
       "title": "断应期2",
@@ -552,8 +552,8 @@
       "document_type": "07_应期",
       "author_basis": "existing_archive_classification",
       "size": 37756,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "应期经验汇编/案例稿，未发现足够直接作者归属。只把与《自修宝典》应期章一致的合冲空破墓、进退等触发当交叉佐证；不采用其未被正式书支持的额外公式。"
     },
     {
       "title": "股市六爻预测精髓",
