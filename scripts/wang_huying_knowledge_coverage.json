@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 40,
+    "compare_only": 41,
     "tool_only": 3,
     "source_family_alias": 12,
     "integrated": 29,
-    "mixed_requires_attribution": 14,
+    "mixed_requires_attribution": 13,
     "reviewed_partial": 1
   },
   "entries": [
@@ -777,8 +777,8 @@
       "document_type": "11_讲义记录",
       "author_basis": "existing_archive_classification",
       "size": 47132,
-      "status": "mixed_requires_attribution",
-      "note": "整理稿含邻爻固定作用、从强从弱、固定距离作用、卦名吉凶等与王虎应正式著作主干明显不同的体系。除可被《自修宝典/疑惑指迷》直接交叉确认的内容外，不作为王虎应生产规则；需保留作者/整理来源不确定性。"
+      "status": "compare_only",
+      "note": "已外部确认误归属：正文标题、日期（2005.5.19-5.23）、空亡论/虚实论/内外环境论、世爻喜抑制及后续“张代祥六爻中级班资料”等内容，与张代祥《六爻中高级班讲课记录》一致。整份按张代祥体系处理，不进入王虎应生产Prompt。"
     },
     {
       "title": "王虎应讲课记录整理版之墓库作用篇",
