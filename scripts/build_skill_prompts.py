@@ -7,6 +7,7 @@ from collections import defaultdict
 from contextlib import closing
 import hashlib
 import json
+import re
 from pathlib import Path
 import sqlite3
 import subprocess
@@ -387,12 +388,33 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
         global_parts.append('## 王虎应卦例提炼的全局裁决规则\n\n')
         global_parts.append(
             '以下知识按推理层级分组。组内规则不是同权投票项；先满足触发条件，再进入对应裁决门。'
-            '这些规则来自王虎应正式方法与具体卦例/答疑交叉提炼，不替代对应原文。\n\n')
+            '规则正文仍只维护在 global_case_rules；分组只引用规则标题，避免形成第二份知识副本。\n\n')
+        rules = plan.get('global_case_rules', [])
+        by_title = {}
+        untitled = []
+        for rule in rules:
+            match = re.match(r'^【([^】]+)】', rule)
+            if match:
+                by_title.setdefault(match.group(1), []).append(rule)
+            else:
+                untitled.append(rule)
+        used = set()
         for group in plan['global_rule_groups']:
             global_parts.append(f"### {group['title']}\n\n")
             if group.get('purpose'):
                 global_parts.append(group['purpose'].rstrip() + '\n\n')
-            global_parts.extend(f'- {rule}\n' for rule in group.get('rules', []))
+            for title in group.get('rule_titles', []):
+                for rule in by_title.get(title, []):
+                    global_parts.append(f'- {rule}\n')
+                    used.add(rule)
+            global_parts.append('\n')
+        leftovers = [rule for rule in rules if rule not in used]
+        if leftovers:
+            global_parts.append('### 新增待归类规则\n\n')
+            global_parts.append(
+                '这些规则已经进入生产知识，但尚未加入稳定分组索引；继续提炼时应优先归并到已有模块，'
+                '而不是长期堆积在这里。\n\n')
+            global_parts.extend(f'- {rule}\n' for rule in leftovers)
             global_parts.append('\n')
     elif plan.get('global_case_rules'):
         global_parts.extend([
