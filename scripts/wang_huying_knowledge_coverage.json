@@ -15,9 +15,9 @@
     "compare_only": 41,
     "tool_only": 3,
     "source_family_alias": 13,
-    "integrated": 29,
+    "integrated": 30,
     "mixed_requires_attribution": 11,
-    "reviewed_partial": 2
+    "reviewed_partial": 1
   },
   "entries": [
     {
@@ -685,8 +685,8 @@
       "document_type": "09_卦例",
       "author_basis": "existing_archive_classification",
       "size": 188285,
-      "status": "reviewed_partial",
-      "note": "已继续按133个标题做主题审查，并复核疾病、失物、出行、过旺、独发、月合、当地时间等案例。子宫肌瘤多例证明病象来自病人主用+真实受伤链+爻位/六亲/六神多源收敛而非单一口诀；失物太过、独发受变爻语义约束等机制已存在于当前Prompt。本轮进一步用“丢狗当天找回”反馈修正lost：活物发动逢日合先表示被绊住/走不远，具体归期另找动变化出用神、合处或冲开触发，不能固定成必须等冲才回。幼儿园案例再次验证原问优先，孩子用神弱不等于本题在问健康凶险。非王虎应本人断的日本古占/他人案例不升格。"
+      "status": "integrated",
+      "note": "已完成按全篇标题与专题的系统审查，疾病、失物、走失、出行、学习、真假、开放式事件、诉讼拘束等本人卦例均已核。已提取或修订的机制包括：病象从主用真实受伤链多源收敛；原问维度优先；失物太过；独发受变爻语义制约；活物逢合的containment与return_timing分层；新购未使用衣物可从财物状态取妻财；真假身份验证避免循环取用；个人发挥与名次分流；开放式incident_reconstruction不强设固定用神；司法入墓须与拘束链共同成立。日本古占/他人原断仅作对照，不作为王虎应独立证据；单例类象保留case corpus，不硬编码为通用规则。"
     },
     {
       "title": "六爻用神答疑（51页）王虎应",
