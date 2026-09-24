@@ -354,6 +354,10 @@
     {
       "glob": "12_趋吉避凶/王虎应-六爻趋吉化解密传.md",
       "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "11_讲义记录/王虎应 六爻中高级班讲课记录.md",
+      "authority_tier": "compare_only"
     }
   ],
   "default_authority_tier": "compare_only",
