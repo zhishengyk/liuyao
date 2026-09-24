@@ -20,8 +20,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--expected-corpus-hash", help="Require the validated source snapshot before packaging")
     parser.add_argument("--prerelease", action="store_true", help="Explicitly package a partial manual corpus under a prerelease version")
+    parser.add_argument("--wang-archive-root", type=Path,
+                        help="Checkout root containing the pinned Wang Huying book archive subtree")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
+    wang_archive_root = args.wang_archive_root or (
+        root / ".local/books-archive/Markdown归档/003周易命理资料/005王虎应")
+    if not wang_archive_root.is_dir():
+        raise FileNotFoundError(
+            "Pinned Wang Huying archive checkout is required for release builds: "
+            f"{wang_archive_root}")
     output = root / ".local/release-data/knowledge.sqlite"
     version = Version(__version__)
     package_version = str(version)
@@ -59,7 +67,8 @@ def main():
     plugin = root / 'plugins/liuyao-assistant'
     prompt_output = plugin / 'skills/interpret-liuyao/references/source-prompts'
     subprocess.run([sys.executable, str(root / 'scripts/build_skill_prompts.py'),
-                    '--database', str(output), '--output', str(prompt_output)], check=True)
+                    '--database', str(output), '--output', str(prompt_output),
+                    '--wang-archive-root', str(wang_archive_root)], check=True)
     prompt_manifest = json.loads((prompt_output / 'manifest.json').read_text(encoding='utf-8'))
     bundled_prompts = bundled.parent / 'source-prompts'
     if bundled_prompts.exists():
@@ -78,6 +87,11 @@ def main():
         'all_theory_units_accounted': prompt_manifest['all_theory_units_accounted'],
         'database_only_theory_units': len(prompt_manifest['database_only_evidence_ids']),
         'files_sha256': prompt_manifest['files_sha256'],
+        'wang_huying_archive': {
+            key: prompt_manifest['wang_huying_archive'].get(key)
+            for key in ('archive_branch', 'archive_commit_sha', 'archive_head_verified',
+                        'matched_files', 'canonical_files')
+        },
     }
     manifest = json.loads((plugin/'.codex-plugin/plugin.json').read_text(encoding='utf8'))
     assert manifest['version'] == __version__, 'Plugin and package versions differ'
