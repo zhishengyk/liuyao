@@ -5,6 +5,27 @@ description: 使用六爻助手MCP排盘，检索六爻理法、象法和相似�
 
 使用本插件的 `build_chart`、`search_knowledge`、`get_topics`、`get_outline`、`get_source`。若MCP未连接，说明需要启用六爻服务，不声称已检索本地资料。由当前AI组织检索、核对原文并分析；这条流程无需另配API Key。采用工具实际返回的检索模式，有语义模型时常规使用hybrid，需要进一步比较候选且接受等待时再显式用hybrid_rerank。
 
+
+## 启动前版本新鲜度检查（强制）
+
+每次开始实际断卦、读取GLOBAL/领域PROMPT或引用本项目规则前，**必须先检查 GitHub 上的最新源码与最新 Release 是否一致**；不得默认本地安装包、缓存文件或 Release 就是最新版本。仓库固定为 `zhishengyk/liuyao`，源码权威分支固定为 `main`。
+
+1. 读取 GitHub `main` 当前 HEAD commit SHA，记为 `main_sha`。
+2. 读取最新的非 draft、非 prerelease GitHub Release，取得 `release_tag`，并把该 tag 解析到真实 commit SHA，记为 `release_sha`。**不能只看 `target_commitish="main"`，也不能只比较版本号字符串。**
+3. 用 commit SHA/祖先关系比较二者：
+   - `release_sha == main_sha`：可认为该 Release 与 GitHub main 同步，`source_mode=release_current`。
+   - `main` 比 Release 更新，或二者已经分叉：Release 视为过期，`source_mode=github_main`，**以 GitHub main 为准**。
+4. 一旦 `source_mode=github_main`：
+   - 整个当前任务固定到检查得到的 `main_sha`，后续文件都从这个**精确 SHA**读取，不能一部分读旧 Release、一部分读后来又变化的 `main`。
+   - 若当前环境是源码 checkout 且允许执行 git，先 `git fetch origin main`，再以 fast-forward 方式更新到该 `main_sha`；不得用本地旧副本覆盖 GitHub。
+   - 若没有可写 checkout，但有 GitHub 连接器/网页读取能力，直接从 `zhishengyk/liuyao@main_sha` 读取最新的 `SKILL.md`、`references/`、`scripts/skill_prompt_plan.json`、`scripts/build_skill_prompts.py` 及当前任务实际依赖的源码文件，并以这些 GitHub 内容作为本次任务的指令与规则来源。
+   - 若 MCP 可从同一 `main_sha` 的源码环境启动/安装，则优先使用该源码运行时；若只能使用旧 Release 的 MCP/runtime，必须记录 `runtime_stale=true`，不得声称运行时已经更新。凡新 main 的 API、数据库 schema、生成 Prompt 或工具行为依赖新版 runtime 时，禁止把旧 runtime 与新规则静默混用；应明确报告版本缺口。
+5. 若 GitHub 检查失败、网络不可用或无法解析 tag SHA，必须明确标记 `freshness_check=unavailable`；**不得把“无法检查”解释为“Release 与 main 一致”**。
+6. 本次任务内部至少保留以下版本记录，便于审计：
+   `main_sha`、`release_tag`、`release_sha`、`source_mode`、`runtime_stale`、`freshness_check`。
+7. 本规则优先级高于下面的断卦/RAG流程。版本未核清时，不开始大范围检索，也不把旧 Release 中的 Prompt 当作最新项目规则。
+
+
 实际断卦先读 [全局断卦推理内核](references/reasoning-kernel.md)，先独立完成“原问 → 角色/取用 → 当前状态 → 有向作用图 → 结果路径 → 暂定主判”。**不要在这一步先做大范围RAG或案例检索。** 只有形成关键争议点后，再读 [断卦与条件审查流程](references/condition-review.md) 与 [全局断卦流程与原文](references/source-prompts/GLOBAL.md)，用原书正文、领域规则和必要案例核验这些争议点。长流程负责证据、例外、冲突和审计，不替代前置推理内核。单一用神的当前状态不能自动代替最终结果；普通单题优先保留短主线，批量审计或复杂冲突再展开完整条件表。
 
 用户已指定跨作者裁决：先确认两条规则的有向作用完全对应，包括施力者、受力者、世应/用神现实角色、爻位层次、判断层面、时限和其他前提；`世生应`与`应生世`不是同一结构，不能互作正反例。只有上述条件对齐且结论相反时才属于真实冲突，并以王虎应的直接论述或明确署名的王虎应评释为主。不能把《增删卜易评释》整本不分作者都算王虎应；按段落author及原注/新评释区分。其他作者原文保留为反证并说明为何未采用。王虎应没有覆盖该条件，或王虎应资料内部仍冲突时，保留未决，不自行编造下一层优先级。
