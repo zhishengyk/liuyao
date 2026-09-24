@@ -16,6 +16,18 @@
   ],
   "authority_overrides": [
     {
+      "glob": "07_应期/断应期 重要!.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "07_应期/断应期2.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "07_应期/第一节应期远近定法.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
       "glob": "90_他人整理/*",
       "authority_tier": "mixed_requires_attribution"
     },
