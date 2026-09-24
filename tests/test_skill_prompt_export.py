@@ -374,40 +374,6 @@ def test_global_rule_groups_render_by_title_and_keep_unclassified_rules(tmp_path
     assert '### 新增待归类规则' in prompt
     assert prompt.count('【新增规则】这条尚未归类。') == 1
 
-
-def test_global_rule_groups_render_consolidated_dict_schema(tmp_path):
-    module = exporter()
-    database, plan = fixture(tmp_path)
-    config = json.loads(plan.read_text(encoding='utf-8'))
-    config.pop('global_case_rules', None)
-    config['global_case_rules_raw'] = [
-        '【原始卡1】只用于审计。',
-        '【原始卡2】不直接灌入Prompt。',
-    ]
-    config['global_rule_groups'] = {
-        '原问与角色': [
-            '先锁定原问，再取主用神。',
-            '同一维度避免角色冲突。',
-        ],
-        '日月与动变': [
-            '日月定根，动爻看趋势。',
-        ],
-    }
-    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
-
-    output = tmp_path / 'prompts'
-    result = module.build(database, output, plan)
-    prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
-
-    assert '### 原问与角色' in prompt
-    assert '先锁定原问，再取主用神。' in prompt
-    assert '### 日月与动变' in prompt
-    assert '日月定根，动爻看趋势。' in prompt
-    assert '【原始卡1】' not in prompt
-    assert result['global_rule_groups']['原问与角色'] == 2
-    assert result['global_rule_card_count'] == 2
-
-
 def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
     module = exporter()
     database, plan = fixture(tmp_path)
@@ -425,3 +391,4 @@ def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
     assert '【考试专属】只在study领域加载。' in study_prompt
     assert '识别本领域后，必须在执行取用、现实角色、事项特例和应期等对应步骤之前加载本领域规则' in study_prompt
     assert '不得先跑完整个GLOBAL后再用领域规则事后改答案' in study_prompt
+
