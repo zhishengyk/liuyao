@@ -15,18 +15,22 @@ MCP负责排盘和资料访问，当前助手负责取用、解释和综合，�
 
 ## 可回查的总纲入口
 
-通用断法以[全局断卦流程与原文](source-prompts/GLOBAL.md)的步骤原书正文建立主线，再由其中列出的各书正文补总纲、原注、新评、例外和作者差异；不再用整理者的压缩概括代替书中方法。上面的编号步骤是执行与核查指引，不是新增的六爻规则。Git安装没有本地原文文件时，按SKILL.md通过`get_source('prompt:GLOBAL.md')`读取同版全文。
+主判只以王虎应体系建立主线。先读 [王虎应来源与权威策略](wang-huying-source-policy.md)，再按当前争议读取王虎应正式著作、本人讲课/答疑或《增删卜易评释》中明确署名的【新评释】。其他作者资料即使检索排名更高，也只能标为 `compare_only`，不能进入主判。
 
-以下是当前语料的原文入口，不是按每题固定全读的清单。选定方法后读取相关条目及required_contexts；已完整返回则复用。ID不可用时查目录/对应章，说明缺口，不编造ID。共享导语没有独立ID时使用实际父证据ID加上下文坐标，将自定义标签放在记录行号中。
+Git安装没有本地原文文件时，可用 `get_source('prompt:GLOBAL.md')` 和领域PROMPT导航，但GLOBAL只是导航层：其中若含非王虎应作者，必须按 `authority_tier` 降为对照，不能因为被GLOBAL收录就取得主证据资格。
+
+当前已确认的王虎应总纲入口包括：
 
 | 用途 | `get_source`入口 | 使用边界 |
 |---|---|---|
-| 问明目的、先取用神 | `liuyao_zixiu_dxj.full.l2248.rule` | 《自修宝典》第九章；不是遇任何事项都取世爻 |
-| 用神、元忌与作用主线 | `zengshan_pingshi_dxj-l2638-yongshen-strength`、`liuyao_zixiu_dxj.full.l2700.rule`、`liuyao_zixiu_dxj.full.l4216.rule` | 分清原作者/评释，动静作用和有力/无力需查相应章节 |
-| 围绕所求事情取象 | `liuyao_xiangfa_jinjie_shang.manual.p0007_core_question` | 核心问题优先，不把辅助描写替代原问 |
-| 理法与十二状态分工 | `liuyao_zixiu_dxj.full.l3612.rule`、`liuyao_xiangfa_jinjie_shang.manual.p0237_twelve_palaces_scope` | 保留各作者范围及少数例外，不等于所有墓绝皆不影响吉凶 |
-| 组合取象 | `liuyao_xiangfa_jinjie_shang.manual.p0186_combination_context` | 根据具体事情推理，不能穷举查表或任意拼象 |
-| 青岚的日月与动变主辅、例外 | `page:liuyao_lifa_jinjie:196`、`liuyao_lifa_jinjie.manual.p0196_special_strength` | PDF196–197总纲及特殊旺相；须保留短期/长期限制，不能移作所有作者的万能优先级 |
+| 取用神、世爻、元忌、日月、动静总纲 | `liuyao_zixiu_dxj.full.l2248.rule` 及《自修宝典》对应章节 | 正式主干；按原章上下文读取，不只摘单句 |
+| 用神、元忌与经典主线 | `zengshan_pingshi_dxj-l2638-yongshen-strength` | 《增删卜易评释》需区分野鹤原文、旧注与王虎应【新评释】；原文只有在王虎应采用时记 `classic_endorsed` |
+| 动静、生克、变爻边界 | 《六爻里的生克冲合》及《自修宝典》第十三章 | 王虎应本人四层力量主干：月、日、动、用神本位变爻 |
+| 初学实际步骤、空破活用、三合、子时换日、太过案例 | 《六爻趋避初探》相关章节 | 用于主干与同条件例外；先吉凶、后应期、再细节 |
+| 事项专门规则 | 《六爻分类占验技法》、王虎应正式教材各分类章节 | 只在对应事项加载，不外溢成跨领域公式 |
+| 例外与同条件修正 | 王虎应本人讲课、《六爻求真》可确认本人答复、过旺过弱答疑、明确署名【新评释】 | 记 `wang_case_specific`；只修正命中相同前提的一般规则，不按高频答疑覆盖正式主干 |
+
+非王虎应入口不再列入总纲表。需要比较时单独标 `compare_only` 并说明冲突点。
 
 ## 独立条件审查
 
