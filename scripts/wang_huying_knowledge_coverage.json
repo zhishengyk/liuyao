@@ -8,15 +8,17 @@
     "mixed_requires_attribution": "Compilation/lecture/Q&A material; paragraph-level attribution required before promotion.",
     "compare_only": "Not Wang-direct or internally attributed elsewhere; never changes Wang main judgment.",
     "tool_only": "Reference table/data rather than reasoning knowledge.",
-    "pending": "Still needs systematic extraction."
+    "pending": "Still needs systematic extraction.",
+    "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 10,
+    "compare_only": 11,
     "tool_only": 3,
-    "pending": 46,
-    "reviewed_partial": 9,
-    "integrated": 15,
-    "mixed_requires_attribution": 16
+    "pending": 39,
+    "mixed_requires_attribution": 16,
+    "reviewed_partial": 10,
+    "integrated": 16,
+    "source_family_alias": 4
   },
   "entries": [
     {
@@ -97,8 +99,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 39707,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文为通用网络式六爻/梅花/程序说明混合稿，无王虎应内部署名；目录归档不能证明作者，禁止进入王虎应主Prompt。"
     },
     {
       "title": "六爻分类预测断语（王虎应）",
@@ -106,8 +108,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 33239,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "分类口诀整理稿；部分内容与《自修宝典》一致，但不以标题自动提权。仅将正式著作可交叉验证的规则写入领域Prompt。"
     },
     {
       "title": "六爻高级技法",
@@ -178,8 +180,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 248583,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "与《六爻预测自修宝典》高度重合的版本/整理变体；不重复投票，保留全文用于差异核验。",
+      "source_family": "六爻预测自修宝典"
     },
     {
       "title": "王虎应--六爻指迷",
@@ -187,8 +190,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 265745,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "reviewed_partial",
+      "note": "独立于《疑惑指迷》的大型答疑集；已系统扫描问答目录并提取走失化用、日月不能直接做用神、月破日合、合的生克/刑语义、过旺、变卦用神、暗动无变爻、失物遮藏/无情等硬规则；仍有专题问答继续处理。"
     },
     {
       "title": "王虎应-六爻疑惑指迷",
@@ -196,8 +199,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 250332,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "与《六爻疑惑指迷（王虎应）》高度重合的版本/整理变体；不重复投票，保留全文用于差异核验。",
+      "source_family": "六爻疑惑指迷（王虎应）"
     },
     {
       "title": "王虎应-象断六爻实战详解",
@@ -214,8 +218,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 256993,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "与《六爻预测自修宝典》高度重合的版本/整理变体；不重复投票，保留全文用于差异核验。",
+      "source_family": "六爻预测自修宝典"
     },
     {
       "title": "王虎应老师六爻随笔",
@@ -250,8 +255,8 @@
       "document_type": "02_基础理论",
       "author_basis": "existing_archive_classification",
       "size": 12978,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "全文已读；正式执行顺序“预扫描空破暗动/伏藏→取用→日月→动/静→吉凶→应期→按需细节”已写入GLOBAL控制流。"
     },
     {
       "title": "六爻基础概念简表",
@@ -871,8 +876,9 @@
       "document_type": "90_他人整理",
       "author_basis": "existing_archive_classification",
       "size": 282538,
-      "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "status": "source_family_alias",
+      "note": "与《六爻预测自修宝典》高度重合的版本/整理变体；不重复投票，保留全文用于差异核验。",
+      "source_family": "六爻预测自修宝典"
     },
     {
       "title": "003王虎应增删卜易评释（dxj整理）",
