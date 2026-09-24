@@ -57,6 +57,11 @@ def build(database, output, plan_path):
     ranges = {bucket: defaultdict(list) for bucket in buckets}
     evidence = {bucket: [] for bucket in buckets}
     selections = []
+    production_source_ids = set(plan.get('production_source_ids', []))
+    compare_only_evidence = []
+
+    def source_allowed(sid):
+        return not production_source_ids or sid in production_source_ids
 
     def add(bucket, sid, spans, label):
         if bucket not in ranges or sid not in sources or not spans:
@@ -70,24 +75,37 @@ def build(database, output, plan_path):
 
     def add_unit(bucket, uid):
         unit = units[uid]
+        if not source_allowed(unit['source_id']):
+            compare_only_evidence.append(uid)
+            return False
         evidence[bucket].append(uid)
         add(bucket, unit['source_id'], unit['source_spans'], uid)
         for index, context in enumerate(unit.get('required_contexts', [])):
             spans = context.get('source_spans') or [context]
-            add(bucket, context.get('source_id', unit['source_id']), spans, f'{uid}:context:{index}')
+            context_sid = context.get('source_id', unit['source_id'])
+            if source_allowed(context_sid):
+                add(bucket, context_sid, spans, f'{uid}:context:{index}')
+        return True
 
     database_only = []
     for uid, unit in units.items():
         classification = unit.get('classification', {})
         roots = classification.get('roots', [])
         if roots:
-            for bucket in roots:
-                add_unit(bucket, uid)
+            if source_allowed(unit['source_id']):
+                for bucket in roots:
+                    add_unit(bucket, uid)
+            else:
+                compare_only_evidence.append(uid)
         else:
             database_only.append(uid)
     for item in plan.get('supplemental_spans', []):
+        if not source_allowed(item['source_id']):
+            raise ValueError(f'Supplemental production source is not allowed: {item["source_id"]}')
         add(item['bucket'], item['source_id'], [item], item['reason'])
     for item in plan.get('supplemental_pages', []):
+        if not source_allowed(item['source_id']):
+            raise ValueError(f'Supplemental production source is not allowed: {item["source_id"]}')
         for page in item['pages']:
             record = pages[(item['source_id'], page)]
             add(item['bucket'], item['source_id'], [{'start_line': record['canonical_start_line'],
@@ -141,30 +159,30 @@ def build(database, output, plan_path):
         if bucket != 'global':
             domain = plan['domains'][bucket]
             questions = '、'.join(domain['questions'])
-            own_count = sum(bucket in u.get('classification', {}).get('roots', []) for u in units.values())
+            own_count = sum(bucket in u.get('classification', {}).get('roots', [])
+                            and source_allowed(u['source_id']) for u in units.values())
             generated[f'{bucket}/PROMPT.md'] = (
                 f'# {domain["title"]}领域提示词\n\n'
-                '先完成全局流程及通用原文阅读，再按本题加载以下领域原文。以下路由说明由整理者编写，断法以各书原文为准。\n\n'
-                f'本领域问意目录：{questions}。按实际对象、动作和时限选择，不由同一个领域名称推定相同取用。'
-                '复合问题分别加载相关领域并分别回答。\n\n'
-                '在全局流程第3步可读取本领域的取用规则；主线吉凶已判后，才在第5步读取本领域细节取象、过程和例外；应期规则留到第6步。'
-                '依各书原有顺序核取用、作用、主辅及例外，区分现状/吉凶/应期，再对原问作具体取象。'
-                '作者分歧先并列推导；施力者→受力者、双方现实角色/层次、判断层面、时限和前提均对齐而结论相反时，按用户指定以王虎应直接论述或明确署名评释为主。'
-                '`世生应`与`应生世`、动变发生在不同一方的案例不是同一结构。'
-                '其他原文仍保留；王虎应未覆盖或内部冲突则不自行裁决。文件内原文及例证完整保留，例证反馈只属于原例。\n\n'
-                f'已有直接领域理论条目：{own_count}；补充章段与通用取用入口另计。'
-                '本汇编覆盖当前已整理理论及清单指定原章，不声称全书每页或本领域所有方法均已完成。\n\n'
-                + ('此领域目前没有直接分类的理论条目，以下为明确标出的通用取用原文；具体领域断法仍需数据库补查，不能宣称已有完整专章。\n\n' if own_count == 0 else '')
+                '本文件只提供王虎应体系下的领域覆盖层，不重复全局旺衰、生克和动变算法。'
+                '先完成GLOBAL中的通用主干，再在取用、现实角色、事项特例和应期阶段加载本领域。\n\n'
+                f'本领域问意目录：{questions}。同一领域内仍须按原问、对象、动作、时间尺度与专测/兼问分别取用；'
+                '不得仅凭领域名称固定一个六亲。复合问题逐维加载、逐维回答。\n\n'
+                '生产提示词只自动汇入计划允许的王虎应主证据来源；其他作者仍保留在数据库中，仅在显式比较或冲突核查时作为compare_only检索，'
+                '不得改变王虎应主判。案例反馈只属于原例，禁止回填当前问题或作为预测答案。\n\n'
+                f'当前王虎应直接领域理论条目：{own_count}；补充章段另计。'
+                '若本领域缺少王虎应直接原文，必须标reading_gap，并回数据库定向检索，不得用其他作者自动补位。\n\n'
+                + ('当前生成包没有王虎应直接分类条目；以下仅保留计划显式加入的王虎应通用/相邻原文。\n\n' if own_count == 0 else '')
                 + '\n'.join(f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({Path(f).name})' for f in files)
-                + '\n\n先读取[全局断卦流程与原文](../GLOBAL.md)。本领域涉及取用时在第3步读取相应原文；主线吉凶已判后再读细节取象和过程；应期留在第6步。再核全文及相邻限制，然后用数据库补充细则、例外和相似案例。未读完、截断或来源不清须记入reading_gaps；不得把未读当作没有，也不自动截断原文或以摘要替代。\n')
+                + '\n\n先读取[全局断卦流程与原文](../GLOBAL.md)，再核本领域原文及相邻限制。'
+                '只有命中当前原问的领域规则才能进入结果路径；未读完、截断或作者归属不清必须记入reading_gaps。\n')
 
             if domain.get('flow'):
                 generated[f'{bucket}/PROMPT.md'] += '\n\n## \u672c\u9886\u57df\u7528\u53d6\u4e0e\u6d41\u7a0b\uff08\u5206\u7c7b\u4e13\u5c5e\uff0c\u5148\u4e8e\u5168\u5c40\u5bf9\u5e94\u6b65\u9aa4\u6267\u884c\uff09:\n\n' + domain['flow'] + '\n'
 
     global_parts = ['# 全局断卦流程与原文\n\n',
-                    '先按以下顺序建立主线。步骤标题和“本步执行”只说明阅读与核查顺序，不新增断法，也不替代任何作者原句。'
-                    '每步后的正文均按当前数据库的来源范围保留；同一段文字出现在不同步骤，是因为它同时约束多个判断环节。'
-                    '细则、例外和案例仍由数据库按实际盘面补查。\n\n']
+                    '本文件是王虎应体系的生产主干：先定原问与用神，再按月、日、动爻、本位变爻判断，'
+                    '随后核元忌、世爻、事项特例与应期。步骤标题只规定执行顺序；真正断法以紧随其后的王虎应原文为证据。'
+                    '评测答案、历史反馈、其他作者规则都不得进入当前问题主判。\n\n']
     flow_sections = []
     for item in sorted(workflow, key=lambda value: value['step']):
         global_parts.extend([f'## 第{item["step"]}步：{item["title"]}\n\n',
@@ -188,10 +206,9 @@ def build(database, output, plan_path):
     sections.extend(flow_sections)
 
     global_parts.extend(['## 全局补充原文与领域路由\n\n',
-        '以下通用原文不依赖临时主题检索。按作者分册阅读，保留原文主辅、例外和不同观点，不把不同书强行合并成一套公式。'
-        '跨作者真实冲突按用户指定以王虎应直接论述或明确署名评释为主；先核作者归属、施力者→受力者、双方现实角色/层次、判断层面、时限和前提。'
-        '`世生应`与`应生世`不是同一结构，其他作者原文不删除。'
-        '王虎应未覆盖或内部仍冲突时保留未决。\n\n',
+        '以下自动汇入的通用原文只来自plan允许的王虎应主证据来源。'
+        '《增删卜易评释》仍须区分古籍正文、旧注与王虎应【新评释】；古籍内容只有在王虎应采用时才能作为classic_endorsed进入主判。'
+        '其他作者不进入生成的生产主干，仍可从数据库显式检索作compare_only。王虎应内部同条件仍冲突时保留冲突，不按出现次数投票。\n\n',
         *[f'- [{sources[Path(f).stem]["metadata"].get("title", Path(f).stem)}]({f})\n' for f in routes['global']],
         '\n原文较长时按文件、来源段连续读取并记录读到的位置；遇到上下文或工具截断，不得声称完整读取。'
         '原文文件保持全文，不能为了上下文长度改写或压缩；未完成阅读应明确列为流程缺口。\n\n',
@@ -214,12 +231,15 @@ def build(database, output, plan_path):
             if not path.is_relative_to(output.resolve()):
                 raise ValueError('Manifest file escapes generated directory')
             path.unlink(missing_ok=True)
-    manifest = {'schema_version': 1, 'database_sha256': sha(database.read_bytes()),
+    routed_ids = set(uid for ids in evidence.values() for uid in ids)
+    compare_only_ids = set(compare_only_evidence) - routed_ids
+    manifest = {'schema_version': 2, 'database_sha256': sha(database.read_bytes()),
                 'source_content_sha256': logical_hash,
                 'plan_sha256': sha(plan_path.read_bytes()), 'theory_units': len(units),
-                'database_only_evidence_ids': sorted(set(database_only) - set(uid for ids in evidence.values() for uid in ids)),
-                'all_theory_units_accounted': (set(uid for ids in evidence.values() for uid in ids)
-                                               | set(database_only)) == set(units),
+                'database_only_evidence_ids': sorted(set(database_only) - routed_ids),
+                'compare_only_evidence_ids': sorted(compare_only_ids),
+                'production_source_ids': sorted(production_source_ids),
+                'all_theory_units_accounted': (routed_ids | set(database_only) | compare_only_ids) == set(units),
                 'source_versions': {sid: {'body_sha256': sha(s['body'].encode()), 'metadata': s['metadata']}
                                     for sid, s in sources.items()},
                 'evidence_by_bucket': {k: sorted(set(v)) for k, v in evidence.items()},
@@ -229,6 +249,7 @@ def build(database, output, plan_path):
                 'limitations': ['Current stored source version; machine OCR and visual review remain distinct.',
                                 'Selection is explicit, not whole-book coverage; full original line ranges and contexts are preserved.',
                                 'Source examples and historical feedback are not live-case facts or blind-evaluation evidence.',
+                                'Production prompt routing may intentionally exclude compare-only authors.',
                                 'No model summary, rewriting or prediction accuracy claim.']}
     save_json(old_manifest, manifest)
     return manifest
