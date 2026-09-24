@@ -205,6 +205,19 @@
 
 例如“子孙动化官”可在功名语境中形成职位变化的候选事件象；“初爻动化财”可在出行语境中结合初爻脚力取财象。是否采用仍要回到原问、用神和事项规则。
 
+#### 冲也不是一个布尔状态
+
+记录 `clash_mode` 与施力来源，不把所有“冲”都解释成冲散：
+
+- `hexagram_six_clash`：主卦六冲，更多是整体结构/事项修饰；
+- `transform_to_six_clash`、`six_clash_to_six_clash`：可加强反复、分散等结构信息，但仍审用神；
+- `month_clash`：首先进入月破体系，不等于普通“冲动”；
+- `day_clash`：按用神/爻的根基区分暗动、日破、冲实、冲起等；
+- `moving_line_clash`：动爻可冲静爻，特定条件下可引起暗动/冲开；
+- `changed_line_clash`：本位动变相冲，属于反吟/自身变化，不和外部动爻冲混用。
+
+冲的功能至少区分 `scatter|open|activate|break|release`。同一地支相冲，因 actor_scope 与事项不同可产生相反结果。疾病近病喜冲、久病忌冲；官司、生育等又有专门六冲语义。必须先过领域规则，不能用“六冲必散”跨领域定成败。
+
 #### 合不是一个布尔状态
 
 王虎应正式教材把“合”分成不同施力来源和现实含义，必须记录 `combine_mode`：
@@ -468,6 +481,7 @@ force_state
 semantic_state
 timing_state
 combine_mode
+clash_mode
 day_month_embodied
 moving_clash_activation
 state_modifier
