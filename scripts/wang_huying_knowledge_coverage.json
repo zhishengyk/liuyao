@@ -15,10 +15,10 @@
     "compare_only": 20,
     "tool_only": 3,
     "mixed_requires_attribution": 22,
-    "integrated": 25,
+    "integrated": 26,
     "source_family_alias": 6,
     "pending": 21,
-    "reviewed_partial": 2
+    "reviewed_partial": 1
   },
   "entries": [
     {
@@ -383,8 +383,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 365145,
-      "status": "reviewed_partial",
-      "note": "已系统读取方法论与多个案例，已提取七类象源、卦象语境化、同六亲借六神detail-only规则；全书大量逐卦象义仍保留全文待继续提取。"
+      "status": "integrated",
+      "note": "Prompt层方法已完成：七类象源、多源组合、取象绑定原问/用神、理象并存、同六亲借六神detail-only、地域/候选集消歧等已进入GLOBAL xiang规则；逐卦卦象词义与大量案例保留全文corpus按需加载，不复制成常驻Prompt词典。"
     },
     {
       "title": "六爻预测全象解析+++++ (1)",
