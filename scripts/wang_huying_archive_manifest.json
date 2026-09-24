@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "archive_branch": "books-archive-reorg",
+  "archive_commit_sha": "a2cc3393d910a66f10a92bf619a62d9e6183b934",
+  "archive_root": "Markdown归档/003周易命理资料/005王虎应",
+  "selection_policy": "Bundle every six-yao archive Markdown file whose basename explicitly attributes it to 王虎应/王老师, plus a small set of canonical Wang Huying works whose filenames omit the author. Exclude student software, non-six-yao material, third-party commentary, and explicit reposts. Exact duplicate contents are stored once and retained as aliases; non-identical variants are all preserved.",
+  "basename_contains": [
+    "王虎应",
+    "王老师"
+  ],
+  "exact_paths": [
+    "WHY DXJ整理版/001 六爻预测自修宝典（DXJ整理版）.doc.md",
+    "WHY DXJ整理版/009六爻趋避初探 （dxj校）.doc.md",
+    "初学断卦应该如何入手？.doc.md",
+    "王虎应六爻资料全集/初学断卦应该如何入手？.doc.md"
+  ],
+  "exclude_globs": [
+    "**/王虎应学员六爻排盘软件/**",
+    "**/王虎应学员六爻排盘软件.rar.md",
+    "**/*点评王虎应*.md",
+    "**/*命理真诀*.md",
+    "**/[转载]*.md",
+    "**/*四柱*.md",
+    "**/*八字*.md"
+  ],
+  "authority_overrides": [
+    {
+      "glob": "**/*增删卜易评释*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*问题答疑汇总*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*六爻资料集*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*网络卦例收集*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*教学网站*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*六爻预测自修宝典*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*初学六爻预测*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻分类占验技法*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻卦象解密*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻趋避初探*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻疾病预测学*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻测病分科详解*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻疑惑指迷*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻里的生克冲合*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻的技法与运用*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻指迷*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻趋吉化解密传*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻化解避灾经典资料集*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*六爻十二支解灾*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*浅谈六爻太极裂变*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*理象思维篇*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*象断六爻实战详解*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*墓库论*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*秘论长生十二宫*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "**/*断风水*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*答疑*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*问答录*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*讲课记录*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*六爻随笔*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*卦例*.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/*股票*.md",
+      "authority_tier": "wang_case_specific"
+    }
+  ],
+  "default_authority_tier": "wang_case_specific",
+  "domain_rules": [
+    {
+      "contains": [
+        "疾病",
+        "测病",
+        "病"
+      ],
+      "domains": [
+        "health"
+      ]
+    },
+    {
+      "contains": [
+        "工作",
+        "求职",
+        "升迁"
+      ],
+      "domains": [
+        "job"
+      ]
+    },
+    {
+      "contains": [
+        "股票",
+        "股市",
+        "财"
+      ],
+      "domains": [
+        "wealth"
+      ]
+    },
+    {
+      "contains": [
+        "风水",
+        "房",
+        "宅"
+      ],
+      "domains": [
+        "property"
+      ]
+    },
+    {
+      "contains": [
+        "婚",
+        "感情"
+      ],
+      "domains": [
+        "relationship"
+      ]
+    },
+    {
+      "contains": [
+        "考试",
+        "学业"
+      ],
+      "domains": [
+        "study"
+      ]
+    },
+    {
+      "contains": [
+        "失物",
+        "行人"
+      ],
+      "domains": [
+        "lost",
+        "travel"
+      ]
+    },
+    {
+      "contains": [
+        "用神",
+        "生克",
+        "冲合",
+        "墓库",
+        "长生",
+        "理象",
+        "技法",
+        "指迷",
+        "自修宝典",
+        "初学六爻",
+        "分类占验",
+        "卦象解密",
+        "趋避初探",
+        "增删卜易评释"
+      ],
+      "domains": [
+        "*"
+      ]
+    }
+  ]
+}
