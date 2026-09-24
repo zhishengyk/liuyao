@@ -14,10 +14,10 @@
   "counts": {
     "compare_only": 20,
     "tool_only": 3,
-    "mixed_requires_attribution": 20,
+    "mixed_requires_attribution": 22,
     "integrated": 21,
     "source_family_alias": 6,
-    "reviewed_partial": 8,
+    "reviewed_partial": 6,
     "pending": 21
   },
   "entries": [
@@ -455,8 +455,8 @@
       "document_type": "04_用神",
       "author_basis": "existing_archive_classification",
       "size": 47039,
-      "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "status": "mixed_requires_attribution",
+      "note": "正文开头为“乾乾易学网”专项文章，后续还混入周易预测等网站段落，未能确认整篇为王虎应本人。与王虎应正式《自修宝典/用神答疑/疑惑指迷》一致的“官=工作、父=单位文书、财=收入、原问目的决定维度权重”等仅作交叉佐证；网站特有持世口诀、薪资算法、梅花/干支数法等不进入生产Prompt。"
     },
     {
       "title": "六爻 王虎应解答过旺过弱一二",
@@ -772,8 +772,8 @@
       "document_type": "11_讲义记录",
       "author_basis": "existing_archive_classification",
       "size": 47132,
-      "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "status": "mixed_requires_attribution",
+      "note": "整理稿含邻爻固定作用、从强从弱、固定距离作用、卦名吉凶等与王虎应正式著作主干明显不同的体系。除可被《自修宝典/疑惑指迷》直接交叉确认的内容外，不作为王虎应生产规则；需保留作者/整理来源不确定性。"
     },
     {
       "title": "王虎应讲课记录整理版之墓库作用篇",
