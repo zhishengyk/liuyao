@@ -240,5 +240,21 @@
         "*"
       ]
     }
+  ],
+  "all_domains": [
+    "affairs",
+    "children",
+    "cooperation",
+    "health",
+    "job",
+    "lawsuit",
+    "lost",
+    "objects",
+    "property",
+    "relationship",
+    "study",
+    "travel",
+    "wealth",
+    "weather"
   ]
 }
