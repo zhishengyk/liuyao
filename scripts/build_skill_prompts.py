@@ -57,6 +57,8 @@ def archive_selected(rel, config):
     if any(fnmatch.fnmatch(rel, pattern) or fnmatch.fnmatch(name, pattern)
            for pattern in config.get('exclude_globs', [])):
         return False
+    if config.get('include_all_markdown_under_root'):
+        return True
     if rel in set(config.get('exact_paths', [])):
         return True
     return any(token in name for token in config.get('basename_contains', []))
@@ -71,10 +73,9 @@ def archive_authority(rel, config):
 
 
 def archive_domains(rel, config):
-    name = Path(rel).name
     domains = set()
     for rule in config.get('domain_rules', []):
-        if any(token in name for token in rule.get('contains', [])):
+        if any(token in rel for token in rule.get('contains', [])):
             domains.update(rule.get('domains', []))
     return sorted(domains or {'global'})
 
@@ -94,6 +95,8 @@ def add_wang_archive(generated, sections, archive_root, archive_manifest_path):
 
     candidates = []
     for path in sorted(archive_root.rglob('*.md')):
+        if config.get('skip_empty_files', True) and path.stat().st_size == 0:
+            continue
         rel = path.relative_to(archive_root).as_posix()
         if archive_selected(rel, config):
             candidates.append((rel, path))
