@@ -5,6 +5,27 @@ description: 使用六爻助手MCP排盘，检索六爻理法、象法和相似�
 
 使用本插件的 `build_chart`、`search_knowledge`、`get_topics`、`get_outline`、`get_source`。若MCP未连接，说明需要启用六爻服务，不声称已检索本地资料。由当前AI组织检索、核对原文并分析；这条流程无需另配API Key。采用工具实际返回的检索模式，有语义模型时常规使用hybrid，需要进一步比较候选且接受等待时再显式用hybrid_rerank。
 
+
+## 启动前版本新鲜度检查（强制）
+
+每次开始实际断卦、读取GLOBAL/领域PROMPT或引用本项目规则前，**必须先检查 GitHub 上的最新源码与最新 Release 是否一致**；不得默认本地安装包、缓存文件或 Release 就是最新版本。仓库固定为 `zhishengyk/liuyao`，源码权威分支固定为 `main`。
+
+1. 读取 GitHub `main` 当前 HEAD commit SHA，记为 `main_sha`。
+2. 读取最新的非 draft、非 prerelease GitHub Release，取得 `release_tag`，并把该 tag 解析到真实 commit SHA，记为 `release_sha`。**不能只看 `target_commitish="main"`，也不能只比较版本号字符串。**
+3. 用 commit SHA/祖先关系比较二者：
+   - `release_sha == main_sha`：可认为该 Release 与 GitHub main 同步，`source_mode=release_current`。
+   - `main` 比 Release 更新，或二者已经分叉：Release 视为过期，`source_mode=github_main`，**以 GitHub main 为准**。
+4. 一旦 `source_mode=github_main`：
+   - 整个当前任务固定到检查得到的 `main_sha`，后续文件都从这个**精确 SHA**读取，不能一部分读旧 Release、一部分读后来又变化的 `main`。
+   - 若当前环境是源码 checkout 且允许执行 git，先 `git fetch origin main`，再以 fast-forward 方式更新到该 `main_sha`；不得用本地旧副本覆盖 GitHub。
+   - 若没有可写 checkout，但有 GitHub 连接器/网页读取能力，直接从 `zhishengyk/liuyao@main_sha` 读取最新的 `SKILL.md`、`references/`、`scripts/skill_prompt_plan.json`、`scripts/build_skill_prompts.py` 及当前任务实际依赖的源码文件，并以这些 GitHub 内容作为本次任务的指令与规则来源。
+   - 若 MCP 可从同一 `main_sha` 的源码环境启动/安装，则优先使用该源码运行时；若只能使用旧 Release 的 MCP/runtime，必须记录 `runtime_stale=true`，不得声称运行时已经更新。凡新 main 的 API、数据库 schema、生成 Prompt 或工具行为依赖新版 runtime 时，禁止把旧 runtime 与新规则静默混用；应明确报告版本缺口。
+5. 若 GitHub 检查失败、网络不可用或无法解析 tag SHA，必须明确标记 `freshness_check=unavailable`；**不得把“无法检查”解释为“Release 与 main 一致”**。
+6. 本次任务内部至少保留以下版本记录，便于审计：
+   `main_sha`、`release_tag`、`release_sha`、`source_mode`、`runtime_stale`、`freshness_check`。
+7. 本规则优先级高于下面的断卦/RAG流程。版本未核清时，不开始大范围检索，也不把旧 Release 中的 Prompt 当作最新项目规则。
+
+
 实际断卦必须先执行下面的核心顺序；这是控制层，优先于大范围RAG和案例检索：
 
 1. **明确原问与问法上下文，并拆结果维度**：拆清主体、对象、事件、时限，以及“现状描述 / 事件是否实现 / 对象本身状态 / 本人得失 / 原因 / 应期”属于哪一维度；记录 `question_mode=outcome|state_description|cause|timing`、`question_granularity=general_state|specific_event`、`question_focus=primary|secondary`、`time_horizon=now|stage|long_term`、`cast_context=initial|repeat_same_question|followup_new_dimension`。**事件结果与对象状态必须分开**：例如“能否找到人”与“找到时是否平安”、“能否录用”与“录用后条件如何”不能由一个 yes/no 覆盖。泛测官运与“此次能否升官”、问前任现状与问能否复合、初占与第五次复占也不能套同一裁决。
