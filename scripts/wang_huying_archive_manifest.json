@@ -160,10 +160,6 @@
       "authority_tier": "mixed_requires_attribution"
     },
     {
-      "glob": "05_旺衰/王虎应墓库论.md",
-      "authority_tier": "wang_case_specific"
-    },
-    {
       "glob": "06_生克冲合/地支生克冲合刑害.md",
       "authority_tier": "mixed_requires_attribution"
     },
@@ -172,20 +168,12 @@
       "authority_tier": "compare_only"
     },
     {
-      "glob": "06_生克冲合/六爻里的生克冲合 王虎应.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
       "glob": "06_生克冲合/论冲合的关系.md",
       "authority_tier": "compare_only"
     },
     {
       "glob": "06_生克冲合/日、月、卦爻五行生克的顺序.md",
       "authority_tier": "compare_only"
-    },
-    {
-      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
-      "authority_tier": "wang_direct"
     },
     {
       "glob": "12_趋吉避凶/uni六爻趋避初探 王虎应.md",
@@ -214,10 +202,6 @@
     {
       "glob": "03_理象/周易六爻类象知识 测病 一.md",
       "authority_tier": "compare_only"
-    },
-    {
-      "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
-      "authority_tier": "wang_case_specific"
     },
     {
       "glob": "02_基础理论/初学断卦应该如何入手_.md",
@@ -305,10 +289,6 @@
     },
     {
       "glob": "10_答疑/*",
-      "authority_tier": "wang_case_specific"
-    },
-    {
-      "glob": "11_讲义记录/*",
       "authority_tier": "wang_case_specific"
     },
     {
