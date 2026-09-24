@@ -330,7 +330,7 @@
       ]
     }
   ],
-  "selection_policy": "Production prompts contain only plan-approved Wang Huying source families. Domain prompts are overlays for yongshen/role mapping, domain-specific exceptions and timing; the global prompt owns the common reasoning algorithm. Blind-test fixes, known outcomes and feedback are evaluation data, never production inference rules. Other authors remain searchable in the database as compare_only and cannot change the Wang Huying main judgment.",
+  "selection_policy": "Production prompts route only plan-approved Wang Huying source families. This is a source-family allowlist, not a paragraph-author promotion: mixed works such as zengshan_pingshi_dxj still require paragraph-level authority_tier (wang_direct / wang_case_specific / classic_endorsed / compare_only). Domain prompts are overlays for yongshen/role mapping, domain-specific exceptions and timing; the global prompt owns the common reasoning algorithm. Blind-test fixes, known outcomes and feedback are evaluation data, never production inference rules. Other source families remain searchable in the database as compare_only and cannot change the Wang Huying main judgment.",
   "production_source_ids": [
     "liuyao_zixiu_dxj",
     "zengshan_pingshi_dxj"
