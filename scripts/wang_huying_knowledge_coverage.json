@@ -12,12 +12,12 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 21,
+    "compare_only": 31,
     "tool_only": 3,
     "mixed_requires_attribution": 24,
     "integrated": 28,
     "source_family_alias": 7,
-    "pending": 15,
+    "pending": 5,
     "reviewed_partial": 1
   },
   "entries": [
@@ -302,8 +302,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 11934,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之艮宫八卦（修订）",
@@ -311,8 +311,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 10836,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之坎宫八卦（修订）",
@@ -320,8 +320,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 10230,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之坤宫八卦（修订）",
@@ -329,8 +329,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 9366,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之离宫八卦（修订）",
@@ -338,8 +338,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 9659,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之乾宫八卦（修订）",
@@ -347,8 +347,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 10135,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之巽宫八卦（修订）",
@@ -356,8 +356,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 9857,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦卦象之震宫八卦（修订）",
@@ -365,8 +365,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 10732,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文属于“六爻筑基第一关”八宫卦象讲义体系；公开版本标注授课老师为动之徐生、整理人为石中隐玉。虽被收进王虎应资料包，但不能据目录归属提权；仅作卦象/爻位取象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "八卦六爻之六亲类象",
@@ -374,8 +374,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 15184,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无王虎应内部署名，核心段落可追溯到更早的《六爻快速推断法》类六亲定人事材料；目录归档不足以证明王虎应作者身份。保留为类象对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "六爻卦象解密王虎应",
@@ -428,8 +428,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 7474,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无王虎应内部署名，且与公开六爻阳宅风水讲义中的逐爻固定断语高度重合；其中大量“某爻临某六亲即吉凶”的固定公式也不符合已核王虎应理象分层主干。仅作类象对照。"
     },
     {
       "title": "周易六爻类象知识  测病 一",
