@@ -348,3 +348,28 @@ def test_author_scoped_archive_manifest_includes_all_nonempty_markdown(tmp_path)
     assert authority['09_卦例/007六爻卦例说真.md'] == 'wang_case_specific'
     assert authority['90_他人整理/整理版.md'] == 'mixed_requires_attribution'
     assert (output / 'wang-huying-corpus/domains/job.md').exists()
+
+
+def test_global_rule_groups_render_by_title_and_keep_unclassified_rules(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['global_case_rules'] = [
+        '【原问中心】先回答原问。',
+        '【新增规则】这条尚未归类。',
+    ]
+    config['global_rule_groups'] = [{
+        'title': '原问与取用',
+        'purpose': '先定问题。',
+        'rule_titles': ['原问中心'],
+    }]
+    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    module.build(database, output, plan)
+    prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
+
+    assert '### 原问与取用' in prompt
+    assert prompt.count('【原问中心】先回答原问。') == 1
+    assert '### 新增待归类规则' in prompt
+    assert prompt.count('【新增规则】这条尚未归类。') == 1
