@@ -391,6 +391,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             '它们用于约束推理顺序，不替代对应原文；当前卦只有满足相同前提时才能调用案例中的例外。\n\n'
         ])
 
+    if plan.get('global_timing_rules'):
+        global_parts.extend([
+            '## 王虎应应期裁决规则\n\n',
+            '应期只为已经成立的结果路径寻找触发时间，不反过来创造吉凶。先确定事件时间尺度，再从当前结构中的空、破、合、墓、伏、进退和动变缺口寻找触发条件。\n\n',
+            *[f'- {rule}\n' for rule in plan['global_timing_rules']],
+            '\n应期输出优先给“触发条件 + 合理时间窗口”，只有原问、卦象和时间尺度都足够明确时才收窄到具体年月日时。\n\n'
+        ])
+
     global_parts.extend(['## 全局补充原文与领域路由\n\n',
         '以下自动汇入的通用原文只来自plan允许进入生产包的王虎应主证据书系；source allowlist只控制书系，不自动提升段落作者权威。'
         '《增删卜易评释》仍须区分古籍正文、旧注与王虎应【新评释】；古籍内容只有在王虎应采用时才能作为classic_endorsed进入主判。'
