@@ -10,11 +10,20 @@
   "exact_paths": [],
   "exclude_globs": [
     "**/*点评王虎应*.md",
-    "**/[转载]*.md",
     "**/*四柱*.md",
-    "**/*八字*.md"
+    "**/*八字*.md",
+    "**/*转载*.md",
+    "**/*命理真诀*.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "04_用神/六爻预测工作取用神.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "04_用神/*转载*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "07_应期/断应期 重要!.md",
       "authority_tier": "mixed_requires_attribution"
