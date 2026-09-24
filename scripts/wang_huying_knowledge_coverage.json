@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 36,
+    "compare_only": 38,
     "tool_only": 3,
     "source_family_alias": 12,
     "integrated": 29,
-    "mixed_requires_attribution": 18,
+    "mixed_requires_attribution": 16,
     "reviewed_partial": 1
   },
   "entries": [
@@ -455,8 +455,8 @@
       "document_type": "04_用神",
       "author_basis": "existing_archive_classification",
       "size": 47039,
-      "status": "mixed_requires_attribution",
-      "note": "正文开头为“乾乾易学网”专项文章，后续还混入周易预测等网站段落，未能确认整篇为王虎应本人。与王虎应正式《自修宝典/用神答疑/疑惑指迷》一致的“官=工作、父=单位文书、财=收入、原问目的决定维度权重”等仅作交叉佐证；网站特有持世口诀、薪资算法、梅花/干支数法等不进入生产Prompt。"
+      "status": "compare_only",
+      "note": "全文未发现王虎应本人署名或“六爻观自在”答复。正文明确由“乾乾易学网”专项文章起头，后续又拼入“周易预测”等网站材料，并包含持世口诀、梅花数法、干支工资取数等独立体系。与王虎应正式著作一致的官=工作、父=单位文书、财=收入等仅作旁证，不作为王虎应独立来源。"
     },
     {
       "title": "六爻 王虎应解答过旺过弱一二",
@@ -502,7 +502,7 @@
       "author_basis": "existing_archive_classification",
       "size": 41109,
       "status": "mixed_requires_attribution",
-      "note": "混合讨论帖，含李洪成/朱辰彬等观点及王虎应答复；已提取可确认的王虎应“变爻force只本位、跨位仅可取十二状态象义”规则，其余逐段按作者核验。"
+      "note": "混合讨论帖，明确分有李洪成、王虎应、朱辰彬等不同作者章节。只读取“王虎应老师的部分论述”：确认月破/日破、回头生与化绝可理象并存，以及变爻普通生克只作用本位动爻、跨位只能在十二状态/取象层参考；这些机制已进入现有GLOBAL，不重复加规则。"
     },
     {
       "title": "六爻里的生克冲合 王虎应",
@@ -547,7 +547,7 @@
       "author_basis": "existing_archive_classification",
       "size": 99760,
       "status": "mixed_requires_attribution",
-      "note": "明确是多来源应期汇编，正文同时含“王虎应老师《自修宝典》简化版”、朱辰彬等内容，不能整篇算王虎应。王虎应部分仅与正式《自修宝典》交叉确认后使用。"
+      "note": "明确是多来源应期汇编，正文单列“王虎应老师《六爻预测自修宝典》第二十章应期（简化版）”，同时还收入朱辰彬《摇钱古卜讲义》、盲派和无署名表格。王虎应部分只按《自修宝典》canonical正文校验使用，其余不得因同文件共存而提权。"
     },
     {
       "title": "断应期2",
@@ -555,8 +555,8 @@
       "document_type": "07_应期",
       "author_basis": "existing_archive_classification",
       "size": 37756,
-      "status": "mixed_requires_attribution",
-      "note": "应期经验汇编/案例稿，未发现足够直接作者归属。只把与《自修宝典》应期章一致的合冲空破墓、进退等触发当交叉佐证；不采用其未被正式书支持的额外公式。"
+      "status": "compare_only",
+      "note": "全文未发现王虎应作者署名、明确本人答复或可定位的王虎应章节边界，属于无署名应期经验汇编。与《六爻预测自修宝典》一致的合冲空破墓等只作旁证，世应用神生克定远近等额外公式不进入王虎应生产Prompt。"
     },
     {
       "title": "股市六爻预测精髓",
@@ -862,7 +862,7 @@
       "author_basis": "existing_archive_classification",
       "size": 392067,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "已核结构。前半主体明确收录（王虎应著）的《六爻趋避初探/趋吉避凶化解》十四章，后半又追加《王虎应六爻资料集》等多篇文章，因此是多作品汇编而非单一canonical书。化解主干已由明确署名的《六爻趋吉避凶（化解）秘传》integrated版本提取；后附资料逐篇按署名与来源核验，本汇编不独立重复加权。"
     },
     {
       "title": "王虎应六爻十二支解灾",
