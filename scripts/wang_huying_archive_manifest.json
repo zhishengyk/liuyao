@@ -3,43 +3,16 @@
   "archive_branch": "books-archive-reorg",
   "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
   "archive_root": "书籍/六爻/王虎应",
-  "selection_policy": "Bundle non-empty Markdown under 书籍/六爻/王虎应 only after explicit exclusion/authority review. Directory placement is a retrieval hint, not proof of authorship. Sources whose title page/byline shows another author must be excluded from the Wang Huying production corpus; mixed compilations or third-party reorganizations require attribution. Formal Wang Huying books/direct articles are wang_direct, Wang Huying case/Q&A material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
+  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved.",
   "include_all_markdown_under_root": true,
   "skip_empty_files": true,
   "basename_contains": [],
-  "exact_paths": [
-    "01_核心著作/六爻预测自修宝典.md",
-    "01_核心著作/六爻疑惑指迷(王虎应).md",
-    "02_基础理论/初学断卦应该如何入手_.md",
-    "06_生克冲合/六爻里的生克冲合 王虎应.md",
-    "09_卦例/007六爻卦例说真.md",
-    "09_卦例/六爻分类占验技法王虎应.md",
-    "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
-    "90_他人整理/003王虎应增删卜易评释(dxj整理).md",
-    "01_核心著作/六爻预测的象理之分.md"
-  ],
+  "exact_paths": [],
   "exclude_globs": [
     "**/*点评王虎应*.md",
-    "**/*四柱*.md",
-    "**/*八字*.md",
-    "**/*转载*.md",
     "**/*命理真诀*.md",
-    "**/还本归宗_六爻预测指南.md",
-    "**/六爻高级技法.md",
-    "**/时刻.md",
-    "**/六爻初级知识.md",
-    "**/六爻预测基础.md",
-    "**/周易零基础-你也是可以学习的.md",
-    "**/六爻预测终生运气.md",
-    "**/周易与股市预测.md",
-    "**/独门易卦秘典.md",
-    "**/六爻启玄经PDF浏览版.md",
-    "**/六爻。入墓.md",
-    "**/0000重要空亡笔记.md",
-    "**/对变爻的认识.md",
-    "**/日、月、卦爻五行生克的顺序.md",
-    "**/论冲合的关系.md",
-    "**/第一节应期远近定法.md"
+    "**/*四柱*.md",
+    "**/*八字*.md"
   ],
   "authority_overrides": [
     {
@@ -500,5 +473,6 @@
     "travel",
     "wealth",
     "weather"
-  ]
+  ],
+  "include_all_under_root": true
 }
