@@ -137,3 +137,45 @@ def test_public_source_reader_paginates_verbatim_and_rejects_stale_or_unlisted_f
         db.execute("UPDATE sources SET body=body||'变化' WHERE id='book_a'")
     with pytest.raises(ValueError, match='语料内容不一致'):
         get_source('prompt:GLOBAL.md', db_path=database)
+
+
+def test_production_source_filter_keeps_compare_only_theory_out_of_prompts(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    with sqlite3.connect(database) as db:
+        row = db.execute("SELECT payload FROM chunks WHERE id='b'").fetchone()
+        payload = json.loads(row[0])
+        payload['classification'] = {'scope': 'topic', 'roots': ['study']}
+        db.execute("UPDATE chunks SET payload=? WHERE id='b'", (json.dumps(payload),))
+        db.commit()
+
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['production_source_ids'] = ['book_a']
+    config['supplemental_pages'] = []
+    config['supplemental_ids'] = {}
+    config['workflow'][0]['evidence_ids'] = ['a']
+    plan.write_text(json.dumps(config), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    result = module.build(database, output, plan)
+
+    assert result['schema_version'] == 2
+    assert result['production_source_ids'] == ['book_a']
+    assert 'b' in result['compare_only_evidence_ids']
+    assert not (output / 'study/book_b.md').exists()
+    assert not (output / 'global/book_b.md').exists()
+    assert '另一作者不同意见' not in (output / 'GLOBAL.md').read_text(encoding='utf-8')
+    assert result['all_theory_units_accounted']
+
+
+def test_workflow_rejects_nonproduction_source(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['production_source_ids'] = ['book_a']
+    config['supplemental_pages'] = []
+    config['supplemental_ids'] = {}
+    plan.write_text(json.dumps(config), encoding='utf-8')
+
+    with pytest.raises(ValueError, match='Workflow evidence is not an allowed production source'):
+        module.build(database, tmp_path / 'prompts', plan)
