@@ -406,3 +406,22 @@ def test_global_rule_groups_render_consolidated_dict_schema(tmp_path):
     assert '【原始卡1】' not in prompt
     assert result['global_rule_groups']['原问与角色'] == 2
     assert result['global_rule_card_count'] == 2
+
+
+def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['domains']['study']['case_rules'] = ['【考试专属】只在study领域加载。']
+    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    module.build(database, output, plan)
+
+    global_prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
+    study_prompt = (output / 'study/PROMPT.md').read_text(encoding='utf-8')
+
+    assert '【考试专属】只在study领域加载。' not in global_prompt
+    assert '【考试专属】只在study领域加载。' in study_prompt
+    assert '识别本领域后，必须在执行取用、现实角色、事项特例和应期等对应步骤之前加载本领域规则' in study_prompt
+    assert '不得先跑完整个GLOBAL后再用领域规则事后改答案' in study_prompt
