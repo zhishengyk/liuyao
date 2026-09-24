@@ -14,9 +14,9 @@
   "counts": {
     "compare_only": 35,
     "tool_only": 3,
-    "mixed_requires_attribution": 22,
+    "mixed_requires_attribution": 20,
     "integrated": 29,
-    "source_family_alias": 9,
+    "source_family_alias": 11,
     "reviewed_partial": 1
   },
   "entries": [
@@ -674,8 +674,9 @@
       "document_type": "09_卦例",
       "author_basis": "external_verified",
       "size": 201045,
-      "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "status": "source_family_alias",
+      "note": "与已integrated的《007六爻卦例说真》有效正文高度重合；整理版约95.8%的有效行可直接匹配，差异主要为目录、Word锚点和格式。保留作版本核验，不独立加权。",
+      "source_family": "六爻卦例说真"
     },
     {
       "title": "王虎应网络卦例收集",
@@ -738,8 +739,9 @@
       "document_type": "10_答疑",
       "author_basis": "existing_archive_classification",
       "size": 75888,
-      "status": "mixed_requires_attribution",
-      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+      "status": "source_family_alias",
+      "note": "逐条比对其“答/王答/六爻观自在”回答后，全部可在已integrated的《六爻用神答疑(51页)王虎应》中找到对应正文；本文件为连云居士等整理的较短版本，不作为独立证据重复加权。",
+      "source_family": "六爻用神答疑"
     },
     {
       "title": "增删卜易评释答疑（王虎应老师）",
@@ -793,7 +795,7 @@
       "author_basis": "existing_archive_classification",
       "size": 49559,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "已按发言人逐段核验，只采“六爻观自在”明确发言。新增提炼到study：父母代问孩子学习时，父母=学习/文书、子孙=孩子状态、世=来问家长，禁止把父母天然克子孙机械解释成家长压孩子或学习差；其余日月、墓绝、驿马等与现有主干一致。"
     },
     {
       "title": "王虎应新加坡视频学习笔记",
@@ -802,7 +804,7 @@
       "author_basis": "existing_archive_classification",
       "size": 3875,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "已全文核读。属于学员学习笔记，理象分层、日月→动爻、用神两现、八纯大象等大体与正式著作可交叉，但“死墓绝一般主凶”等表述更简化；未发现需要新增的生产规则，继续作为低权重交叉笔记。"
     },
     {
       "title": "009六爻趋避初探 （dxj校）",
