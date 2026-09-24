@@ -67,13 +67,18 @@ def archive_selected(rel, config):
 
 def archive_authority(rel, config):
     name = Path(rel).name
-    authority = config.get('default_authority_tier', 'wang_case_specific')
-    # Manifest overrides are ordered from broad defaults to narrower corrections.
-    # Let later matches win so a file-level exception can override a directory glob.
-    for rule in config.get('authority_overrides', []):
-        if fnmatch.fnmatch(rel, rule['glob']) or fnmatch.fnmatch(name, rule['glob']):
-            authority = rule['authority_tier']
-    return authority
+    matches = []
+    for index, rule in enumerate(config.get('authority_overrides', [])):
+        pattern = rule['glob']
+        if not (fnmatch.fnmatch(rel, pattern) or fnmatch.fnmatch(name, pattern)):
+            continue
+        wildcard_count = pattern.count('*') + pattern.count('?') + pattern.count('[')
+        literal_count = len(pattern) - wildcard_count
+        specificity = (wildcard_count == 0, '/' in pattern, literal_count, -wildcard_count, index)
+        matches.append((specificity, rule['authority_tier']))
+    if not matches:
+        return config.get('default_authority_tier', 'wang_case_specific')
+    return max(matches, key=lambda item: item[0])[1]
 
 
 def archive_domains(rel, config):
