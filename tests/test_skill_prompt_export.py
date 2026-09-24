@@ -291,11 +291,13 @@ def test_wang_archive_commit_mismatch_fails_closed(tmp_path):
                      wang_archive_manifest=archive_manifest)
 
 
-def test_wang_archive_authority_later_specific_override_wins(tmp_path):
+def test_wang_archive_authority_most_specific_override_wins(tmp_path):
     module = exporter()
     config = {
         'default_authority_tier': 'wang_case_specific',
         'authority_overrides': [
+            {'glob': '09_卦例/正式著作.md', 'authority_tier': 'wang_direct'},
+            {'glob': '09_卦例/*', 'authority_tier': 'wang_case_specific'},
             {'glob': '11_讲义记录/*', 'authority_tier': 'mixed_requires_attribution'},
             {'glob': '11_讲义记录/学员笔记.md', 'authority_tier': 'compare_only'},
             {'glob': '90_他人整理/*', 'authority_tier': 'mixed_requires_attribution'},
@@ -303,6 +305,8 @@ def test_wang_archive_authority_later_specific_override_wins(tmp_path):
         ],
     }
 
+    assert module.archive_authority('09_卦例/正式著作.md', config) == 'wang_direct'
+    assert module.archive_authority('09_卦例/普通卦例.md', config) == 'wang_case_specific'
     assert module.archive_authority('11_讲义记录/学员笔记.md', config) == 'compare_only'
     assert module.archive_authority('11_讲义记录/普通讲课.md', config) == 'mixed_requires_attribution'
     assert module.archive_authority(
