@@ -15,9 +15,19 @@
     "**/*转载*.md",
     "**/*命理真诀*.md",
     "**/还本归宗_六爻预测指南.md",
-    "**/六爻高级技法.md"
+    "**/六爻高级技法.md",
+    "**/时刻.md",
+    "**/六爻初级知识.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "01_核心著作/六爻预测的象理之分.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/王虎应--六爻指迷.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "01_核心著作/独门易卦秘典.md",
       "authority_tier": "mixed_requires_attribution"
