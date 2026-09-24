@@ -12,12 +12,12 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 20,
+    "compare_only": 21,
     "tool_only": 3,
-    "mixed_requires_attribution": 22,
-    "integrated": 26,
-    "source_family_alias": 6,
-    "pending": 21,
+    "mixed_requires_attribution": 24,
+    "integrated": 28,
+    "source_family_alias": 7,
+    "pending": 15,
     "reviewed_partial": 1
   },
   "entries": [
@@ -564,8 +564,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 7166,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文无可确认的王虎应内部署名，以第一人称宣称自有数千卦例并给出30条固定六亲动变口诀，体系高度公式化；与已核王虎应“按原问、根气、动变和特殊门综合裁决”的主干不宜直接合并。保留作对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "六爻测病分科详解王虎应中",
@@ -609,8 +609,9 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 5384,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "正文实为《王老师断股票5例》的同一组五个案例，内容高度重合；保留版本用于差异核验，不作为独立证据重复加权。",
+      "source_family": "王老师断股票5例"
     },
     {
       "title": "王虎应断风水",
@@ -627,8 +628,9 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 49232,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "已系统核对明确标为“王老师”分析的股市/黄金案例。新增提炼：market_price中妻财进退映射价格方向、多财可按路径分段承载、子孙/兄弟/官鬼仅作资金潜力/下跌压力/主力机构等辅助角色。文件重复收录《王老师断股票5例》的部分不重复计权，编者叙述和反馈不升格为规则。",
+      "source_family": "王虎应股市案例汇编"
     },
     {
       "title": "王老师断股票5例",
@@ -636,8 +638,9 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 5307,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "已逐例提取并与其他王虎应股市案例交叉：妻财化进/化退映射价格方向、兄弟有效克财为下跌压力、反吟主震荡、价格主判与个人得财分层。仅把多例重复机制写入wealth；停牌等单例细节留在case corpus。",
+      "source_family": "王老师断股票5例"
     },
     {
       "title": "周易与股市预测",
@@ -836,8 +839,8 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 5022,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "已全文核读。内容与《六爻趋避初探》既有advice主干一致：先判吉凶、围绕用神/元忌真实作用链、综合多类信息选择方案；具体化解物、子时、意识等做法不进入核心Prompt。文件名/章节不足以单独证明全部正文作者，继续保留段落级归属要求。"
     },
     {
       "title": "王虎应-六爻趋吉化解密传",
@@ -863,8 +866,8 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 26188,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "已核读方法段和多个案例。可交叉验证的通用机制是：候选地支需同时检查对用神、元神、忌神及关键门控的多条作用，优先解决真实伤害链；这些机制已由《趋避初探》主干覆盖。具体动物、方位、器物与案例反馈留在传统化解corpus，不直接硬编码为全局吉凶规则；正文夹杂广告且作者归属需继续核验。"
     },
     {
       "title": "uni六爻趋避初探 王虎应",
