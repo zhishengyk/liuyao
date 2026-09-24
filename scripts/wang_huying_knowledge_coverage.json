@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 35,
+    "compare_only": 36,
     "tool_only": 3,
-    "mixed_requires_attribution": 20,
+    "source_family_alias": 12,
     "integrated": 29,
-    "source_family_alias": 11,
+    "mixed_requires_attribution": 18,
     "reviewed_partial": 1
   },
   "entries": [
@@ -107,8 +107,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 33239,
-      "status": "mixed_requires_attribution",
-      "note": "分类口诀整理稿；部分内容与《自修宝典》一致，但不以标题自动提权。仅将正式著作可交叉验证的规则写入领域Prompt。"
+      "status": "source_family_alias",
+      "note": "与已integrated的《六爻预测自修宝典》逐行比对，约97.6%的有效正文完全重合；差异主要是标题、开场提示及少量类象补充。按《自修宝典》版本提取规则，本文件只作分类摘录版本核验，不独立加权。",
+      "source_family": "六爻预测自修宝典"
     },
     {
       "title": "六爻高级技法",
@@ -239,7 +240,7 @@
       "author_basis": "existing_archive_classification",
       "size": 118504,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "已核目录与署名。属于多篇文章拼成的资料集，部分段落明确标“作者：王虎应”或来源《六爻卦例说真》书稿；已核到的卦由谁来摇、长生十二状态、道路取象等均有更干净canonical来源并已进入现有Prompt。继续逐段按署名使用，不把整份汇编当独立证据重复加权。"
     },
     {
       "title": "001初学六爻预测王虎应1",
@@ -618,8 +619,8 @@
       "document_type": "08_分类占",
       "author_basis": "existing_archive_classification",
       "size": 4210,
-      "status": "mixed_requires_attribution",
-      "note": "混合来源/讲义整理，必须逐段确认答复或作者后再提取"
+      "status": "compare_only",
+      "note": "正文虽以“王虎应断风水”命名，但实际直接出现“管公真诀”等古法段落，主体是青龙白虎、世爻六亲、五星六神的固定宅断，没有王虎应本人评释或署名边界。目录/文件名不足以提权，只作古法风水对照，不进入王虎应生产Prompt。"
     },
     {
       "title": "王虎应老师股市预测分析精彩卦例",
@@ -685,7 +686,7 @@
       "author_basis": "existing_archive_classification",
       "size": 188285,
       "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "note": "已继续按133个标题做主题审查，并重点复核疾病、失物、出行、过旺、独发、月合、当地时间等案例。子宫肌瘤多例证明病象来自病人主用+真实受伤链+爻位/六亲/六神多源收敛而非单一口诀；失物太过、独发受变爻语义约束等机制已存在于当前Prompt。非王虎应本人断的日本古占/他人案例不升格。仍可继续抽更细专题，但本轮无新增通用规则。"
     },
     {
       "title": "六爻用神答疑（51页）王虎应",
@@ -786,7 +787,7 @@
       "author_basis": "existing_archive_classification",
       "size": 98248,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "已系统核读核心墓库讲课段。可确认机制包括三墓只指日墓/动墓/化墓、月墓主要取象、墓不等于死亡或失权、理象可并存、具体墓义随carrier变化；这些均已由《王虎应墓库论》《理象思维篇》等canonical来源进入GLOBAL。文件后半混入十二状态文章和学员笔记，继续按段落归属，不重复写规则。"
     },
     {
       "title": "王虎应老师在周易爱好者群讲课记录之一",
