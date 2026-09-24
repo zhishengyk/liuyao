@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 47,
+    "compare_only": 48,
     "tool_only": 3,
     "source_family_alias": 13,
     "integrated": 31,
-    "mixed_requires_attribution": 5
+    "mixed_requires_attribution": 4
   },
   "entries": [
     {
@@ -229,8 +229,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 191799,
-      "status": "mixed_requires_attribution",
-      "note": "已完成整份来源边界审查。前半含《浅谈六爻太极裂变》、神煞、方局、卦身、射覆、初学流程、零点换日、长生十二状态、摇卦意念、爻辞等王虎应本人论坛文章；后半明确混入“京房纳甲法的音律解释（转帖）”、广告和其他史论，因此整文件保持mixed_requires_attribution。可生产机制均已有更干净主干或已抽入Prompt；本轮补强“理论为主、灵感只生成象法细节候选”，防止AI用自由联想替代理法。太极裂变仍按未公开完整算法处理。"
+      "status": "compare_only",
+      "note": "混合随笔/论坛摘编。唯一明确“王虎应老师答”的摇卦意念答复已由本人《卦由谁来摇》canonical文章覆盖；太极裂变段明确算法未完整公开，与现有高级方法边界一致；爻辞、长生十二状态等亦有更干净本人来源。其余含广告、史论与转载，整份降为compare_only。"
     },
     {
       "title": "王虎应六爻资料集",
@@ -501,7 +501,7 @@
       "author_basis": "existing_archive_classification",
       "size": 41109,
       "status": "compare_only",
-      "note": "已完整核验多作者结构，并只抽取“王虎应老师的部分论述”。王虎应明确机制包括：变爻普通生克只作用本位动爻；其他变爻与用神可在十二状态/取象层参考但不得跨位生克；月破日破、回头生与化绝可理象并存；日月合绊的现实语义依原问；理主吉凶、象可在独发等条件下进入成败层。这些均已进入现有GLOBAL。其余正文为李洪成、朱辰彬等不同体系且存在相互冲突，整份降为compare_only，不再进入王虎应生产证据计权。"
+      "note": "混合讨论帖，明确分有李洪成、王虎应、朱辰彬等章节。王虎应段落已逐条核验：月破/日破、回头生与化绝理象并存、变爻普通生克只作用本位动爻等均已由《六爻指迷》及明确账号“六爻观自在”的群讲直接证据支撑并进入GLOBAL。整份不再承担独家生产证据，降为compare_only。"
     },
     {
       "title": "六爻里的生克冲合 王虎应",
