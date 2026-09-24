@@ -179,3 +179,25 @@ def test_workflow_rejects_nonproduction_source(tmp_path):
 
     with pytest.raises(ValueError, match='Workflow evidence is not an allowed production source'):
         module.build(database, tmp_path / 'prompts', plan)
+
+
+def test_prompt_manifest_preserves_span_author_annotations(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    with sqlite3.connect(database) as db:
+        row = db.execute("SELECT payload FROM chunks WHERE id='a'").fetchone()
+        payload = json.loads(row[0])
+        for span in payload['source_spans']:
+            span['author'] = '王虎应'
+        payload['required_contexts'][0]['source_spans'][0]['author'] = '原作者'
+        db.execute("UPDATE chunks SET payload=? WHERE id='a'", (json.dumps(payload),))
+        db.commit()
+
+    output = tmp_path / 'prompts'
+    result = module.build(database, output, plan)
+
+    a_selections = [s for s in result['selections'] if s['label'] == 'a']
+    assert a_selections and a_selections[0]['authors'] == ['王虎应']
+    section = next(s for s in result['sections']
+                   if s['file'] == 'study/book_a.md' and s['start_line'] <= 2 <= s['end_line'])
+    assert '王虎应' in section['authors']
