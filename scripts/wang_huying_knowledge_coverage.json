@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 38,
+    "compare_only": 40,
     "tool_only": 3,
     "source_family_alias": 12,
     "integrated": 29,
-    "mixed_requires_attribution": 16,
+    "mixed_requires_attribution": 14,
     "reviewed_partial": 1
   },
   "entries": [
@@ -519,8 +519,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 116143,
-      "status": "mixed_requires_attribution",
-      "note": "正文有大量第一人称案例与王虎应体系相符，但归档文本无直接作者署名且包含整理/问答拼接。已把能被《自修宝典/疑惑指迷》直接交叉确认的暗动/日破、月破实破、合绊、六合六冲非固定吉凶等留在Prompt；其余不独立提权。"
+      "status": "compare_only",
+      "note": "已外部交叉确认，正文从“学习目的/概念：什么是六冲、冲起、冲实、冲散”到后续冲合例题与邵伟华《周易预测学》相关章节结构和文字一致。不能因归档在王虎应目录而提权，全部作为compare_only。"
     },
     {
       "title": "日、月、卦爻五行生克的顺序",
@@ -528,8 +528,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 46728,
-      "status": "mixed_requires_attribution",
-      "note": "正文未见王虎应直接署名，且含刘宪昭《周易预测答疑汇编》等来源。仅将与《自修宝典/疑惑指迷》明确一致的日月、暗动、月破、应期机制作为交叉佐证；“先生后克、先动后静”等十六字顺序不单独升格为王虎应GLOBAL规则。"
+      "status": "compare_only",
+      "note": "已外部交叉确认，正文“先生后克，先动后静，无生则克，无克则生”及配套例33等来自邵伟华《周易预测学》讲义相关章节，并非王虎应独立方法。只作其他体系对照，不进入王虎应GLOBAL。"
     },
     {
       "title": "第一节应期远近定法",
