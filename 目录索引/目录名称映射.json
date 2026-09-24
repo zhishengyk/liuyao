@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "description": "目录名称中文化映射",
+  "fixed_segment_mapping": {
+    "archive_meta": "归档元数据",
+    "legacy": "旧版资料",
+    "source_aliases": "来源别名",
+    "source_containers": "来源压缩包",
+    "tools": "工具",
+    "validation": "校验",
+    "books": "书籍",
+    "catalog": "目录索引",
+    "collections": "合集",
+    "quarantine": "隔离区",
+    "support": "辅助资料",
+    "variants": "版本",
+    "software": "软件",
+    "web_support": "网页支持文件",
+    "images": "图片",
+    "ocr_assets": "文字识别资料",
+    "other": "其他",
+    "ppt": "演示文稿",
+    "recovered": "恢复资料",
+    "media": "媒体",
+    "dat": "数据",
+    "liuyao_f": "六爻软件文件",
+    "clr": "配色"
+  },
+  "hash_directory_mapping": {
+    "0c0510695b24594e4c01": "资料一",
+    "0e0eef9d0d6949a542b8": "资料二",
+    "0f43a98b285a2685cb11": "资料三",
+    "1dced63468c57a5e175c": "资料四",
+    "1fe7a4b1a19c1393e331": "资料五",
+    "24a157ea33a30580d95e": "资料六",
+    "25afb2fd63c3c5719eca": "资料七",
+    "3944bb757eaa8cf529ac": "资料八",
+    "4122f818126bfaf72895": "资料九",
+    "4c19916f16eab81fea47": "资料十",
+    "51da0f12e67499541d04": "资料十一",
+    "60d23eeb444c1bc40557": "资料十二",
+    "63434959230191225d01": "资料十三",
+    "63881cf282a1b4a30a2e": "资料十四",
+    "69f39ec1ad9c783212a2": "资料十五",
+    "6ada314ce4f779993b78": "资料十六",
+    "74acb776133c1a726698": "资料十七",
+    "7c3aa57f3e007f9a543f": "资料十八",
+    "82fcc2667b782336e388": "资料十九",
+    "8d8f6433eb0e2985889c": "资料二十",
+    "a12be084c696f32ce241": "资料二十一",
+    "a5b5208e57f5a69ac401777279db81680ac701912e072f9b6b7a12014ac3f530": "资料二十二",
+    "a7a97b1f4e58946c1428": "资料二十三",
+    "ac91262a59be109b256d": "资料二十四",
+    "b8ddbcfc69794c0b17afbb1482b90b450dcabe003dacce17006c8a779378125a": "资料二十五",
+    "c8610eb9a6c9f2591751": "资料二十六",
+    "cff9e4407096c7411cb6": "资料二十七",
+    "d3b483d9d7faffadbf96": "资料二十八",
+    "d7d4f56783e6b1d6a864": "资料二十九",
+    "e16d1aaa7d9b6456a690": "资料三十",
+    "e725f6ed53c008d3d05c": "资料三十一",
+    "eaa10694b599017ee294": "资料三十二",
+    "eb44d43e6c49229bc257": "资料三十三",
+    "f24d8b6b08426ef7542d": "资料三十四",
+    "fa5cfbbaf2bac9a0aceb": "资料三十五"
+  },
+  "pattern_rules": [
+    {
+      "from": "<数字>_files",
+      "to": "<数字>附件"
+    },
+    {
+      "from": "*.zip内容 / *.rar内容",
+      "to": "*压缩包内容"
+    },
+    {
+      "from": "*.chm内容",
+      "to": "*帮助文件内容"
+    },
+    {
+      "from": "DXJ整理目录标记",
+      "to": "整理版"
+    },
+    {
+      "from": "DXJ校目录标记",
+      "to": "校订版"
+    }
+  ]
+}
