@@ -17,8 +17,8 @@
     "mixed_requires_attribution": 20,
     "reviewed_partial": 12,
     "integrated": 17,
-    "source_family_alias": 4,
-    "pending": 23
+    "source_family_alias": 6,
+    "pending": 21
   },
   "entries": [
     {
@@ -822,8 +822,9 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 298077,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "与《009六爻趋避初探 (dxj校)》为同一王虎应著作的OCR/文本版本；保留全文用于版本差异核验，不作为独立证据重复加权。",
+      "source_family": "六爻趋避初探"
     },
     {
       "title": "王虎应- 化解物应注意哪些",
@@ -867,8 +868,9 @@
       "document_type": "12_趋吉避凶",
       "author_basis": "existing_archive_classification",
       "size": 279677,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "source_family_alias",
+      "note": "与《009六爻趋避初探 (dxj校)》为同一王虎应著作的OCR/文本版本；保留全文用于版本差异核验，不作为独立证据重复加权。",
+      "source_family": "六爻趋避初探"
     },
     {
       "title": "001 六爻预测自修宝典（DXJ整理版）",
