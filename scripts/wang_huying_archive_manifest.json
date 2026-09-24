@@ -17,9 +17,23 @@
     "**/还本归宗_六爻预测指南.md",
     "**/六爻高级技法.md",
     "**/时刻.md",
-    "**/六爻初级知识.md"
+    "**/六爻初级知识.md",
+    "**/六爻预测基础.md",
+    "**/周易零基础-你也是可以学习的.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "02_基础理论/初学断卦应该如何入手_.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "02_基础理论/六爻基础概念简表.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "02_基础理论/周易预测之六爻预测基础知识.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "01_核心著作/六爻预测的象理之分.md",
       "authority_tier": "mixed_requires_attribution"
