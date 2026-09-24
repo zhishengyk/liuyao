@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 import sqlite3
+import subprocess
 
 import pytest
 
@@ -137,3 +138,238 @@ def test_public_source_reader_paginates_verbatim_and_rejects_stale_or_unlisted_f
         db.execute("UPDATE sources SET body=body||'变化' WHERE id='book_a'")
     with pytest.raises(ValueError, match='语料内容不一致'):
         get_source('prompt:GLOBAL.md', db_path=database)
+
+
+def test_production_source_filter_keeps_compare_only_theory_out_of_prompts(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    with sqlite3.connect(database) as db:
+        row = db.execute("SELECT payload FROM chunks WHERE id='b'").fetchone()
+        payload = json.loads(row[0])
+        payload['classification'] = {'scope': 'topic', 'roots': ['study']}
+        db.execute("UPDATE chunks SET payload=? WHERE id='b'", (json.dumps(payload),))
+        db.commit()
+
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['production_source_ids'] = ['book_a']
+    config['supplemental_pages'] = []
+    config['supplemental_ids'] = {}
+    config['workflow'][0]['evidence_ids'] = ['a']
+    plan.write_text(json.dumps(config), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    result = module.build(database, output, plan)
+
+    assert result['schema_version'] == 2
+    assert result['production_source_ids'] == ['book_a']
+    assert 'b' in result['compare_only_evidence_ids']
+    assert not (output / 'study/book_b.md').exists()
+    assert not (output / 'global/book_b.md').exists()
+    assert '另一作者不同意见' not in (output / 'GLOBAL.md').read_text(encoding='utf-8')
+    assert result['all_theory_units_accounted']
+
+
+def test_workflow_rejects_nonproduction_source(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['production_source_ids'] = ['book_a']
+    config['supplemental_pages'] = []
+    config['supplemental_ids'] = {}
+    plan.write_text(json.dumps(config), encoding='utf-8')
+
+    with pytest.raises(ValueError, match='Workflow evidence is not an allowed production source'):
+        module.build(database, tmp_path / 'prompts', plan)
+
+
+def test_prompt_manifest_preserves_span_author_annotations(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    with sqlite3.connect(database) as db:
+        row = db.execute("SELECT payload FROM chunks WHERE id='a'").fetchone()
+        payload = json.loads(row[0])
+        for span in payload['source_spans']:
+            span['author'] = '王虎应'
+        payload['required_contexts'][0]['source_spans'][0]['author'] = '原作者'
+        db.execute("UPDATE chunks SET payload=? WHERE id='a'", (json.dumps(payload),))
+        db.commit()
+
+    output = tmp_path / 'prompts'
+    result = module.build(database, output, plan)
+
+    a_selections = [s for s in result['selections'] if s['label'] == 'a']
+    assert a_selections and a_selections[0]['authors'] == ['王虎应']
+    section = next(s for s in result['sections']
+                   if s['file'] == 'study/book_a.md' and s['start_line'] <= 2 <= s['end_line'])
+    assert '王虎应' in section['authors']
+
+
+def test_wang_archive_corpus_is_pinned_deduplicated_and_readable(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    archive = tmp_path / 'archive'
+    archive.mkdir()
+    subprocess.run(['git', 'init'], cwd=archive, check=True, capture_output=True)
+    subprocess.run(['git', 'config', 'user.email', 'test@example.com'], cwd=archive, check=True)
+    subprocess.run(['git', 'config', 'user.name', 'Test'], cwd=archive, check=True)
+    (archive / '王虎应：六爻预测自修宝典.doc.md').write_text('王虎应全文甲\n第二行\n', encoding='utf-8')
+    (archive / '王老师工作问答录.doc.md').write_text('求职问答全文\n', encoding='utf-8')
+    (archive / 'sub').mkdir()
+    (archive / 'sub/王虎应副本.doc.md').write_text('王虎应全文甲\n第二行\n', encoding='utf-8')
+    (archive / '刘虹言《点评王虎应化解密传》.pdf.md').write_text('第三方点评\n', encoding='utf-8')
+    subprocess.run(['git', 'add', '.'], cwd=archive, check=True)
+    subprocess.run(['git', 'commit', '-m', 'archive'], cwd=archive, check=True, capture_output=True)
+    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=archive, text=True).strip()
+
+    archive_manifest = tmp_path / 'wang.json'
+    archive_manifest.write_text(json.dumps({
+        'schema_version': 1,
+        'archive_branch': 'test',
+        'archive_commit_sha': head,
+        'archive_root': 'test',
+        'selection_policy': 'test',
+        'basename_contains': ['王虎应', '王老师'],
+        'exact_paths': [],
+        'exclude_globs': ['**/*点评王虎应*.md'],
+        'authority_overrides': [
+            {'glob': '**/*六爻预测自修宝典*.md', 'authority_tier': 'wang_direct'},
+            {'glob': '**/*问答录*.md', 'authority_tier': 'wang_case_specific'},
+        ],
+        'default_authority_tier': 'wang_case_specific',
+        'domain_rules': [{'contains': ['工作'], 'domains': ['job']},
+                         {'contains': ['自修宝典'], 'domains': ['*']}],
+    }, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'source-prompts'
+    result = module.build(database, output, plan,
+                          wang_archive_root=archive,
+                          wang_archive_manifest=archive_manifest)
+
+    archive_meta = result['wang_huying_archive']
+    assert archive_meta['archive_head_verified'] == head
+    assert archive_meta['matched_files'] == 3
+    assert archive_meta['canonical_files'] == 2
+    assert (output / 'wang-huying-corpus/INDEX.md').exists()
+    assert (output / 'wang-huying-corpus/domains/job.md').exists()
+    corpus_files = list((output / 'wang-huying-corpus').glob('wha-*.md'))
+    assert len(corpus_files) == 2
+    assert any(record['duplicate_of'] for record in archive_meta['records'])
+
+    from liuyao_mcp.retrieval import get_source
+    index = get_source('prompt:wang-huying-corpus/INDEX.md', db_path=database)
+    assert index['kind'] == 'skill_prompt'
+    assert '王虎应六爻原文全集索引' in index['text']
+
+
+def test_wang_archive_commit_mismatch_fails_closed(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    archive = tmp_path / 'archive'
+    archive.mkdir()
+    subprocess.run(['git', 'init'], cwd=archive, check=True, capture_output=True)
+    subprocess.run(['git', 'config', 'user.email', 'test@example.com'], cwd=archive, check=True)
+    subprocess.run(['git', 'config', 'user.name', 'Test'], cwd=archive, check=True)
+    (archive / '王虎应资料.md').write_text('正文\n', encoding='utf-8')
+    subprocess.run(['git', 'add', '.'], cwd=archive, check=True)
+    subprocess.run(['git', 'commit', '-m', 'archive'], cwd=archive, check=True, capture_output=True)
+
+    archive_manifest = tmp_path / 'wang.json'
+    archive_manifest.write_text(json.dumps({
+        'schema_version': 1,
+        'archive_commit_sha': '0' * 40,
+        'basename_contains': ['王虎应'],
+        'exact_paths': [],
+        'exclude_globs': [],
+        'authority_overrides': [],
+        'default_authority_tier': 'wang_case_specific',
+        'domain_rules': [],
+    }, ensure_ascii=False), encoding='utf-8')
+
+    with pytest.raises(ValueError, match='archive commit mismatch'):
+        module.build(database, tmp_path / 'prompts', plan,
+                     wang_archive_root=archive,
+                     wang_archive_manifest=archive_manifest)
+
+
+def test_author_scoped_archive_manifest_includes_all_nonempty_markdown(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    archive = tmp_path / 'archive'
+    (archive / '01_核心著作').mkdir(parents=True)
+    (archive / '09_卦例').mkdir()
+    (archive / '90_他人整理').mkdir()
+    subprocess.run(['git', 'init'], cwd=archive, check=True, capture_output=True)
+    subprocess.run(['git', 'config', 'user.email', 'test@example.com'], cwd=archive, check=True)
+    subprocess.run(['git', 'config', 'user.name', 'Test'], cwd=archive, check=True)
+    (archive / '01_核心著作/六爻疑惑指迷.md').write_text('正式著作正文\n', encoding='utf-8')
+    (archive / '09_卦例/007六爻卦例说真.md').write_text('本人卦例正文\n', encoding='utf-8')
+    (archive / '90_他人整理/整理版.md').write_text('整理版正文\n', encoding='utf-8')
+    (archive / '09_卦例/空占位.md').write_text('', encoding='utf-8')
+    subprocess.run(['git', 'add', '.'], cwd=archive, check=True)
+    subprocess.run(['git', 'commit', '-m', 'archive'], cwd=archive, check=True, capture_output=True)
+    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=archive, text=True).strip()
+
+    archive_manifest = tmp_path / 'wang.json'
+    archive_manifest.write_text(json.dumps({
+        'schema_version': 1,
+        'archive_branch': 'test',
+        'archive_commit_sha': head,
+        'archive_root': '书籍/六爻/王虎应',
+        'selection_policy': 'author scoped',
+        'include_all_markdown_under_root': True,
+        'skip_empty_files': True,
+        'basename_contains': [],
+        'exact_paths': [],
+        'exclude_globs': [],
+        'authority_overrides': [
+            {'glob': '01_核心著作/*', 'authority_tier': 'wang_direct'},
+            {'glob': '09_卦例/*', 'authority_tier': 'wang_case_specific'},
+            {'glob': '90_他人整理/*', 'authority_tier': 'mixed_requires_attribution'},
+        ],
+        'default_authority_tier': 'wang_case_specific',
+        'domain_rules': [
+            {'contains': ['01_核心著作/'], 'domains': ['*']},
+            {'contains': ['卦例'], 'domains': ['affairs']},
+        ],
+        'all_domains': ['affairs', 'job'],
+    }, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'source-prompts'
+    result = module.build(database, output, plan,
+                          wang_archive_root=archive,
+                          wang_archive_manifest=archive_manifest)
+
+    meta = result['wang_huying_archive']
+    assert meta['matched_files'] == 3
+    assert meta['canonical_files'] == 3
+    assert not any(record['archive_path'].endswith('空占位.md') for record in meta['records'])
+    authority = {record['archive_path']: record['authority_tier'] for record in meta['records']}
+    assert authority['01_核心著作/六爻疑惑指迷.md'] == 'wang_direct'
+    assert authority['09_卦例/007六爻卦例说真.md'] == 'wang_case_specific'
+    assert authority['90_他人整理/整理版.md'] == 'mixed_requires_attribution'
+    assert (output / 'wang-huying-corpus/domains/job.md').exists()
+
+
+def test_global_rule_groups_render_by_title_and_keep_unclassified_rules(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['global_case_rules'] = [
+        '【原问中心】先回答原问。',
+        '【新增规则】这条尚未归类。',
+    ]
+    config['global_rule_groups'] = [{
+        'title': '原问与取用',
+        'purpose': '先定问题。',
+        'rule_titles': ['原问中心'],
+    }]
+    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    module.build(database, output, plan)
+    prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
+
+    assert '### 原问与取用' in prompt
+    assert prompt.count('【原问中心】先回答原问。') == 1
+    assert '### 新增待归类规则' in prompt
+    assert prompt.count('【新增规则】这条尚未归类。') == 1

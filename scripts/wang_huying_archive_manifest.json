@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "archive_branch": "books-archive-reorg",
+  "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
+  "archive_root": "书籍/六爻/王虎应",
+  "selection_policy": "Bundle non-empty Markdown under 书籍/六爻/王虎应 only after explicit exclusion/authority review. Directory placement is a retrieval hint, not proof of authorship. Sources whose title page/byline shows another author must be excluded from the Wang Huying production corpus; mixed compilations or third-party reorganizations require attribution. Formal Wang Huying books/direct articles are wang_direct, Wang Huying case/Q&A material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
+  "include_all_markdown_under_root": true,
+  "skip_empty_files": true,
+  "basename_contains": [],
+  "exact_paths": [
+    "01_核心著作/六爻预测自修宝典.md",
+    "01_核心著作/六爻疑惑指迷(王虎应).md",
+    "02_基础理论/初学断卦应该如何入手_.md",
+    "06_生克冲合/六爻里的生克冲合 王虎应.md",
+    "09_卦例/007六爻卦例说真.md",
+    "09_卦例/六爻分类占验技法王虎应.md",
+    "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+    "90_他人整理/003王虎应增删卜易评释(dxj整理).md"
+  ],
+  "exclude_globs": [
+    "**/*点评王虎应*.md",
+    "**/*四柱*.md",
+    "**/*八字*.md",
+    "**/*转载*.md",
+    "**/*命理真诀*.md",
+    "**/还本归宗_六爻预测指南.md",
+    "**/六爻高级技法.md",
+    "**/时刻.md",
+    "**/六爻初级知识.md",
+    "**/六爻预测基础.md",
+    "**/周易零基础-你也是可以学习的.md",
+    "**/六爻预测终生运气.md",
+    "**/周易与股市预测.md"
+  ],
+  "authority_overrides": [
+    {
+      "glob": "10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王虎应老师问答录.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王虎应问题答疑汇总最新版 - 副本.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "10_答疑/王老师关于“用神”问题答疑.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "11_讲义记录/*",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/股市六爻预测精髓.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/六爻测病分科详解王虎应中.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/六爻测病文章.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应——浅谈六爻股票.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应断风水.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "08_分类占/王虎应老师股市预测分析精彩卦例.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "08_分类占/王老师断股票5例.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应- 化解物应注意哪些.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应六爻十二支解灾.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "05_旺衰/六爻 王虎应解答过旺过弱一二.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "05_旺衰/王虎应秘论长生十二宫.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "05_旺衰/王虎应墓库论.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "06_生克冲合/地支生克冲合刑害.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "06_生克冲合/对变爻的认识.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "06_生克冲合/六爻里的生克冲合 王虎应.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "06_生克冲合/论冲合的关系.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "06_生克冲合/日、月、卦爻五行生克的顺序.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "12_趋吉避凶/uni六爻趋避初探 王虎应.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/八卦卦象之*宫八卦*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/八卦六爻之六亲类象.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/六爻预测全象解析*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/王虎应 理象分析 思路 六爻中道路的看法--2.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/爻位所代表的各种象.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/周易六爻类象知识 测病 一.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "02_基础理论/初学断卦应该如何入手_.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "02_基础理论/六爻基础概念简表.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "02_基础理论/周易预测之六爻预测基础知识.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻预测的象理之分.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/王虎应--六爻指迷.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/独门易卦秘典.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻启玄经PDF浏览版.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/卦身的应用.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/64卦表.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/64卦意.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻八卦高层理论-断六亲属相.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻分类预测断语(王虎应).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "01_核心著作/六爻求真 王虎应老师教学网站.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "01_核心著作/王虎应老师六爻随笔.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "04_用神/六爻预测工作取用神.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "04_用神/*转载*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "07_应期/断应期 重要!.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "07_应期/断应期2.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "07_应期/第一节应期远近定法.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "90_他人整理/*",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "09_卦例/*",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/*",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "11_讲义记录/*",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "01_核心著作/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "02_基础理论/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "03_理象/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "04_用神/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "05_旺衰/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "06_生克冲合/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "07_应期/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "08_分类占/*",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/*",
+      "authority_tier": "wang_direct"
+    }
+  ],
+  "default_authority_tier": "wang_case_specific",
+  "domain_rules": [
+    {
+      "contains": [
+        "01_核心著作/",
+        "02_基础理论/",
+        "03_理象/",
+        "04_用神/",
+        "05_旺衰/",
+        "06_生克冲合/",
+        "07_应期/",
+        "分类占验",
+        "疑惑指迷",
+        "自修宝典",
+        "增删卜易评释",
+        "趋避初探"
+      ],
+      "domains": [
+        "*"
+      ]
+    },
+    {
+      "contains": [
+        "疾病",
+        "测病",
+        "健康",
+        "求医",
+        "医药",
+        "治疗"
+      ],
+      "domains": [
+        "health"
+      ]
+    },
+    {
+      "contains": [
+        "工作",
+        "求职",
+        "升迁",
+        "升官",
+        "事业",
+        "官运",
+        "职"
+      ],
+      "domains": [
+        "job"
+      ]
+    },
+    {
+      "contains": [
+        "股票",
+        "股市",
+        "财运",
+        "求财",
+        "生意",
+        "买卖"
+      ],
+      "domains": [
+        "wealth"
+      ]
+    },
+    {
+      "contains": [
+        "风水",
+        "房屋",
+        "住房",
+        "住宅",
+        "买房",
+        "卖房",
+        "出租房",
+        "宅"
+      ],
+      "domains": [
+        "property"
+      ]
+    },
+    {
+      "contains": [
+        "婚姻",
+        "感情",
+        "恋爱",
+        "对象",
+        "婚"
+      ],
+      "domains": [
+        "relationship"
+      ]
+    },
+    {
+      "contains": [
+        "考试",
+        "考学",
+        "学业",
+        "学习",
+        "录取"
+      ],
+      "domains": [
+        "study"
+      ]
+    },
+    {
+      "contains": [
+        "失物",
+        "丢失",
+        "遗失"
+      ],
+      "domains": [
+        "lost"
+      ]
+    },
+    {
+      "contains": [
+        "行人",
+        "出行",
+        "旅行",
+        "归期"
+      ],
+      "domains": [
+        "travel"
+      ]
+    },
+    {
+      "contains": [
+        "胎孕",
+        "怀孕",
+        "生产",
+        "生孩子",
+        "子女"
+      ],
+      "domains": [
+        "children"
+      ]
+    },
+    {
+      "contains": [
+        "官司",
+        "诉讼",
+        "争讼",
+        "官非"
+      ],
+      "domains": [
+        "lawsuit"
+      ]
+    },
+    {
+      "contains": [
+        "合作",
+        "合伙"
+      ],
+      "domains": [
+        "cooperation"
+      ]
+    },
+    {
+      "contains": [
+        "天气",
+        "阴晴",
+        "下雨",
+        "风雨"
+      ],
+      "domains": [
+        "weather"
+      ]
+    },
+    {
+      "contains": [
+        "物品",
+        "射覆",
+        "印章",
+        "电脑",
+        "器物"
+      ],
+      "domains": [
+        "objects"
+      ]
+    },
+    {
+      "contains": [
+        "比赛",
+        "投标",
+        "护照",
+        "签证",
+        "证件",
+        "获奖"
+      ],
+      "domains": [
+        "affairs"
+      ]
+    }
+  ],
+  "all_domains": [
+    "affairs",
+    "children",
+    "cooperation",
+    "health",
+    "job",
+    "lawsuit",
+    "lost",
+    "objects",
+    "property",
+    "relationship",
+    "study",
+    "travel",
+    "wealth",
+    "weather"
+  ]
+}
