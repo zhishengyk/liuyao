@@ -125,6 +125,8 @@ def build(database, output, plan_path):
         for uid in item['evidence_ids']:
             if uid not in units:
                 raise ValueError(f'Workflow references missing evidence: {uid}')
+            if not source_allowed(units[uid]['source_id']):
+                raise ValueError(f'Workflow evidence is not an allowed production source: {uid}')
             # Workflow passages are also routed into global source files, so the
             # dedicated reading order never becomes a detached summary.
             add_unit('global', uid)
@@ -194,6 +196,8 @@ def build(database, output, plan_path):
                 blocks.append((context.get('source_id', unit['source_id']),
                                context.get('source_spans') or [context]))
             for sid, spans in blocks:
+                if not source_allowed(sid):
+                    continue
                 start, end = min(span['start_line'] for span in spans), max(span['end_line'] for span in spans)
                 raw = source_text(sources[sid]['lines'], start, end)
                 marker = f'{sid}-L{start}-L{end}'
