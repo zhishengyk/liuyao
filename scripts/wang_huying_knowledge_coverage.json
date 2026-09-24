@@ -15,9 +15,9 @@
     "compare_only": 20,
     "tool_only": 3,
     "mixed_requires_attribution": 20,
-    "integrated": 20,
+    "integrated": 21,
     "source_family_alias": 6,
-    "reviewed_partial": 9,
+    "reviewed_partial": 8,
     "pending": 21
   },
   "entries": [
@@ -191,8 +191,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 265745,
-      "status": "reviewed_partial",
-      "note": "独立于《疑惑指迷》的大型答疑集；已系统扫描问答目录并提取走失化用、日月不能直接做用神、月破日合、合的生克/刑语义、过旺、变卦用神、暗动无变爻、失物遮藏/无情等硬规则；仍有专题问答继续处理。"
+      "status": "integrated",
+      "note": "已按“王虎应老师答读者问”汇编处理，仅抽明确王老师答复；已提取取象中心、日月/暗动、走失化用、过旺、医药看应、卦身/神煞低权重、跨国按实际摇卦者当地时间、00:00换日、独发/动爻冲暗动、现实候选消歧等。整理者与学员评论不提权。",
+      "source_family": "六爻指迷·答读者问"
     },
     {
       "title": "王虎应-六爻疑惑指迷",
