@@ -14,9 +14,46 @@
     "**/*八字*.md",
     "**/*转载*.md",
     "**/*命理真诀*.md",
-    "**/还本归宗_六爻预测指南.md"
+    "**/还本归宗_六爻预测指南.md",
+    "**/六爻高级技法.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "01_核心著作/独门易卦秘典.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻启玄经PDF浏览版.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/卦身的应用.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/64卦表.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/64卦意.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻八卦高层理论-断六亲属相.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "01_核心著作/六爻分类预测断语(王虎应).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "01_核心著作/六爻求真 王虎应老师教学网站.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "01_核心著作/王虎应老师六爻随笔.md",
+      "authority_tier": "wang_case_specific"
+    },
     {
       "glob": "04_用神/六爻预测工作取用神.md",
       "authority_tier": "mixed_requires_attribution"
