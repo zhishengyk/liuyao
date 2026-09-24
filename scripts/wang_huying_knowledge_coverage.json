@@ -410,7 +410,7 @@
       "author_basis": "existing_archive_classification",
       "size": 29377,
       "status": "integrated",
-      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+      "note": "已全文深读。理象核心已由global_xiang_rules系统吸收：先定吉凶后看细节、取象绑定原问与现实角色、同一结构理象并存、墓/空/六神/十二状态按carrier变化、地域时代参与消歧。新增收紧GLOBAL的作用图语义：明动爻对静爻的合法边与当前力量分开记录，当前休囚/空亡导致作用弱不等于永久删除，后续得时/出空可重新生效。疾病案例中“空土克用”可在象上解释孔洞，同时在理上当前克力有限，进一步验证force与semantic_state必须并行保存。"
     },
     {
       "title": "王虎应-浅谈六爻太极裂变",
