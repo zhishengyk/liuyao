@@ -345,6 +345,13 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             if domain.get('flow'):
                 generated[f'{bucket}/PROMPT.md'] += '\n\n## \u672c\u9886\u57df\u7528\u53d6\u4e0e\u6d41\u7a0b\uff08\u5206\u7c7b\u4e13\u5c5e\uff0c\u5148\u4e8e\u5168\u5c40\u5bf9\u5e94\u6b65\u9aa4\u6267\u884c\uff09:\n\n' + domain['flow'] + '\n'
 
+            if domain.get('case_rules'):
+                generated[f'{bucket}/PROMPT.md'] += (
+                    '\n\n## 王虎应卦例提炼的领域裁决规则\n\n'
+                    + '\n'.join(f'- {rule}' for rule in domain['case_rules'])
+                    + '\n\n这些规则来自王虎应正式著作、本人卦例或答疑中反复可泛化的机制。'
+                      '只在当前原问满足相同前提时使用；不得把原例反馈、人物故事或事后信息带入当前卦。\n')
+
     global_parts = ['# 全局断卦流程与原文\n\n',
                     '本文件是王虎应体系的生产主干：先定原问与用神，再按月、日、动爻、本位变爻判断，'
                     '随后核元忌、世爻、事项特例与应期。步骤标题只规定执行顺序；真正断法以紧随其后的王虎应原文为证据。'
@@ -372,6 +379,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
                                       'characters': len(raw), 'file_start_offset': file_start,
                                       'file_end_offset': file_start + len(raw)})
     sections.extend(flow_sections)
+
+    if plan.get('global_case_rules'):
+        global_parts.extend([
+            '## 王虎应卦例提炼的全局裁决规则\n\n',
+            *[f'- {rule}\n' for rule in plan['global_case_rules']],
+            '\n这些规则是从王虎应正式方法与具体卦例/答疑交叉提炼的通用机制。'
+            '它们用于约束推理顺序，不替代对应原文；当前卦只有满足相同前提时才能调用案例中的例外。\n\n'
+        ])
 
     global_parts.extend(['## 全局补充原文与领域路由\n\n',
         '以下自动汇入的通用原文只来自plan允许进入生产包的王虎应主证据书系；source allowlist只控制书系，不自动提升段落作者权威。'
