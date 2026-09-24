@@ -1,0 +1,910 @@
+{
+  "schema_version": 1,
+  "method": "normalized title + inferred author/category; all non-canonical full-text versions are preserved under variants/",
+  "groups": [
+    {
+      "group_key": "六爻|王虎应|王虎应增删卜易评释dxj整理",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/003王虎应增删卜易评释（dxj整理）.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/003王虎应增删卜易评释(dxj整理).md",
+        "git_blob_sha": "af7648d48eb38a78998158b2da2700ca91f50e01",
+        "size": 1250833,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/003王虎应增删卜易评释（dxj整理）.doc.md",
+          "new_path": "variants/六爻/王虎应/003王虎应增删卜易评释(dxj整理)/afbd5acdd4_003王虎应增删卜易评释(dxj整理).doc.md",
+          "git_blob_sha": "afbd5acdd4b952ba833fe613665f917df3a5ddc7",
+          "size": 1250880,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻趋避初探dxj校",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/009六爻趋避初探 （dxj校）.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/009六爻趋避初探 (dxj校).md",
+        "git_blob_sha": "cb83ee809aa4df40d899f52ef7aa014afae30d06",
+        "size": 391757,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/009六爻趋避初探 （dxj校）.doc.md",
+          "new_path": "variants/六爻/王虎应/009六爻趋避初探 (dxj校)/40d3e636c2_009六爻趋避初探 (dxj校).doc.md",
+          "git_blob_sha": "40d3e636c2072aa677eae45391c7980893371d93",
+          "size": 396253,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|初学六爻预测王虎应1",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/001初学六爻预测王虎应1.pdf.md",
+        "new_path": "books/六爻/王虎应/02_基础理论/001初学六爻预测王虎应1.md",
+        "git_blob_sha": "50eb4a9b343dae32bd8b5cc0ba426b4656f8c854",
+        "size": 471593,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/初学六爻预测王虎应1.pdf.md",
+          "new_path": "variants/六爻/王虎应/001初学六爻预测王虎应1/834677ee81_初学六爻预测王虎应1.pdf.md",
+          "git_blob_sha": "834677ee81bda4a06a70f5a81019e759b5406f6d",
+          "size": 471587,
+          "source_ext": "pdf"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/001-1初学六爻预测王虎应1.pdf.md",
+          "new_path": "variants/六爻/王虎应/001初学六爻预测王虎应1/31bbb331a9_001-1初学六爻预测王虎应1.pdf.md",
+          "git_blob_sha": "31bbb331a95b3fe16a504e7bbad8081d5b6514ea",
+          "size": 471586,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻分类占验技法王虎应",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻分类占验技法王虎应.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/六爻分类占验技法王虎应.md",
+        "git_blob_sha": "deca4a218895025172299b8822fd0144eac49029",
+        "size": 266704,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/002六爻分类占验技法王虎应.doc.md",
+          "new_path": "variants/六爻/王虎应/六爻分类占验技法王虎应/10726b569f_002六爻分类占验技法王虎应.doc.md",
+          "git_blob_sha": "10726b569f4bddb6b53e659cec05b2f54433c5e3",
+          "size": 263585,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|地支生克冲合刑害",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/地支生克冲合刑害.doc.md",
+        "new_path": "books/六爻/王虎应/06_生克冲合/地支生克冲合刑害.md",
+        "git_blob_sha": "d885f08be58d00ec2eb8d65d3193bc785ca058fc",
+        "size": 7744,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/地支生克冲合刑害.doc.md",
+          "new_path": "variants/六爻/王虎应/地支生克冲合刑害/da2e844d88_地支生克冲合刑害.doc.md",
+          "git_blob_sha": "da2e844d887a7d6038c1f020200c87996e76592a",
+          "size": 7761,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应老师在周易爱好者群讲课记录之一",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应老师在周易爱好者群讲课记录之一.docx.md",
+        "new_path": "books/六爻/王虎应/11_讲课记录/王虎应老师在周易爱好者群讲课记录之一.md",
+        "git_blob_sha": "982c504f6840efb97070560d23c63929b02f66a7",
+        "size": 49559,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/王虎应老师在周易爱好者群讲课记录之一.docx.md",
+          "new_path": "variants/六爻/王虎应/王虎应老师在周易爱好者群讲课记录之一/b933da7015_王虎应老师在周易爱好者群讲课记录之一.docx.md",
+          "git_blob_sha": "b933da701527979aaf97c29b291936fb3495572f",
+          "size": 49582,
+          "source_ext": "docx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应问题答疑汇总最新版",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应问题答疑汇总最新版 - 副本.docx.md",
+        "new_path": "books/六爻/王虎应/10_答疑/王虎应问题答疑汇总最新版 - 副本.md",
+        "git_blob_sha": "c9c7d85f3346abc00f6974498cbbded10febdc11",
+        "size": 4218532,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻自修宝典/王虎应问题答疑汇总最新版.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应问题答疑汇总最新版 - 副本/7f2c6cbf4c_王虎应问题答疑汇总最新版.doc.md",
+          "git_blob_sha": "7f2c6cbf4ca0a333c5336e8cb7c03ae05b56bf2b",
+          "size": 4321032,
+          "source_ext": "doc"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/王虎应问题答疑汇总最新版.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应问题答疑汇总最新版 - 副本/db59f38247_王虎应问题答疑汇总最新版.doc.md",
+          "git_blob_sha": "db59f3824713f4a7a593cb6f33d9beb233b3a48c",
+          "size": 4320996,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|盲派生克冲合",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/盲派 生克冲合.docx.md",
+        "new_path": "books/六爻/王虎应/06_生克冲合/盲派 生克冲合.md",
+        "git_blob_sha": "2761218aa0d8de2599abadafaaa356c17169983a",
+        "size": 9875,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/WHY DXJ整理版/盲派 生克冲合.docx.md",
+          "new_path": "variants/六爻/王虎应/盲派 生克冲合/a809d0734c_盲派 生克冲合.docx.md",
+          "git_blob_sha": "a809d0734cc30ddbff6225bcb2bd2ee004c68f11",
+          "size": 9898,
+          "source_ext": "docx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|凡卜|六爻入门凡卜著",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻入门 凡卜著.docx.md",
+        "new_path": "books/六爻/凡卜/基础/六爻入门 凡卜著.md",
+        "git_blob_sha": "5b613cc1ec6638ed53cd48e3e13ace5763b2d032",
+        "size": 344788,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/六爻入门 凡卜著.docx.md",
+          "new_path": "variants/六爻/凡卜/六爻入门 凡卜著/2d83dc63c9_六爻入门 凡卜著.docx.md",
+          "git_blob_sha": "2d83dc63c94aac613bc4e34db6f4072c1e68f1b8",
+          "size": 344763,
+          "source_ext": "docx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻卦象解密王虎应",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻卦象解密王虎应.pdf.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/六爻卦象解密王虎应.md",
+        "git_blob_sha": "a456057d380fbc42459518530becb8a8d698b2e8",
+        "size": 365145,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻卦象解密王虎应.pdf.md",
+          "new_path": "variants/六爻/王虎应/六爻卦象解密王虎应/a03c4f88ee_六爻卦象解密王虎应.pdf.md",
+          "git_blob_sha": "a03c4f88ee10d10a6ca4b507c47fd013a22473fa",
+          "size": 364652,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|曲炜|六爻特训班讲义曲炜",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/六爻特训班讲义 曲炜.docx.md",
+        "new_path": "books/六爻/曲炜/讲义/六爻特训班讲义 曲炜.md",
+        "git_blob_sha": "9eb27bcdf6b0b6d869ce9fadf17a70dbb72e9530",
+        "size": 425242,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻特训班讲义 曲炜.doc.md",
+          "new_path": "variants/六爻/曲炜/六爻特训班讲义 曲炜/4894a536b2_六爻特训班讲义 曲炜.doc.md",
+          "git_blob_sha": "4894a536b22d405803f003169fc1329a14d4c19a",
+          "size": 425372,
+          "source_ext": "doc"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/曲炜/六爻特训班讲义 曲炜.doc.md",
+          "new_path": "variants/六爻/曲炜/六爻特训班讲义 曲炜/d218fe4214_六爻特训班讲义 曲炜.doc.md",
+          "git_blob_sha": "d218fe42144624c163d759c6e215ee5347c67536",
+          "size": 425366,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻用神答疑51页王虎应",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻自修宝典/六爻用神答疑（51页）王虎应.doc.md",
+        "new_path": "books/六爻/王虎应/10_答疑/六爻用神答疑(51页)王虎应.md",
+        "git_blob_sha": "f33d039a71ed912ecf95c57cdca0f529c08a3a70",
+        "size": 122194,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻用神答疑（51页）王虎应.doc.md",
+          "new_path": "variants/六爻/王虎应/六爻用神答疑(51页)王虎应/66ab0a3c30_六爻用神答疑(51页)王虎应.doc.md",
+          "git_blob_sha": "66ab0a3c303bc9d6c9010ffead5530ce46c8a7ac",
+          "size": 112972,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻趋避初探王虎应",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻趋避初探 王虎应.pdf.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/六爻趋避初探 王虎应.md",
+        "git_blob_sha": "e41be94cfbe8424d5209c10caf26c0a2b69d7739",
+        "size": 298077,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻趋避初探 王虎应.txt.md",
+          "new_path": "variants/六爻/王虎应/六爻趋避初探 王虎应/33495a8b8c_六爻趋避初探 王虎应.txt.md",
+          "git_blob_sha": "33495a8b8c74860e23f2daf5b82e4d5bbdcfc373",
+          "size": 262397,
+          "source_ext": "txt"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻预测全象解析",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻预测全象解析+++++ (1).docx.md",
+        "new_path": "books/六爻/王虎应/99_来源存疑/六爻预测全象解析+++++ (1).md",
+        "git_blob_sha": "3c744cd5610c5eb7a7c503a1fa7948ea8e0c1f37",
+        "size": 30242,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/六爻预测全象解析+++++.docx.md",
+          "new_path": "variants/六爻/王虎应/六爻预测全象解析+++++ (1)/216ba379ba_六爻预测全象解析+++++.docx.md",
+          "git_blob_sha": "216ba379ba6c492775fa6360b66140819af7be9b",
+          "size": 30234,
+          "source_ext": "docx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|刘虹言|刘虹言易学难精六爻完整版",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/刘虹言-易学难精-六爻完整版.docx.md",
+        "new_path": "books/六爻/刘虹言/著作/刘虹言-易学难精-六爻完整版.md",
+        "git_blob_sha": "b3b7020eac2559593f8196099fba937f6fcc0cc6",
+        "size": 1122447,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/刘虹言-易学难精-六爻完整版.docx.md",
+          "new_path": "variants/六爻/刘虹言/刘虹言-易学难精-六爻完整版/6a707cdc2c_刘虹言-易学难精-六爻完整版.docx.md",
+          "git_blob_sha": "6a707cdc2c14a101be9921142a6060b3f19f6398",
+          "size": 1122432,
+          "source_ext": "docx"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/刘虹言-易学难精-六爻完整版.doc.md",
+          "new_path": "variants/六爻/刘虹言/刘虹言-易学难精-六爻完整版/af4ff53cbe_刘虹言-易学难精-六爻完整版.doc.md",
+          "git_blob_sha": "af4ff53cbee45723a3e863056bf96f9295ff5e1f",
+          "size": 568257,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|刘虹言点评王虎应化解密传",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/刘虹言《点评王虎应化解密传》.pdf.md",
+        "new_path": "books/六爻/王虎应/12_趋吉避凶/刘虹言《点评王虎应化解密传》.md",
+        "git_blob_sha": "831b668d95e1e5229e043bd803b7dbec87974ada",
+        "size": 318040,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/刘虹言《点评王虎应化解密传》.pdf.md",
+          "new_path": "variants/六爻/王虎应/刘虹言《点评王虎应化解密传》/e5ef5b7b38_刘虹言《点评王虎应化解密传》.pdf.md",
+          "git_blob_sha": "e5ef5b7b384b1233bd906710713063acf268f877",
+          "size": 317715,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|初学断卦应该如何入手",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/初学断卦应该如何入手？.doc.md",
+        "new_path": "books/六爻/王虎应/02_基础理论/初学断卦应该如何入手_.md",
+        "git_blob_sha": "53b27d5cd10673498608b8ce5dfe2a6d9fe86d6d",
+        "size": 12978,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/初学断卦应该如何入手？.doc.md",
+          "new_path": "variants/六爻/王虎应/初学断卦应该如何入手_/dc83d4cbf6_初学断卦应该如何入手_.doc.md",
+          "git_blob_sha": "dc83d4cbf654bdf9cb5372e43b663ad338e07660",
+          "size": 12950,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|卦例集锦含讲课记录王虎应1",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/卦例集锦(含讲课记录)王虎应1.pdf.md",
+        "new_path": "books/六爻/王虎应/09_卦例/卦例集锦(含讲课记录)王虎应1.md",
+        "git_blob_sha": "3e731981f6ff34d17a013d905625ee1cbd2ae097",
+        "size": 418665,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/卦例集锦(含讲课记录)王虎应1.pdf.md",
+          "new_path": "variants/六爻/王虎应/卦例集锦(含讲课记录)王虎应1/55846d0259_卦例集锦(含讲课记录)王虎应1.pdf.md",
+          "git_blob_sha": "55846d025992f3476773cb6cb9f413d4d2ebd401",
+          "size": 418214,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应六爻卦例说真答疑",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应《六爻卦例说真》答疑.doc.md",
+        "new_path": "books/六爻/王虎应/10_答疑/王虎应《六爻卦例说真》答疑.md",
+        "git_blob_sha": "75923e97202959a09288f8588b6925a836b0acc9",
+        "size": 86786,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应《六爻卦例说真》答疑.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应《六爻卦例说真》答疑/b0b9848134_王虎应《六爻卦例说真》答疑.doc.md",
+          "git_blob_sha": "b0b98481349014bc77a5b41d18da4d1f87f7ade0",
+          "size": 86758,
+          "source_ext": "doc"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应《六爻卦例说真》答疑.txt.md",
+          "new_path": "variants/六爻/王虎应/王虎应《六爻卦例说真》答疑/4378661f6f_王虎应《六爻卦例说真》答疑.txt.md",
+          "git_blob_sha": "4378661f6f2ddc2e5c35f3198e4546407d96a094",
+          "size": 43952,
+          "source_ext": "txt"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应六爻预测自修宝典",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/六爻自修宝典/王虎应：六爻预测自修宝典.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/王虎应_六爻预测自修宝典.md",
+        "git_blob_sha": "664720238bca7be929a43f01969f61a5e4a68637",
+        "size": 248583,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应：六爻预测自修宝典.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应_六爻预测自修宝典/9dfa3f0011_王虎应_六爻预测自修宝典.doc.md",
+          "git_blob_sha": "9dfa3f0011a095d7d7b32300a5f7465215e3cbce",
+          "size": 248415,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|增删卜易评释答疑王虎应老师",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/增删卜易评释答疑（王虎应老师）.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/增删卜易评释答疑(王虎应老师).md",
+        "git_blob_sha": "303aca4c6e06d21d13ee81d6a189ff24a048d1c5",
+        "size": 200978,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/增删卜易评释答疑（王虎应老师）.txt.md",
+          "new_path": "variants/六爻/王虎应/增删卜易评释答疑(王虎应老师)/218a77d602_增删卜易评释答疑(王虎应老师).txt.md",
+          "git_blob_sha": "218a77d602a4c0ce3cf6322a7a44eae1f2d7b837",
+          "size": 152967,
+          "source_ext": "txt"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应六爻的技法与运用整理",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应-六爻的技法与运用（整理）.doc.md",
+        "new_path": "books/六爻/王虎应/90_他人整理/王虎应-六爻的技法与运用(整理).md",
+        "git_blob_sha": "580cf83fd6cfdf753163e22909bfe92c561c6484",
+        "size": 55033,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应-六爻的技法与运用（整理）.txt.md",
+          "new_path": "variants/六爻/王虎应/王虎应-六爻的技法与运用(整理)/8f3ec84b62_王虎应-六爻的技法与运用(整理).txt.md",
+          "git_blob_sha": "8f3ec84b62e634391a41623f4f5d1f465f3b20f6",
+          "size": 53283,
+          "source_ext": "txt"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/王虎应六爻资料全集.rar内容/王虎应六爻资料全集/王虎应-六爻的技法与运用（整理）.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应-六爻的技法与运用(整理)/4c023d915e_王虎应-六爻的技法与运用(整理).doc.md",
+          "git_blob_sha": "4c023d915e4704f5c42acdfb26e4cc9d9be8c0c0",
+          "size": 55347,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应理象思维篇",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应-理象思维篇.doc.md",
+        "new_path": "books/六爻/王虎应/03_理象/王虎应-理象思维篇.md",
+        "git_blob_sha": "bf45646b2a7f00a0d4dfb6c46ae1b9de86e4c119",
+        "size": 29377,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应-理象思维篇.txt.md",
+          "new_path": "variants/六爻/王虎应/王虎应-理象思维篇/cf5d84624e_王虎应-理象思维篇.txt.md",
+          "git_blob_sha": "cf5d84624e60f3336a11d2fb0658474a507def5b",
+          "size": 30041,
+          "source_ext": "txt"
+        },
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/王虎应六爻资料全集.rar内容/王虎应六爻资料全集/王虎应-理象思维篇.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应-理象思维篇/e225494f61_王虎应-理象思维篇.doc.md",
+          "git_blob_sha": "e225494f613fd4075b178ff3f7818cdafd349d6d",
+          "size": 29471,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应六爻资料集",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应六爻资料集.doc.md",
+        "new_path": "books/六爻/王虎应/99_来源存疑/王虎应六爻资料集.md",
+        "git_blob_sha": "a1231a3981b19ab3edf5ef0d5332e189ab7746d4",
+        "size": 118504,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/王虎应六爻资料集.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应六爻资料集/6ac716ad38_王虎应六爻资料集.doc.md",
+          "git_blob_sha": "6ac716ad38e7833fe82f93817c0c803fe6271901",
+          "size": 118463,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应增删卜易评释整理",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应增删卜易评释（整理）.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/王虎应增删卜易评释(整理).md",
+        "git_blob_sha": "707c52dedc960f4e1d08c91cc9e62ce0dc5ccdf0",
+        "size": 1253012,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应增删卜易评释（整理）.txt.md",
+          "new_path": "variants/六爻/王虎应/王虎应增删卜易评释(整理)/cf2832bc1f_王虎应增删卜易评释(整理).txt.md",
+          "git_blob_sha": "cf2832bc1f5779444ab25f72c98f0608378bddc7",
+          "size": 626069,
+          "source_ext": "txt"
+        }
+      ]
+    },
+    {
+      "group_key": "风水|王虎应|王虎应断风水",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应断风水.doc.md",
+        "new_path": "books/风水/王虎应/分类占/王虎应断风水.md",
+        "git_blob_sha": "2ede3b804b0654fa8ae1d7dea6dc3000061e395a",
+        "size": 4210,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应断风水.doc.md",
+          "new_path": "variants/风水/王虎应/王虎应断风水/10b8fe30f8_王虎应断风水.doc.md",
+          "git_blob_sha": "10b8fe30f8eecc56acd03a3af2fe9dba0fdfbf5f",
+          "size": 4182,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应老师六爻随笔",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应老师六爻随笔.doc.md",
+        "new_path": "books/六爻/王虎应/99_来源存疑/王虎应老师六爻随笔.md",
+        "git_blob_sha": "5cb84615b77cb500ea2a325425b1ddea69785aee",
+        "size": 191799,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应老师六爻随笔.txt.md",
+          "new_path": "variants/六爻/王虎应/王虎应老师六爻随笔/90c173b8f0_王虎应老师六爻随笔.txt.md",
+          "git_blob_sha": "90c173b8f0c086223e572016131cfbd98a0415e2",
+          "size": 190787,
+          "source_ext": "txt"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应老师问答录",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应六爻资料全集/王虎应老师问答录.doc.md",
+        "new_path": "books/六爻/王虎应/10_答疑/王虎应老师问答录.md",
+        "git_blob_sha": "6739a7fe91fed935163bb9152c575575ae2d7237",
+        "size": 150294,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应老师问答录.doc.md",
+          "new_path": "variants/六爻/王虎应/王虎应老师问答录/6494d021d1_王虎应老师问答录.doc.md",
+          "git_blob_sha": "6494d021d1917be003b0b4ffa31fa19a704e5179",
+          "size": 146067,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|王虎应关于过旺过弱等问题答疑汇总",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应关于“过旺过弱”等问题答疑汇总.docx.md",
+        "new_path": "books/六爻/王虎应/10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
+        "git_blob_sha": "7b50e97a5a148d3d9f6a1da019feb1b935a29573",
+        "size": 119239,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/005王虎应/王虎应关于“过旺过弱”等问题答疑汇总.pdf.md",
+          "new_path": "variants/六爻/王虎应/王虎应关于“过旺过弱”等问题答疑汇总/a773bb39ab_王虎应关于“过旺过弱”等问题答疑汇总.pdf.md",
+          "git_blob_sha": "a773bb39abefddff0442f2126ca8dc209d2c2823",
+          "size": 69247,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|佚名|六爻预测股市",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/gp/002 六爻预测股市.docx.md",
+        "new_path": "books/六爻/佚名/分类占/002 六爻预测股市.md",
+        "git_blob_sha": "35dd32575d62059ffa201244ca60e8906f1449e4",
+        "size": 182386,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/六爻预测股市.docx.md",
+          "new_path": "variants/六爻/佚名/002 六爻预测股市/66525895a9_六爻预测股市.docx.md",
+          "git_blob_sha": "66525895a942bc6e64510c51065cb2403dc75c68",
+          "size": 181195,
+          "source_ext": "docx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|佚名|周易天地的六爻预测股市",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/gp/周易天地的六爻预测股市.doc.md",
+        "new_path": "books/六爻/佚名/分类占/周易天地的六爻预测股市.md",
+        "git_blob_sha": "677360c9533443329db664340ff4938c5cbf354d",
+        "size": 52232,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/gp/周易天地的六爻预测股市 (1).doc.md",
+          "new_path": "variants/六爻/佚名/周易天地的六爻预测股市/ea956a042f_周易天地的六爻预测股市 (1).doc.md",
+          "git_blob_sha": "ea956a042fb4182f4ec1c57dadfadae313195619",
+          "size": 26057,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|曲炜|曲炜六爻讲义秘籍卦例卦例收集",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/005曲炜六爻讲义秘籍卦例卦例收集.doc.md",
+        "new_path": "books/六爻/曲炜/卦例/005曲炜六爻讲义秘籍卦例卦例收集.md",
+        "git_blob_sha": "e55121260f6315d13bd262bb6cb14109fafafc32",
+        "size": 267633,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/005曲炜六爻讲义秘籍卦例卦例收集.doc.md",
+          "new_path": "variants/六爻/曲炜/005曲炜六爻讲义秘籍卦例卦例收集/26eea95d68_005曲炜六爻讲义秘籍卦例卦例收集.doc.md",
+          "git_blob_sha": "26eea95d68f2037fed737b58a64c0492368408e8",
+          "size": 267633,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|王虎应|六爻预测自修宝典",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/专著/六爻预测自修宝典.doc.md",
+        "new_path": "books/六爻/王虎应/01_核心著作/六爻预测自修宝典.md",
+        "git_blob_sha": "c96975073879287cca524a183fc5bc3619a1441a",
+        "size": 281516,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/六爻预测自修宝典.pdf.md",
+          "new_path": "variants/六爻/王虎应/六爻预测自修宝典/7b61c89f67_六爻预测自修宝典.pdf.md",
+          "git_blob_sha": "7b61c89f6730d6db9b43d705df61ad59d42253d1",
+          "size": 261000,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|曲炜|易理点窍曲炜",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/易理点窍（曲炜）.pdf.md",
+        "new_path": "books/六爻/曲炜/著作/易理点窍(曲炜).md",
+        "git_blob_sha": "0a5b2d229cd3c502a01c201529a3be75fc06f86f",
+        "size": 44115,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/易理点窍（曲炜）.pdf.md",
+          "new_path": "variants/六爻/曲炜/易理点窍(曲炜)/42c82174b4_易理点窍(曲炜).pdf.md",
+          "git_blob_sha": "42c82174b43eb44143833a00eae1a4f593a2b361",
+          "size": 44115,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|古籍|易隐",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/专著/易隐.doc.md",
+        "new_path": "books/六爻/古籍/易隐.md",
+        "git_blob_sha": "a1bc581e02943878441feedef759078a1114907b",
+        "size": 522870,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/易隐.pdf.md",
+          "new_path": "variants/六爻/古籍/易隐/97b995868b_易隐.pdf.md",
+          "git_blob_sha": "97b995868b320959e3bb28d197bbdcc7f5cd7cfb",
+          "size": 514475,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|曲炜|曲炜六爻详真",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/曲炜《六爻详真》.pdf.md",
+        "new_path": "books/六爻/曲炜/著作/曲炜《六爻详真》.md",
+        "git_blob_sha": "c7fd856a4b50c3bcd78a58246aa68876cf686287",
+        "size": 348002,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/曲炜《六爻详真》.pdf.md",
+          "new_path": "variants/六爻/曲炜/曲炜《六爻详真》/9a90a013da_曲炜《六爻详真》.pdf.md",
+          "git_blob_sha": "9a90a013da31300148bb0c7b87faa428509c6d9f",
+          "size": 348002,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "八字|曲炜|曲炜四柱详真",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/曲炜《四柱详真》.pdf.md",
+        "new_path": "books/八字/曲炜/著作/曲炜《四柱详真》.md",
+        "git_blob_sha": "aa30f352b41b221bf19f9b505a178b0b00467c25",
+        "size": 284014,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/曲炜《四柱详真》.pdf.md",
+          "new_path": "variants/八字/曲炜/曲炜《四柱详真》/ffed2d0ab9_曲炜《四柱详真》.pdf.md",
+          "git_blob_sha": "ffed2d0ab9617c18bb4f3585d169ce6e6dd8e6e9",
+          "size": 284014,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|曲炜|曲炜六爻多重取象",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/曲炜六爻多重取象.doc.md",
+        "new_path": "books/六爻/曲炜/理象/曲炜六爻多重取象.md",
+        "git_blob_sha": "ef42195b3c48b42c0b56b009c673faae9c805591",
+        "size": 327698,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/曲炜六爻多重取象.doc.md",
+          "new_path": "variants/六爻/曲炜/曲炜六爻多重取象/49504022cc_曲炜六爻多重取象.doc.md",
+          "git_blob_sha": "49504022cc8ef5bca00d81ec596baa97f091022f",
+          "size": 164616,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "八字|曲炜|曲炜四柱信息取象完整版",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/曲炜/曲炜四柱信息取象完整版.pdf.md",
+        "new_path": "books/八字/曲炜/理象/曲炜四柱信息取象完整版.md",
+        "git_blob_sha": "b4d7916558e4bb845e32bc08cd582e03a8bae6d7",
+        "size": 328445,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/专著/曲炜四柱信息取象完整版.pdf.md",
+          "new_path": "variants/八字/曲炜/曲炜四柱信息取象完整版/36f7fdad84_曲炜四柱信息取象完整版.pdf.md",
+          "git_blob_sha": "36f7fdad84dc9f2aa1b23cbf1459a61095f0f49b",
+          "size": 328445,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|黎光|隐易千金断黎光着",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/专著/隐易千金断--黎光着.pdf.md",
+        "new_path": "books/六爻/黎光/著作/隐易千金断--黎光着.md",
+        "git_blob_sha": "fd450197e75f77d46429ffa50f25ca4aeeb69c00",
+        "size": 553398,
+        "source_ext": "pdf"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/隐易千金断--黎光着.pdf.md",
+          "new_path": "variants/六爻/黎光/隐易千金断--黎光着/edc1751bf9_隐易千金断--黎光着.pdf.md",
+          "git_blob_sha": "edc1751bf957f37cbbeadb1ebddad2bd53208c57",
+          "size": 552224,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|佚名|卦表",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/入门基础/64卦表.docx.md",
+        "new_path": "books/六爻/佚名/著作/64卦表.md",
+        "git_blob_sha": "cf6a79e5ac9f319d7813687ce779119ec0275487",
+        "size": 36163,
+        "source_ext": "docx"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/入门基础/64卦表.xlsx.md",
+          "new_path": "variants/六爻/佚名/64卦表/0cfb2dee16_64卦表.xlsx.md",
+          "git_blob_sha": "0cfb2dee16491ee4cbfc83f044fe8db6119bc1ce",
+          "size": 30139,
+          "source_ext": "xlsx"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|佚名|六爻基础知识",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/入门基础/六爻基础知识 (1).doc.md",
+        "new_path": "books/六爻/佚名/基础/六爻基础知识 (1).md",
+        "git_blob_sha": "4de466e984c41850ce394f1e9c5e72a8e044fcb1",
+        "size": 57089,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/入门基础/六爻基础知识.doc.md",
+          "new_path": "variants/六爻/佚名/六爻基础知识 (1)/1df6df9589_六爻基础知识.doc.md",
+          "git_blob_sha": "1df6df9589d4133a8549fcab69c6a9d0f01775c7",
+          "size": 57081,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "易学综合|佚名|周易零基础入门教程",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/入门基础/周易零基础入门教程.doc.md",
+        "new_path": "books/易学综合/佚名/基础/周易零基础入门教程.md",
+        "git_blob_sha": "d4ef249686ad24a85351f8c6fd6dd04eebb808be",
+        "size": 51838,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/入门基础/周易零基础入门教程.pdf.md",
+          "new_path": "variants/易学综合/佚名/周易零基础入门教程/b620d0f8c5_周易零基础入门教程.pdf.md",
+          "git_blob_sha": "b620d0f8c58861c2a58b00f9997e4dd41438a100",
+          "size": 52132,
+          "source_ext": "pdf"
+        }
+      ]
+    },
+    {
+      "group_key": "六爻|佚名|周易预测之六爻预测基础知识",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/入门基础/周易预测之六爻预测基础知识 (1).doc.md",
+        "new_path": "books/六爻/佚名/基础/周易预测之六爻预测基础知识 (1).md",
+        "git_blob_sha": "65ade5872e7d27a858f0eab63efcfe604ec89a62",
+        "size": 260316,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/入门基础/周易预测之六爻预测基础知识.doc.md",
+          "new_path": "variants/六爻/佚名/周易预测之六爻预测基础知识 (1)/56ac12971e_周易预测之六爻预测基础知识.doc.md",
+          "git_blob_sha": "56ac12971e03acfd41d691e53d6b295d865f0dd0",
+          "size": 65418,
+          "source_ext": "doc"
+        }
+      ]
+    },
+    {
+      "group_key": "八字|佚名|翁向宏面相学应用课程",
+      "canonical": {
+        "source_path": "Markdown归档/003周易命理资料/八字/翁向宏面相学应用课程.doc.md",
+        "new_path": "books/八字/佚名/著作/翁向宏面相学应用课程.md",
+        "git_blob_sha": "b12c9c9d30cb92bbef38f5eaf0f6afd1ec16e038",
+        "size": 58005,
+        "source_ext": "doc"
+      },
+      "variants": [
+        {
+          "source_path": "Markdown归档/003周易命理资料/八字/翁向宏面相学应用课程 (1).doc.md",
+          "new_path": "variants/八字/佚名/翁向宏面相学应用课程/5b4238d6ac_翁向宏面相学应用课程 (1).doc.md",
+          "git_blob_sha": "5b4238d6ac666780cc361d932779e08adaad8374",
+          "size": 56182,
+          "source_ext": "doc"
+        }
+      ]
+    }
+  ]
+}
