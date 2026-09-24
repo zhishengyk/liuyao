@@ -358,6 +358,14 @@
     {
       "glob": "11_讲义记录/王虎应 六爻中高级班讲课记录.md",
       "authority_tier": "compare_only"
+    },
+    {
+      "glob": "90_他人整理/王虎应增删卜易评释(整理).md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "90_他人整理/003王虎应增删卜易评释(dxj整理).md",
+      "authority_tier": "compare_only"
     }
   ],
   "default_authority_tier": "compare_only",
