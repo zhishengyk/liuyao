@@ -13,10 +13,10 @@
   "counts": {
     "compare_only": 10,
     "tool_only": 3,
-    "pending": 51,
-    "reviewed_partial": 7,
-    "integrated": 13,
-    "mixed_requires_attribution": 15
+    "pending": 46,
+    "reviewed_partial": 9,
+    "integrated": 15,
+    "mixed_requires_attribution": 16
   },
   "entries": [
     {
@@ -151,8 +151,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 2493,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "全文已读；理/象分工、用神—日月—动爻主干及六神/十二状态层级已写入GLOBAL。"
     },
     {
       "title": "六爻预测自修宝典",
@@ -224,7 +224,7 @@
       "author_basis": "existing_archive_classification",
       "size": 191799,
       "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "note": "汇编型随笔，含王虎应文章、案例与广告/转载片段；已核太极裂变、理象及部分案例，继续按段落归属抽取，不整体提权。"
     },
     {
       "title": "王虎应六爻资料集",
@@ -376,8 +376,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 365145,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "reviewed_partial",
+      "note": "已系统读取方法论与多个案例，已提取七类象源、卦象语境化、同六亲借六神detail-only规则；全书大量逐卦象义仍保留全文待继续提取。"
     },
     {
       "title": "六爻预测全象解析+++++ (1)",
@@ -412,8 +412,8 @@
       "document_type": "03_理象",
       "author_basis": "existing_archive_classification",
       "size": 174655,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "reviewed_partial",
+      "note": "已读方法总纲与代表案例；已写入“不问不占”、另演新卦后重新取用、方法仍在完善等高级边界；大量案例仍保留全文。"
     },
     {
       "title": "爻位所代表的各种象",
@@ -493,8 +493,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 41109,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "mixed_requires_attribution",
+      "note": "混合讨论帖，含李洪成/朱辰彬等观点及王虎应答复；已提取可确认的王虎应“变爻force只本位、跨位仅可取十二状态象义”规则，其余逐段按作者核验。"
     },
     {
       "title": "六爻里的生克冲合 王虎应",
@@ -502,8 +502,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 9838,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "integrated",
+      "note": "全文已读；月→日→动→用神本位变爻四层主干及独发元神、爻冲暗动、变爻边界已写入GLOBAL。"
     },
     {
       "title": "论冲合的关系",
