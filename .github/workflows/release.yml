@@ -16,10 +16,10 @@ jobs:
       - name: Checkout pinned Wang Huying book archive
         uses: actions/checkout@v4
         with:
-          ref: books-archive-reorg
+          ref: f67598b8c299f1aafdc3fa9e88a2747586f5e2ac
           path: .local/books-archive
           sparse-checkout: |
-            Markdown归档/003周易命理资料/005王虎应
+            书籍/六爻/王虎应
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
