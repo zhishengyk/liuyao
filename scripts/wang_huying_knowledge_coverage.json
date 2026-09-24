@@ -12,13 +12,13 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 15,
+    "compare_only": 19,
     "tool_only": 3,
     "mixed_requires_attribution": 16,
-    "pending": 32,
     "reviewed_partial": 12,
     "integrated": 17,
-    "source_family_alias": 4
+    "source_family_alias": 4,
+    "pending": 28
   },
   "entries": [
     {
@@ -117,8 +117,8 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 140139,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "正文开头明确“张鼎六爻高级技法 转贴”，不是王虎应；禁止进入王虎应生产Prompt。"
     },
     {
       "title": "六爻启玄经PDF浏览版",
@@ -264,8 +264,8 @@
       "document_type": "02_基础理论",
       "author_basis": "existing_archive_classification",
       "size": 5842,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "通用口诀整理稿且含“静爻日合为合起”等被王虎应后期明确修订的旧说，无直接署名；仅作冲突对照。"
     },
     {
       "title": "六爻预测基础",
@@ -273,8 +273,8 @@
       "document_type": "02_基础理论",
       "author_basis": "existing_archive_classification",
       "size": 174542,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "序言为论坛学员2007–2008自行开班整理的基础教材，无王虎应署名；不作为王虎应来源。"
     },
     {
       "title": "周易零基础-你也是可以学习的",
@@ -291,8 +291,8 @@
       "document_type": "02_基础理论",
       "author_basis": "existing_archive_classification",
       "size": 260308,
-      "status": "pending",
-      "note": "尚未做完整知识提取；全文已计划随发行包保留"
+      "status": "compare_only",
+      "note": "通用基础知识整理，无王虎应内部署名；目录归属不足以提权。"
     },
     {
       "title": "八卦卦象之兑宫八卦（修订）",
