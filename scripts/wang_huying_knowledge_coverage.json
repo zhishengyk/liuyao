@@ -15,9 +15,9 @@
     "compare_only": 20,
     "tool_only": 3,
     "mixed_requires_attribution": 20,
-    "reviewed_partial": 10,
-    "integrated": 19,
+    "integrated": 20,
     "source_family_alias": 6,
+    "reviewed_partial": 9,
     "pending": 21
   },
   "entries": [
@@ -135,8 +135,9 @@
       "document_type": "01_核心著作",
       "author_basis": "existing_archive_classification",
       "size": 160477,
-      "status": "reviewed_partial",
-      "note": "已系统核过关键章节/冲突，仍可继续抽专题知识"
+      "status": "integrated",
+      "note": "已系统提取并交叉核对：专测/兼测轻重、无根独发例外、多动链验证、暗动/日破、用神两现与应期焦点、三合成局范围、日合生合、官渠道求财、现实背景取象等。仅王虎应明确答复进入生产规则，网友提问/他人意见不提权。",
+      "source_family": "六爻求真教学答疑"
     },
     {
       "title": "六爻疑惑指迷（王虎应）",
