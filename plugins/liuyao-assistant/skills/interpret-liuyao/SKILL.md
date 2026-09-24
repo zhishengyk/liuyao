@@ -7,7 +7,7 @@ description: 使用六爻助手MCP排盘，检索六爻理法、象法和相似�
 
 实际断卦必须先执行下面的核心顺序；这是控制层，优先于大范围RAG和案例检索：
 
-1. **明确原问与问法上下文**：拆清主体、对象、事件、时限，以及“现状描述 / 最终成败 / 本人得失 / 原因 / 应期”属于哪一维度；记录 `question_mode=outcome|state_description|cause|timing`、`question_granularity=general_state|specific_event`、`question_focus=primary|secondary`、`time_horizon=now|stage|long_term`、`cast_context=initial|repeat_same_question|followup_new_dimension`。泛测官运与“此次能否升官”、问前任现状与问能否复合、初占与第五次复占不能套同一裁决。
+1. **明确原问与问法上下文，并拆结果维度**：拆清主体、对象、事件、时限，以及“现状描述 / 事件是否实现 / 对象本身状态 / 本人得失 / 原因 / 应期”属于哪一维度；记录 `question_mode=outcome|state_description|cause|timing`、`question_granularity=general_state|specific_event`、`question_focus=primary|secondary`、`time_horizon=now|stage|long_term`、`cast_context=initial|repeat_same_question|followup_new_dimension`。**事件结果与对象状态必须分开**：例如“能否找到人”与“找到时是否平安”、“能否录用”与“录用后条件如何”不能由一个 yes/no 覆盖。泛测官运与“此次能否升官”、问前任现状与问能否复合、初占与第五次复占也不能套同一裁决。
 2. **先做盘面预扫描，再取用神并分主次承载**：先标出旬空、月破、暗动候选、伏藏、实际动爻及本位变爻，作为后续条件，不先下吉凶；随后按事项与原问语义确定 `primary_yongshen`，并把确有必要的 `secondary_carriers` 分开记录。不要让多个六亲并列投票：例如一般求职/工作变动以官鬼为主，父母看单位/文书，妻财看工资；考试可同时看父母的成绩/通知与官鬼的名次；长期财运财为主而兼看子孙财源。领域默认只是起点，若原问语义明确改变现实角色，允许 `semantic_role_override`，但必须说明依据。用神两现时结合动静、空破、冲合、世应、爻位和现实对应选择，必要时兼看；不得为了结论反选用神。
 3. **按王虎应四层力量建立主干：月 → 日 → 动 → 变**：先看月建对用神，再看日辰对用神，二者共同形成 `root_state`；日月是根本，但各司其职，不折算成简单分数。第三层看实际动爻/暗动对用神和关键元忌的作用，动爻表示发展趋势且可同时生、克、冲、合多个对象。第四层只在**用神自身发动**时重点看它的本位变爻：回头生克、进退、空破、墓绝、冲合等表示自身变化方向。变爻五行作用不跨位作用其他爻。
 4. **按动静层级处理静爻**：纯静卦在日月根基之上，可用旺相静爻对休囚静爻的作用判断吉凶。有明动时，主吉凶一般围绕日月、动爻和用神本位动变；普通静爻不作用动爻。若静爻与日月同五行/临日月，可视作“日月入爻”，由它代表日月行权；动卦中旺静爻对休囚静爻虽可形成信息，一般不拿它替代动爻主线定吉凶，更多用于取象。
