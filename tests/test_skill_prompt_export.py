@@ -414,3 +414,22 @@ def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
     assert '识别本领域后，必须在执行取用、现实角色、事项特例和应期等对应步骤之前加载本领域规则' in study_prompt
     assert '不得先跑完整个GLOBAL后再用领域规则事后改答案' in study_prompt
 
+def test_repository_prompt_plan_global_group_titles_are_total_and_unique():
+    root = Path(__file__).resolve().parents[1]
+    config = json.loads((root / 'scripts/skill_prompt_plan.json').read_text(encoding='utf-8'))
+
+    titles = []
+    for rule in config['global_case_rules']:
+        assert rule.startswith('【') and '】' in rule
+        titles.append(rule[1:rule.index('】')])
+
+    refs = [
+        title
+        for group in config['global_rule_groups']
+        for title in group.get('rule_titles', [])
+    ]
+
+    assert len(titles) == len(set(titles))
+    assert len(refs) == len(set(refs))
+    assert set(refs) == set(titles)
+
