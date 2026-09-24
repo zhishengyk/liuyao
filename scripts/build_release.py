@@ -25,7 +25,7 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     wang_archive_root = args.wang_archive_root or (
-        root / ".local/books-archive/Markdown归档/003周易命理资料/005王虎应")
+        root / ".local/books-archive/书籍/六爻/王虎应")
     if not wang_archive_root.is_dir():
         raise FileNotFoundError(
             "Pinned Wang Huying archive checkout is required for release builds: "
