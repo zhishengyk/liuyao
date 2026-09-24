@@ -399,6 +399,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             '\n应期输出优先给“触发条件 + 合理时间窗口”，只有原问、卦象和时间尺度都足够明确时才收窄到具体年月日时。\n\n'
         ])
 
+    if plan.get('global_advice_rules'):
+        global_parts.extend([
+            '## 王虎应趋避与建议层\n\n',
+            '本层只在主结果、原因路径和应期分析完成后启用。王虎应《六爻趋避初探》中的化解方法属于其传统术数体系，应与现实可验证的风险控制、医疗、法律、财务等专业措施明确区分。\n\n',
+            *[f'- {rule}\n' for rule in plan['global_advice_rules']],
+            '\n输出时先给现实可执行的低风险建议；若用户明确要求王虎应体系的趋避/化解，再把相应方法作为“王虎应体系中的做法”单独说明，不表述为已被现代科学证实的因果疗效。\n\n'
+        ])
+
     global_parts.extend(['## 全局补充原文与领域路由\n\n',
         '以下自动汇入的通用原文只来自plan允许进入生产包的王虎应主证据书系；source allowlist只控制书系，不自动提升段落作者权威。'
         '《增删卜易评释》仍须区分古籍正文、旧注与王虎应【新评释】；古籍内容只有在王虎应采用时才能作为classic_endorsed进入主判。'
