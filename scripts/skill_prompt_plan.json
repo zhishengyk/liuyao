@@ -99,7 +99,9 @@
         "【职位、单位、工资、通知分维度】官鬼=职位/工作主结果，父母=单位/文书/通知，妻财=工资待遇；任一辅助维度好坏不得单独替代职位结果。",
         "【原问可改写官鬼现实角色】若职位事实已经确定，原问实际问“会不会被撤、领导谈话是否有事”等，官鬼在具体卦中可能转为忧虑/压力；必须由原问和同条件王虎应案例支持semantic_role_override，不能随意换角色。",
         "【调动要区分有工作与能移动】官鬼本身旺不等于调动能成；伏藏、合绊、伏吟/反吟、世应环境及动变可能决定“工作有，但动不了”。",
-        "【工作细节不得抢成败】月日/爻位/六神可解释领导、同事、岗位性质、单位规模和阻力来源，但只有实际进入官鬼结果链时才改变主判。"
+        "【工作细节不得抢成败】月日/爻位/六神可解释领导、同事、岗位性质、单位规模和阻力来源，但只有实际进入官鬼结果链时才改变主判。",
+        "【“想辞职/会辞职”是工作状态子问题】王虎应答疑有“官入墓 + 子孙有效克官”解释主动辞工作的案例。只有原问涉及去留、辞职或工作状态，且官确实承载当前职位时才可把该组合列为resignation_candidate；普通求职/升迁不能见子孙克官就直接判辞职。",
+        "【工作代占不随亲属称谓换主用】王虎应答疑明确“代占亲占事业都看官”。丈夫问妻子事业、父母问孩子事业等，只要主问题是事业本身，官鬼仍是工作/职位主载体；对应亲属六亲只在另问其本人吉凶、健康等维度时启用。"
       ]
     },
     "lawsuit": {
@@ -207,7 +209,9 @@
         "【空破在婚恋可同时有理象两层】一个六亲在生克上仍有力，也可因空破表示名存实亡、虚假、犹豫或未落实；不能互相取消。",
         "【婚外情等敏感细节必须高门槛】至少需要主用/配偶位、相关六亲、动合/伏化及象法多项同向且与原问相关；单个桃花、玄武、合象不能直接下结论。",
         "【桃花只在正确查得后作细节】婚恋题中桃花必须由日月等规则实际查出，再结合财官、世应、动合和原问解释吸引力/异性缘等；单见子午卯酉不算桃花，单个桃花也不能证明外遇或关系成立。",
-        "【化进不保证关系推进】财官用神化进仍要结合所处爻位、世应关系、空破冲合及是否远离；王虎应答疑有六爻化进解释为远去/离开的例子。婚恋里“化进”只能表示状态变化方向候选，不自动等于感情更近。"
+        "【化进不保证关系推进】财官用神化进仍要结合所处爻位、世应关系、空破冲合及是否远离；王虎应答疑有六爻化进解释为远去/离开的例子。婚恋里“化进”只能表示状态变化方向候选，不自动等于感情更近。",
+        "【婚恋冲突要看完整作用组，不看单一化进】王虎应答疑中，用神虽旺或化进仍可能因世破、游魂/六冲、两财相冲、财克世、初爻被合等多个条件导致关系不成。生产规则先看primary_yongshen与世应有效作用链，再把游魂六冲等作为修饰；不得以“财官化进”一票判成。",
+        "【第三者/外遇信息不能把空破象当事实】王虎应答疑明确有“财伏官下”在空破、玄武等条件下只表示虚假/怀疑而非事实的案例。涉及外遇等敏感结论时，空破可使某些象转为“疑虑、假象、名存实亡”等候选，必须多证据交叉，禁止一条伏神关系直接实锤。"
       ]
     },
     "study": {
@@ -467,7 +471,7 @@
       ]
     }
   ],
-  "selection_policy": "Production prompts route only plan-approved Wang Huying source families. This is a source-family allowlist, not a paragraph-author promotion: mixed works such as zengshan_pingshi_dxj still require paragraph-level authority_tier (wang_direct / wang_case_specific / classic_endorsed / compare_only). Domain prompts are overlays for yongshen/role mapping, domain-specific exceptions and timing; the global prompt owns the common reasoning algorithm. Blind-test fixes, known outcomes and feedback are evaluation data, never production inference rules. Other source families remain searchable in the database as compare_only and cannot change the Wang Huying main judgment.",
+  "selection_policy": "Production prompts route only plan-approved Wang Huying source families. This is a source-family allowlist, not a paragraph-author promotion: mixed works such as zengshan_pingshi_dxj still require paragraph-level authority_tier (wang_direct / wang_case_specific / classic_endorsed / compare_only). Domain prompts are overlays for yongshen/role mapping, domain-specific exceptions and timing; the global prompt owns the common reasoning algorithm. Blind-test fixes, known outcomes and feedback are evaluation data, never production inference rules. Other source families remain searchable in the database as compare_only and cannot change the Wang Huying main judgment. Within Wang Huying materials, use this precedence for same-condition conflicts: later explicit correction/clarification by Wang Huying > formal rule stated in his authored books > Wang Huying's explanation of his own concrete case > verified lecture/Q&A note > third-party compilation/commentary. A lower tier may add detail but must not silently override a higher-tier rule.",
   "production_source_ids": [
     "liuyao_zixiu_dxj",
     "zengshan_pingshi_dxj"
