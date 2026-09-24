@@ -424,6 +424,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             '它们用于约束推理顺序，不替代对应原文；当前卦只有满足相同前提时才能调用案例中的例外。\n\n'
         ])
 
+    if plan.get('global_xiang_rules'):
+        global_parts.extend([
+            '## 王虎应理象与取象规则\n\n',
+            '本层在主用神、日月根气和有效动变已经形成主结果后启用。象法用于解释状态、原因、过程与细节，不作为与理法平权的第二套投票系统。\n\n',
+            *[f'- {rule}\n' for rule in plan['global_xiang_rules']],
+            '\n无法从原问、现实角色和至少一个有效结构约束中消歧的象，保留为detail_candidate或不输出；不得为了“断得神”强行唯一化。\n\n'
+        ])
+
     if plan.get('global_timing_rules'):
         global_parts.extend([
             '## 王虎应应期裁决规则\n\n',
