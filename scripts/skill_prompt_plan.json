@@ -153,13 +153,6 @@
   "supplemental_spans": [
     {
       "bucket": "global",
-      "source_id": "zengshan_pingshi_dxj",
-      "start_line": 8846,
-      "end_line": 8870,
-      "reason": "完整保留病例及王氏主辅评释，不能只留结论"
-    },
-    {
-      "bucket": "global",
       "source_id": "liuyao_zixiu_dxj",
       "start_line": 2212,
       "end_line": 2264,
