@@ -12,11 +12,11 @@
     "source_family_alias": "Substantially overlapping edition/variant of an already processed source family; not counted as independent evidence. Retain full text for variant diff and unique passages."
   },
   "counts": {
-    "compare_only": 46,
+    "compare_only": 47,
     "tool_only": 3,
     "source_family_alias": 13,
     "integrated": 31,
-    "mixed_requires_attribution": 6
+    "mixed_requires_attribution": 5
   },
   "entries": [
     {
@@ -500,8 +500,8 @@
       "document_type": "06_生克冲合",
       "author_basis": "existing_archive_classification",
       "size": 41109,
-      "status": "mixed_requires_attribution",
-      "note": "混合讨论帖已完成作者分段审查。李洪成、朱辰彬等段落不进入王虎应规则；只采“王虎应老师的部分论述”，确认变爻普通生克只反馈本位动爻、跨位仅可作十二状态/象义读取，以及月破/日破与回头生、化绝可理象并存。均已进入现有GLOBAL，无新增遗漏。"
+      "status": "compare_only",
+      "note": "已完整核验多作者结构，并只抽取“王虎应老师的部分论述”。王虎应明确机制包括：变爻普通生克只作用本位动爻；其他变爻与用神可在十二状态/取象层参考但不得跨位生克；月破日破、回头生与化绝可理象并存；日月合绊的现实语义依原问；理主吉凶、象可在独发等条件下进入成败层。这些均已进入现有GLOBAL。其余正文为李洪成、朱辰彬等不同体系且存在相互冲突，整份降为compare_only，不再进入王虎应生产证据计权。"
     },
     {
       "title": "六爻里的生克冲合 王虎应",
