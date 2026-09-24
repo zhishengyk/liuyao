@@ -13,6 +13,14 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Checkout pinned Wang Huying book archive
+        uses: actions/checkout@v4
+        with:
+          ref: books-archive-reorg
+          path: .local/books-archive
+          sparse-checkout: |
+            Markdown归档/003周易命理资料/005王虎应
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
