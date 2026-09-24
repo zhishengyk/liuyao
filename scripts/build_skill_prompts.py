@@ -43,6 +43,151 @@ def source_content_hash(source_rows, unit_rows, page_rows):
     return sha(json.dumps(value, ensure_ascii=False, separators=(',', ':'), sort_keys=True).encode())
 
 
+def archive_git_head(path):
+    try:
+        return subprocess.check_output(
+            ['git', '-C', str(path), 'rev-parse', 'HEAD'],
+            text=True, stderr=subprocess.DEVNULL).strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def archive_selected(rel, config):
+    name = Path(rel).name
+    if any(fnmatch.fnmatch(rel, pattern) for pattern in config.get('exclude_globs', [])):
+        return False
+    if rel in set(config.get('exact_paths', [])):
+        return True
+    return any(token in name for token in config.get('basename_contains', []))
+
+
+def archive_authority(rel, config):
+    for rule in config.get('authority_overrides', []):
+        if fnmatch.fnmatch(rel, rule['glob']):
+            return rule['authority_tier']
+    return config.get('default_authority_tier', 'wang_case_specific')
+
+
+def archive_domains(rel, config):
+    name = Path(rel).name
+    domains = set()
+    for rule in config.get('domain_rules', []):
+        if any(token in name for token in rule.get('contains', [])):
+            domains.update(rule.get('domains', []))
+    return sorted(domains or {'global'})
+
+
+def add_wang_archive(generated, sections, archive_root, archive_manifest_path):
+    archive_root = Path(archive_root)
+    manifest_path = Path(archive_manifest_path)
+    config = json.loads(manifest_path.read_text(encoding='utf-8'))
+    if not archive_root.is_dir():
+        raise FileNotFoundError(f'Wang Huying archive root not found: {archive_root}')
+    actual_head = archive_git_head(archive_root)
+    expected_head = config.get('archive_commit_sha')
+    if expected_head and actual_head and actual_head != expected_head:
+        raise ValueError(f'Wang Huying archive commit mismatch: expected {expected_head}, got {actual_head}')
+    if expected_head and actual_head is None:
+        raise ValueError('Wang Huying archive must be a git checkout so the pinned commit can be verified')
+
+    candidates = []
+    for path in sorted(archive_root.rglob('*.md')):
+        rel = path.relative_to(archive_root).as_posix()
+        if archive_selected(rel, config):
+            candidates.append((rel, path))
+    if not candidates:
+        raise ValueError('No Wang Huying archive sources matched the manifest selection policy')
+
+    seen_hashes = {}
+    records = []
+    canonical_records = []
+    for rel, path in candidates:
+        raw = path.read_text(encoding='utf-8')
+        digest = sha(raw.encode())
+        authority = archive_authority(rel, config)
+        domains = archive_domains(rel, config)
+        source_id = 'wha-' + hashlib.sha1(rel.encode('utf-8')).hexdigest()[:12]
+        title = Path(rel).name[:-3] if Path(rel).name.endswith('.md') else Path(rel).name
+        duplicate_of = seen_hashes.get(digest)
+        record = {
+            'source_id': source_id,
+            'title': title,
+            'archive_path': rel,
+            'authority_tier': authority,
+            'domains': domains,
+            'source_sha256': digest,
+            'characters': len(raw),
+            'duplicate_of': duplicate_of,
+        }
+        if duplicate_of is None:
+            out_name = f'wang-huying-corpus/{source_id}.md'
+            generated[out_name] = raw
+            record['prompt_path'] = out_name
+            seen_hashes[digest] = source_id
+            canonical_records.append(record)
+            sections.append({
+                'file': out_name,
+                'marker': f'{source_id}-FULL',
+                'source_id': source_id,
+                'start_line': 1,
+                'end_line': max(1, len(raw.splitlines())),
+                'authors': ['王虎应'] if authority in ('wang_direct', 'wang_case_specific') else [],
+                'authority_tier': authority,
+                'archive_path': rel,
+                'text_sha256': digest,
+                'characters': len(raw),
+                'file_start_offset': 0,
+                'file_end_offset': len(raw),
+            })
+        records.append(record)
+
+    index = [
+        '# 王虎应六爻原文全集索引\n\n',
+        '本目录由固定的 books-archive-reorg 归档快照生成，保存经 manifest 选择的王虎应六爻原文全文。'
+        '这里是证据库，不是要求一次性全部读入上下文。断卦先走 GLOBAL 推理，再读取当前领域索引和最相关的原文。\n\n',
+        f'- 归档分支：{config.get("archive_branch")}\n',
+        f'- 固定提交：{config.get("archive_commit_sha")}\n',
+        f'- 原始匹配文件：{len(records)}\n',
+        f'- 精确去重后全文文件：{len(canonical_records)}\n\n',
+        '权威说明：wang_direct 可作为王虎应直接方法；wang_case_specific 用于同条件案例/答疑修正；'
+        'mixed_requires_attribution 必须在原文中再次确认具体段落作者，不能把整份汇编视为王虎应。\n\n',
+        '| 原文 | 权威层级 | 领域 | 归档路径 |\n|---|---|---|---|\n'
+    ]
+    for record in canonical_records:
+        domains = '、'.join(record['domains'])
+        index.append(
+            f'| [{record["title"]}]({Path(record["prompt_path"]).name}) | '
+            f'{record["authority_tier"]} | {domains} | {record["archive_path"]} |\n')
+    generated['wang-huying-corpus/INDEX.md'] = ''.join(index)
+
+    domain_names = set()
+    for record in canonical_records:
+        domain_names.update(record['domains'])
+    for domain in sorted(domain_names):
+        if domain in ('global', '*'):
+            continue
+        rows = [
+            f'# 王虎应原文 · {domain} 领域索引\n\n',
+            '先按 GLOBAL 和领域 PROMPT 建立待核争议点，再读取下列原文。通用资料可用于所有领域。\n\n'
+        ]
+        selected = [r for r in canonical_records if domain in r['domains'] or '*' in r['domains']]
+        for r in selected:
+            rows.append(f'- [{r["title"]}](../{Path(r["prompt_path"]).name}) · {r["authority_tier"]} · {r["archive_path"]}\n')
+        generated[f'wang-huying-corpus/domains/{domain}.md'] = ''.join(rows)
+
+    return {
+        'schema_version': config.get('schema_version', 1),
+        'archive_branch': config.get('archive_branch'),
+        'archive_commit_sha': expected_head,
+        'archive_head_verified': actual_head,
+        'archive_root': config.get('archive_root'),
+        'selection_policy': config.get('selection_policy'),
+        'matched_files': len(records),
+        'canonical_files': len(canonical_records),
+        'records': records,
+    }
+
+
 def build(database, output, plan_path):
     database, output, plan_path = map(Path, (database, output, plan_path))
     plan = json.loads(plan_path.read_text(encoding='utf-8'))
