@@ -14,10 +14,10 @@
   "counts": {
     "compare_only": 41,
     "tool_only": 3,
-    "source_family_alias": 12,
+    "source_family_alias": 13,
     "integrated": 29,
-    "mixed_requires_attribution": 13,
-    "reviewed_partial": 1
+    "mixed_requires_attribution": 11,
+    "reviewed_partial": 2
   },
   "entries": [
     {
@@ -900,8 +900,9 @@
       "document_type": "90_他人整理",
       "author_basis": "existing_archive_classification",
       "size": 1250833,
-      "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "status": "source_family_alias",
+      "note": "与《王虎应增删卜易评释（整理）》逐行比对后，有效正文重合约99.9%，差异仅少量标点、旬空补注与个别漏字。作为同一source family的dxj整理变体保留，不独立加权；规则统一从较完整的《王虎应增删卜易评释（整理）》版本提取。",
+      "source_family": "王虎应增删卜易评释"
     },
     {
       "title": "王虎应-六爻的技法与运用（整理）",
@@ -918,8 +919,9 @@
       "document_type": "90_他人整理",
       "author_basis": "existing_archive_classification",
       "size": 1253012,
-      "status": "mixed_requires_attribution",
-      "note": "整理/汇总/讲义性质，待逐段核作者与重复来源"
+      "status": "reviewed_partial",
+      "note": "已确认正文今序由王虎应署名（2004年1月），可作为王虎应直接评释来源。已系统筛取【新评释】修订点并与现有Prompt去重：本人摇卦/代摇之外进一步区分requester与caster；退休/病退/辞职的目标极性；兄弟持世并非必无财；现代婚姻多财/多官的角色候选分配。月破得日生、三墓、持世不定吉凶、太过、静卦、现代制度语境等已被现有GLOBAL覆盖，不重复加规则。全书仍有大量门类评释与案例可继续专题抽取。",
+      "source_family": "王虎应增删卜易评释"
     },
     {
       "title": "DXJ 卦表",
