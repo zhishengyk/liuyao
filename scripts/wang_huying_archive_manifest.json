@@ -23,6 +23,14 @@
   ],
   "authority_overrides": [
     {
+      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "12_趋吉避凶/uni六爻趋避初探 王虎应.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
       "glob": "03_理象/八卦卦象之*宫八卦*.md",
       "authority_tier": "mixed_requires_attribution"
     },
