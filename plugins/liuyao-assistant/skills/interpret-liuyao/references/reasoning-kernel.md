@@ -121,7 +121,19 @@
 
 `施力者(现实角色,scope,position) -> 受力者(现实角色,scope,position): 生/克/冲/合`
 
-同时记录**作用方向**和**利益流向**。应生世与世生应、用神生世与世生用神必须分别解释，不能只记“相生”。三合、六合、连续相生等组合也先过同一 `relevance_gate`：成局不等于与主结果有关；王虎应多次明确“三合与用神没有关系，可以不看”。即便相关，也再判断合局对用神究竟生、克、助旺、改性，还是只表达共同/多人/应期等象。
+同时记录**作用方向**和**利益流向**。每个关键爻/边拆成三个并行状态：
+
+- `force_state`：当前有没有实际生克能力；
+- `semantic_state`：空、破、墓、合、退等在现实层面表达什么状态；
+- `timing_state`：哪一个出空、实破、冲开、冲墓、逢值等条件可能使事件兑现。
+
+三者不可互相替代。尤其旬空/月破：
+- 旬空发动即可起作用；旺相空爻或得日月动爻生扶者也可有力量；
+- 月破爻若旺相发动或遇生扶，也可有力；
+- 因此 `semantic_state=void|broken` 不推出 `force_state=blocked`；
+- 只有衰、破、无气、不动、受克等组合真正使作用失效时，才标 `blocked_now`；若只是未来得时增强，标 `delayed_active`。
+
+应生世与世生应、用神生世与世生用神必须分别解释，不能只记“相生”。三合、六合、连续相生等组合也先过同一 `relevance_gate`：成局不等于与主结果有关；即便相关，也再判断合局对用神究竟生、克、助旺、改性，还是只表达共同/多人/应期等象。
 
 #### 动变边界
 
@@ -313,6 +325,9 @@ yongshen
 shi_relation
 root_state
 state_tags
+force_state
+semantic_state
+timing_state
 day_month_embodied
 structure_modifier
 candidate_edges
