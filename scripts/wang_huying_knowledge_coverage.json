@@ -145,7 +145,7 @@
       "author_basis": "existing_archive_classification",
       "size": 250757,
       "status": "integrated",
-      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt 本轮修订词扫描补确认：本人明确撤回“摇卦必须持续想着问题/心诚才灵”的早期看法，并否定焚香、密咒等仪式作为起卦有效性门槛；已合并进GLOBAL input-validity规则。"
     },
     {
       "title": "六爻预测的象理之分",
@@ -666,7 +666,7 @@
       "author_basis": "existing_archive_classification",
       "size": 266704,
       "status": "integrated",
-      "note": "正式分类专著已系统提取多领域取用与案例。新增后期修订审查：早期书中胎儿性别曾给出子孙旺衰、爻阴阳、卦宫、动静等公式，但王虎应本人2026年8月公开案例明确说“目前没有应验率高的方法”，因此仅对gender prediction做claim-level降权；孕产主用、胎安、难产/顺产、应期等其他规则不受牵连。"
+      "note": "正式分类专著已系统提取多领域取用与案例。已记录两类本人明确修订：其一，终身运中“一爻管十年、主卦三十年、变卦三十年”等固定寿运切片法被明确判为不太应验、应予抛弃；其二，早期胎儿性别按旺衰/阴阳/卦宫/动静的公式，被本人2026年公开案例明确降为“目前没有应验率高的方法”。两项都按claim_level later correction处理，不牵连该书其他已验证规则。"
     },
     {
       "title": "王虎应－六爻卦例说真（整理）",
