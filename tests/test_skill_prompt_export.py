@@ -291,6 +291,28 @@ def test_wang_archive_commit_mismatch_fails_closed(tmp_path):
                      wang_archive_manifest=archive_manifest)
 
 
+def test_wang_archive_authority_most_specific_override_wins(tmp_path):
+    module = exporter()
+    config = {
+        'default_authority_tier': 'wang_case_specific',
+        'authority_overrides': [
+            {'glob': '09_卦例/正式著作.md', 'authority_tier': 'wang_direct'},
+            {'glob': '09_卦例/*', 'authority_tier': 'wang_case_specific'},
+            {'glob': '11_讲义记录/*', 'authority_tier': 'mixed_requires_attribution'},
+            {'glob': '11_讲义记录/学员笔记.md', 'authority_tier': 'compare_only'},
+            {'glob': '90_他人整理/*', 'authority_tier': 'mixed_requires_attribution'},
+            {'glob': '90_他人整理/王虎应增删卜易评释(整理).md', 'authority_tier': 'wang_direct'},
+        ],
+    }
+
+    assert module.archive_authority('09_卦例/正式著作.md', config) == 'wang_direct'
+    assert module.archive_authority('09_卦例/普通卦例.md', config) == 'wang_case_specific'
+    assert module.archive_authority('11_讲义记录/学员笔记.md', config) == 'compare_only'
+    assert module.archive_authority('11_讲义记录/普通讲课.md', config) == 'mixed_requires_attribution'
+    assert module.archive_authority(
+        '90_他人整理/王虎应增删卜易评释(整理).md', config) == 'wang_direct'
+
+
 def test_author_scoped_archive_manifest_includes_all_nonempty_markdown(tmp_path):
     module = exporter()
     database, plan = fixture(tmp_path)
@@ -373,3 +395,41 @@ def test_global_rule_groups_render_by_title_and_keep_unclassified_rules(tmp_path
     assert prompt.count('【原问中心】先回答原问。') == 1
     assert '### 新增待归类规则' in prompt
     assert prompt.count('【新增规则】这条尚未归类。') == 1
+
+def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['domains']['study']['case_rules'] = ['【考试专属】只在study领域加载。']
+    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    module.build(database, output, plan)
+
+    global_prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
+    study_prompt = (output / 'study/PROMPT.md').read_text(encoding='utf-8')
+
+    assert '【考试专属】只在study领域加载。' not in global_prompt
+    assert '【考试专属】只在study领域加载。' in study_prompt
+    assert '识别本领域后，必须在执行取用、现实角色、事项特例和应期等对应步骤之前加载本领域规则' in study_prompt
+    assert '不得先跑完整个GLOBAL后再用领域规则事后改答案' in study_prompt
+
+def test_repository_prompt_plan_global_group_titles_are_total_and_unique():
+    root = Path(__file__).resolve().parents[1]
+    config = json.loads((root / 'scripts/skill_prompt_plan.json').read_text(encoding='utf-8'))
+
+    titles = []
+    for rule in config['global_case_rules']:
+        assert rule.startswith('【') and '】' in rule
+        titles.append(rule[1:rule.index('】')])
+
+    refs = [
+        title
+        for group in config['global_rule_groups']
+        for title in group.get('rule_titles', [])
+    ]
+
+    assert len(titles) == len(set(titles))
+    assert len(refs) == len(set(refs))
+    assert set(refs) == set(titles)
+

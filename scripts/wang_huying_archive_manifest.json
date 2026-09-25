@@ -3,36 +3,98 @@
   "archive_branch": "books-archive-reorg",
   "archive_commit_sha": "f67598b8c299f1aafdc3fa9e88a2747586f5e2ac",
   "archive_root": "书籍/六爻/王虎应",
-  "selection_policy": "Bundle non-empty Markdown under 书籍/六爻/王虎应 only after explicit exclusion/authority review. Directory placement is a retrieval hint, not proof of authorship. Sources whose title page/byline shows another author must be excluded from the Wang Huying production corpus; mixed compilations or third-party reorganizations require attribution. Formal Wang Huying books/direct articles are wang_direct, Wang Huying case/Q&A material is wang_case_specific, and third-party reorganizations are mixed_requires_attribution. Pin the archive to an exact commit; never follow a moving branch during release builds.",
+  "selection_policy": "Bundle the canonical Wang Huying six-yao archive rooted at 书籍/六爻/王虎应 from the pinned books-archive-reorg commit. Include all canonical Wang-authored works, Q&A, lecture notes, case collections and topic articles; mixed/third-party-organized files remain bundled only with explicit mixed_requires_attribution and may not be promoted as Wang direct evidence. Exact duplicate contents are stored once and retained as aliases; non-identical variants are preserved. Authority is determined from the text itself before folder/name metadata: an internal attribution to another author overrides archive classification and filename. Unmatched files default to compare_only; directory placement alone never grants Wang authority.",
   "include_all_markdown_under_root": true,
   "skip_empty_files": true,
   "basename_contains": [],
-  "exact_paths": [
-    "01_核心著作/六爻预测自修宝典.md",
-    "01_核心著作/六爻疑惑指迷(王虎应).md",
-    "02_基础理论/初学断卦应该如何入手_.md",
-    "06_生克冲合/六爻里的生克冲合 王虎应.md",
-    "09_卦例/007六爻卦例说真.md",
-    "09_卦例/六爻分类占验技法王虎应.md",
-    "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
-    "90_他人整理/003王虎应增删卜易评释(dxj整理).md"
-  ],
+  "exact_paths": [],
   "exclude_globs": [
     "**/*点评王虎应*.md",
-    "**/*四柱*.md",
-    "**/*八字*.md",
-    "**/*转载*.md",
     "**/*命理真诀*.md",
-    "**/还本归宗_六爻预测指南.md",
-    "**/六爻高级技法.md",
-    "**/时刻.md",
-    "**/六爻初级知识.md",
-    "**/六爻预测基础.md",
-    "**/周易零基础-你也是可以学习的.md",
-    "**/六爻预测终生运气.md",
-    "**/周易与股市预测.md"
+    "**/*四柱*.md",
+    "**/*八字*.md"
   ],
   "authority_overrides": [
+    {
+      "glob": "01_核心著作/*六爻预测自修宝典*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "01_核心著作/*六爻疑惑指迷*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "01_核心著作/*象断六爻实战详解*.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "02_基础理论/001初学六爻预测王虎应1.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "03_理象/王虎应-理象思维篇.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "03_理象/六爻卦象解密王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "06_生克冲合/六爻里的生克冲合 王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "09_卦例/六爻分类占验技法王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/六爻趋避初探 王虎应.md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
+      "authority_tier": "wang_direct"
+    },
+    {
+      "glob": "09_卦例/007六爻卦例说真.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "09_卦例/王虎应-六爻卦例说真(整理).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/王虎应《六爻卦例说真》答疑.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/六爻用神答疑(51页)王虎应.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "10_答疑/增删卜易评释答疑(王虎应老师).md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "05_旺衰/王虎应墓库论.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
+      "authority_tier": "wang_case_specific"
+    },
+    {
+      "glob": "**/90_他人整理/**",
+      "authority_tier": "mixed_requires_attribution"
+    },
+    {
+      "glob": "**/*六爻预测终生运气*.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "**/*王虎应断风水*.md",
+      "authority_tier": "mixed_requires_attribution"
+    },
     {
       "glob": "10_答疑/王虎应关于“过旺过弱”等问题答疑汇总.md",
       "authority_tier": "mixed_requires_attribution"
@@ -55,7 +117,7 @@
     },
     {
       "glob": "08_分类占/股市六爻预测精髓.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "08_分类占/六爻测病分科详解王虎应中.md",
@@ -63,7 +125,7 @@
     },
     {
       "glob": "08_分类占/六爻测病文章.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "08_分类占/王虎应——浅谈六爻股票.md",
@@ -71,7 +133,7 @@
     },
     {
       "glob": "08_分类占/王虎应断风水.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "08_分类占/王虎应老师股市预测分析精彩卦例.md",
@@ -83,11 +145,11 @@
     },
     {
       "glob": "12_趋吉避凶/王虎应- 化解物应注意哪些.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "wang_direct"
     },
     {
       "glob": "12_趋吉避凶/王虎应六爻十二支解灾.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "wang_direct"
     },
     {
       "glob": "05_旺衰/六爻 王虎应解答过旺过弱一二.md",
@@ -98,36 +160,24 @@
       "authority_tier": "mixed_requires_attribution"
     },
     {
-      "glob": "05_旺衰/王虎应墓库论.md",
-      "authority_tier": "wang_case_specific"
-    },
-    {
       "glob": "06_生克冲合/地支生克冲合刑害.md",
       "authority_tier": "mixed_requires_attribution"
     },
     {
       "glob": "06_生克冲合/对变爻的认识.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "06_生克冲合/六爻里的生克冲合 王虎应.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "06_生克冲合/论冲合的关系.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "06_生克冲合/日、月、卦爻五行生克的顺序.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "12_趋吉避凶/009六爻趋避初探 (dxj校).md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "12_趋吉避凶/uni六爻趋避初探 王虎应.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "wang_direct"
     },
     {
       "glob": "03_理象/八卦卦象之*宫八卦*.md",
@@ -135,7 +185,7 @@
     },
     {
       "glob": "03_理象/八卦六爻之六亲类象.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "03_理象/六爻预测全象解析*.md",
@@ -147,15 +197,11 @@
     },
     {
       "glob": "03_理象/爻位所代表的各种象.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "03_理象/周易六爻类象知识 测病 一.md",
-      "authority_tier": "mixed_requires_attribution"
-    },
-    {
-      "glob": "03_理象/王虎应-浅谈六爻太极裂变.md",
-      "authority_tier": "wang_case_specific"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "02_基础理论/初学断卦应该如何入手_.md",
@@ -211,11 +257,11 @@
     },
     {
       "glob": "01_核心著作/王虎应老师六爻随笔.md",
-      "authority_tier": "wang_case_specific"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "04_用神/六爻预测工作取用神.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "04_用神/*转载*.md",
@@ -223,11 +269,11 @@
     },
     {
       "glob": "07_应期/断应期 重要!.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "07_应期/断应期2.md",
-      "authority_tier": "mixed_requires_attribution"
+      "authority_tier": "compare_only"
     },
     {
       "glob": "07_应期/第一节应期远近定法.md",
@@ -246,47 +292,79 @@
       "authority_tier": "wang_case_specific"
     },
     {
-      "glob": "11_讲义记录/*",
-      "authority_tier": "wang_case_specific"
+      "glob": "03_理象/八卦卦象之兑宫八卦(修订).md",
+      "authority_tier": "compare_only"
     },
     {
-      "glob": "01_核心著作/*",
+      "glob": "03_理象/八卦卦象之艮宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之坎宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之坤宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之离宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之乾宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之巽宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/八卦卦象之震宫八卦(修订).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "03_理象/六爻预测全象解析+++++ (1).md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "04_用神/[转载]用神无根、过旺、用神极弱_静悟食_20200315_230355.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "12_趋吉避凶/王虎应-六爻趋吉化解密传.md",
       "authority_tier": "wang_direct"
     },
     {
-      "glob": "02_基础理论/*",
+      "glob": "11_讲义记录/王虎应 六爻中高级班讲课记录.md",
+      "authority_tier": "compare_only"
+    },
+    {
+      "glob": "90_他人整理/王虎应增删卜易评释(整理).md",
       "authority_tier": "wang_direct"
     },
     {
-      "glob": "03_理象/*",
-      "authority_tier": "wang_direct"
+      "glob": "90_他人整理/003王虎应增删卜易评释(dxj整理).md",
+      "authority_tier": "compare_only"
     },
     {
-      "glob": "04_用神/*",
-      "authority_tier": "wang_direct"
+      "glob": "11_讲义记录/王虎应讲课记录整理版之墓库作用篇.md",
+      "authority_tier": "compare_only"
     },
     {
-      "glob": "05_旺衰/*",
-      "authority_tier": "wang_direct"
+      "glob": "11_讲义记录/王虎应新加坡视频学习笔记.md",
+      "authority_tier": "compare_only"
     },
     {
-      "glob": "06_生克冲合/*",
-      "authority_tier": "wang_direct"
+      "glob": "12_趋吉避凶/王虎应六爻化解避灾经典资料集.md",
+      "authority_tier": "compare_only"
     },
     {
-      "glob": "07_应期/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "08_分类占/*",
-      "authority_tier": "wang_direct"
-    },
-    {
-      "glob": "12_趋吉避凶/*",
-      "authority_tier": "wang_direct"
+      "glob": "90_他人整理/王虎应-六爻的技法与运用(整理).md",
+      "authority_tier": "compare_only"
     }
   ],
-  "default_authority_tier": "wang_case_specific",
+  "default_authority_tier": "compare_only",
   "domain_rules": [
     {
       "contains": [
@@ -491,5 +569,6 @@
     "travel",
     "wealth",
     "weather"
-  ]
+  ],
+  "include_all_under_root": true
 }
