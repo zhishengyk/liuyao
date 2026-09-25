@@ -1013,11 +1013,11 @@
         "刘铁卿"
       ],
       "authority_candidate": "coauthored_direct",
-      "review_state": "toc_reviewed_fulltext_missing",
+      "review_state": "preface_and_toc_reviewed_fulltext_missing",
       "planned_routes": [
         "property"
       ],
-      "note": "公开目录可确认用神、六亲、六神、爻位、八卦等风水专题，但无足够正文支撑具体算法。补全文后只把房屋/环境专属规则放property，固定宅诀和单例环境象不进GLOBAL。"
+      "note": "合著序言与目录已核，但当前公开内容主要说明风水理论与章节范围，没有足够具体六爻方法正文。补全文后只把六爻风水专属取用/作用机制放property；传统风水固定断语、环境象和单例故事不进入GLOBAL。"
     },
     {
       "title": "六爻经济预测学",
@@ -1068,11 +1068,11 @@
         "刘铁卿"
       ],
       "authority_candidate": "coauthored_direct",
-      "review_state": "toc_reviewed_fulltext_missing",
+      "review_state": "preface_reviewed_fulltext_missing",
       "planned_routes": [
         "case_corpus"
       ],
-      "note": "公开目录以故事和案例为主，优先作为case corpus。补全文后只提炼重复出现且条件明确的机制，不因故事相似直接套结论。"
+      "note": "合著者序言已核，明确承认实际预测中错卦很多，而本书整理的是其中应验的经典案例。已与《六爻化解经验心法》的失败/无反馈不入选说明交叉，形成GLOBAL case_selection_bias：出版案例集只能验证机制与条件，不能用成功案例比例估算准确率或给规则加权。"
     },
     {
       "title": "住宅环境与疾病：从风水寻找健康",
@@ -1081,12 +1081,12 @@
         "刘铁卿"
       ],
       "authority_candidate": "coauthored_direct",
-      "review_state": "toc_and_sample_reviewed_fulltext_missing",
+      "review_state": "preface_toc_sample_reviewed_fulltext_missing",
       "planned_routes": [
         "property",
         "health_detail"
       ],
-      "note": "属于住宅环境与疾病交叉资料。取得全文后环境象只进入property/health detail层，并受疾病安全边界约束；固定风水断语不得替代patient_result或现代医学判断。"
+      "note": "合著序言、目录及少量案例预览已核，主体同时包含传统风水、环境与疾病材料，不能默认等同六爻规则。取得全文后必须先区分六爻卦例、传统风水理论和现代健康叙述；只有明确六爻机制才可进入property/health detail，并继续服从patient_result与健康安全边界。"
     },
     {
       "title": "六爻逢源秘典",
