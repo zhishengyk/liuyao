@@ -1255,6 +1255,32 @@
         "source_url": "https://www.sina.cn/news/detail/5295443473072675.html",
         "feedback": "父亲最终于庚寅日戌时去世，徒弟原按另一用神推卯日未应",
         "extraction": "本人总结“用神两现，互为补充说明”。两父母爻同指父亲，但分别承载脑部状态、肺部信息和不同应期线索；据此修订GLOBAL为primary_yongshen + complementary_carrier，而非强制另一个用神绑定不同对象。"
+      },
+      {
+        "title": "为什么当天去世？",
+        "published_date": "2024-04-30",
+        "event_year": 2020,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5028729506234674.html",
+        "feedback": "母亲当日亥时去世；作者明确称原卦“百思不得其解”，提出暂时解释后又说再次遇到仍不敢据此断凶",
+        "extraction": "标unresolved_anomaly。作者本人保留不确定性的解释不得硬编码成规则；第二卦吉凶明显也不能反向证明第一卦的事后解释。"
+      },
+      {
+        "title": "花钱办户口",
+        "published_date": "2026-07-27",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5325161530130900.html",
+        "feedback": "实际未办成并退款；作者明确承认原判可以办理是错误，且“百思不得其解”",
+        "extraction": "标unresolved_anomaly。其提出“独发为父母死地”也自称理由勉强，因此不能据该单例创建独发死地办证规则。"
+      }
+    ],
+    "research_only_hypotheses": [
+      {
+        "topic": "作者本人明确要求更多同类案例佐证的解释",
+        "source_type": "compare_only_compilation_lead",
+        "status": "do_not_promote_without_direct_confirmation",
+        "note": "2023-2025案例合集出现王虎应署名案例中“此种论法需要更多类似的例子佐证”等探索性措辞。合集并非本人认证发布页，当前只作为检索线索；即使日后找到本人原文，也应先标author_hypothesis，直到后续本人确认或同条件重复证据出现。"
       }
     ]
   },
