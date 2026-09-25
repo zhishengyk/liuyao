@@ -939,11 +939,15 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "preface_reviewed_fulltext_missing",
+      "review_state": "preface_and_indexed_original_excerpts_reviewed_fulltext_download_blocked",
       "planned_routes": [
-        "global"
+        "global",
+        "affairs",
+        "travel",
+        "relationship",
+        "health"
       ],
-      "note": "本人序言已核，明确把失误拆成临场漏读、看错卦、未理解结构变化、古法规则误差和方法能力边界，并强调用保存的失败卦例反思校正。已据此加入GLOBAL的failure_mode裁决门；公开技术摘录若与现有规则重合只作验证，具体新口诀仍等完整正文。"
+      "note": "本人序言已核；公开搜索索引还能回查到原PDF的多处原书正文片段，包括“父母临日定婚期”、出国签证失败复盘、疾病临月应期及“占此应彼”等章节。已做差分：failure_mode既有；婚姻父母临日/合日应期与占此应彼已有规则只补来源验证；净新增GLOBAL为“临月建只作当前月timing_candidate、不创造吉凶”，affairs/travel新增“签证文书与最终成行分层、驿马不替代主结果”。原PDF直链当前抓取受站点限制，仍不声称全文逐页完成。"
     },
     {
       "title": "六爻预测疾病新探",
@@ -955,7 +959,7 @@
       "planned_routes": [
         "health"
       ],
-      "note": "《六爻疾病预测学》本人序言确认其为1998年前后早期疾病专著；《六爻测病分科详解》序言进一步明确“部分观点需要纠正”，但同时确认六亲、六神、爻位等基础病象后来仍经得起实践检验；《六爻疑惑指迷》又明确撤回其中借用大六壬“申为传送”等个别旧说。已建立claim_level_supersession：只覆盖具体被撤回规则，不整本废弃早期著作。"
+      "note": "《六爻疾病预测学》本人序言确认其为1998年前后早期疾病专著；《六爻测病分科详解》上册本人序言明确说早期书“部分观点需要纠正”，同时又明确六亲、六神、爻位等病象后来仍经得起实践检验；《六爻疑惑指迷》再明确撤回其中借用大六壬“申为传送”等具体旧说。继续执行claim_level_supersession：只覆盖被后期点名修订的claim，不把整本早期著作降为无效，也不让旧版本数量覆盖后期明确纠正。"
     },
     {
       "title": "六爻测病分科详解（上）",
@@ -963,11 +967,11 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "external_copy_verified_missing_from_archive",
+      "review_state": "preface_reviewed_external_copy_verified_missing_from_archive",
       "planned_routes": [
         "health"
       ],
-      "note": "2007年三册source family之一；公开上册资源页面可核到本人序言，且外部大型书目清单确认电子本存在。当前books-archive-reorg全树扫描仅有中册，上册未归档。补齐后与中、下统一去重；上册序言已用于建立claim_level_supersession，其余正文规则仍等原件。"
+      "note": "2007年三册source family之一。公开上册资源页可直接核到王虎应本人序言：早期《六爻预测疾病新探》有部分观点需纠正，但六亲、六神、爻位等疾病取象仍经得起后续实践。该序言已用于建立claim_level_supersession。当前books-archive-reorg全树仍仅有中册；上册正文未归档，除序言外不凭目录新增health规则。"
     },
     {
       "title": "六爻测病分科详解（下）",
