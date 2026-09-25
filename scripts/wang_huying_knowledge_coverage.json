@@ -1253,5 +1253,34 @@
         "extraction": "本人总结“用神两现，互为补充说明”。两父母爻同指父亲，但分别承载脑部状态、肺部信息和不同应期线索；据此修订GLOBAL为primary_yongshen + complementary_carrier，而非强制另一个用神绑定不同对象。"
       }
     ]
+  },
+  "integrated_explicit_correction_audit": {
+    "audited_at": "2026-09-25",
+    "integrated_source_count": 31,
+    "scope": "Scan every integrated Wang Huying source for explicit self-corrections, rejected old rules, 'not verified', 'should discard', and anti-mechanical-use statements; compare every hit against current GLOBAL/domain/advice rules before adding anything.",
+    "status": "complete_for_current_archive",
+    "net_new_boundaries": [
+      {
+        "id": "hexagram_level_tomb_extinction_disabled",
+        "source": "六爻疑惑指迷（王虎应）",
+        "extraction": "卦变大象层一般不论墓、绝来定吉凶；禁止生成hexagram_tomb/hexagram_extinction。爻级墓绝规则保持独立。"
+      },
+      {
+        "id": "no_bazi_weak_self_cannot_hold_wealth",
+        "source": "王虎应--六爻指迷 / 王虎应老师问答录",
+        "extraction": "明确否定把八字“身弱不能胜财”套入六爻；普通世弱不推翻财用主线。"
+      }
+    ],
+    "already_covered_corrections": [
+      "日合由早期合起修订为合绊，生合事实另层保留",
+      "长生十二状态主要辨象，不按古法机械主吉凶",
+      "道路古法腾蛇主路被本人实证否定，改以五爻/白虎/子孙多源取象",
+      "疾病不以官鬼作为唯一病象，围绕病人主用真实受伤链",
+      "终身运废弃一爻十年、主变卦各三十年的固定切片",
+      "摇卦有效性不以持续默念、心诚、焚香密咒为门槛",
+      "丑土生金与金入丑墓属于理象并存，不按旺弱二选一",
+      "日月/动变/独发/方局/三刑/反吟等均按已有条件门处理"
+    ],
+    "result": "No other explicit-correction hit justified a new production rule after deduplication. Single-case imagery and editorial/learner commentary remain evidence-layer only."
   }
 }
