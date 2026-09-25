@@ -951,11 +951,11 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct_early",
-      "review_state": "later_correction_verified_fulltext_missing",
+      "review_state": "later_revision_chain_reviewed_fulltext_missing",
       "planned_routes": [
         "health"
       ],
-      "note": "《六爻疾病预测学》本人序言确认其为1998年早期疾病专著；《六爻疑惑指迷》本人后期明确否定其中借用大六壬“申为传送”等个别观点。补全文后作为早期版本逐条与后期修订对照，不允许早期案例数量覆盖later_explicit_correction。"
+      "note": "《六爻疾病预测学》本人序言确认其为1998年前后早期疾病专著；《六爻测病分科详解》序言进一步明确“部分观点需要纠正”，但同时确认六亲、六神、爻位等基础病象后来仍经得起实践检验；《六爻疑惑指迷》又明确撤回其中借用大六壬“申为传送”等个别旧说。已建立claim_level_supersession：只覆盖具体被撤回规则，不整本废弃早期著作。"
     },
     {
       "title": "六爻测病分科详解（上）",
@@ -963,11 +963,11 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "missing_volume",
+      "review_state": "external_copy_verified_missing_from_archive",
       "planned_routes": [
         "health"
       ],
-      "note": "2007年三册source family之一；当前只归档中册。补齐后与中、下统一去重，主要进入health detail corpus，只有明确可泛化且未覆盖的方法才进入case_rules。"
+      "note": "2007年三册source family之一；公开上册资源页面可核到本人序言，且外部大型书目清单确认电子本存在。当前books-archive-reorg全树扫描仅有中册，上册未归档。补齐后与中、下统一去重；上册序言已用于建立claim_level_supersession，其余正文规则仍等原件。"
     },
     {
       "title": "六爻测病分科详解（下）",
@@ -975,11 +975,11 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "missing_volume",
+      "review_state": "external_copy_verified_missing_from_archive",
       "planned_routes": [
         "health"
       ],
-      "note": "2007年三册source family之一；当前只归档中册。补齐后与上、中统一去重，主要进入health detail corpus，只有明确可泛化且未覆盖的方法才进入case_rules。"
+      "note": "2007年三册source family之一；多个外部书目清单确认下册电子本存在，但当前books-archive-reorg全树扫描仅有中册，下册未归档。补齐后与上、中统一去重，主要进入health detail corpus；没有正文前不凭书目新增规则。"
     },
     {
       "title": "六爻姻缘预测学",
