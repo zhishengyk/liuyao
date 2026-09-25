@@ -191,7 +191,7 @@
       "author_basis": "existing_archive_classification",
       "size": 265745,
       "status": "integrated",
-      "note": "已按“王虎应老师答读者问”汇编处理，仅抽明确王老师答复；已提取取象中心、日月/暗动、走失化用、过旺、医药看应、卦身/神煞低权重、跨国按实际摇卦者当地时间、00:00换日、独发/动爻冲暗动、现实候选消歧等。整理者与学员评论不提权。",
+      "note": "已按“王虎应老师答读者问”汇编处理，仅抽明确王老师答复；已提取取象中心、日月/暗动、走失化用、过旺、医药看应、卦身/神煞低权重、跨国按实际摇卦者当地时间、00:00换日、独发/动爻冲暗动、现实候选消歧等。本轮又核本人连续答复：元神在感情等人物状态题可承载思维/想法，但同样元神异常在疾病题不能机械映射同一结论，已提炼为force_role与mental_state semantic_role分层。整理者与学员评论不提权。",
       "source_family": "六爻指迷·答读者问"
     },
     {
@@ -1168,5 +1168,70 @@
       ],
       "note": "王虎应2018以后多本正式著作的作者简介均把《六爻预测三摩地》列为日本出版著作，作者归属可信；当前未找到可核正文、目录或可靠章节预览，不能猜测其算法，也不能与中文著作预设同源。取得正文后先做source family差分，再判断是否含未被现有GLOBAL覆盖的后期方法。"
     }
-  ]
+  ],
+  "late_public_case_audit": {
+    "as_of": "2026-09-25",
+    "source_policy": "仅收王虎应本人认证公开账号正文；转述号、二次解读只作compare_only。公开案例不并入archive entries计数，也不因发布时间新而自动高于正式著作。",
+    "promoted_rules": [
+      "命爻是出生年地支形成的个人辅助坐标，不替代主用神/日月",
+      "后期案例继续验证一题多维、用神两现互补与原问优先",
+      "失败公开案例同样纳入failure_mode，不只收应验案例"
+    ],
+    "cases": [
+      {
+        "title": "工作能否被录取？",
+        "published_date": "2024-04-09",
+        "event_year": 2022,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5021124453204077.html",
+        "feedback": "最终未录取，作者明确承认当时主判错误",
+        "extraction": "命爻丑土用于早年学习/亲子细节；失败结果用于failure_mode与反例，不以命爻覆盖官鬼主线。"
+      },
+      {
+        "title": "我能升迁吗？",
+        "published_date": "2025-03-25",
+        "event_year": 2022,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5147958040068435.html",
+        "feedback": "性格、工作关系、既往升迁机会等有反馈；未来升迁部分待验",
+        "extraction": "命爻卯木作为本人和官鬼/时间的辅助关系，不替代官鬼与世的主结果链。"
+      },
+      {
+        "title": "婚财同时判断难",
+        "published_date": "2025-05-29",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5171506267029957.html",
+        "feedback": "性格、财运阶段、子女学习/受伤等部分有反馈，未来部分待验",
+        "extraction": "明确指出婚姻与财运即便同用妻财也不能同步合并；有生肖时命爻用于辅助分辨，无把握宜分开占。"
+      },
+      {
+        "title": "看看我的身体",
+        "published_date": "2026-01-27",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5259579491615830.html",
+        "feedback": "心态、疲劳、早年受惊等多项有反馈",
+        "extraction": "最明确的命爻定义性案例：元神偏当前心态，命爻偏天生/生命开始，用于先天与早年信息。"
+      },
+      {
+        "title": "能否提前退休",
+        "published_date": "2026-03-09",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5274428391031202.html",
+        "feedback": "性格与健康细节有反馈，退休结果标待验",
+        "extraction": "命爻未土克官鬼只作为工作退出链的一项辅助证据，同时仍以官鬼为主用并结合日克、暗动。"
+      },
+      {
+        "title": "什么时候可以结婚？",
+        "published_date": "2026-03-13",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5275887048327650.html",
+        "feedback": "人物性格等已反馈，婚期未来部分待验",
+        "extraction": "命爻值妻财作为婚缘辅助，不替代男问婚姻妻财主用。"
+      }
+    ]
+  }
 }
