@@ -999,12 +999,12 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "review_state": "toc_diff_completed_fulltext_missing",
       "planned_routes": [
         "global",
         "multiple_domains"
       ],
-      "note": "公开目录与现有《初学六爻预测》《六爻预测自修宝典》在基础法则和分类占结构上高度重合，先标candidate_source_family_overlap。取得全文后做正文相似度和章节差异比对，不能因书名不同重复投票。"
+      "note": "已完成目录级差分：基础主干与现有《初学六爻预测》《六爻预测自修宝典》高度同构，均覆盖干支、八卦、装卦、取用、元忌、旺衰、十二状态、动静、生克冲合、反吟伏吟、游魂归魂、爻位与应期；其应用篇又扩展生意、股票、疾病、终身、风水等。现阶段只能标candidate_source_family_overlap，不能整体设alias；取得全文后需分别做基础章节文本相似度与新增应用章差分，重复主干不再计权。"
     },
     {
       "title": "六爻风水预测学",
@@ -1109,11 +1109,11 @@
       ],
       "language": "ja",
       "authority_candidate": "wang_direct_or_translation_variant",
-      "review_state": "source_family_check_pending",
+      "review_state": "authorship_verified_source_family_pending",
       "planned_routes": [
         "source_family_diff"
       ],
-      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+      "note": "王虎应后期正式著作作者简介反复确认其为日本出版著作，作者归属已核；但尚无正文判断是否与后来的中文专著存在翻译/重编关系。保留source_family_diff，未完成正文差分前不作为独立证据计权。"
     },
     {
       "title": "生活中的六爻占术",
@@ -1122,11 +1122,11 @@
       ],
       "language": "ja",
       "authority_candidate": "wang_direct_or_translation_variant",
-      "review_state": "source_family_check_pending",
+      "review_state": "authorship_verified_source_family_pending",
       "planned_routes": [
         "source_family_diff"
       ],
-      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+      "note": "王虎应后期正式著作作者简介反复确认其为日本出版著作，作者归属已核；但尚无正文判断是否与后来的中文专著存在翻译/重编关系。保留source_family_diff，未完成正文差分前不作为独立证据计权。"
     },
     {
       "title": "六爻占术奥义",
@@ -1135,11 +1135,11 @@
       ],
       "language": "ja",
       "authority_candidate": "wang_direct_or_translation_variant",
-      "review_state": "source_family_check_pending",
+      "review_state": "authorship_verified_source_family_pending",
       "planned_routes": [
         "source_family_diff"
       ],
-      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+      "note": "王虎应后期正式著作作者简介反复确认其为日本出版著作，作者归属已核；但尚无正文判断是否与后来的中文专著存在翻译/重编关系。保留source_family_diff，未完成正文差分前不作为独立证据计权。"
     },
     {
       "title": "六爻占术改运法",
@@ -1148,11 +1148,25 @@
       ],
       "language": "ja",
       "authority_candidate": "wang_direct_or_translation_variant",
-      "review_state": "source_family_check_pending",
+      "review_state": "authorship_verified_source_family_pending",
       "planned_routes": [
         "source_family_diff"
       ],
-      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+      "note": "王虎应后期正式著作作者简介反复确认其为日本出版著作，作者归属已核；但尚无正文判断是否与后来的中文专著存在翻译/重编关系。保留source_family_diff，未完成正文差分前不作为独立证据计权。"
+    },
+    {
+      "title": "六爻预测三摩地",
+      "authors": [
+        "王虎应"
+      ],
+      "language": "ja",
+      "authority_candidate": "wang_direct_or_translation_variant",
+      "review_state": "authorship_verified_fulltext_missing",
+      "planned_routes": [
+        "source_family_diff",
+        "global_candidate"
+      ],
+      "note": "王虎应2018以后多本正式著作的作者简介均把《六爻预测三摩地》列为日本出版著作，作者归属可信；当前未找到可核正文、目录或可靠章节预览，不能猜测其算法，也不能与中文著作预设同源。取得正文后先做source family差分，再判断是否含未被现有GLOBAL覆盖的后期方法。"
     }
   ]
 }
