@@ -943,7 +943,7 @@
       "planned_routes": [
         "global"
       ],
-      "note": "本人序言已核：以失误复盘、古法校验和现实条件变化为核心。公开可核摘录主要验证现有force_state/semantic_state并存、不能机械套旺衰等规则，当前没有足够完整正文支持新增GLOBAL算法；补全文后重点抽later_explicit_correction和失败案例。"
+      "note": "本人序言已核，明确把失误拆成临场漏读、看错卦、未理解结构变化、古法规则误差和方法能力边界，并强调用保存的失败卦例反思校正。已据此加入GLOBAL的failure_mode裁决门；公开技术摘录若与现有规则重合只作验证，具体新口诀仍等完整正文。"
     },
     {
       "title": "六爻预测疾病新探",
@@ -987,11 +987,11 @@
         "王虎应"
       ],
       "authority_candidate": "wang_direct",
-      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "review_state": "preface_and_toc_reviewed_fulltext_missing",
       "planned_routes": [
         "relationship"
       ],
-      "note": "公开目录确认系统讨论婚姻取用、两现、伏藏、进退、空破、合冲、应期及不同关系阶段。目录不能充当规则正文；取得全文前不新增relationship口诀，后续重点检查其对古法的明确修订和阶段条件。"
+      "note": "本人序言和完整目录已核。王虎应明确说婚姻现实随时代、伦理和价值观变化，并称其通过长期实践更正了古人在婚姻预测方面的一些错误认识；这验证现有relationship_stage与现实制度/习俗约束，但序言未给出具体被修订规则，不能仅凭“更正过”新增口诀。取得正文后逐章定位明确修订。"
     },
     {
       "title": "细说六爻预测学",
@@ -1026,13 +1026,13 @@
         "刘铁卿"
       ],
       "authority_candidate": "coauthored_direct",
-      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "review_state": "preface_and_toc_reviewed_fulltext_missing",
       "planned_routes": [
         "wealth",
         "cooperation",
         "property"
       ],
-      "note": "公开目录覆盖长短期财运、合作、股票期货、企业、房产交易、借贷、合同、工程投标等。当前wealth已有大量本人早期资料提炼；补全文后按题型逐项差分，只吸收新增条件和后期修订，不按新书整本再加权。"
+      "note": "王虎应、刘铁卿序言和完整目录已核。作者强调现代经济事项复杂，古传方法须经大量实践验证；目录覆盖长短期财运、合伙、市场、企业、房产、借贷、合同、工程投标等。该方法论验证现有现实语境与领域分流，但没有具体规则正文时不重复新增wealth公式。"
     },
     {
       "title": "六爻预测的因果世界",
@@ -1041,12 +1041,12 @@
         "刘铁卿"
       ],
       "authority_candidate": "coauthored_direct",
-      "review_state": "toc_reviewed_fulltext_missing",
+      "review_state": "preface_reviewed_fulltext_missing",
       "planned_routes": [
         "global_cause_gate",
         "domain_detail"
       ],
-      "note": "目录显示大量以六亲、五行、六神、爻位、卦象和环境物件判断原因的案例。取得全文前仅作为cause-mode候选来源；现有GLOBAL的candidate_cause验证门继续生效，任何单例物件、阴阳宅或超自然叙事不得硬编码成跨领域因果规则。"
+      "note": "王虎应、刘铁卿序言已核：原因分析不能只靠简单旺衰，要把地支作用、爻位、六神、六亲、空破等组合成具体cause_candidate，并与现实对应核验，核验后才进入下一步。已据此加入GLOBAL两阶段cause gate；书中具体环境/物件案例仍等全文逐条归域。"
     },
     {
       "title": "六爻化解经验心法",
