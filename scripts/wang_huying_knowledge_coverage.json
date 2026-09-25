@@ -248,7 +248,7 @@
       "author_basis": "existing_archive_classification",
       "size": 471593,
       "status": "integrated",
-      "note": "正式署名教材已系统核读基础法则及比赛、孕产、官司、信件邮件、年运、出国证等章节。本轮深审官司诉讼章：明确legal_stage分担忧官非、正式争讼、拘押/定罪；正式争讼以世应双方实际力量为核心但先做原告被告role_map，父母=诉状/文书、官鬼=司法机关、间爻可作证人/中间人；拘押题则先取被测人本身，不用诉讼胜负模型包办。已据此合并lawsuit重复规则。"
+      "note": "正式署名教材已系统核读基础法则及比赛、孕产、官司、信件邮件、年运、出国证等章节。本轮深审官司诉讼章：明确legal_stage分担忧官非、正式争讼、拘押/定罪；正式争讼以世应双方实际力量为核心但先做原告被告role_map，父母=诉状/文书、官鬼=司法机关、间爻可作证人/中间人；拘押题则先取被测人本身，不用诉讼胜负模型包办。外部《细说六爻预测学》公开目录与本书在基础章、分类占和应期结构上高度相似，但未取得全文前只标candidate_source_family_overlap，不提前设source_family_alias，也不重复计权。"
     },
     {
       "title": "初学断卦应该如何入手？",
@@ -573,7 +573,7 @@
       "author_basis": "existing_archive_classification",
       "size": 296924,
       "status": "integrated",
-      "note": "已完成Prompt层提取；与《疾病预测学》共同用于health细节证据。分科病象、病位、症状组合保留全文按病种检索，不作为新的吉凶算法重复加权。"
+      "note": "已完成Prompt层提取；与《疾病预测学》共同用于health细节证据。分科病象、病位、症状组合保留全文按病种检索，不作为新的吉凶算法重复加权。当前归档只有《六爻测病分科详解》中册；王虎应《六爻疾病预测学》序言确认2007年原书为上中下三册，上、下册列入external_source_queue，补齐后统一按同一source family处理，不让三册重复计权。"
     },
     {
       "title": "六爻测病文章",
@@ -600,7 +600,7 @@
       "author_basis": "existing_archive_classification",
       "size": 426619,
       "status": "integrated",
-      "note": "已完成Prompt层方法提取：病人主用、近久病、病症/病因后置、官鬼非唯一病象、治疗关系、元忌/过旺等均已进入health；其余大量分科病种、部位、症状与病例属于detail corpus按需加载，不常驻Prompt。"
+      "note": "已完成Prompt层方法提取：病人主用、近久病、病症/病因后置、官鬼非唯一病象、治疗关系、元忌/过旺等均已进入health；其余大量分科病种、部位、症状与病例属于detail corpus按需加载，不常驻Prompt。书中本人序言同时建立疾病著作时间链：1998《六爻预测疾病新探》→2007《六爻测病分科详解》上中下→2008《六爻疾病预测学》。早期《疾病新探》若与后期本人明确修订冲突，继续执行later_explicit_correction，不按版本数量投票。"
     },
     {
       "title": "王虎应——浅谈六爻股票",
@@ -813,7 +813,7 @@
       "author_basis": "existing_archive_classification",
       "size": 391757,
       "status": "integrated",
-      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt"
+      "note": "已深读并把可泛化规则写入GLOBAL或领域Prompt。2024年王虎应、刘铁卿《六爻化解经验心法》属于后期独立来源，不与本书合并计权；其公开序言新增一条证据学边界：成功/有反馈案例更容易被收录，失败和无反馈案例大量未收录，因此已在global_advice_rules加入mitigation_feedback_selection_bias，禁止以成功案例数量证明化解一般有效。"
     },
     {
       "title": "刘虹言《点评王虎应化解密传》",
@@ -930,6 +930,229 @@
       "size": 11991,
       "status": "tool_only",
       "note": "工具/排盘/数据，不作为术理证据"
+    }
+  ],
+  "external_source_queue": [
+    {
+      "title": "六爻预测误中悟",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct",
+      "review_state": "preface_reviewed_fulltext_missing",
+      "planned_routes": [
+        "global"
+      ],
+      "note": "本人序言已核：以失误复盘、古法校验和现实条件变化为核心。公开可核摘录主要验证现有force_state/semantic_state并存、不能机械套旺衰等规则，当前没有足够完整正文支持新增GLOBAL算法；补全文后重点抽later_explicit_correction和失败案例。"
+    },
+    {
+      "title": "六爻预测疾病新探",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct_early",
+      "review_state": "later_correction_verified_fulltext_missing",
+      "planned_routes": [
+        "health"
+      ],
+      "note": "《六爻疾病预测学》本人序言确认其为1998年早期疾病专著；《六爻疑惑指迷》本人后期明确否定其中借用大六壬“申为传送”等个别观点。补全文后作为早期版本逐条与后期修订对照，不允许早期案例数量覆盖later_explicit_correction。"
+    },
+    {
+      "title": "六爻测病分科详解（上）",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct",
+      "review_state": "missing_volume",
+      "planned_routes": [
+        "health"
+      ],
+      "note": "2007年三册source family之一；当前只归档中册。补齐后与中、下统一去重，主要进入health detail corpus，只有明确可泛化且未覆盖的方法才进入case_rules。"
+    },
+    {
+      "title": "六爻测病分科详解（下）",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct",
+      "review_state": "missing_volume",
+      "planned_routes": [
+        "health"
+      ],
+      "note": "2007年三册source family之一；当前只归档中册。补齐后与上、中统一去重，主要进入health detail corpus，只有明确可泛化且未覆盖的方法才进入case_rules。"
+    },
+    {
+      "title": "六爻姻缘预测学",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct",
+      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "planned_routes": [
+        "relationship"
+      ],
+      "note": "公开目录确认系统讨论婚姻取用、两现、伏藏、进退、空破、合冲、应期及不同关系阶段。目录不能充当规则正文；取得全文前不新增relationship口诀，后续重点检查其对古法的明确修订和阶段条件。"
+    },
+    {
+      "title": "细说六爻预测学",
+      "authors": [
+        "王虎应"
+      ],
+      "authority_candidate": "wang_direct",
+      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "planned_routes": [
+        "global",
+        "multiple_domains"
+      ],
+      "note": "公开目录与现有《初学六爻预测》《六爻预测自修宝典》在基础法则和分类占结构上高度重合，先标candidate_source_family_overlap。取得全文后做正文相似度和章节差异比对，不能因书名不同重复投票。"
+    },
+    {
+      "title": "六爻风水预测学",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "toc_reviewed_fulltext_missing",
+      "planned_routes": [
+        "property"
+      ],
+      "note": "公开目录可确认用神、六亲、六神、爻位、八卦等风水专题，但无足够正文支撑具体算法。补全文后只把房屋/环境专属规则放property，固定宅诀和单例环境象不进GLOBAL。"
+    },
+    {
+      "title": "六爻经济预测学",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "toc_and_preface_reviewed_fulltext_missing",
+      "planned_routes": [
+        "wealth",
+        "cooperation",
+        "property"
+      ],
+      "note": "公开目录覆盖长短期财运、合作、股票期货、企业、房产交易、借贷、合同、工程投标等。当前wealth已有大量本人早期资料提炼；补全文后按题型逐项差分，只吸收新增条件和后期修订，不按新书整本再加权。"
+    },
+    {
+      "title": "六爻预测的因果世界",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "toc_reviewed_fulltext_missing",
+      "planned_routes": [
+        "global_cause_gate",
+        "domain_detail"
+      ],
+      "note": "目录显示大量以六亲、五行、六神、爻位、卦象和环境物件判断原因的案例。取得全文前仅作为cause-mode候选来源；现有GLOBAL的candidate_cause验证门继续生效，任何单例物件、阴阳宅或超自然叙事不得硬编码成跨领域因果规则。"
+    },
+    {
+      "title": "六爻化解经验心法",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "preface_reviewed_fulltext_missing",
+      "planned_routes": [
+        "global_advice_rules"
+      ],
+      "note": "本人/合著者序言明确化解有局限、可能无效或需调整，并明确书中主要收录有反馈成功案例，失败/无反馈案例很多且基本不收入。已据此新增mitigation_feedback_selection_bias；其余具体化解物、方位、数字、案例暂不硬编码。"
+    },
+    {
+      "title": "占卜故事奇谈",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "toc_reviewed_fulltext_missing",
+      "planned_routes": [
+        "case_corpus"
+      ],
+      "note": "公开目录以故事和案例为主，优先作为case corpus。补全文后只提炼重复出现且条件明确的机制，不因故事相似直接套结论。"
+    },
+    {
+      "title": "住宅环境与疾病：从风水寻找健康",
+      "authors": [
+        "王虎应",
+        "刘铁卿"
+      ],
+      "authority_candidate": "coauthored_direct",
+      "review_state": "toc_and_sample_reviewed_fulltext_missing",
+      "planned_routes": [
+        "property",
+        "health_detail"
+      ],
+      "note": "属于住宅环境与疾病交叉资料。取得全文后环境象只进入property/health detail层，并受疾病安全边界约束；固定风水断语不得替代patient_result或现代医学判断。"
+    },
+    {
+      "title": "六爻逢源秘典",
+      "authors": [
+        "刘铁卿"
+      ],
+      "wang_role": "点评/序言",
+      "authority_candidate": "paragraph_attribution_only",
+      "review_state": "authorship_verified_fulltext_missing",
+      "planned_routes": [
+        "compare_only",
+        "wang_commentary_by_paragraph"
+      ],
+      "note": "主体作者为刘铁卿，王虎应仅序言及部分点评。不得整本标wang_direct；只有取得正文后能明确划定的王虎应点评段落才可按段落提权。"
+    },
+    {
+      "title": "神奇应验的六爻占术",
+      "authors": [
+        "王虎应"
+      ],
+      "language": "ja",
+      "authority_candidate": "wang_direct_or_translation_variant",
+      "review_state": "source_family_check_pending",
+      "planned_routes": [
+        "source_family_diff"
+      ],
+      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+    },
+    {
+      "title": "生活中的六爻占术",
+      "authors": [
+        "王虎应"
+      ],
+      "language": "ja",
+      "authority_candidate": "wang_direct_or_translation_variant",
+      "review_state": "source_family_check_pending",
+      "planned_routes": [
+        "source_family_diff"
+      ],
+      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+    },
+    {
+      "title": "六爻占术奥义",
+      "authors": [
+        "王虎应"
+      ],
+      "language": "ja",
+      "authority_candidate": "wang_direct_or_translation_variant",
+      "review_state": "source_family_check_pending",
+      "planned_routes": [
+        "source_family_diff"
+      ],
+      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
+    },
+    {
+      "title": "六爻占术改运法",
+      "authors": [
+        "王虎应"
+      ],
+      "language": "ja",
+      "authority_candidate": "wang_direct_or_translation_variant",
+      "review_state": "source_family_check_pending",
+      "planned_routes": [
+        "source_family_diff"
+      ],
+      "note": "作者简介确认日本出版物存在，但尚无正文用于判断是否为中文著作翻译/重编；不得作为独立证据计权。"
     }
   ]
 }
