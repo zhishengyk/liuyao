@@ -1181,7 +1181,8 @@
       "后期案例继续验证一题多维、用神两现互补与原问优先",
       "失败公开案例同样纳入failure_mode，不只收应验案例",
       "胎儿性别旧公式被本人后期明确降权，禁止机械断男女",
-      "用神两现可同指一个主体并互补承载状态/原因/应期，但不得双倍计票"
+      "用神两现可同指一个主体并互补承载状态/原因/应期，但不得双倍计票",
+      "日辰可同时扶用神/元神并冲起忌神/仇神暗动，按day_dual_role逐边保留，不能净额抵消"
     ],
     "cases": [
       {
@@ -1273,6 +1274,42 @@
         "source_url": "https://www.sina.cn/news/detail/5325161530130900.html",
         "feedback": "实际未办成并退款；作者明确承认原判可以办理是错误，且“百思不得其解”",
         "extraction": "标unresolved_anomaly。其提出“独发为父母死地”也自称理由勉强，因此不能据该单例创建独发死地办证规则。"
+      },
+      {
+        "title": "孩子吉凶如何？",
+        "published_date": "2025-06-18",
+        "event_year": 2022,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5178761189523518.html",
+        "feedback": "孩子坠楼后死亡",
+        "extraction": "作者直接泛化：用神或元神临日而日辰又冲起忌神/仇神暗动时，不能只按得日为吉。与2026-02-25父亲中毒案重复，提炼为day_dual_role，不固化为必凶。"
+      },
+      {
+        "title": "父亲吉凶",
+        "published_date": "2026-02-25",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5270080885882962.html",
+        "feedback": "父亲抢救无效于酉时去世",
+        "extraction": "再次出现用神得生/化回头生同时由日冲仇神暗动、仇神生合忌神的坏链；与2025-06-18案例交叉验证day_dual_role。"
+      },
+      {
+        "title": "教师资格证笔试如何？",
+        "published_date": "2026-06-13",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号",
+        "source_url": "https://www.sina.cn/news/detail/5309209377768227.html",
+        "feedback": "两门考试一门通过、一门未过，后补考",
+        "extraction": "父母两现对应原问中两个并行考试项目，验证现有多载体role_binding：现实上确有多个对象时可拆分，不应强行把两父母合成一张通过票。无净新增GLOBAL规则。"
+      },
+      {
+        "title": "相亲对象何时结婚？",
+        "published_date": "2026-07-25",
+        "event_year": 2023,
+        "source": "王虎应本人认证账号转载可核",
+        "source_url": "https://www.sina.cn/news/detail/5324464002958835.html",
+        "feedback": "该女于亥月甲午日结婚",
+        "extraction": "同一现实女性对求测者而言由妻财承载，但问“她与其对象何时结婚”时以官鬼承载其婚配结果，验证现有GLOBAL“同一人物carrier由现实关系与所问功能共同决定”，不新增重复规则。"
       }
     ],
     "research_only_hypotheses": [
