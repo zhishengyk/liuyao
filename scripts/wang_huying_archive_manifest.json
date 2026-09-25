@@ -362,6 +362,10 @@
     {
       "glob": "90_他人整理/王虎应-六爻的技法与运用(整理).md",
       "authority_tier": "compare_only"
+    },
+    {
+      "glob": "01_核心著作/王虎应六爻资料集.md",
+      "authority_tier": "mixed_requires_attribution"
     }
   ],
   "default_authority_tier": "compare_only",
