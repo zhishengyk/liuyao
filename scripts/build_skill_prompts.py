@@ -433,6 +433,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             '它们用于约束推理顺序，不替代对应原文；当前卦只有满足相同前提时才能调用案例中的例外。\n\n'
         ])
 
+    if plan.get('global_synthesis_rules'):
+        global_parts.extend([
+            '## 全局结果综合与连续论证规范\n\n',
+            '本层是项目执行与质量检查规范，不是新增术理或原书引文；在形成主判时执行，取象落实后再次核对。所有作用与例外仍以已核原文为依据。\n\n',
+            *[f'- {rule}\n' for rule in plan['global_synthesis_rules']],
+            '\n'
+        ])
+
     if plan.get('global_xiang_rules'):
         global_parts.extend([
             '## 王虎应理象与取象规则\n\n',
