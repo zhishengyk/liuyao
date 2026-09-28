@@ -414,6 +414,29 @@ def test_domain_prompt_overlays_global_pipeline_without_leaking_rules(tmp_path):
     assert '识别本领域后，必须在执行取用、现实角色、事项特例和应期等对应步骤之前加载本领域规则' in study_prompt
     assert '不得先跑完整个GLOBAL后再用领域规则事后改答案' in study_prompt
 
+def test_output_style_rules_render_globally_without_domain_duplication(tmp_path):
+    module = exporter()
+    database, plan = fixture(tmp_path)
+    config = json.loads(plan.read_text(encoding='utf-8'))
+    config['output_style_rules'] = [
+        '【先答原问】先给结论，再讲关键依据。',
+        '【允许取象】有盘面来源时可以给出现实化解释，不要过度保守。',
+    ]
+    plan.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+
+    output = tmp_path / 'prompts'
+    module.build(database, output, plan)
+
+    global_prompt = (output / 'GLOBAL.md').read_text(encoding='utf-8')
+    study_prompt = (output / 'study/PROMPT.md').read_text(encoding='utf-8')
+
+    assert '## 最终回答风格与人话输出规范' in global_prompt
+    assert '【先答原问】先给结论，再讲关键依据。' in global_prompt
+    assert '【允许取象】有盘面来源时可以给出现实化解释，不要过度保守。' in global_prompt
+    assert '禁止的是把可能的象义伪装成已经发生的具体事实' in global_prompt
+    assert '【先答原问】先给结论，再讲关键依据。' not in study_prompt
+
+
 def test_repository_prompt_plan_global_group_titles_are_total_and_unique():
     root = Path(__file__).resolve().parents[1]
     config = json.loads((root / 'scripts/skill_prompt_plan.json').read_text(encoding='utf-8'))
