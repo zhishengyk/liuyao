@@ -14,12 +14,12 @@
 固定版本 wheel 包含程序与手切数据库，首次下载后可以离线运行：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.8.2/liuyao_mcp-0.8.2-py3-none-any.whl liuyao-mcp --self-check
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v1.0.8/liuyao_mcp-1.0.8-py3-none-any.whl liuyao-mcp --self-check
 ```
 
 缓存准备完成后，完全离线启动需在 `uvx` 后显式加 `--offline`。默认启动器可能联网核验包缓存，不能保证在任意断网环境中直接启动；SQLite检索本身在本地执行。
 
-MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向0.8.2。
+MCP客户端使用同一条命令去掉 `--self-check`，选择STDIO传输。插件ZIP中的配置也固定到此版本。正式发行包附带Windows安装脚本。下面的Git插件目录跟随main，当前同样指向1.0.8。
 
 ## 安装跟随 main 的 Codex 插件
 
@@ -49,7 +49,7 @@ codex plugin add liuyao-assistant@liuyao
 手动方式仍然可用，也适用于[支持多 Harness](#支持多-harness) 列出的任何客户端。下面的直接MCP入口固定版本，不随main切换版本。注册本地服务：
 
 ```powershell
-codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.8.2/liuyao_mcp-0.8.2-py3-none-any.whl liuyao-mcp
+codex mcp add liuyao -- uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v1.0.8/liuyao_mcp-1.0.8-py3-none-any.whl liuyao-mcp
 ```
 
 其他客户端使用相同的 `uvx` 命令和参数，传输选择STDIO。已有开发配置时，清除旧的 `LIUYAO_ROOT`、`LIUYAO_DB` 和仓库 `cwd`。首次下载可以先在终端完成，避免客户端启动超时；MCP初始化说明已包含使用流程，独立Skill可按需安装。
@@ -80,7 +80,7 @@ python install/install.py --remove   # 卸载
 - 手动兜底：任何客户端粘贴同一条命令（传输选STDIO）：
 
 ```powershell
-uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v0.8.2/liuyao_mcp-0.8.2-py3-none-any.whl liuyao-mcp
+uvx --python 3.11 --from https://github.com/zhishengyk/liuyao/releases/download/v1.0.8/liuyao_mcp-1.0.8-py3-none-any.whl liuyao-mcp
 ```
 
 ## 怎样提问与起卦
