@@ -441,6 +441,14 @@ def build(database, output, plan_path, wang_archive_root=None, wang_archive_mani
             '\n无法从原问、现实角色和至少一个有效结构约束中消歧的象，保留为detail_candidate或不输出；不得为了“断得神”强行唯一化。\n\n'
         ])
 
+    if plan.get('output_style_rules'):
+        global_parts.extend([
+            '## 最终回答风格与人话输出规范\n\n',
+            '本层只约束最终呈现方式，不改变前面的用神、旺衰、动变、取象和应期裁决。内部可以保持完整推理结构；对用户输出时，应优先直接回答原问，并把必要术语翻译成现实语言。\n\n',
+            *[f'- {rule}\n' for rule in plan['output_style_rules']],
+            '\n这些规则不是要求一味保守。盘面与领域规则已经形成明确倾向时，应给出清楚判断；主结果确定后，也允许在有盘面来源和现实语境约束的前提下积极取象。禁止的是把可能的象义伪装成已经发生的具体事实。\n\n'
+        ])
+
     if plan.get('global_timing_rules'):
         global_parts.extend([
             '## 王虎应应期裁决规则\n\n',
